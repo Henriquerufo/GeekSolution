@@ -74,7 +74,7 @@
             this.dgvCadastrados.ReadOnly = true;
             this.dgvCadastrados.RowHeadersVisible = false;
             this.dgvCadastrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCadastrados.Size = new System.Drawing.Size(592, 395);
+            this.dgvCadastrados.Size = new System.Drawing.Size(592, 400);
             this.dgvCadastrados.TabIndex = 0;
             // 
             // codigo
@@ -139,7 +139,7 @@
             this.btnSalvar.Enabled = false;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(12, 291);
+            this.btnSalvar.Location = new System.Drawing.Point(12, 296);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(119, 50);
             this.btnSalvar.TabIndex = 9;
@@ -153,7 +153,7 @@
             this.btnDeletar.Enabled = false;
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletar.Location = new System.Drawing.Point(12, 347);
+            this.btnDeletar.Location = new System.Drawing.Point(12, 352);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(119, 50);
             this.btnDeletar.TabIndex = 10;
@@ -166,7 +166,7 @@
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(12, 235);
+            this.btnCadastrar.Location = new System.Drawing.Point(12, 240);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(119, 50);
             this.btnCadastrar.TabIndex = 11;
@@ -190,7 +190,7 @@
             this.btnConsultar.Enabled = false;
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.Location = new System.Drawing.Point(12, 179);
+            this.btnConsultar.Location = new System.Drawing.Point(12, 177);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(119, 50);
             this.btnConsultar.TabIndex = 33;
@@ -252,7 +252,7 @@
             this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.Location = new System.Drawing.Point(12, 410);
+            this.btnFechar.Location = new System.Drawing.Point(12, 415);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(119, 50);
             this.btnFechar.TabIndex = 39;
@@ -263,7 +263,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(12, 403);
+            this.panel1.Location = new System.Drawing.Point(12, 408);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(119, 1);
             this.panel1.TabIndex = 40;
@@ -271,7 +271,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(12, 172);
+            this.panel2.Location = new System.Drawing.Point(12, 233);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(119, 1);
             this.panel2.TabIndex = 41;

@@ -142,6 +142,7 @@
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label5
             // 
@@ -163,7 +164,7 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Banco de dados";
             // 
-            // ViewConfiguracaoSQL
+            // FrmConfiguracaoSQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -181,7 +182,7 @@
             this.Controls.Add(this.txtSenhaBD);
             this.Controls.Add(this.txtServidorBD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "ViewConfiguracaoSQL";
+            this.Name = "FrmConfiguracaoSQL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurações BD";
             this.ResumeLayout(false);

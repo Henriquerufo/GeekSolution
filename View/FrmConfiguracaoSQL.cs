@@ -44,6 +44,7 @@ namespace View
                 if (returno)
                 {
                     MessageBox.Show("Configurações salvas com sucesso!");
+                    this.Close();
                 }
             }
         }
@@ -54,6 +55,11 @@ namespace View
             txtNomeBD.Text = modelConfiguracaoSQL.NomeBD;
             txtIDBD.Text = modelConfiguracaoSQL.IDBD;
             txtSenhaBD.Text = modelConfiguracaoSQL.SenhaBD;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -19,23 +19,28 @@ namespace View
         public FrmCadastradosProdutos()
         {
             InitializeComponent();
-            Carregar();
+            cbxFiltro.SelectedIndex = 0;
         }
-        void Carregar()
+        void CarregarPorCodigo(string Codigo)
         {
-            dgvProduto.DataSource = controllerCadastroProduto.Carregar();
+            dgvProduto.DataSource = controllerCadastroProduto.CarregarPorCodigo(Codigo);
+        }
+        void CarregarPorNome(string Nome)
+        {
+            dgvProduto.DataSource = controllerCadastroProduto.CarregarPorNome(Nome);
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            modelCadastroProduto.Consultar = false;
             modelCadastroProduto.Codigo = null;
             FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
             frmCadastrarProduto.ShowDialog();
-            Carregar();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            modelCadastroProduto.Consultar = false;
             modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
             modelCadastroProduto.CodigoBarras = dgvProduto.CurrentRow.Cells["codigoBarras"].Value.ToString();
             modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
@@ -48,7 +53,6 @@ namespace View
 
             FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
             frmCadastrarProduto.ShowDialog();
-            Carregar();
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
@@ -60,8 +64,55 @@ namespace View
                 modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
 
                 controllerCadastroProduto.Deletar(modelCadastroProduto);
-                Carregar();
             }
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            modelCadastroProduto.Consultar = true;
+            modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
+            modelCadastroProduto.CodigoBarras = dgvProduto.CurrentRow.Cells["codigoBarras"].Value.ToString();
+            modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
+            modelCadastroProduto.Categoria = dgvProduto.CurrentRow.Cells["categoria"].Value.ToString();
+            modelCadastroProduto.Fabricante = dgvProduto.CurrentRow.Cells["fabricante"].Value.ToString();
+            modelCadastroProduto.Quantidade = dgvProduto.CurrentRow.Cells["quantidade"].Value.ToString();
+            modelCadastroProduto.ValorProduto = dgvProduto.CurrentRow.Cells["valorProduto"].Value.ToString();
+            modelCadastroProduto.Plataforma = dgvProduto.CurrentRow.Cells["plataforma"].Value.ToString();
+            modelCadastroProduto.Garantia = dgvProduto.CurrentRow.Cells["prazoGarantia"].Value.ToString();
+
+            FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
+            frmCadastrarProduto.ShowDialog();
+        }
+
+        private void txtProcurar_TextChanged(object sender, EventArgs e)
+        {
+            if (cbxFiltro.Text == "CODIGO")
+            {
+                CarregarPorCodigo(txtProcurar.Text);
+            }
+            else if (cbxFiltro.Text == "NOME")
+            {
+                CarregarPorNome(txtProcurar.Text);
+            }
+            
+            lblExibidosTotal.Text = "Exibidos total: " + dgvProduto.Rows.Count;
+            if (dgvProduto.Rows.Count > 0)
+            {
+                btnConsultar.Enabled = true;
+                btnDeletar.Enabled = true;
+                btnSalvar.Enabled = true;
+            }
+            else
+            {
+                btnConsultar.Enabled = false;
+                btnDeletar.Enabled = false;
+                btnSalvar.Enabled = false;
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

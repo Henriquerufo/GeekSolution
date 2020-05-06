@@ -35,6 +35,8 @@
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarNovoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.conexãoSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +45,9 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientesToolStripMenuItem,
-            this.produtosToolStripMenuItem});
+            this.produtosToolStripMenuItem,
+            this.conexãoSQLToolStripMenuItem,
+            this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -62,14 +66,14 @@
             // cadastrarNovoToolStripMenuItem
             // 
             this.cadastrarNovoToolStripMenuItem.Name = "cadastrarNovoToolStripMenuItem";
-            this.cadastrarNovoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarNovoToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.cadastrarNovoToolStripMenuItem.Text = "Cadastrar Novo";
             this.cadastrarNovoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarNovoToolStripMenuItem_Click);
             // 
             // consultarListaToolStripMenuItem
             // 
             this.consultarListaToolStripMenuItem.Name = "consultarListaToolStripMenuItem";
-            this.consultarListaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarListaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.consultarListaToolStripMenuItem.Text = "Consultar Lista";
             this.consultarListaToolStripMenuItem.Click += new System.EventHandler(this.consultarListaToolStripMenuItem_Click);
             // 
@@ -85,16 +89,30 @@
             // cadastrarNovoToolStripMenuItem1
             // 
             this.cadastrarNovoToolStripMenuItem1.Name = "cadastrarNovoToolStripMenuItem1";
-            this.cadastrarNovoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarNovoToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.cadastrarNovoToolStripMenuItem1.Text = "Cadastrar Novo";
             this.cadastrarNovoToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarNovoToolStripMenuItem1_Click);
             // 
             // consultarListaToolStripMenuItem1
             // 
             this.consultarListaToolStripMenuItem1.Name = "consultarListaToolStripMenuItem1";
-            this.consultarListaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.consultarListaToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.consultarListaToolStripMenuItem1.Text = "Consultar Lista";
             this.consultarListaToolStripMenuItem1.Click += new System.EventHandler(this.consultarListaToolStripMenuItem1_Click);
+            // 
+            // conexãoSQLToolStripMenuItem
+            // 
+            this.conexãoSQLToolStripMenuItem.Name = "conexãoSQLToolStripMenuItem";
+            this.conexãoSQLToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.conexãoSQLToolStripMenuItem.Text = "Conexão SQL";
+            this.conexãoSQLToolStripMenuItem.Click += new System.EventHandler(this.conexãoSQLToolStripMenuItem_Click);
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -109,7 +127,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmPrincipal";
+            this.Text = "Geek Solution";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -127,5 +145,7 @@
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarNovoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarListaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem conexãoSQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
     }
 }

@@ -45,5 +45,17 @@ namespace View
             FrmCadastradosProdutos frmCadastradosProdutos = new FrmCadastradosProdutos();
             frmCadastradosProdutos.Show();
         }
+
+        private void conexãoSQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConfiguracaoSQL frmConfiguracaoSQL = new FrmConfiguracaoSQL();
+            frmConfiguracaoSQL.ShowDialog();
+        }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSobre frmSobre = new FrmSobre();
+            frmSobre.ShowDialog();
+        }
     }
 }

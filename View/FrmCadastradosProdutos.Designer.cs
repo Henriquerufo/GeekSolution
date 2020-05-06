@@ -41,7 +41,18 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnFechar = new System.Windows.Forms.Button();
+            this.lblExibidosTotal = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblPesquisar = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbxFiltro = new System.Windows.Forms.ComboBox();
+            this.txtProcurar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProduto
@@ -60,10 +71,12 @@
             this.valorProduto,
             this.plataforma,
             this.prazoGarantia});
-            this.dgvProduto.Location = new System.Drawing.Point(183, 65);
+            this.dgvProduto.Location = new System.Drawing.Point(137, 64);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
-            this.dgvProduto.Size = new System.Drawing.Size(605, 373);
+            this.dgvProduto.RowHeadersVisible = false;
+            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProduto.Size = new System.Drawing.Size(592, 401);
             this.dgvProduto.TabIndex = 0;
             // 
             // codigo
@@ -134,7 +147,7 @@
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(30, 196);
+            this.btnCadastrar.Location = new System.Drawing.Point(12, 240);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(119, 50);
             this.btnCadastrar.TabIndex = 14;
@@ -145,9 +158,10 @@
             // btnDeletar
             // 
             this.btnDeletar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeletar.Enabled = false;
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletar.Location = new System.Drawing.Point(30, 358);
+            this.btnDeletar.Location = new System.Drawing.Point(12, 352);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(119, 50);
             this.btnDeletar.TabIndex = 13;
@@ -158,9 +172,10 @@
             // btnSalvar
             // 
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.Enabled = false;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(30, 279);
+            this.btnSalvar.Location = new System.Drawing.Point(12, 296);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(119, 50);
             this.btnSalvar.TabIndex = 12;
@@ -168,19 +183,136 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultar.Enabled = false;
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultar.Location = new System.Drawing.Point(12, 177);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(119, 50);
+            this.btnConsultar.TabIndex = 34;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.Location = new System.Drawing.Point(12, 415);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(119, 50);
+            this.btnFechar.TabIndex = 41;
+            this.btnFechar.Text = "Fechar";
+            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
+            // lblExibidosTotal
+            // 
+            this.lblExibidosTotal.AutoSize = true;
+            this.lblExibidosTotal.Location = new System.Drawing.Point(134, 468);
+            this.lblExibidosTotal.Name = "lblExibidosTotal";
+            this.lblExibidosTotal.Size = new System.Drawing.Size(81, 13);
+            this.lblExibidosTotal.TabIndex = 42;
+            this.lblExibidosTotal.Text = "Exibidos total: 0";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(12, 408);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(119, 1);
+            this.panel2.TabIndex = 43;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(12, 233);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(119, 1);
+            this.panel1.TabIndex = 44;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::View.Properties.Resources.pngflow_com;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblPesquisar
+            // 
+            this.lblPesquisar.AutoSize = true;
+            this.lblPesquisar.Location = new System.Drawing.Point(292, 8);
+            this.lblPesquisar.Name = "lblPesquisar";
+            this.lblPesquisar.Size = new System.Drawing.Size(53, 13);
+            this.lblPesquisar.TabIndex = 49;
+            this.lblPesquisar.Text = "Pesquisar";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(134, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Filtro";
+            // 
+            // cbxFiltro
+            // 
+            this.cbxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFiltro.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.cbxFiltro.FormattingEnabled = true;
+            this.cbxFiltro.Items.AddRange(new object[] {
+            "CODIGO",
+            "NOME"});
+            this.cbxFiltro.Location = new System.Drawing.Point(137, 24);
+            this.cbxFiltro.Name = "cbxFiltro";
+            this.cbxFiltro.Size = new System.Drawing.Size(152, 34);
+            this.cbxFiltro.TabIndex = 47;
+            // 
+            // txtProcurar
+            // 
+            this.txtProcurar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProcurar.Location = new System.Drawing.Point(295, 24);
+            this.txtProcurar.Name = "txtProcurar";
+            this.txtProcurar.Size = new System.Drawing.Size(434, 34);
+            this.txtProcurar.TabIndex = 46;
+            this.txtProcurar.TextChanged += new System.EventHandler(this.txtProcurar_TextChanged);
+            // 
             // FrmCadastradosProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(741, 490);
+            this.Controls.Add(this.lblPesquisar);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbxFiltro);
+            this.Controls.Add(this.txtProcurar);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lblExibidosTotal);
+            this.Controls.Add(this.btnFechar);
+            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.dgvProduto);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmCadastradosProdutos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCadastradosProdutos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -199,5 +331,15 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.Label lblExibidosTotal;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblPesquisar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbxFiltro;
+        private System.Windows.Forms.TextBox txtProcurar;
     }
 }

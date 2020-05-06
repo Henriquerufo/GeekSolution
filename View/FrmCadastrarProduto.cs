@@ -22,10 +22,27 @@ namespace View
             InitializeComponent();
             if (!string.IsNullOrWhiteSpace(modelCadastroProduto.Codigo))
             {
+                Text = "Editar Produto";
                 btnSalvar.Text = "Editar";
                 pnlCadastroProduto.Enabled = false;
                 lblCadastrar.Text = "Editar";
                 codigo = modelCadastroProduto.Codigo;
+                txtCodigoBarras.Text = modelCadastroProduto.CodigoBarras;
+                txtNomeProduto.Text = modelCadastroProduto.NomeProduto;
+                txtCategoria.Text = modelCadastroProduto.Categoria;
+                txtFabricante.Text = modelCadastroProduto.Fabricante;
+                txtQuantidade.Text = modelCadastroProduto.Quantidade;
+                txtValorProduto.Text = modelCadastroProduto.ValorProduto;
+                txtPlataforma.Text = modelCadastroProduto.Plataforma;
+                txtGarantia.Text = modelCadastroProduto.Garantia;
+            }
+            if (modelCadastroProduto.Consultar == true)
+            {
+                Text = "Consultar Produto";
+                btnCancelar.Text = "Fechar";
+                btnSalvar.Visible = false;
+                lblCadastrar.Text = "Consultar";
+                pnlCadastroProduto.Enabled = false;
                 txtCodigoBarras.Text = modelCadastroProduto.CodigoBarras;
                 txtNomeProduto.Text = modelCadastroProduto.NomeProduto;
                 txtCategoria.Text = modelCadastroProduto.Categoria;
@@ -148,6 +165,11 @@ namespace View
                 txtPlataforma.Enabled = false;
                 txtGarantia.Enabled = false;
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -17,5 +17,6 @@ namespace Model
         public string ValorProduto { get; set; }
         public string Plataforma { get; set; }
         public string Garantia { get; set; }
+        public bool Consultar { get; set; }
     }
 }
