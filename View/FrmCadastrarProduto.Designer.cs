@@ -44,7 +44,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtFabricante = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtCategoria = new System.Windows.Forms.ComboBox();
             this.pnlCadastroProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -91,6 +91,7 @@
             // 
             // pnlCadastroProduto
             // 
+            this.pnlCadastroProduto.Controls.Add(this.txtCategoria);
             this.pnlCadastroProduto.Controls.Add(this.chbJogosAcessorios);
             this.pnlCadastroProduto.Controls.Add(this.txtGarantia);
             this.pnlCadastroProduto.Controls.Add(this.label8);
@@ -102,7 +103,6 @@
             this.pnlCadastroProduto.Controls.Add(this.label5);
             this.pnlCadastroProduto.Controls.Add(this.txtFabricante);
             this.pnlCadastroProduto.Controls.Add(this.label4);
-            this.pnlCadastroProduto.Controls.Add(this.txtCategoria);
             this.pnlCadastroProduto.Controls.Add(this.label3);
             this.pnlCadastroProduto.Controls.Add(this.txtCodigoBarras);
             this.pnlCadastroProduto.Controls.Add(this.label2);
@@ -217,14 +217,6 @@
             this.label4.TabIndex = 36;
             this.label4.Text = "Fabricante";
             // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoria.Location = new System.Drawing.Point(3, 175);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(179, 34);
-            this.txtCategoria.TabIndex = 33;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -300,6 +292,20 @@
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             // 
+            // txtCategoria
+            // 
+            this.txtCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtCategoria.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.txtCategoria.FormattingEnabled = true;
+            this.txtCategoria.Items.AddRange(new object[] {
+            "Jogos",
+            "Acessórios",
+            "Geek"});
+            this.txtCategoria.Location = new System.Drawing.Point(4, 175);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(179, 34);
+            this.txtCategoria.TabIndex = 47;
+            // 
             // FrmCadastrarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,7 +347,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtFabricante;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Label label2;
@@ -351,5 +356,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox txtCategoria;
     }
 }

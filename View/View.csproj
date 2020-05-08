@@ -70,11 +70,35 @@
     <Compile Include="FrmCadastro.Designer.cs">
       <DependentUpon>FrmCadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastroLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroLogin.Designer.cs">
+      <DependentUpon>FrmCadastroLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConfiguracaoSQL.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmConfiguracaoSQL.Designer.cs">
       <DependentUpon>FrmConfiguracaoSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFinanceiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFinanceiro.Designer.cs">
+      <DependentUpon>FrmFinanceiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGerenciadorLogins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerenciadorLogins.Designer.cs">
+      <DependentUpon>FrmGerenciadorLogins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -87,6 +111,12 @@
     </Compile>
     <Compile Include="FrmSobre.Designer.cs">
       <DependentUpon>FrmSobre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVendas.Designer.cs">
+      <DependentUpon>FrmVendas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,11 +132,26 @@
     <EmbeddedResource Include="FrmCadastro.resx">
       <DependentUpon>FrmCadastro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroLogin.resx">
+      <DependentUpon>FrmCadastroLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFinanceiro.resx">
+      <DependentUpon>FrmFinanceiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciadorLogins.resx">
+      <DependentUpon>FrmGerenciadorLogins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSobre.resx">
       <DependentUpon>FrmSobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVendas.resx">
+      <DependentUpon>FrmVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -155,6 +200,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo-UNIP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculators.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\commerce-and-shopping.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

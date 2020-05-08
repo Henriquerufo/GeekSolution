@@ -46,6 +46,8 @@
     <Compile Include="ControllerCadastro.cs" />
     <Compile Include="ControllerCadastroProduto.cs" />
     <Compile Include="ControllerConfiguracaoSQL.cs" />
+    <Compile Include="ControllerLogin.cs" />
+    <Compile Include="ControllerVendas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\SettingsSQL.Designer.cs">

@@ -15,9 +15,49 @@ namespace View
     {
         ModelCadastro modelCadastro = new ModelCadastro();
         ModelCadastroProduto modelCadastroProduto = new ModelCadastroProduto();
-        public FrmPrincipal()
+        public FrmPrincipal(ModelLogin modelLogin)
         {
             InitializeComponent();
+            if (modelLogin.Nivel == "Vendedor")
+            {
+                caixaToolStripMenuItem.Visible = true;
+                clientesToolStripMenuItem.Visible = false;
+                produtosToolStripMenuItem.Visible = false;
+                financeiroToolStripMenuItem.Visible = false;
+                sobreToolStripMenuItem.Visible = true;
+                conexãoSQLToolStripMenuItem.Visible = false;
+                administradorToolStripMenuItem.Visible = false;
+            }
+            if (modelLogin.Nivel == "Administrador")
+            {
+                caixaToolStripMenuItem.Visible = true;
+                clientesToolStripMenuItem.Visible = true;
+                produtosToolStripMenuItem.Visible = true;
+                financeiroToolStripMenuItem.Visible = true;
+                sobreToolStripMenuItem.Visible = true;
+                conexãoSQLToolStripMenuItem.Visible = true;
+                administradorToolStripMenuItem.Visible = true;
+            }
+            if (modelLogin.Nivel == "Supervisor")
+            {
+                caixaToolStripMenuItem.Visible = false;
+                clientesToolStripMenuItem.Visible = true;
+                produtosToolStripMenuItem.Visible = false;
+                financeiroToolStripMenuItem.Visible = true;
+                sobreToolStripMenuItem.Visible = true;
+                conexãoSQLToolStripMenuItem.Visible = false;
+                administradorToolStripMenuItem.Visible = false;
+            }
+            if (modelLogin.Nivel == "Estoquista")
+            {
+                caixaToolStripMenuItem.Visible = false;
+                clientesToolStripMenuItem.Visible = false;
+                produtosToolStripMenuItem.Visible = true;
+                financeiroToolStripMenuItem.Visible = false;
+                sobreToolStripMenuItem.Visible = true;
+                conexãoSQLToolStripMenuItem.Visible = false;
+                administradorToolStripMenuItem.Visible = false;
+            }
         }
 
         private void cadastrarNovoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,7 +82,7 @@ namespace View
 
         private void consultarListaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmCadastradosProdutos frmCadastradosProdutos = new FrmCadastradosProdutos();
+            FrmCadastradosProdutos frmCadastradosProdutos = new FrmCadastradosProdutos("");
             frmCadastradosProdutos.Show();
         }
 
@@ -56,6 +96,32 @@ namespace View
         {
             FrmSobre frmSobre = new FrmSobre();
             frmSobre.ShowDialog();
+        }
+
+        private void consultarListaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmGerenciadorLogins frmGerenciadorLogins = new FrmGerenciadorLogins();
+            frmGerenciadorLogins.Show();
+        }
+
+        private void cadastrarNovoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ModelLogin modelLogin = new ModelLogin();
+            modelLogin.Codigo = null;
+            FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
+            frmCadastroLogin.Show();
+        }
+
+        private void abrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVendas frmVendas = new FrmVendas();
+            frmVendas.Show();
+        }
+
+        private void consultarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastradosProdutos frmCadastradosProdutos = new FrmCadastradosProdutos("Caixa");
+            frmCadastradosProdutos.Show();
         }
     }
 }

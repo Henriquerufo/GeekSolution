@@ -16,9 +16,17 @@ namespace View
     {
         ControllerCadastroProduto controllerCadastroProduto = new ControllerCadastroProduto();
         ModelCadastroProduto modelCadastroProduto = new ModelCadastroProduto();
-        public FrmCadastradosProdutos()
+        public FrmCadastradosProdutos(string Verificar)
         {
             InitializeComponent();
+            if (Verificar == "Caixa")
+            {
+                btnCadastrar.Visible = false;
+                btnDeletar.Visible = false;
+                btnSalvar.Visible = false;
+                panel1.Visible = false;
+                btnConsultar.Location = new Point(12, 352);
+            }
             cbxFiltro.SelectedIndex = 0;
         }
         void CarregarPorCodigo(string Codigo)

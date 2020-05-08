@@ -50,9 +50,19 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlCadastro = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cbxFiltro = new System.Windows.Forms.ComboBox();
+            this.txtProcurar = new System.Windows.Forms.TextBox();
+            this.dgvProduto = new System.Windows.Forms.DataGridView();
+            this.cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.opcaoPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.pnlCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -262,11 +272,100 @@
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
+            // cbxFiltro
+            // 
+            this.cbxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFiltro.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.cbxFiltro.FormattingEnabled = true;
+            this.cbxFiltro.Items.AddRange(new object[] {
+            "ADM",
+            "VENDEDOR"});
+            this.cbxFiltro.Location = new System.Drawing.Point(422, 4);
+            this.cbxFiltro.Name = "cbxFiltro";
+            this.cbxFiltro.Size = new System.Drawing.Size(152, 34);
+            this.cbxFiltro.TabIndex = 63;
+            this.cbxFiltro.Visible = false;
+            // 
+            // txtProcurar
+            // 
+            this.txtProcurar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProcurar.Location = new System.Drawing.Point(580, 4);
+            this.txtProcurar.Name = "txtProcurar";
+            this.txtProcurar.Size = new System.Drawing.Size(434, 34);
+            this.txtProcurar.TabIndex = 62;
+            this.txtProcurar.Visible = false;
+            // 
+            // dgvProduto
+            // 
+            this.dgvProduto.AllowUserToAddRows = false;
+            this.dgvProduto.AllowUserToDeleteRows = false;
+            this.dgvProduto.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cod,
+            this.dataVenda,
+            this.valorVenda,
+            this.opcaoPagamento,
+            this.statusPagamento,
+            this.StatusVenda});
+            this.dgvProduto.Location = new System.Drawing.Point(423, 44);
+            this.dgvProduto.Name = "dgvProduto";
+            this.dgvProduto.ReadOnly = true;
+            this.dgvProduto.RowHeadersVisible = false;
+            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProduto.Size = new System.Drawing.Size(591, 401);
+            this.dgvProduto.TabIndex = 64;
+            // 
+            // cod
+            // 
+            this.cod.DataPropertyName = "Codigo";
+            this.cod.HeaderText = "Codigo";
+            this.cod.Name = "cod";
+            this.cod.ReadOnly = true;
+            // 
+            // dataVenda
+            // 
+            this.dataVenda.DataPropertyName = "dataVenda";
+            this.dataVenda.HeaderText = "Data da Venda";
+            this.dataVenda.Name = "dataVenda";
+            this.dataVenda.ReadOnly = true;
+            // 
+            // valorVenda
+            // 
+            this.valorVenda.DataPropertyName = "valorVenda";
+            this.valorVenda.HeaderText = "Valor da Venda";
+            this.valorVenda.Name = "valorVenda";
+            this.valorVenda.ReadOnly = true;
+            // 
+            // opcaoPagamento
+            // 
+            this.opcaoPagamento.DataPropertyName = "opcaoPagamento";
+            this.opcaoPagamento.HeaderText = "Opção Pagamento";
+            this.opcaoPagamento.Name = "opcaoPagamento";
+            this.opcaoPagamento.ReadOnly = true;
+            // 
+            // statusPagamento
+            // 
+            this.statusPagamento.DataPropertyName = "statusPagamento";
+            this.statusPagamento.HeaderText = "Status de Pagamento";
+            this.statusPagamento.Name = "statusPagamento";
+            this.statusPagamento.ReadOnly = true;
+            // 
+            // StatusVenda
+            // 
+            this.StatusVenda.DataPropertyName = "statusVenda";
+            this.StatusVenda.HeaderText = "Status da Venda";
+            this.StatusVenda.Name = "StatusVenda";
+            this.StatusVenda.ReadOnly = true;
+            // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 457);
+            this.ClientSize = new System.Drawing.Size(1026, 457);
+            this.Controls.Add(this.dgvProduto);
+            this.Controls.Add(this.cbxFiltro);
+            this.Controls.Add(this.txtProcurar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlCadastro);
             this.Controls.Add(this.btnCancelar);
@@ -282,6 +381,7 @@
             this.pnlCadastro.ResumeLayout(false);
             this.pnlCadastro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +410,14 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Panel pnlCadastro;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cbxFiltro;
+        private System.Windows.Forms.TextBox txtProcurar;
+        private System.Windows.Forms.DataGridView dgvProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn opcaoPagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusPagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusVenda;
     }
 }

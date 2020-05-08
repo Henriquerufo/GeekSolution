@@ -20,9 +20,14 @@ namespace View
         public FrmCadastro(ModelCadastro modelCadastro)
         {
             InitializeComponent();
+            Height = 496;
+            Width = 445;
+            dgvProduto.Visible = false;
+            txtProcurar.Visible = false;
+            cbxFiltro.Visible = false;
             if (!string.IsNullOrWhiteSpace(modelCadastro.Codigo))
             {
-                Text = "Editar Cliente";
+                Text = "Editar Cliente";              
                 btnSalvar.Text = "Editar";
                 pnlCadastro.Enabled = false;
                 lblCadastrar.Text = "Editar";
@@ -37,6 +42,11 @@ namespace View
             }
             if (modelCadastro.consulta == true)
             {
+                Height = 496;
+                Width = 1042;
+                dgvProduto.Visible = true;
+                txtProcurar.Visible = true;
+                cbxFiltro.Visible = true;
                 Text = "Consultar Cliente";
                 btnCancelar.Text = "Fechar";
                 btnSalvar.Visible = false;

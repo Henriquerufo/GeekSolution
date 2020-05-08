@@ -29,14 +29,23 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarNovoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarNovoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.conexãoSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarPorPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarPorItensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarNovoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarListaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.conexãoSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarProdutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,15 +53,34 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.caixaToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.produtosToolStripMenuItem,
-            this.conexãoSQLToolStripMenuItem,
-            this.sobreToolStripMenuItem});
+            this.financeiroToolStripMenuItem,
+            this.sobreToolStripMenuItem,
+            this.administradorToolStripMenuItem,
+            this.conexãoSQLToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // caixaToolStripMenuItem
+            // 
+            this.caixaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirCaixaToolStripMenuItem,
+            this.consultarProdutoToolStripMenuItem});
+            this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
+            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.caixaToolStripMenuItem.Text = "Caixa";
+            // 
+            // abrirCaixaToolStripMenuItem
+            // 
+            this.abrirCaixaToolStripMenuItem.Name = "abrirCaixaToolStripMenuItem";
+            this.abrirCaixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirCaixaToolStripMenuItem.Text = "Abrir Caixa";
+            this.abrirCaixaToolStripMenuItem.Click += new System.EventHandler(this.abrirCaixaToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -89,16 +117,67 @@
             // cadastrarNovoToolStripMenuItem1
             // 
             this.cadastrarNovoToolStripMenuItem1.Name = "cadastrarNovoToolStripMenuItem1";
-            this.cadastrarNovoToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.cadastrarNovoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.cadastrarNovoToolStripMenuItem1.Text = "Cadastrar Novo";
             this.cadastrarNovoToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarNovoToolStripMenuItem1_Click);
             // 
             // consultarListaToolStripMenuItem1
             // 
             this.consultarListaToolStripMenuItem1.Name = "consultarListaToolStripMenuItem1";
-            this.consultarListaToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.consultarListaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.consultarListaToolStripMenuItem1.Text = "Consultar Lista";
             this.consultarListaToolStripMenuItem1.Click += new System.EventHandler(this.consultarListaToolStripMenuItem1_Click);
+            // 
+            // financeiroToolStripMenuItem
+            // 
+            this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultarPorPedidoToolStripMenuItem,
+            this.consultarPorItensToolStripMenuItem});
+            this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
+            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.financeiroToolStripMenuItem.Text = "Financeiro";
+            // 
+            // consultarPorPedidoToolStripMenuItem
+            // 
+            this.consultarPorPedidoToolStripMenuItem.Name = "consultarPorPedidoToolStripMenuItem";
+            this.consultarPorPedidoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.consultarPorPedidoToolStripMenuItem.Text = "Consultar por Pedido";
+            // 
+            // consultarPorItensToolStripMenuItem
+            // 
+            this.consultarPorItensToolStripMenuItem.Name = "consultarPorItensToolStripMenuItem";
+            this.consultarPorItensToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.consultarPorItensToolStripMenuItem.Text = "Consultar por Itens";
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
+            // 
+            // administradorToolStripMenuItem
+            // 
+            this.administradorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarNovoToolStripMenuItem2,
+            this.consultarListaToolStripMenuItem2});
+            this.administradorToolStripMenuItem.Name = "administradorToolStripMenuItem";
+            this.administradorToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.administradorToolStripMenuItem.Text = "Administrador";
+            // 
+            // cadastrarNovoToolStripMenuItem2
+            // 
+            this.cadastrarNovoToolStripMenuItem2.Name = "cadastrarNovoToolStripMenuItem2";
+            this.cadastrarNovoToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
+            this.cadastrarNovoToolStripMenuItem2.Text = "Cadastrar Novo";
+            this.cadastrarNovoToolStripMenuItem2.Click += new System.EventHandler(this.cadastrarNovoToolStripMenuItem2_Click);
+            // 
+            // consultarListaToolStripMenuItem2
+            // 
+            this.consultarListaToolStripMenuItem2.Name = "consultarListaToolStripMenuItem2";
+            this.consultarListaToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
+            this.consultarListaToolStripMenuItem2.Text = "Consultar Lista";
+            this.consultarListaToolStripMenuItem2.Click += new System.EventHandler(this.consultarListaToolStripMenuItem2_Click);
             // 
             // conexãoSQLToolStripMenuItem
             // 
@@ -107,12 +186,12 @@
             this.conexãoSQLToolStripMenuItem.Text = "Conexão SQL";
             this.conexãoSQLToolStripMenuItem.Click += new System.EventHandler(this.conexãoSQLToolStripMenuItem_Click);
             // 
-            // sobreToolStripMenuItem
+            // consultarProdutoToolStripMenuItem
             // 
-            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.sobreToolStripMenuItem.Text = "Sobre";
-            this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
+            this.consultarProdutoToolStripMenuItem.Name = "consultarProdutoToolStripMenuItem";
+            this.consultarProdutoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarProdutoToolStripMenuItem.Text = "Consultar Produto";
+            this.consultarProdutoToolStripMenuItem.Click += new System.EventHandler(this.consultarProdutoToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -147,5 +226,14 @@
         private System.Windows.Forms.ToolStripMenuItem consultarListaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem conexãoSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administradorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarNovoToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem consultarListaToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarPorPedidoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarPorItensToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirCaixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarProdutoToolStripMenuItem;
     }
 }

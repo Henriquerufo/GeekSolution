@@ -46,6 +46,8 @@
     <Compile Include="ModelCadastro.cs" />
     <Compile Include="ModelCadastroProduto.cs" />
     <Compile Include="ModelConfiguracaoSQL.cs" />
+    <Compile Include="ModelLogin.cs" />
+    <Compile Include="ModelVendas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

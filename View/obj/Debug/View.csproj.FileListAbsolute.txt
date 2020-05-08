@@ -12,8 +12,13 @@ C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastrados.resour
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastradosProdutos.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastrarProduto.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastro.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastroLogin.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmFinanceiro.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmGerenciadorLogins.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmLogin.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmPrincipal.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmSobre.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmVendas.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.Properties.Resources.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmConfiguracaoSQL.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.csproj.GenerateResource.cache
