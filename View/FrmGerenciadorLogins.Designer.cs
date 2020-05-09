@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGerenciadorLogins));
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxFiltro = new System.Windows.Forms.ComboBox();
@@ -235,7 +236,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::View.Properties.Resources.pngflow_com;
+            this.pictureBox1.Image = global::View.Properties.Resources.seo_and_web;
             this.pictureBox1.Location = new System.Drawing.Point(21, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 92);
@@ -263,10 +264,11 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmGerenciadorLogins";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGerenciadorLogins";
+            this.Text = "Gerenciar Logins";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

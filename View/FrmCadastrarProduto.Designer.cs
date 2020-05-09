@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastrarProduto));
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlCadastroProduto = new System.Windows.Forms.Panel();
+            this.txtCategoria = new System.Windows.Forms.ComboBox();
             this.chbJogosAcessorios = new System.Windows.Forms.CheckBox();
             this.txtGarantia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,7 +54,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtCategoria = new System.Windows.Forms.ComboBox();
             this.pnlCadastroProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,6 +113,20 @@
             this.pnlCadastroProduto.Name = "pnlCadastroProduto";
             this.pnlCadastroProduto.Size = new System.Drawing.Size(397, 278);
             this.pnlCadastroProduto.TabIndex = 32;
+            // 
+            // txtCategoria
+            // 
+            this.txtCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtCategoria.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.txtCategoria.FormattingEnabled = true;
+            this.txtCategoria.Items.AddRange(new object[] {
+            "Jogos",
+            "Acessórios",
+            "Geek"});
+            this.txtCategoria.Location = new System.Drawing.Point(4, 175);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(179, 34);
+            this.txtCategoria.TabIndex = 47;
             // 
             // chbJogosAcessorios
             // 
@@ -292,20 +307,6 @@
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             // 
-            // txtCategoria
-            // 
-            this.txtCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtCategoria.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            this.txtCategoria.FormattingEnabled = true;
-            this.txtCategoria.Items.AddRange(new object[] {
-            "Jogos",
-            "Acessórios",
-            "Geek"});
-            this.txtCategoria.Location = new System.Drawing.Point(4, 175);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(179, 34);
-            this.txtCategoria.TabIndex = 47;
-            // 
             // FrmCadastrarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +319,7 @@
             this.Controls.Add(this.pnlCadastroProduto);
             this.Controls.Add(this.btnSalvar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmCadastrarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

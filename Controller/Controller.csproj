@@ -46,6 +46,7 @@
     <Compile Include="ControllerCadastro.cs" />
     <Compile Include="ControllerCadastroProduto.cs" />
     <Compile Include="ControllerConfiguracaoSQL.cs" />
+    <Compile Include="ControllerFinanceiro.cs" />
     <Compile Include="ControllerLogin.cs" />
     <Compile Include="ControllerVendas.cs" />
     <Compile Include="Program.cs" />

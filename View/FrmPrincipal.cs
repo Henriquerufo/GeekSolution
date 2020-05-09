@@ -69,7 +69,9 @@ namespace View
 
         private void consultarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCadastrados frmCadastrados = new FrmCadastrados();
+            ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
+            modelFinanceiro.valorVenda = null;
+            FrmCadastrados frmCadastrados = new FrmCadastrados(modelFinanceiro);
             frmCadastrados.Show();
         }
 
@@ -122,6 +124,12 @@ namespace View
         {
             FrmCadastradosProdutos frmCadastradosProdutos = new FrmCadastradosProdutos("Caixa");
             frmCadastradosProdutos.Show();
+        }
+
+        private void consultarPorPedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFinanceiro frmFinanceiro = new FrmFinanceiro();
+            frmFinanceiro.Show();
         }
     }
 }

@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pngwing.com.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -206,6 +209,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\commerce-and-shopping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pngwing.com.ico" />
+    <None Include="Resources\seo-and-web.png" />
+    <None Include="Resources\symbol.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

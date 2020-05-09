@@ -14,11 +14,24 @@ namespace View
 {
     public partial class FrmCadastrados : Form
     {
+        string valorVenda;
         ControllerCadastro controllerCadastro = new ControllerCadastro();
         ModelCadastro modelCadastro = new ModelCadastro();
-        public FrmCadastrados()
+        ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
+        ControllerFinanceiro controllerFinanceiro = new ControllerFinanceiro();
+        public FrmCadastrados(ModelFinanceiro ModelFinanceiro)
         {
             InitializeComponent();
+            if (!string.IsNullOrWhiteSpace(ModelFinanceiro.valorVenda))
+            {
+                valorVenda = ModelFinanceiro.valorVenda;
+                btnCadastrar.Visible = false;
+                btnSalvar.Visible = false;
+                btnDeletar.Visible = false;
+                btnConsultar.Location = new Point(12, 352);
+                Text = "Selecionar Cliente";
+                panel2.Visible = false;
+            }
             cbxFiltro.SelectedIndex = 0;
         }
 
@@ -111,6 +124,40 @@ namespace View
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvCadastrados_DoubleClick(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(valorVenda))
+            {
+                void Finalizar()
+                {
+                    modelFinanceiro.valorVenda = valorVenda;
+                    modelFinanceiro.dataVenda = DateTime.Now.ToString();
+                    modelFinanceiro.nomeCliente = dgvCadastrados.CurrentRow.Cells["nome"].Value.ToString();
+                    modelFinanceiro.statusVenda = "Finalizada";
+                    modelFinanceiro.statusPagamento = "Recebido";
+                }
+                var result = MessageBox.Show("Finalizar venda?\n\nSIM = Dinheiro\nNÃO = Cartão", "Atenção", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question); ;
+                if (result == DialogResult.Yes)
+                {
+                    Finalizar();
+                    modelFinanceiro.opcaoPagamento = "Dinheiro";
+
+                    controllerFinanceiro.Cadastrar(modelFinanceiro);
+                    MessageBox.Show("Finalizado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else if (result == DialogResult.No)
+                {
+                    Finalizar();
+                    modelFinanceiro.opcaoPagamento = "Cartão";
+
+                    controllerFinanceiro.Cadastrar(modelFinanceiro);
+                    MessageBox.Show("Finalizado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+            }
         }
     }
 

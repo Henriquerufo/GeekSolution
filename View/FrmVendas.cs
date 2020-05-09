@@ -19,6 +19,7 @@ namespace View
 
         ControllerVendas controllerVendas = new ControllerVendas();
         ModelVendas modelVendas = new ModelVendas();
+        ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
         public FrmVendas()
         {
             InitializeComponent();
@@ -57,10 +58,6 @@ namespace View
             //lblTotalItens.Text = "Total Itens: " + totalitens.ToString();
             string ultimoVenda = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
             txtNome.Text = ultimoVenda;
-        }
-    private void txtProcurar_KeyDown(object sender, KeyEventArgs e)
-        {
-
         }
 
         private void dgvProduto_MouseClick(object sender, MouseEventArgs e)
@@ -151,6 +148,12 @@ namespace View
                     txtCodigoBarras.Focus();
                     this.txtCodigoBarras.ForeColor = Color.Black;
                 }
+            }
+            if (e.KeyCode == Keys.F1)
+            {
+                modelFinanceiro.valorVenda = Convert.ToString(totalValor);
+                FrmCadastrados frmCadastrados = new FrmCadastrados(modelFinanceiro);
+                frmCadastrados.ShowDialog();
             }
         }
     }

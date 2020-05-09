@@ -26,6 +26,7 @@ namespace View
                 btnSalvar.Visible = false;
                 panel1.Visible = false;
                 btnConsultar.Location = new Point(12, 352);
+                Text = "Consultar Produtos";
             }
             cbxFiltro.SelectedIndex = 0;
         }

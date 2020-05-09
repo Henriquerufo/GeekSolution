@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroLogin));
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtConfirmarSenha = new System.Windows.Forms.TextBox();
@@ -39,10 +40,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblCadastrar = new System.Windows.Forms.Label();
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.rbSupervisor = new System.Windows.Forms.RadioButton();
+            this.rbEstoquista = new System.Windows.Forms.RadioButton();
             this.rbVendedor = new System.Windows.Forms.RadioButton();
             this.rbAdministrador = new System.Windows.Forms.RadioButton();
-            this.rbEstoquista = new System.Windows.Forms.RadioButton();
-            this.rbSupervisor = new System.Windows.Forms.RadioButton();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,6 +164,26 @@
             this.pnlLogin.Size = new System.Drawing.Size(253, 242);
             this.pnlLogin.TabIndex = 71;
             // 
+            // rbSupervisor
+            // 
+            this.rbSupervisor.AutoSize = true;
+            this.rbSupervisor.Location = new System.Drawing.Point(97, 215);
+            this.rbSupervisor.Name = "rbSupervisor";
+            this.rbSupervisor.Size = new System.Drawing.Size(75, 17);
+            this.rbSupervisor.TabIndex = 70;
+            this.rbSupervisor.Text = "Supervisor";
+            this.rbSupervisor.UseVisualStyleBackColor = true;
+            // 
+            // rbEstoquista
+            // 
+            this.rbEstoquista.AutoSize = true;
+            this.rbEstoquista.Location = new System.Drawing.Point(3, 215);
+            this.rbEstoquista.Name = "rbEstoquista";
+            this.rbEstoquista.Size = new System.Drawing.Size(74, 17);
+            this.rbEstoquista.TabIndex = 69;
+            this.rbEstoquista.Text = "Estoquista";
+            this.rbEstoquista.UseVisualStyleBackColor = true;
+            // 
             // rbVendedor
             // 
             this.rbVendedor.AutoSize = true;
@@ -185,26 +206,6 @@
             this.rbAdministrador.Text = "Administrador";
             this.rbAdministrador.UseVisualStyleBackColor = true;
             // 
-            // rbEstoquista
-            // 
-            this.rbEstoquista.AutoSize = true;
-            this.rbEstoquista.Location = new System.Drawing.Point(3, 215);
-            this.rbEstoquista.Name = "rbEstoquista";
-            this.rbEstoquista.Size = new System.Drawing.Size(74, 17);
-            this.rbEstoquista.TabIndex = 69;
-            this.rbEstoquista.Text = "Estoquista";
-            this.rbEstoquista.UseVisualStyleBackColor = true;
-            // 
-            // rbSupervisor
-            // 
-            this.rbSupervisor.AutoSize = true;
-            this.rbSupervisor.Location = new System.Drawing.Point(97, 215);
-            this.rbSupervisor.Name = "rbSupervisor";
-            this.rbSupervisor.Size = new System.Drawing.Size(75, 17);
-            this.rbSupervisor.TabIndex = 70;
-            this.rbSupervisor.Text = "Supervisor";
-            this.rbSupervisor.UseVisualStyleBackColor = true;
-            // 
             // FrmCadastroLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +217,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmCadastroLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

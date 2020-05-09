@@ -51,58 +51,91 @@ namespace View
         {
             ControllerLogin controllerLogin = new ControllerLogin();
             bool retornoADM = controllerLogin.VerificarLoginADM(txtID.Text, txtSenha.Text);
+            bool retornoVendedor = controllerLogin.VerificarLoginVendedor(txtID.Text, txtSenha.Text);
+            bool retornoSupervisor = controllerLogin.VerificarLoginSupervisor(txtID.Text, txtSenha.Text);
+            bool retornoEstoquista = controllerLogin.VerificarLoginEstoquista(txtID.Text, txtSenha.Text);
             if (retornoADM)
             {
+                lblInvalido.Visible = false;
+                this.Hide();
                 modelLogin.Nivel = "Administrador";
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
-            }
-            bool retornoVendedor = controllerLogin.VerificarLoginVendedor(txtID.Text, txtSenha.Text);
-            if (retornoVendedor)
+                this.Show();
+            }           
+            else if (retornoVendedor)
             {
+                lblInvalido.Visible = false;
+                this.Hide();
                 modelLogin.Nivel = "Vendedor";
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
-            }
-            bool retornoSupervisor = controllerLogin.VerificarLoginSupervisor(txtID.Text, txtSenha.Text);
-            if (retornoSupervisor)
+                this.Show();
+            }           
+            else if (retornoSupervisor)
             {
+                lblInvalido.Visible = false;
+                this.Hide();
                 modelLogin.Nivel = "Supervisor";
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
-            }
-            bool retornoEstoquista = controllerLogin.VerificarLoginEstoquista(txtID.Text, txtSenha.Text);
-            if (retornoEstoquista)
+                this.Show();
+            }           
+            else if (retornoEstoquista)
             {
+                lblInvalido.Visible = false;
+                this.Hide();
                 modelLogin.Nivel = "Estoquista";
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                txtID.Focus();
+                lblInvalido.Visible = true;
             }
         }
         public string Autenticacao()
         {
             ControllerLogin controllerLogin = new ControllerLogin();
             bool retornoADM = controllerLogin.VerificarLoginADM(txtID.Text, txtSenha.Text);
+            bool retornoVendedor = controllerLogin.VerificarLoginVendedor(txtID.Text, txtSenha.Text);
+            bool retornoSupervisor = controllerLogin.VerificarLoginSupervisor(txtID.Text, txtSenha.Text);
+            bool retornoEstoquista = controllerLogin.VerificarLoginEstoquista(txtID.Text, txtSenha.Text);
             if (retornoADM)
             {             
                 return "Administrador";
-            }
-            bool retornoVendedor = controllerLogin.VerificarLoginVendedor(txtID.Text, txtSenha.Text);
-            if (retornoVendedor)
+            }            
+            else if (retornoVendedor)
             {
                 return "Vendedor";
-            }
-            bool retornoSupervisor = controllerLogin.VerificarLoginSupervisor(txtID.Text, txtSenha.Text);
-            if (retornoSupervisor)
+            }           
+            else if (retornoSupervisor)
             {
                 return "Supervisor";
-            }
-            bool retornoEstoquista = controllerLogin.VerificarLoginEstoquista(txtID.Text, txtSenha.Text);
-            if (retornoEstoquista)
+            }            
+            else if (retornoEstoquista)
             {
                 return "Estoquista";
             }
-            return "Erro";
+            else
+            {
+                txtID.Focus();
+                lblInvalido.Visible = true;
+                return "ERRO";
+            }
+        }
+
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F12)
+            {
+                this.Hide();
+                FrmConfiguracaoSQL frmConfiguracaoSQL = new FrmConfiguracaoSQL();
+                frmConfiguracaoSQL.ShowDialog();
+                this.Show();
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastrados));
             this.dgvCadastrados = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rg = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +77,7 @@
             this.dgvCadastrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCadastrados.Size = new System.Drawing.Size(592, 400);
             this.dgvCadastrados.TabIndex = 0;
+            this.dgvCadastrados.DoubleClick += new System.EventHandler(this.dgvCadastrados_DoubleClick);
             // 
             // codigo
             // 
@@ -296,6 +298,7 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.dgvCadastrados);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmCadastrados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
