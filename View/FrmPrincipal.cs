@@ -131,5 +131,10 @@ namespace View
             FrmFinanceiro frmFinanceiro = new FrmFinanceiro();
             frmFinanceiro.Show();
         }
+
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

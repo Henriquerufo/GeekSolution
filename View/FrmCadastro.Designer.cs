@@ -53,17 +53,22 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbxFiltro = new System.Windows.Forms.ComboBox();
             this.txtProcurar = new System.Windows.Forms.TextBox();
-            this.dgvProduto = new System.Windows.Forms.DataGridView();
-            this.cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.opcaoPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPedidoItens = new System.Windows.Forms.DataGridView();
+            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plataforma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prazoGarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.pnlCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -296,75 +301,115 @@
             this.txtProcurar.TabIndex = 62;
             this.txtProcurar.Visible = false;
             // 
-            // dgvProduto
+            // dgvPedidoItens
             // 
-            this.dgvProduto.AllowUserToAddRows = false;
-            this.dgvProduto.AllowUserToDeleteRows = false;
-            this.dgvProduto.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cod,
-            this.dataVenda,
-            this.valorVenda,
-            this.opcaoPagamento,
-            this.statusPagamento,
-            this.StatusVenda});
-            this.dgvProduto.Location = new System.Drawing.Point(423, 44);
-            this.dgvProduto.Name = "dgvProduto";
-            this.dgvProduto.ReadOnly = true;
-            this.dgvProduto.RowHeadersVisible = false;
-            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduto.Size = new System.Drawing.Size(591, 401);
-            this.dgvProduto.TabIndex = 64;
+            this.dgvPedidoItens.AllowUserToAddRows = false;
+            this.dgvPedidoItens.AllowUserToDeleteRows = false;
+            this.dgvPedidoItens.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPedidoItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidoItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cod,
+            this.codigoPedido,
+            this.nomeCliente,
+            this.codigoBarras,
+            this.nomeProduto,
+            this.categoria,
+            this.fabricante,
+            this.quantidade,
+            this.valorProduto,
+            this.plataforma,
+            this.prazoGarantia});
+            this.dgvPedidoItens.Location = new System.Drawing.Point(422, 44);
+            this.dgvPedidoItens.Name = "dgvPedidoItens";
+            this.dgvPedidoItens.ReadOnly = true;
+            this.dgvPedidoItens.RowHeadersVisible = false;
+            this.dgvPedidoItens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPedidoItens.Size = new System.Drawing.Size(592, 401);
+            this.dgvPedidoItens.TabIndex = 64;
             // 
-            // cod
+            // Cod
             // 
-            this.cod.DataPropertyName = "Codigo";
-            this.cod.HeaderText = "Codigo";
-            this.cod.Name = "cod";
-            this.cod.ReadOnly = true;
+            this.Cod.DataPropertyName = "Codigo";
+            this.Cod.HeaderText = "Codigo";
+            this.Cod.Name = "Cod";
+            this.Cod.ReadOnly = true;
             // 
-            // dataVenda
+            // codigoPedido
             // 
-            this.dataVenda.DataPropertyName = "dataVenda";
-            this.dataVenda.HeaderText = "Data da Venda";
-            this.dataVenda.Name = "dataVenda";
-            this.dataVenda.ReadOnly = true;
+            this.codigoPedido.DataPropertyName = "CodigoPedido";
+            this.codigoPedido.HeaderText = "Codigo Pedido";
+            this.codigoPedido.Name = "codigoPedido";
+            this.codigoPedido.ReadOnly = true;
             // 
-            // valorVenda
+            // nomeCliente
             // 
-            this.valorVenda.DataPropertyName = "valorVenda";
-            this.valorVenda.HeaderText = "Valor da Venda";
-            this.valorVenda.Name = "valorVenda";
-            this.valorVenda.ReadOnly = true;
+            this.nomeCliente.DataPropertyName = "NomeCliente";
+            this.nomeCliente.HeaderText = "Nome Cliente";
+            this.nomeCliente.Name = "nomeCliente";
+            this.nomeCliente.ReadOnly = true;
             // 
-            // opcaoPagamento
+            // codigoBarras
             // 
-            this.opcaoPagamento.DataPropertyName = "opcaoPagamento";
-            this.opcaoPagamento.HeaderText = "Opção Pagamento";
-            this.opcaoPagamento.Name = "opcaoPagamento";
-            this.opcaoPagamento.ReadOnly = true;
+            this.codigoBarras.DataPropertyName = "CodigoBarras";
+            this.codigoBarras.HeaderText = "Codigo de Barras";
+            this.codigoBarras.Name = "codigoBarras";
+            this.codigoBarras.ReadOnly = true;
             // 
-            // statusPagamento
+            // nomeProduto
             // 
-            this.statusPagamento.DataPropertyName = "statusPagamento";
-            this.statusPagamento.HeaderText = "Status de Pagamento";
-            this.statusPagamento.Name = "statusPagamento";
-            this.statusPagamento.ReadOnly = true;
+            this.nomeProduto.DataPropertyName = "NomeProduto";
+            this.nomeProduto.HeaderText = "Nome do Produto";
+            this.nomeProduto.Name = "nomeProduto";
+            this.nomeProduto.ReadOnly = true;
             // 
-            // StatusVenda
+            // categoria
             // 
-            this.StatusVenda.DataPropertyName = "statusVenda";
-            this.StatusVenda.HeaderText = "Status da Venda";
-            this.StatusVenda.Name = "StatusVenda";
-            this.StatusVenda.ReadOnly = true;
+            this.categoria.DataPropertyName = "Categoria";
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            // 
+            // fabricante
+            // 
+            this.fabricante.DataPropertyName = "Fabricante";
+            this.fabricante.HeaderText = "Fabricante";
+            this.fabricante.Name = "fabricante";
+            this.fabricante.ReadOnly = true;
+            // 
+            // quantidade
+            // 
+            this.quantidade.DataPropertyName = "Quantidade";
+            this.quantidade.HeaderText = "Quantidade";
+            this.quantidade.Name = "quantidade";
+            this.quantidade.ReadOnly = true;
+            // 
+            // valorProduto
+            // 
+            this.valorProduto.DataPropertyName = "ValorProduto";
+            this.valorProduto.HeaderText = "Valor do Produto";
+            this.valorProduto.Name = "valorProduto";
+            this.valorProduto.ReadOnly = true;
+            // 
+            // plataforma
+            // 
+            this.plataforma.DataPropertyName = "Plataforma";
+            this.plataforma.HeaderText = "Plataforma";
+            this.plataforma.Name = "plataforma";
+            this.plataforma.ReadOnly = true;
+            // 
+            // prazoGarantia
+            // 
+            this.prazoGarantia.DataPropertyName = "PrazoGarantia";
+            this.prazoGarantia.HeaderText = "Garantia";
+            this.prazoGarantia.Name = "prazoGarantia";
+            this.prazoGarantia.ReadOnly = true;
             // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 457);
-            this.Controls.Add(this.dgvProduto);
+            this.Controls.Add(this.dgvPedidoItens);
             this.Controls.Add(this.cbxFiltro);
             this.Controls.Add(this.txtProcurar);
             this.Controls.Add(this.pictureBox1);
@@ -383,7 +428,7 @@
             this.pnlCadastro.ResumeLayout(false);
             this.pnlCadastro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,12 +459,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cbxFiltro;
         private System.Windows.Forms.TextBox txtProcurar;
-        private System.Windows.Forms.DataGridView dgvProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataVenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorVenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn opcaoPagamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusPagamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatusVenda;
+        private System.Windows.Forms.DataGridView dgvPedidoItens;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoBarras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fabricante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prazoGarantia;
     }
 }

@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFinanceiro));
             this.dgvFinanceiro = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.opcaoPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.txtProcurar = new System.Windows.Forms.TextBox();
             this.lblExibidosTotal = new System.Windows.Forms.Label();
@@ -40,13 +47,6 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.opcaoPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanceiro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +72,56 @@
             this.dgvFinanceiro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFinanceiro.Size = new System.Drawing.Size(592, 401);
             this.dgvFinanceiro.TabIndex = 1;
+            this.dgvFinanceiro.DoubleClick += new System.EventHandler(this.dgvFinanceiro_DoubleClick);
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "Codigo";
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
+            // nomeCliente
+            // 
+            this.nomeCliente.DataPropertyName = "NomeCliente";
+            this.nomeCliente.HeaderText = "Nome Cliente";
+            this.nomeCliente.Name = "nomeCliente";
+            this.nomeCliente.ReadOnly = true;
+            // 
+            // dataVenda
+            // 
+            this.dataVenda.DataPropertyName = "dataVenda";
+            this.dataVenda.HeaderText = "Data Venda";
+            this.dataVenda.Name = "dataVenda";
+            this.dataVenda.ReadOnly = true;
+            // 
+            // valorVenda
+            // 
+            this.valorVenda.DataPropertyName = "valorVenda";
+            this.valorVenda.HeaderText = "Valor Venda";
+            this.valorVenda.Name = "valorVenda";
+            this.valorVenda.ReadOnly = true;
+            // 
+            // opcaoPagamento
+            // 
+            this.opcaoPagamento.DataPropertyName = "opcaoPagamento";
+            this.opcaoPagamento.HeaderText = "Opção Pagamento";
+            this.opcaoPagamento.Name = "opcaoPagamento";
+            this.opcaoPagamento.ReadOnly = true;
+            // 
+            // statusPagamento
+            // 
+            this.statusPagamento.DataPropertyName = "statusPagamento";
+            this.statusPagamento.HeaderText = "Status Pagamento";
+            this.statusPagamento.Name = "statusPagamento";
+            this.statusPagamento.ReadOnly = true;
+            // 
+            // statusVenda
+            // 
+            this.statusVenda.DataPropertyName = "statusVenda";
+            this.statusVenda.HeaderText = "Status Venda";
+            this.statusVenda.Name = "statusVenda";
+            this.statusVenda.ReadOnly = true;
             // 
             // lblPesquisar
             // 
@@ -176,55 +226,6 @@
             this.pictureBox1.TabIndex = 55;
             this.pictureBox1.TabStop = false;
             // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "Codigo";
-            this.codigo.HeaderText = "Codigo";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // nomeCliente
-            // 
-            this.nomeCliente.DataPropertyName = "NomeCliente";
-            this.nomeCliente.HeaderText = "Nome Cliente";
-            this.nomeCliente.Name = "nomeCliente";
-            this.nomeCliente.ReadOnly = true;
-            // 
-            // dataVenda
-            // 
-            this.dataVenda.DataPropertyName = "dataVenda";
-            this.dataVenda.HeaderText = "Data Venda";
-            this.dataVenda.Name = "dataVenda";
-            this.dataVenda.ReadOnly = true;
-            // 
-            // valorVenda
-            // 
-            this.valorVenda.DataPropertyName = "valorVenda";
-            this.valorVenda.HeaderText = "Valor Venda";
-            this.valorVenda.Name = "valorVenda";
-            this.valorVenda.ReadOnly = true;
-            // 
-            // opcaoPagamento
-            // 
-            this.opcaoPagamento.DataPropertyName = "opcaoPagamento";
-            this.opcaoPagamento.HeaderText = "Opção Pagamento";
-            this.opcaoPagamento.Name = "opcaoPagamento";
-            this.opcaoPagamento.ReadOnly = true;
-            // 
-            // statusPagamento
-            // 
-            this.statusPagamento.DataPropertyName = "statusPagamento";
-            this.statusPagamento.HeaderText = "Status Pagamento";
-            this.statusPagamento.Name = "statusPagamento";
-            this.statusPagamento.ReadOnly = true;
-            // 
-            // statusVenda
-            // 
-            this.statusVenda.DataPropertyName = "statusVenda";
-            this.statusVenda.HeaderText = "Status Venda";
-            this.statusVenda.Name = "statusVenda";
-            this.statusVenda.ReadOnly = true;
-            // 
             // FrmFinanceiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,9 +242,12 @@
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.txtProcurar);
             this.Controls.Add(this.dgvFinanceiro);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmFinanceiro";
-            this.Text = "FrmFinanceiro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consultar Financeiro";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanceiro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

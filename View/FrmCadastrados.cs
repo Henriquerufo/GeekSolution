@@ -143,8 +143,11 @@ namespace View
                 {
                     Finalizar();
                     modelFinanceiro.opcaoPagamento = "Dinheiro";
-
+                    
                     controllerFinanceiro.Cadastrar(modelFinanceiro);
+                    modelFinanceiro.CodigoPedido = controllerFinanceiro.RecuperarCodigo(modelFinanceiro).ToString();
+                    controllerFinanceiro.CadastrarItens(modelFinanceiro);
+
                     MessageBox.Show("Finalizado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -154,6 +157,10 @@ namespace View
                     modelFinanceiro.opcaoPagamento = "Cartão";
 
                     controllerFinanceiro.Cadastrar(modelFinanceiro);
+
+                    modelFinanceiro.CodigoPedido = controllerFinanceiro.RecuperarCodigo(modelFinanceiro).ToString();
+                    controllerFinanceiro.CadastrarItens(modelFinanceiro);
+
                     MessageBox.Show("Finalizado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }

@@ -41,7 +41,6 @@
             this.consultarListaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarPorPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarPorItensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarNovoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,8 +138,7 @@
             // financeiroToolStripMenuItem
             // 
             this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarPorPedidoToolStripMenuItem,
-            this.consultarPorItensToolStripMenuItem});
+            this.consultarPorPedidoToolStripMenuItem});
             this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
             this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.financeiroToolStripMenuItem.Text = "Financeiro";
@@ -148,15 +146,9 @@
             // consultarPorPedidoToolStripMenuItem
             // 
             this.consultarPorPedidoToolStripMenuItem.Name = "consultarPorPedidoToolStripMenuItem";
-            this.consultarPorPedidoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.consultarPorPedidoToolStripMenuItem.Text = "Consultar por Pedido";
+            this.consultarPorPedidoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consultarPorPedidoToolStripMenuItem.Text = "Consultar Lista";
             this.consultarPorPedidoToolStripMenuItem.Click += new System.EventHandler(this.consultarPorPedidoToolStripMenuItem_Click);
-            // 
-            // consultarPorItensToolStripMenuItem
-            // 
-            this.consultarPorItensToolStripMenuItem.Name = "consultarPorItensToolStripMenuItem";
-            this.consultarPorItensToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.consultarPorItensToolStripMenuItem.Text = "Consultar por Itens";
             // 
             // sobreToolStripMenuItem
             // 
@@ -211,6 +203,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Geek Solution";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -234,7 +227,6 @@
         private System.Windows.Forms.ToolStripMenuItem consultarListaToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarPorPedidoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarPorItensToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abrirCaixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarProdutoToolStripMenuItem;

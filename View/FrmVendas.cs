@@ -152,6 +152,7 @@ namespace View
             if (e.KeyCode == Keys.F1)
             {
                 modelFinanceiro.valorVenda = Convert.ToString(totalValor);
+                
                 FrmCadastrados frmCadastrados = new FrmCadastrados(modelFinanceiro);
                 frmCadastrados.ShowDialog();
             }

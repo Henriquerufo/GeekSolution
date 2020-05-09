@@ -64,6 +64,26 @@ namespace Controller
                 return dt;
             }
         }
+        public DataTable CarregarPedidosItens(string nome)
+        {
+            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '" + nome + "'");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+        public DataTable CarregarPedidosItensCodigo(string Codigo)
+        {
+            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE CodigoPedido LIKE '" + Codigo + "'");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
         public bool Cadastrar(ModelCadastro modelCadastro)
         {
             string instrucao = string.Format("INSERT INTO tbCadastro (RG, CPF, Nome, dtCadastro, Endereco, Telefone, Email) VALUES (@RG, @CPF, @Nome, @dtCadastro, @Endereco, @Telefone, @Email); SELECT SCOPE_IDENTITY();");

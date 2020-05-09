@@ -46,9 +46,24 @@ namespace Controller
 
             return Convert.ToBoolean(command.ExecuteNonQuery());
         }
+        public int RecuperarCodigo(ModelFinanceiro modelFinanceiro)
+        {
+            string instrucao = string.Format("SELECT Codigo FROM tbPedido WHERE dataVenda = @dataVenda");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            command.Parameters.AddWithValue("@dataVenda", modelFinanceiro.dataVenda);
+            SqlDataReader dr;
+            dr = command.ExecuteReader();
+            dr.Read();
+
+            return dr.GetInt32(0);
+        }
         public bool CadastrarItens(ModelFinanceiro modelFinanceiro)
         {
-            string instrucao = string.Format("INSERT INTO tbPedidoItens (CodigoPedido, CodigoBarras, NomeProduto, Categoria, Fabricante, ValorProduto, Plataforma, Garantia) SELECT Codigo FROM tbPedido; SELECT CodigoBarras, NomeProduto, Categoria, Fabricante, ValorProduto, Plataforma, Garantia FROM tbCarrinho; ");
+            string instrucao = string.Format("INSERT INTO tbPedidoItens (CodigoPedido, NomeCliente, CodigoBarras, NomeProduto, Categoria, Fabricante, ValorProduto, Plataforma, Garantia) SELECT (@Codigo), (@NomeCliente), CodigoBarras, NomeProduto, Categoria, Fabricante, ValorProduto, Plataforma, PrazoGarantia FROM tbCarrinho");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            command.Parameters.AddWithValue("@Codigo", modelFinanceiro.CodigoPedido);
+            command.Parameters.AddWithValue("@NomeCliente", modelFinanceiro.nomeCliente);
+            return Convert.ToBoolean(command.ExecuteNonQuery());
         }
         public bool CancelarPedido(ModelFinanceiro modelFinanceiro)
         {

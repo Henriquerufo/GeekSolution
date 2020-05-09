@@ -22,7 +22,7 @@ namespace View
             InitializeComponent();
             Height = 496;
             Width = 445;
-            dgvProduto.Visible = false;
+            dgvPedidoItens.Visible = false;
             txtProcurar.Visible = false;
             cbxFiltro.Visible = false;
             if (!string.IsNullOrWhiteSpace(modelCadastro.Codigo))
@@ -44,7 +44,7 @@ namespace View
             {
                 Height = 496;
                 Width = 1042;
-                dgvProduto.Visible = true;
+                dgvPedidoItens.Visible = true;
                 txtProcurar.Visible = true;
                 cbxFiltro.Visible = true;
                 Text = "Consultar Cliente";
@@ -60,6 +60,7 @@ namespace View
                 txtEndereco.Text = modelCadastro.Endereco;
                 txtTelefone.Text = modelCadastro.Telefone;
                 txtEmail.Text = modelCadastro.Email;
+                dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItens(txtNome.Text);
             }
         }
         public bool Validar()

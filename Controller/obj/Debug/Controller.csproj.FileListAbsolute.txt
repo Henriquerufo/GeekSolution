@@ -1,2 +1,11 @@
+C:\Users\henri\source\repos\ProjetoPIM\Controller\bin\Debug\Controller.exe.config
+C:\Users\henri\source\repos\ProjetoPIM\Controller\bin\Debug\Controller.exe
+C:\Users\henri\source\repos\ProjetoPIM\Controller\bin\Debug\Controller.pdb
+C:\Users\henri\source\repos\ProjetoPIM\Controller\bin\Debug\Model.exe
+C:\Users\henri\source\repos\ProjetoPIM\Controller\bin\Debug\Model.pdb
+C:\Users\henri\source\repos\ProjetoPIM\Controller\bin\Debug\Model.exe.config
 C:\Users\henri\source\repos\ProjetoPIM\Controller\obj\Debug\Controller.csprojAssemblyReference.cache
 C:\Users\henri\source\repos\ProjetoPIM\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
+C:\Users\henri\source\repos\ProjetoPIM\Controller\obj\Debug\Controller.csproj.CopyComplete
+C:\Users\henri\source\repos\ProjetoPIM\Controller\obj\Debug\Controller.exe
+C:\Users\henri\source\repos\ProjetoPIM\Controller\obj\Debug\Controller.pdb
