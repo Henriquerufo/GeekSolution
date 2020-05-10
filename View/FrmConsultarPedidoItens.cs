@@ -22,5 +22,10 @@ namespace View
             dgvPedidoItens.DataSource = ControllerCadastro.CarregarPedidosItensCodigo(codigo);
             lblExibidosTotal.Text = "Exibidos total: " + dgvPedidoItens.Rows.Count.ToString();
         }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

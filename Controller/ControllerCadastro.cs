@@ -12,6 +12,17 @@ namespace Controller
     public class ControllerCadastro
     {
         ControllerConfiguracaoSQL controllerConfiguracaoSQL = new ControllerConfiguracaoSQL();
+        public DataTable Carregar()
+        {
+            string instrucao = string.Format("SELECT TOP(1000) * FROM tbCadastro");
+
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
         public DataTable CarregarPorCodigo(string codigo)
         {
             try
@@ -28,7 +39,7 @@ namespace Controller
             catch (Exception)
             {
 
-                string instrucao = string.Format("SELECT * FROM tbCadastro");
+                string instrucao = string.Format("SELECT TOP(1000) * FROM tbCadastro");
 
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
@@ -54,7 +65,7 @@ namespace Controller
             catch (Exception)
             {
 
-                string instrucao = string.Format("SELECT * FROM tbCadastro");
+                string instrucao = string.Format("SELECT TOP(1000) * FROM tbCadastro");
 
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
@@ -95,7 +106,7 @@ namespace Controller
             command.Parameters.AddWithValue("@dtCadastro", modelCadastro.dtCadastro);
             command.Parameters.AddWithValue("@Endereco", modelCadastro.Endereco);
             command.Parameters.AddWithValue("@Telefone", modelCadastro.Telefone);
-            command.Parameters.AddWithValue("@Email", modelCadastro.Telefone);
+            command.Parameters.AddWithValue("@Email", modelCadastro.Email);
 
             return Convert.ToBoolean(command.ExecuteNonQuery());
         }
@@ -111,7 +122,7 @@ namespace Controller
             command.Parameters.AddWithValue("@dtCadastro", modelCadastro.dtCadastro);
             command.Parameters.AddWithValue("@Endereco", modelCadastro.Endereco);
             command.Parameters.AddWithValue("@Telefone", modelCadastro.Telefone);
-            command.Parameters.AddWithValue("@Email", modelCadastro.Telefone);
+            command.Parameters.AddWithValue("@Email", modelCadastro.Email);
 
             return Convert.ToBoolean(command.ExecuteNonQuery());
         }

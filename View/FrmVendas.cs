@@ -27,37 +27,54 @@ namespace View
         void Carregar()
         {
             dgvProduto.DataSource = controllerVendas.Carregar();
+            dgvProduto2.DataSource = controllerVendas.Carregar2();
         }
         void Inserir()
         {
             for (int i = 0; i < NudQuantidade.Value; i++)
             {
-                controllerVendas.Inserir(txtCodigoBarras.Text);
+                controllerVendas.Inserir2(txtCodigoBarras.Text);
+            }
+        }
+        void dgv2()
+        {
+            decimal ValorUnitario = 0;
+            foreach (DataGridViewRow row in dgvProduto2.Rows)
+            {
+                if (!string.IsNullOrEmpty(Convert.ToString(row.Cells["dgv2valorProduto"].Value)))
+                {
+                    ValorUnitario = Convert.ToDecimal(row.Cells["dgv2valorProduto"].Value);
+                }
+                TxtValorUnitario.Text = Convert.ToDouble(ValorUnitario).ToString("C");
+                dgvProduto2.CurrentCell = dgvProduto2.Rows[dgvProduto2.Rows.Count - 1].Cells["dgv2valorProduto"];
+
+                modelVendas.CodigoBarras = row.Cells["dgv2codigoBarras"].Value.ToString();
+                modelVendas.quantidade = "1";
+                controllerVendas.MenosQuatidade(modelVendas);
+
+                string ultimoVenda = dgvProduto2.CurrentRow.Cells["dgv2nomeProduto"].Value.ToString();
+                txtNome.Text = ultimoVenda;
             }
         }
         void Total()
         {
+            controllerVendas.Inserir();
+            controllerVendas.Deletar2();
             decimal total = 0;
-
-            decimal ValorUnitario = 0;
             foreach (DataGridViewRow row in dgvProduto.Rows)
             {
                 if (!string.IsNullOrEmpty(Convert.ToString(row.Cells["valorProduto"].Value)))
                 {
                     total += Convert.ToDecimal(row.Cells["valorProduto"].Value);
-                    ValorUnitario = Convert.ToDecimal(row.Cells["valorProduto"].Value);
                 }
-
-                dgvProduto.CurrentCell = dgvProduto.Rows[dgvProduto.Rows.Count - 1].Cells["valorProduto"];
                 totalValor = total;
                 txtTotal.Text = Convert.ToDouble(totalValor).ToString("C");
-                TxtValorUnitario.Text = Convert.ToDouble(ValorUnitario).ToString("C");
+                
             }
             totalitens = dgvProduto.Rows.Count;
 
-            //lblTotalItens.Text = "Total Itens: " + totalitens.ToString();
-            string ultimoVenda = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
-            txtNome.Text = ultimoVenda;
+            lblExibidosTotal.Text = "Exibidos Total: " + totalitens.ToString();
+            
         }
 
         private void dgvProduto_MouseClick(object sender, MouseEventArgs e)
@@ -135,6 +152,7 @@ namespace View
                 {
                     Inserir();
                     Carregar();
+                    dgv2();
                     Total();
                     txtCodigoBarras.Text = null;
                     txtCodigoBarras.Focus();
@@ -151,10 +169,22 @@ namespace View
             }
             if (e.KeyCode == Keys.F1)
             {
-                modelFinanceiro.valorVenda = Convert.ToString(totalValor);
-                
-                FrmCadastrados frmCadastrados = new FrmCadastrados(modelFinanceiro);
-                frmCadastrados.ShowDialog();
+                if (dgvProduto.Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    var result = MessageBox.Show("Finalizar venda?", "Caixa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (result == DialogResult.Yes)
+                    {
+                        modelFinanceiro.valorVenda = Convert.ToString(totalValor);
+
+                        FrmCadastrados frmCadastrados = new FrmCadastrados(modelFinanceiro);
+                        frmCadastrados.ShowDialog();
+                    }
+                    
+                }
             }
         }
     }

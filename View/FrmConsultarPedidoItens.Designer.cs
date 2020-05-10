@@ -43,7 +43,9 @@
             this.prazoGarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnFechar = new System.Windows.Forms.Button();
             this.lblExibidosTotal = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPedidoItens
@@ -160,6 +162,7 @@
             this.btnFechar.TabIndex = 66;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // lblExibidosTotal
             // 
@@ -170,11 +173,22 @@
             this.lblExibidosTotal.TabIndex = 67;
             this.lblExibidosTotal.Text = "Exibidos total: 0";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::View.Properties.Resources.calculators;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmConsultarPedidoItens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 490);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblExibidosTotal);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.dgvPedidoItens);
@@ -185,6 +199,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Pedido Itens";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +221,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prazoGarantia;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Label lblExibidosTotal;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

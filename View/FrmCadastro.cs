@@ -25,6 +25,7 @@ namespace View
             dgvPedidoItens.Visible = false;
             txtProcurar.Visible = false;
             cbxFiltro.Visible = false;
+            txtDtCadastro.Text = DateTime.Now.ToString();
             if (!string.IsNullOrWhiteSpace(modelCadastro.Codigo))
             {
                 Text = "Editar Cliente";              

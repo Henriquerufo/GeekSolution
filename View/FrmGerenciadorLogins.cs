@@ -20,8 +20,12 @@ namespace View
         {
             InitializeComponent();
             cbxFiltro.SelectedIndex = 0;
+            CarregarTodos();
         }
-
+        void CarregarTodos()
+        {
+            dgvLogin.DataSource = controllerLogin.CarregarTodos();
+        }
         void Carregar(string Nivel, string ID)
         {
             dgvLogin.DataSource = controllerLogin.Carregar(Nivel, ID);
@@ -33,6 +37,7 @@ namespace View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            modelLogin.Consultar = false;
             modelLogin.Codigo = null;
             FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
             frmCadastroLogin.ShowDialog();
@@ -67,6 +72,10 @@ namespace View
             if (cbxFiltro.Text == "SUPERVISOR")
             {
                 Carregar("Supervisor", txtProcurar.Text);
+            }
+            if (cbxFiltro.Text == "TODOS")
+            {
+                CarregarTodos();
             }
             lblExibidosTotal.Text = "Exibidos total: " + dgvLogin.Rows.Count;
             if (dgvLogin.Rows.Count > 0)

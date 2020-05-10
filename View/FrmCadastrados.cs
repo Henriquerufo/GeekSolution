@@ -33,8 +33,25 @@ namespace View
                 panel2.Visible = false;
             }
             cbxFiltro.SelectedIndex = 0;
+            Carregar();
         }
-
+        void Carregar()
+        {
+            dgvCadastrados.DataSource = controllerCadastro.Carregar();
+            lblExibidosTotal.Text = "Exibidos total: " + dgvCadastrados.Rows.Count;
+            if (dgvCadastrados.Rows.Count > 0)
+            {
+                btnConsultar.Enabled = true;
+                btnDeletar.Enabled = true;
+                btnSalvar.Enabled = true;
+            }
+            else
+            {
+                btnConsultar.Enabled = false;
+                btnDeletar.Enabled = false;
+                btnSalvar.Enabled = false;
+            }
+        }
         void CarregarPorCodigo(string codigo)
         {
             dgvCadastrados.DataSource = controllerCadastro.CarregarPorCodigo(codigo);
@@ -58,6 +75,7 @@ namespace View
 
             FrmCadastro frmCadastro = new FrmCadastro(modelCadastro);
             frmCadastro.ShowDialog();
+            Carregar();
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
@@ -68,6 +86,7 @@ namespace View
             {
                 modelCadastro.Codigo = dgvCadastrados.CurrentRow.Cells["codigo"].Value.ToString();
                 controllerCadastro.Deletar(modelCadastro);
+                Carregar();
             }        
         }
 
@@ -77,6 +96,7 @@ namespace View
             modelCadastro.Codigo = null;
             FrmCadastro frmCadastro = new FrmCadastro(modelCadastro);
             frmCadastro.ShowDialog();
+            Carregar();
         }
 
         private void txtProcurar_TextChanged(object sender, EventArgs e)
@@ -89,20 +109,8 @@ namespace View
             {
                 CarregarPorNome(txtProcurar.Text);
             }
-            
             lblExibidosTotal.Text = "Exibidos total: " + dgvCadastrados.Rows.Count;
-            if (dgvCadastrados.Rows.Count > 0)
-            {
-                btnConsultar.Enabled = true;
-                btnDeletar.Enabled = true;
-                btnSalvar.Enabled = true;
-            }
-            else
-            {
-                btnConsultar.Enabled = false;
-                btnDeletar.Enabled = false;
-                btnSalvar.Enabled = false;
-            }
+
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

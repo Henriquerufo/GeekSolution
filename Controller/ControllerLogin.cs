@@ -11,6 +11,16 @@ namespace Controller
 {
     public class ControllerLogin
     {
+        public DataTable CarregarTodos()
+        {
+            string instrucao = string.Format("SELECT * FROM tbLogin");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
         public DataTable Carregar(string nivel, string ID)
         {
             string instrucao = string.Format("SELECT * FROM tbLogin WHERE Nivel = '" + nivel + "' and ID LIKE '%" + ID + "%'");

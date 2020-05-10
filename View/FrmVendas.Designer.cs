@@ -52,9 +52,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvProduto2 = new System.Windows.Forms.DataGridView();
+            this.dgv2codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2codigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2valorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2plataforma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv2garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblExibidosTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto2)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProduto
@@ -73,12 +85,12 @@
             this.valorProduto,
             this.plataforma,
             this.prazoGarantia});
-            this.dgvProduto.Location = new System.Drawing.Point(137, 12);
+            this.dgvProduto.Location = new System.Drawing.Point(137, 11);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
             this.dgvProduto.RowHeadersVisible = false;
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduto.Size = new System.Drawing.Size(592, 401);
+            this.dgvProduto.Size = new System.Drawing.Size(592, 290);
             this.dgvProduto.TabIndex = 1;
             this.dgvProduto.DoubleClick += new System.EventHandler(this.dgvProduto_DoubleClick);
             this.dgvProduto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarras_KeyDown);
@@ -277,11 +289,109 @@
             this.pictureBox1.TabIndex = 59;
             this.pictureBox1.TabStop = false;
             // 
+            // dgvProduto2
+            // 
+            this.dgvProduto2.AllowUserToAddRows = false;
+            this.dgvProduto2.AllowUserToDeleteRows = false;
+            this.dgvProduto2.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProduto2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduto2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv2codigo,
+            this.dgv2codigoBarras,
+            this.dgv2nomeProduto,
+            this.dgv2categoria,
+            this.dgv2fabricante,
+            this.dgv2quantidade,
+            this.dgv2valorProduto,
+            this.dgv2plataforma,
+            this.dgv2garantia});
+            this.dgvProduto2.Location = new System.Drawing.Point(137, 320);
+            this.dgvProduto2.Name = "dgvProduto2";
+            this.dgvProduto2.ReadOnly = true;
+            this.dgvProduto2.RowHeadersVisible = false;
+            this.dgvProduto2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProduto2.Size = new System.Drawing.Size(592, 91);
+            this.dgvProduto2.TabIndex = 60;
+            // 
+            // dgv2codigo
+            // 
+            this.dgv2codigo.DataPropertyName = "Codigo";
+            this.dgv2codigo.HeaderText = "Codigo";
+            this.dgv2codigo.Name = "dgv2codigo";
+            this.dgv2codigo.ReadOnly = true;
+            // 
+            // dgv2codigoBarras
+            // 
+            this.dgv2codigoBarras.DataPropertyName = "CodigoBarras";
+            this.dgv2codigoBarras.HeaderText = "Codigo de Barras";
+            this.dgv2codigoBarras.Name = "dgv2codigoBarras";
+            this.dgv2codigoBarras.ReadOnly = true;
+            // 
+            // dgv2nomeProduto
+            // 
+            this.dgv2nomeProduto.DataPropertyName = "NomeProduto";
+            this.dgv2nomeProduto.HeaderText = "Nome do Produto";
+            this.dgv2nomeProduto.Name = "dgv2nomeProduto";
+            this.dgv2nomeProduto.ReadOnly = true;
+            // 
+            // dgv2categoria
+            // 
+            this.dgv2categoria.DataPropertyName = "Categoria";
+            this.dgv2categoria.HeaderText = "Categoria";
+            this.dgv2categoria.Name = "dgv2categoria";
+            this.dgv2categoria.ReadOnly = true;
+            // 
+            // dgv2fabricante
+            // 
+            this.dgv2fabricante.DataPropertyName = "Fabricante";
+            this.dgv2fabricante.HeaderText = "Fabricante";
+            this.dgv2fabricante.Name = "dgv2fabricante";
+            this.dgv2fabricante.ReadOnly = true;
+            // 
+            // dgv2quantidade
+            // 
+            this.dgv2quantidade.DataPropertyName = "Quantidade";
+            this.dgv2quantidade.HeaderText = "Quantidade";
+            this.dgv2quantidade.Name = "dgv2quantidade";
+            this.dgv2quantidade.ReadOnly = true;
+            // 
+            // dgv2valorProduto
+            // 
+            this.dgv2valorProduto.DataPropertyName = "ValorProduto";
+            this.dgv2valorProduto.HeaderText = "Valor do Produto";
+            this.dgv2valorProduto.Name = "dgv2valorProduto";
+            this.dgv2valorProduto.ReadOnly = true;
+            // 
+            // dgv2plataforma
+            // 
+            this.dgv2plataforma.DataPropertyName = "Plataforma";
+            this.dgv2plataforma.HeaderText = "Plataforma";
+            this.dgv2plataforma.Name = "dgv2plataforma";
+            this.dgv2plataforma.ReadOnly = true;
+            // 
+            // dgv2garantia
+            // 
+            this.dgv2garantia.DataPropertyName = "PrazoGarantia";
+            this.dgv2garantia.HeaderText = "Garantia";
+            this.dgv2garantia.Name = "dgv2garantia";
+            this.dgv2garantia.ReadOnly = true;
+            // 
+            // lblExibidosTotal
+            // 
+            this.lblExibidosTotal.AutoSize = true;
+            this.lblExibidosTotal.Location = new System.Drawing.Point(648, 304);
+            this.lblExibidosTotal.Name = "lblExibidosTotal";
+            this.lblExibidosTotal.Size = new System.Drawing.Size(81, 13);
+            this.lblExibidosTotal.TabIndex = 61;
+            this.lblExibidosTotal.Text = "Exibidos total: 0";
+            // 
             // FrmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 551);
+            this.Controls.Add(this.lblExibidosTotal);
+            this.Controls.Add(this.dgvProduto2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -304,6 +414,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NudQuantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,5 +445,16 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dgvProduto2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2codigoBarras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2nomeProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2fabricante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2valorProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2plataforma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv2garantia;
+        private System.Windows.Forms.Label lblExibidosTotal;
     }
 }

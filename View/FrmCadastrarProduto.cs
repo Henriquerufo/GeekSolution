@@ -31,7 +31,7 @@ namespace View
                 txtNomeProduto.Text = modelCadastroProduto.NomeProduto;
                 txtCategoria.Text = modelCadastroProduto.Categoria;
                 txtFabricante.Text = modelCadastroProduto.Fabricante;
-                txtQuantidade.Text = modelCadastroProduto.Quantidade;
+                txtQuantidade.Value = Convert.ToInt32(modelCadastroProduto.Quantidade);
                 txtValorProduto.Text = modelCadastroProduto.ValorProduto;
                 txtPlataforma.Text = modelCadastroProduto.Plataforma;
                 txtGarantia.Text = modelCadastroProduto.Garantia;
@@ -47,7 +47,7 @@ namespace View
                 txtNomeProduto.Text = modelCadastroProduto.NomeProduto;
                 txtCategoria.Text = modelCadastroProduto.Categoria;
                 txtFabricante.Text = modelCadastroProduto.Fabricante;
-                txtQuantidade.Text = modelCadastroProduto.Quantidade;
+                txtQuantidade.Value = Convert.ToInt32(modelCadastroProduto.Quantidade);
                 txtValorProduto.Text = modelCadastroProduto.ValorProduto;
                 txtPlataforma.Text = modelCadastroProduto.Plataforma;
                 txtGarantia.Text = modelCadastroProduto.Garantia;
@@ -55,6 +55,7 @@ namespace View
         }
         bool Validar()
         {
+            errorProvider.Clear();
             if (string.IsNullOrWhiteSpace(txtCodigoBarras.Text))
             {
                 errorProvider.SetError(txtCodigoBarras, "Informe o codigo de barras do produto");
@@ -75,9 +76,9 @@ namespace View
                 errorProvider.SetError(txtFabricante, "Informe o fabricante do produto");
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtQuantidade.Text))
+            if (string.IsNullOrWhiteSpace(txtCodigoBarras.Text))
             {
-                errorProvider.SetError(txtQuantidade, "Informe a quantidade do produto");
+                errorProvider.SetError(txtCodigoBarras, "Informe a quantidade do produto");
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtValorProduto.Text))
@@ -85,7 +86,7 @@ namespace View
                 errorProvider.SetError(txtValorProduto, "Informe o valor do produto");
                 return false;
             }
-            if (chbJogosAcessorios.Checked == true)
+            if (txtCategoria.Text == "Acessórios" || txtCategoria.Text == "Jogos")
             {
                 if (string.IsNullOrWhiteSpace(txtPlataforma.Text))
                 {
@@ -119,7 +120,7 @@ namespace View
                         modelCadastroProduto.NomeProduto = txtNomeProduto.Text;
                         modelCadastroProduto.Categoria = txtCategoria.Text;
                         modelCadastroProduto.Fabricante = txtFabricante.Text;
-                        modelCadastroProduto.Quantidade = txtQuantidade.Text;
+                        modelCadastroProduto.Quantidade = txtQuantidade.Value.ToString();
                         modelCadastroProduto.ValorProduto = txtValorProduto.Text;
                         modelCadastroProduto.Plataforma = txtPlataforma.Text;
                         modelCadastroProduto.Garantia = txtGarantia.Text;
@@ -137,7 +138,7 @@ namespace View
                         modelCadastroProduto.NomeProduto = txtNomeProduto.Text;
                         modelCadastroProduto.Categoria = txtCategoria.Text;
                         modelCadastroProduto.Fabricante = txtFabricante.Text;
-                        modelCadastroProduto.Quantidade = txtQuantidade.Text;
+                        modelCadastroProduto.Quantidade = txtQuantidade.Value.ToString();
                         modelCadastroProduto.ValorProduto = txtValorProduto.Text;
                         modelCadastroProduto.Plataforma = txtPlataforma.Text;
                         modelCadastroProduto.Garantia = txtGarantia.Text;
@@ -153,9 +154,14 @@ namespace View
             }
         }
 
-        private void chbJogosAcessorios_CheckedChanged(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (chbJogosAcessorios.Checked == true)
+            this.Close();
+        }
+
+        private void txtCategoria_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCategoria.Text == "Acessórios" || txtCategoria.Text == "Jogos")
             {
                 txtPlataforma.Enabled = true;
                 txtGarantia.Enabled = true;
@@ -165,11 +171,6 @@ namespace View
                 txtPlataforma.Enabled = false;
                 txtGarantia.Enabled = false;
             }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

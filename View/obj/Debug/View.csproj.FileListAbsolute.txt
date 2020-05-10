@@ -14,6 +14,7 @@ C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastrarProduto.r
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastro.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastroLogin.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmConsultarPedidoItens.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmDevolucaoProduto.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmFinanceiro.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmGerenciadorLogins.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmLogin.resources

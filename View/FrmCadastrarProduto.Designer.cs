@@ -34,20 +34,19 @@
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlCadastroProduto = new System.Windows.Forms.Panel();
+            this.txtQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.txtCodigoBarras = new System.Windows.Forms.MaskedTextBox();
             this.txtCategoria = new System.Windows.Forms.ComboBox();
-            this.chbJogosAcessorios = new System.Windows.Forms.CheckBox();
             this.txtGarantia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtPlataforma = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtValorProduto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFabricante = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblCadastrar = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlCadastroProduto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(157, 394);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(119, 50);
-            this.btnSalvar.TabIndex = 31;
+            this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -78,7 +78,7 @@
             this.txtNomeProduto.Location = new System.Drawing.Point(4, 112);
             this.txtNomeProduto.Name = "txtNomeProduto";
             this.txtNomeProduto.Size = new System.Drawing.Size(179, 34);
-            this.txtNomeProduto.TabIndex = 29;
+            this.txtNomeProduto.TabIndex = 1;
             // 
             // label1
             // 
@@ -92,20 +92,19 @@
             // 
             // pnlCadastroProduto
             // 
+            this.pnlCadastroProduto.Controls.Add(this.txtQuantidade);
+            this.pnlCadastroProduto.Controls.Add(this.txtCodigoBarras);
             this.pnlCadastroProduto.Controls.Add(this.txtCategoria);
-            this.pnlCadastroProduto.Controls.Add(this.chbJogosAcessorios);
             this.pnlCadastroProduto.Controls.Add(this.txtGarantia);
             this.pnlCadastroProduto.Controls.Add(this.label8);
             this.pnlCadastroProduto.Controls.Add(this.txtPlataforma);
             this.pnlCadastroProduto.Controls.Add(this.label7);
             this.pnlCadastroProduto.Controls.Add(this.txtValorProduto);
             this.pnlCadastroProduto.Controls.Add(this.label6);
-            this.pnlCadastroProduto.Controls.Add(this.txtQuantidade);
             this.pnlCadastroProduto.Controls.Add(this.label5);
             this.pnlCadastroProduto.Controls.Add(this.txtFabricante);
             this.pnlCadastroProduto.Controls.Add(this.label4);
             this.pnlCadastroProduto.Controls.Add(this.label3);
-            this.pnlCadastroProduto.Controls.Add(this.txtCodigoBarras);
             this.pnlCadastroProduto.Controls.Add(this.label2);
             this.pnlCadastroProduto.Controls.Add(this.txtNomeProduto);
             this.pnlCadastroProduto.Controls.Add(this.label1);
@@ -113,6 +112,29 @@
             this.pnlCadastroProduto.Name = "pnlCadastroProduto";
             this.pnlCadastroProduto.Size = new System.Drawing.Size(397, 278);
             this.pnlCadastroProduto.TabIndex = 32;
+            // 
+            // txtQuantidade
+            // 
+            this.txtQuantidade.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.txtQuantidade.Location = new System.Drawing.Point(210, 49);
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.Size = new System.Drawing.Size(179, 34);
+            this.txtQuantidade.TabIndex = 4;
+            this.txtQuantidade.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // txtCodigoBarras
+            // 
+            this.txtCodigoBarras.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.txtCodigoBarras.Location = new System.Drawing.Point(4, 49);
+            this.txtCodigoBarras.Mask = "000000000000";
+            this.txtCodigoBarras.Name = "txtCodigoBarras";
+            this.txtCodigoBarras.Size = new System.Drawing.Size(179, 34);
+            this.txtCodigoBarras.TabIndex = 0;
+            this.txtCodigoBarras.ValidatingType = typeof(int);
             // 
             // txtCategoria
             // 
@@ -126,19 +148,8 @@
             this.txtCategoria.Location = new System.Drawing.Point(4, 175);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(179, 34);
-            this.txtCategoria.TabIndex = 47;
-            // 
-            // chbJogosAcessorios
-            // 
-            this.chbJogosAcessorios.AutoSize = true;
-            this.chbJogosAcessorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbJogosAcessorios.Location = new System.Drawing.Point(0, 3);
-            this.chbJogosAcessorios.Name = "chbJogosAcessorios";
-            this.chbJogosAcessorios.Size = new System.Drawing.Size(131, 19);
-            this.chbJogosAcessorios.TabIndex = 45;
-            this.chbJogosAcessorios.Text = "Jogos e acessórios";
-            this.chbJogosAcessorios.UseVisualStyleBackColor = true;
-            this.chbJogosAcessorios.CheckedChanged += new System.EventHandler(this.chbJogosAcessorios_CheckedChanged);
+            this.txtCategoria.TabIndex = 2;
+            this.txtCategoria.TextChanged += new System.EventHandler(this.txtCategoria_TextChanged);
             // 
             // txtGarantia
             // 
@@ -147,7 +158,7 @@
             this.txtGarantia.Location = new System.Drawing.Point(210, 238);
             this.txtGarantia.Name = "txtGarantia";
             this.txtGarantia.Size = new System.Drawing.Size(179, 34);
-            this.txtGarantia.TabIndex = 43;
+            this.txtGarantia.TabIndex = 7;
             // 
             // label8
             // 
@@ -166,7 +177,7 @@
             this.txtPlataforma.Location = new System.Drawing.Point(210, 175);
             this.txtPlataforma.Name = "txtPlataforma";
             this.txtPlataforma.Size = new System.Drawing.Size(179, 34);
-            this.txtPlataforma.TabIndex = 41;
+            this.txtPlataforma.TabIndex = 6;
             // 
             // label7
             // 
@@ -184,7 +195,7 @@
             this.txtValorProduto.Location = new System.Drawing.Point(210, 112);
             this.txtValorProduto.Name = "txtValorProduto";
             this.txtValorProduto.Size = new System.Drawing.Size(179, 34);
-            this.txtValorProduto.TabIndex = 39;
+            this.txtValorProduto.TabIndex = 5;
             // 
             // label6
             // 
@@ -195,14 +206,6 @@
             this.label6.Size = new System.Drawing.Size(132, 23);
             this.label6.TabIndex = 40;
             this.label6.Text = "Valor do Produto";
-            // 
-            // txtQuantidade
-            // 
-            this.txtQuantidade.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantidade.Location = new System.Drawing.Point(210, 49);
-            this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(179, 34);
-            this.txtQuantidade.TabIndex = 37;
             // 
             // label5
             // 
@@ -220,7 +223,7 @@
             this.txtFabricante.Location = new System.Drawing.Point(4, 238);
             this.txtFabricante.Name = "txtFabricante";
             this.txtFabricante.Size = new System.Drawing.Size(179, 34);
-            this.txtFabricante.TabIndex = 35;
+            this.txtFabricante.TabIndex = 3;
             // 
             // label4
             // 
@@ -241,14 +244,6 @@
             this.label3.Size = new System.Drawing.Size(80, 23);
             this.label3.TabIndex = 34;
             this.label3.Text = "Categoria";
-            // 
-            // txtCodigoBarras
-            // 
-            this.txtCodigoBarras.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoBarras.Location = new System.Drawing.Point(4, 49);
-            this.txtCodigoBarras.Name = "txtCodigoBarras";
-            this.txtCodigoBarras.Size = new System.Drawing.Size(179, 34);
-            this.txtCodigoBarras.TabIndex = 31;
             // 
             // label2
             // 
@@ -288,7 +283,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(282, 394);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(119, 50);
-            this.btnCancelar.TabIndex = 35;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -299,7 +294,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::View.Properties.Resources.pngflow_com;
+            this.pictureBox1.Image = global::View.Properties.Resources.box;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 92);
@@ -326,6 +321,7 @@
             this.Text = "Cadastrar Produto";
             this.pnlCadastroProduto.ResumeLayout(false);
             this.pnlCadastroProduto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -345,19 +341,18 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtValorProduto;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtFabricante;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblCadastrar;
-        private System.Windows.Forms.CheckBox chbJogosAcessorios;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox txtCategoria;
+        private System.Windows.Forms.NumericUpDown txtQuantidade;
+        private System.Windows.Forms.MaskedTextBox txtCodigoBarras;
     }
 }

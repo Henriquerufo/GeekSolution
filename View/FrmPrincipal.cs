@@ -136,5 +136,11 @@ namespace View
         {
             Application.Exit();
         }
+
+        private void devoluçãoProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDevolucaoProduto frmDevolucaoProduto = new FrmDevolucaoProduto();
+            frmDevolucaoProduto.Show();
+        }
     }
 }

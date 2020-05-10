@@ -35,15 +35,12 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtRG = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCPF = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDtCadastro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -65,6 +62,9 @@
             this.valorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plataforma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prazoGarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtRG = new System.Windows.Forms.MaskedTextBox();
+            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.pnlCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -119,14 +119,6 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "RG";
             // 
-            // txtRG
-            // 
-            this.txtRG.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRG.Location = new System.Drawing.Point(3, 102);
-            this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(179, 34);
-            this.txtRG.TabIndex = 16;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -136,14 +128,6 @@
             this.label3.Size = new System.Drawing.Size(38, 23);
             this.label3.TabIndex = 19;
             this.label3.Text = "CPF";
-            // 
-            // txtCPF
-            // 
-            this.txtCPF.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPF.Location = new System.Drawing.Point(3, 173);
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(179, 34);
-            this.txtCPF.TabIndex = 18;
             // 
             // label4
             // 
@@ -160,6 +144,7 @@
             this.txtDtCadastro.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDtCadastro.Location = new System.Drawing.Point(222, 27);
             this.txtDtCadastro.Name = "txtDtCadastro";
+            this.txtDtCadastro.ReadOnly = true;
             this.txtDtCadastro.Size = new System.Drawing.Size(179, 34);
             this.txtDtCadastro.TabIndex = 20;
             // 
@@ -190,14 +175,6 @@
             this.label8.Size = new System.Drawing.Size(74, 23);
             this.label8.TabIndex = 25;
             this.label8.Text = "Telefone";
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(222, 102);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(179, 34);
-            this.txtTelefone.TabIndex = 24;
             // 
             // label9
             // 
@@ -249,16 +226,16 @@
             // 
             // pnlCadastro
             // 
+            this.pnlCadastro.Controls.Add(this.txtTelefone);
+            this.pnlCadastro.Controls.Add(this.txtCPF);
+            this.pnlCadastro.Controls.Add(this.txtRG);
             this.pnlCadastro.Controls.Add(this.txtEndereco);
             this.pnlCadastro.Controls.Add(this.txtNome);
             this.pnlCadastro.Controls.Add(this.label1);
             this.pnlCadastro.Controls.Add(this.label9);
-            this.pnlCadastro.Controls.Add(this.txtRG);
             this.pnlCadastro.Controls.Add(this.txtEmail);
             this.pnlCadastro.Controls.Add(this.label2);
             this.pnlCadastro.Controls.Add(this.label8);
-            this.pnlCadastro.Controls.Add(this.txtCPF);
-            this.pnlCadastro.Controls.Add(this.txtTelefone);
             this.pnlCadastro.Controls.Add(this.label3);
             this.pnlCadastro.Controls.Add(this.label7);
             this.pnlCadastro.Controls.Add(this.txtDtCadastro);
@@ -404,6 +381,33 @@
             this.prazoGarantia.Name = "prazoGarantia";
             this.prazoGarantia.ReadOnly = true;
             // 
+            // txtRG
+            // 
+            this.txtRG.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.txtRG.Location = new System.Drawing.Point(3, 102);
+            this.txtRG.Mask = "##.###.###-##";
+            this.txtRG.Name = "txtRG";
+            this.txtRG.Size = new System.Drawing.Size(179, 34);
+            this.txtRG.TabIndex = 28;
+            // 
+            // txtCPF
+            // 
+            this.txtCPF.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.txtCPF.Location = new System.Drawing.Point(3, 173);
+            this.txtCPF.Mask = "###.###.###-##";
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(179, 34);
+            this.txtCPF.TabIndex = 29;
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.txtTelefone.Location = new System.Drawing.Point(222, 102);
+            this.txtTelefone.Mask = "(##) # ####-####";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(179, 34);
+            this.txtTelefone.TabIndex = 30;
+            // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,15 +445,12 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtRG;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDtCadastro;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnCancelar;
@@ -471,5 +472,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn plataforma;
         private System.Windows.Forms.DataGridViewTextBoxColumn prazoGarantia;
+        private System.Windows.Forms.MaskedTextBox txtTelefone;
+        private System.Windows.Forms.MaskedTextBox txtCPF;
+        private System.Windows.Forms.MaskedTextBox txtRG;
     }
 }

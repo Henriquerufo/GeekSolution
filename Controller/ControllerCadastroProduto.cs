@@ -70,7 +70,7 @@ namespace Controller
             command.Parameters.AddWithValue("@CodigoBarras", modelCadastroProduto.CodigoBarras);
             command.Parameters.AddWithValue("@NomeProduto", modelCadastroProduto.NomeProduto);
             command.Parameters.AddWithValue("@Categoria", modelCadastroProduto.Categoria);
-            command.Parameters.AddWithValue("@Fabricante", modelCadastroProduto.Categoria);
+            command.Parameters.AddWithValue("@Fabricante", modelCadastroProduto.Fabricante);
             command.Parameters.AddWithValue("@Quantidade", modelCadastroProduto.Quantidade);
             command.Parameters.AddWithValue("@ValorProduto", modelCadastroProduto.ValorProduto);
             command.Parameters.AddWithValue("@Plataforma", modelCadastroProduto.Plataforma);
@@ -87,7 +87,7 @@ namespace Controller
             command.Parameters.AddWithValue("@CodigoBarras", modelCadastroProduto.CodigoBarras);
             command.Parameters.AddWithValue("@NomeProduto", modelCadastroProduto.NomeProduto);
             command.Parameters.AddWithValue("@Categoria", modelCadastroProduto.Categoria);
-            command.Parameters.AddWithValue("@Fabricante", modelCadastroProduto.Categoria);
+            command.Parameters.AddWithValue("@Fabricante", modelCadastroProduto.Fabricante);
             command.Parameters.AddWithValue("@Quantidade", modelCadastroProduto.Quantidade);
             command.Parameters.AddWithValue("@ValorProduto", modelCadastroProduto.ValorProduto);
             command.Parameters.AddWithValue("@Plataforma", modelCadastroProduto.Plataforma);
