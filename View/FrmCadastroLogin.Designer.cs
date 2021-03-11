@@ -44,71 +44,74 @@
             this.rbEstoquista = new System.Windows.Forms.RadioButton();
             this.rbVendedor = new System.Windows.Forms.RadioButton();
             this.rbAdministrador = new System.Windows.Forms.RadioButton();
+            this.lblLoginsCadastrados = new System.Windows.Forms.Label();
+            this.lblLoginsContratados = new System.Windows.Forms.Label();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtID
             // 
-            this.txtID.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(3, 26);
+            this.txtID.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtID.Location = new System.Drawing.Point(3, 16);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(244, 34);
+            this.txtID.Size = new System.Drawing.Size(244, 29);
             this.txtID.TabIndex = 61;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // txtSenha
             // 
-            this.txtSenha.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(3, 89);
+            this.txtSenha.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtSenha.Location = new System.Drawing.Point(3, 64);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(244, 34);
+            this.txtSenha.Size = new System.Drawing.Size(244, 29);
             this.txtSenha.TabIndex = 62;
+            this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
             // 
             // txtConfirmarSenha
             // 
-            this.txtConfirmarSenha.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmarSenha.Location = new System.Drawing.Point(3, 152);
+            this.txtConfirmarSenha.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtConfirmarSenha.Location = new System.Drawing.Point(3, 112);
             this.txtConfirmarSenha.Name = "txtConfirmarSenha";
-            this.txtConfirmarSenha.Size = new System.Drawing.Size(244, 34);
+            this.txtConfirmarSenha.Size = new System.Drawing.Size(244, 29);
             this.txtConfirmarSenha.TabIndex = 63;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-1, 63);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label1.Location = new System.Drawing.Point(3, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 23);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 65;
             this.label1.Text = "Senha";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-1, 0);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 23);
+            this.label2.Size = new System.Drawing.Size(18, 13);
             this.label2.TabIndex = 64;
             this.label2.Text = "ID";
             // 
             // lblConfirmarSenha
             // 
             this.lblConfirmarSenha.AutoSize = true;
-            this.lblConfirmarSenha.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmarSenha.Location = new System.Drawing.Point(-1, 126);
+            this.lblConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblConfirmarSenha.Location = new System.Drawing.Point(0, 96);
             this.lblConfirmarSenha.Name = "lblConfirmarSenha";
-            this.lblConfirmarSenha.Size = new System.Drawing.Size(132, 23);
+            this.lblConfirmarSenha.Size = new System.Drawing.Size(85, 13);
             this.lblConfirmarSenha.TabIndex = 66;
             this.lblConfirmarSenha.Text = "Confirmar Senha";
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(21, 346);
+            this.btnCadastrar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Location = new System.Drawing.Point(65, 320);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(119, 50);
+            this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
             this.btnCadastrar.TabIndex = 67;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -117,11 +120,10 @@
             // btnCancelar
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(146, 346);
+            this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(171, 320);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(119, 50);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 33);
             this.btnCancelar.TabIndex = 68;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -161,13 +163,13 @@
             this.pnlLogin.Controls.Add(this.lblConfirmarSenha);
             this.pnlLogin.Location = new System.Drawing.Point(18, 85);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(253, 242);
+            this.pnlLogin.Size = new System.Drawing.Size(253, 206);
             this.pnlLogin.TabIndex = 71;
             // 
             // rbSupervisor
             // 
             this.rbSupervisor.AutoSize = true;
-            this.rbSupervisor.Location = new System.Drawing.Point(97, 215);
+            this.rbSupervisor.Location = new System.Drawing.Point(128, 173);
             this.rbSupervisor.Name = "rbSupervisor";
             this.rbSupervisor.Size = new System.Drawing.Size(75, 17);
             this.rbSupervisor.TabIndex = 70;
@@ -177,7 +179,7 @@
             // rbEstoquista
             // 
             this.rbEstoquista.AutoSize = true;
-            this.rbEstoquista.Location = new System.Drawing.Point(3, 215);
+            this.rbEstoquista.Location = new System.Drawing.Point(34, 173);
             this.rbEstoquista.Name = "rbEstoquista";
             this.rbEstoquista.Size = new System.Drawing.Size(74, 17);
             this.rbEstoquista.TabIndex = 69;
@@ -188,7 +190,7 @@
             // 
             this.rbVendedor.AutoSize = true;
             this.rbVendedor.Checked = true;
-            this.rbVendedor.Location = new System.Drawing.Point(97, 192);
+            this.rbVendedor.Location = new System.Drawing.Point(128, 150);
             this.rbVendedor.Name = "rbVendedor";
             this.rbVendedor.Size = new System.Drawing.Size(71, 17);
             this.rbVendedor.TabIndex = 68;
@@ -199,18 +201,40 @@
             // rbAdministrador
             // 
             this.rbAdministrador.AutoSize = true;
-            this.rbAdministrador.Location = new System.Drawing.Point(3, 192);
+            this.rbAdministrador.Location = new System.Drawing.Point(34, 150);
             this.rbAdministrador.Name = "rbAdministrador";
             this.rbAdministrador.Size = new System.Drawing.Size(88, 17);
             this.rbAdministrador.TabIndex = 67;
             this.rbAdministrador.Text = "Administrador";
             this.rbAdministrador.UseVisualStyleBackColor = true;
             // 
+            // lblLoginsCadastrados
+            // 
+            this.lblLoginsCadastrados.AutoSize = true;
+            this.lblLoginsCadastrados.Location = new System.Drawing.Point(18, 294);
+            this.lblLoginsCadastrados.Name = "lblLoginsCadastrados";
+            this.lblLoginsCadastrados.Size = new System.Drawing.Size(72, 13);
+            this.lblLoginsCadastrados.TabIndex = 72;
+            this.lblLoginsCadastrados.Text = "Cadastrados: ";
+            this.lblLoginsCadastrados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLoginsContratados
+            // 
+            this.lblLoginsContratados.AutoSize = true;
+            this.lblLoginsContratados.Location = new System.Drawing.Point(178, 294);
+            this.lblLoginsContratados.Name = "lblLoginsContratados";
+            this.lblLoginsContratados.Size = new System.Drawing.Size(70, 13);
+            this.lblLoginsContratados.TabIndex = 73;
+            this.lblLoginsContratados.Text = "Contratados: ";
+            this.lblLoginsContratados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FrmCadastroLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 408);
+            this.ClientSize = new System.Drawing.Size(290, 364);
+            this.Controls.Add(this.lblLoginsContratados);
+            this.Controls.Add(this.lblLoginsCadastrados);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblCadastrar);
@@ -246,5 +270,7 @@
         private System.Windows.Forms.RadioButton rbAdministrador;
         private System.Windows.Forms.RadioButton rbSupervisor;
         private System.Windows.Forms.RadioButton rbEstoquista;
+        private System.Windows.Forms.Label lblLoginsCadastrados;
+        private System.Windows.Forms.Label lblLoginsContratados;
     }
 }

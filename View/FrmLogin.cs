@@ -26,7 +26,7 @@ namespace View
             InitializeComponent();
             if (!string.IsNullOrWhiteSpace(modelLOgin.Nivel))
             {
-                btnLogar.Text = "TESTE";
+                btnLogar.Text = "OK";
             }
         }
 
@@ -59,36 +59,72 @@ namespace View
                 lblInvalido.Visible = false;
                 this.Hide();
                 modelLogin.Nivel = "Administrador";
+                modelLogin.ID = txtID.Text;
+                modelLogin.Status = "Conectado";
+                modelLogin.UltimoLog = DateTime.Now.ToString();
+                controllerLogin.InserirLog(modelLogin);
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
                 this.Show();
+                modelLogin.Nivel = "Administrador";
+                modelLogin.ID = txtID.Text;
+                modelLogin.Status = "Desconectado";
+                modelLogin.UltimoLog = DateTime.Now.ToString();
+                controllerLogin.InserirLog(modelLogin);
             }           
             else if (retornoVendedor)
             {
                 lblInvalido.Visible = false;
                 this.Hide();
                 modelLogin.Nivel = "Vendedor";
+                modelLogin.ID = txtID.Text;
+                modelLogin.Status = "Conectado";
+                modelLogin.UltimoLog = DateTime.Now.ToString();
+                controllerLogin.InserirLog(modelLogin);
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
                 this.Show();
+                modelLogin.Nivel = "Vendedor";
+                modelLogin.ID = txtID.Text;
+                modelLogin.Status = "Desconectado";
+                modelLogin.UltimoLog = DateTime.Now.ToString();
+                controllerLogin.InserirLog(modelLogin);
             }           
             else if (retornoSupervisor)
             {
                 lblInvalido.Visible = false;
                 this.Hide();
                 modelLogin.Nivel = "Supervisor";
+                modelLogin.ID = txtID.Text;
+                modelLogin.Status = "Conectado";
+                modelLogin.UltimoLog = DateTime.Now.ToString();
+                controllerLogin.InserirLog(modelLogin);
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
                 this.Show();
+                modelLogin.Nivel = "Supervisor";
+                modelLogin.ID = txtID.Text;
+                modelLogin.Status = "Desconectado";
+                modelLogin.UltimoLog = DateTime.Now.ToString();
+                controllerLogin.InserirLog(modelLogin);
             }           
             else if (retornoEstoquista)
             {
                 lblInvalido.Visible = false;
                 this.Hide();
                 modelLogin.Nivel = "Estoquista";
+                modelLogin.ID = txtID.Text;
+                modelLogin.Status = "Conectado";
+                modelLogin.UltimoLog = DateTime.Now.ToString();
+                controllerLogin.InserirLog(modelLogin);
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
                 this.Show();
+                modelLogin.Nivel = "Estoquista";
+                modelLogin.ID = txtID.Text;
+                modelLogin.Status = "Desconectado";
+                modelLogin.UltimoLog = DateTime.Now.ToString();
+                controllerLogin.InserirLog(modelLogin);
             }
             else
             {
@@ -134,7 +170,7 @@ namespace View
                 this.Hide();
                 FrmConfiguracaoSQL frmConfiguracaoSQL = new FrmConfiguracaoSQL();
                 frmConfiguracaoSQL.ShowDialog();
-                this.Show();
+                Application.Exit();
             }
         }
     }

@@ -59,10 +59,12 @@ namespace Controller
         }
         public bool CadastrarItens(ModelFinanceiro modelFinanceiro)
         {
-            string instrucao = string.Format("INSERT INTO tbPedidoItens (CodigoPedido, NomeCliente, CodigoBarras, NomeProduto, Categoria, Fabricante, ValorProduto, Plataforma, Garantia) SELECT (@Codigo), (@NomeCliente), CodigoBarras, NomeProduto, Categoria, Fabricante, ValorProduto, Plataforma, PrazoGarantia FROM tbCarrinho");
+            string instrucao = string.Format("INSERT INTO tbPedidoItens (CodigoPedido, NomeCliente, CodigoBarras, NomeProduto, Categoria, Fabricante, ValorProduto, Plataforma, Garantia, statusPagamento, statusVenda) SELECT (@Codigo), (@NomeCliente), CodigoBarras, NomeProduto, Categoria, Fabricante, ValorProduto, Plataforma, PrazoGarantia, (@statusPagamento), (@statusVenda) FROM tbCarrinho");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
             command.Parameters.AddWithValue("@Codigo", modelFinanceiro.CodigoPedido);
             command.Parameters.AddWithValue("@NomeCliente", modelFinanceiro.nomeCliente);
+            command.Parameters.AddWithValue("@statusPagamento", modelFinanceiro.statusPagamento);
+            command.Parameters.AddWithValue("@statusVenda", modelFinanceiro.statusVenda);
             return Convert.ToBoolean(command.ExecuteNonQuery());
         }
         public bool CancelarPedido(ModelFinanceiro modelFinanceiro)

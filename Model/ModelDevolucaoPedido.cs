@@ -9,5 +9,9 @@ namespace Model
     public class ModelDevolucaoPedido
     {
         public string Codigo { get; set; }
+        public string CodigoBarras { get; set; }
+        public string CodigoPedido { get; set; }
+        public string statusPegamento { get; set; }
+        public string statusVenda { get; set; }
     }
 }

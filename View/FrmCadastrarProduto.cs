@@ -172,5 +172,10 @@ namespace View
                 txtGarantia.Enabled = false;
             }
         }
+
+        private void ptbAjuda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("* = Campos obrigadórios.\n\n*Código de Barras: Utilizado para vendas no caixa\n*Nome do Produto: Identificação do item cadastrado\n*Categoria: Seleciona qual categoria o produto pertence\n*Fabricante: Fabricante do produto\n*Quantidade: *Quantidade de itens a ser adicionado\n*Valor do Produto: 1.234,56 O Valor Precisa ser adicionado neste formato\n*Plataforma: Caso seja acessórios/Jogos\n*Garantia: Caso seja acessórios/Jogos","Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
     }
 }

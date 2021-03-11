@@ -47,9 +47,9 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlCadastro = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbxFiltro = new System.Windows.Forms.ComboBox();
-            this.txtProcurar = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.txtRG = new System.Windows.Forms.MaskedTextBox();
             this.dgvPedidoItens = new System.Windows.Forms.DataGridView();
             this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,20 +62,49 @@
             this.valorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plataforma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prazoGarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtRG = new System.Windows.Forms.MaskedTextBox();
-            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
-            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.dgvPedidoItensCancelados = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblExibidosTotal = new System.Windows.Forms.Label();
+            this.lblExibidosTotalCancelados = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.lblPesquisar = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtProcurar = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.pnlCadastro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItensCancelados)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(120, 42);
+            this.label6.Location = new System.Drawing.Point(13, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 25);
             this.label6.TabIndex = 13;
@@ -85,7 +114,7 @@
             // 
             this.lblCadastrar.AutoSize = true;
             this.lblCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCadastrar.Location = new System.Drawing.Point(118, 9);
+            this.lblCadastrar.Location = new System.Drawing.Point(12, 9);
             this.lblCadastrar.Name = "lblCadastrar";
             this.lblCadastrar.Size = new System.Drawing.Size(143, 33);
             this.lblCadastrar.TabIndex = 12;
@@ -93,115 +122,114 @@
             // 
             // txtNome
             // 
-            this.txtNome.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(3, 27);
+            this.txtNome.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(3, 17);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(179, 34);
+            this.txtNome.Size = new System.Drawing.Size(179, 29);
             this.txtNome.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-1, 1);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label1.Location = new System.Drawing.Point(0, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 23);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Nome";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-1, 76);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label2.Location = new System.Drawing.Point(0, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 23);
+            this.label2.Size = new System.Drawing.Size(23, 13);
             this.label2.TabIndex = 17;
             this.label2.Text = "RG";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(-1, 147);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label3.Location = new System.Drawing.Point(0, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 23);
+            this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "CPF";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(218, 1);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label4.Location = new System.Drawing.Point(185, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 23);
+            this.label4.Size = new System.Drawing.Size(90, 13);
             this.label4.TabIndex = 21;
             this.label4.Text = "Data do Cadastro";
             // 
             // txtDtCadastro
             // 
-            this.txtDtCadastro.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDtCadastro.Location = new System.Drawing.Point(222, 27);
+            this.txtDtCadastro.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDtCadastro.Location = new System.Drawing.Point(188, 17);
             this.txtDtCadastro.Name = "txtDtCadastro";
             this.txtDtCadastro.ReadOnly = true;
-            this.txtDtCadastro.Size = new System.Drawing.Size(179, 34);
+            this.txtDtCadastro.Size = new System.Drawing.Size(179, 29);
             this.txtDtCadastro.TabIndex = 20;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(-1, 216);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label7.Location = new System.Drawing.Point(0, 145);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 23);
+            this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 23;
             this.label7.Text = "Endereço";
             // 
             // txtEndereco
             // 
-            this.txtEndereco.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEndereco.Location = new System.Drawing.Point(3, 242);
+            this.txtEndereco.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndereco.Location = new System.Drawing.Point(3, 161);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(398, 34);
+            this.txtEndereco.Size = new System.Drawing.Size(364, 29);
             this.txtEndereco.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(218, 76);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label8.Location = new System.Drawing.Point(185, 49);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 23);
+            this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 25;
             this.label8.Text = "Telefone";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(218, 147);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label9.Location = new System.Drawing.Point(185, 97);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 23);
+            this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 27;
             this.label9.Text = "Email";
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(222, 173);
+            this.txtEmail.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(188, 113);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(179, 34);
+            this.txtEmail.Size = new System.Drawing.Size(179, 29);
             this.txtEmail.TabIndex = 26;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(294, 395);
+            this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(279, 412);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(119, 50);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 33);
             this.btnCancelar.TabIndex = 29;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -210,11 +238,10 @@
             // btnSalvar
             // 
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(169, 395);
+            this.btnSalvar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.Location = new System.Drawing.Point(173, 412);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(119, 50);
+            this.btnSalvar.Size = new System.Drawing.Size(100, 33);
             this.btnSalvar.TabIndex = 28;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -226,6 +253,14 @@
             // 
             // pnlCadastro
             // 
+            this.pnlCadastro.Controls.Add(this.label12);
+            this.pnlCadastro.Controls.Add(this.label11);
+            this.pnlCadastro.Controls.Add(this.textBox2);
+            this.pnlCadastro.Controls.Add(this.maskedTextBox2);
+            this.pnlCadastro.Controls.Add(this.maskedTextBox1);
+            this.pnlCadastro.Controls.Add(this.label10);
+            this.pnlCadastro.Controls.Add(this.textBox1);
+            this.pnlCadastro.Controls.Add(this.label5);
             this.pnlCadastro.Controls.Add(this.txtTelefone);
             this.pnlCadastro.Controls.Add(this.txtCPF);
             this.pnlCadastro.Controls.Add(this.txtRG);
@@ -240,43 +275,37 @@
             this.pnlCadastro.Controls.Add(this.label7);
             this.pnlCadastro.Controls.Add(this.txtDtCadastro);
             this.pnlCadastro.Controls.Add(this.label4);
-            this.pnlCadastro.Location = new System.Drawing.Point(12, 106);
+            this.pnlCadastro.Location = new System.Drawing.Point(8, 115);
             this.pnlCadastro.Name = "pnlCadastro";
-            this.pnlCadastro.Size = new System.Drawing.Size(405, 283);
+            this.pnlCadastro.Size = new System.Drawing.Size(371, 291);
             this.pnlCadastro.TabIndex = 30;
             // 
-            // pictureBox1
+            // txtTelefone
             // 
-            this.pictureBox1.Image = global::View.Properties.Resources.pngwing_com__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 92);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
+            this.txtTelefone.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefone.Location = new System.Drawing.Point(188, 65);
+            this.txtTelefone.Mask = "(##) # ####-####";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(179, 29);
+            this.txtTelefone.TabIndex = 30;
             // 
-            // cbxFiltro
+            // txtCPF
             // 
-            this.cbxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxFiltro.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            this.cbxFiltro.FormattingEnabled = true;
-            this.cbxFiltro.Items.AddRange(new object[] {
-            "ADM",
-            "VENDEDOR"});
-            this.cbxFiltro.Location = new System.Drawing.Point(422, 4);
-            this.cbxFiltro.Name = "cbxFiltro";
-            this.cbxFiltro.Size = new System.Drawing.Size(152, 34);
-            this.cbxFiltro.TabIndex = 63;
-            this.cbxFiltro.Visible = false;
+            this.txtCPF.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPF.Location = new System.Drawing.Point(3, 113);
+            this.txtCPF.Mask = "###.###.###-##";
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(179, 29);
+            this.txtCPF.TabIndex = 29;
             // 
-            // txtProcurar
+            // txtRG
             // 
-            this.txtProcurar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProcurar.Location = new System.Drawing.Point(580, 4);
-            this.txtProcurar.Name = "txtProcurar";
-            this.txtProcurar.Size = new System.Drawing.Size(434, 34);
-            this.txtProcurar.TabIndex = 62;
-            this.txtProcurar.Visible = false;
+            this.txtRG.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRG.Location = new System.Drawing.Point(3, 65);
+            this.txtRG.Mask = "##.###.###-##";
+            this.txtRG.Name = "txtRG";
+            this.txtRG.Size = new System.Drawing.Size(179, 29);
+            this.txtRG.TabIndex = 28;
             // 
             // dgvPedidoItens
             // 
@@ -296,12 +325,12 @@
             this.valorProduto,
             this.plataforma,
             this.prazoGarantia});
-            this.dgvPedidoItens.Location = new System.Drawing.Point(422, 44);
+            this.dgvPedidoItens.Location = new System.Drawing.Point(394, 60);
             this.dgvPedidoItens.Name = "dgvPedidoItens";
             this.dgvPedidoItens.ReadOnly = true;
             this.dgvPedidoItens.RowHeadersVisible = false;
             this.dgvPedidoItens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidoItens.Size = new System.Drawing.Size(592, 401);
+            this.dgvPedidoItens.Size = new System.Drawing.Size(592, 150);
             this.dgvPedidoItens.TabIndex = 64;
             // 
             // Cod
@@ -381,42 +410,315 @@
             this.prazoGarantia.Name = "prazoGarantia";
             this.prazoGarantia.ReadOnly = true;
             // 
-            // txtRG
+            // dgvPedidoItensCancelados
             // 
-            this.txtRG.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            this.txtRG.Location = new System.Drawing.Point(3, 102);
-            this.txtRG.Mask = "##.###.###-##";
-            this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(179, 34);
-            this.txtRG.TabIndex = 28;
+            this.dgvPedidoItensCancelados.AllowUserToAddRows = false;
+            this.dgvPedidoItensCancelados.AllowUserToDeleteRows = false;
+            this.dgvPedidoItensCancelados.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPedidoItensCancelados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidoItensCancelados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.dgvPedidoItensCancelados.Location = new System.Drawing.Point(394, 282);
+            this.dgvPedidoItensCancelados.Name = "dgvPedidoItensCancelados";
+            this.dgvPedidoItensCancelados.ReadOnly = true;
+            this.dgvPedidoItensCancelados.RowHeadersVisible = false;
+            this.dgvPedidoItensCancelados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPedidoItensCancelados.Size = new System.Drawing.Size(592, 150);
+            this.dgvPedidoItensCancelados.TabIndex = 65;
             // 
-            // txtCPF
+            // dataGridViewTextBoxColumn1
             // 
-            this.txtCPF.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            this.txtCPF.Location = new System.Drawing.Point(3, 173);
-            this.txtCPF.Mask = "###.###.###-##";
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(179, 34);
-            this.txtCPF.TabIndex = 29;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Codigo";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Codigo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // txtTelefone
+            // dataGridViewTextBoxColumn2
             // 
-            this.txtTelefone.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            this.txtTelefone.Location = new System.Drawing.Point(222, 102);
-            this.txtTelefone.Mask = "(##) # ####-####";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(179, 34);
-            this.txtTelefone.TabIndex = 30;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CodigoPedido";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Codigo Pedido";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NomeCliente";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nome Cliente";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CodigoBarras";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Codigo de Barras";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "NomeProduto";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nome do Produto";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Categoria";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Categoria";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Fabricante";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Fabricante";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Quantidade";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Quantidade";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "ValorProduto";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Valor do Produto";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Plataforma";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Plataforma";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "PrazoGarantia";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Garantia";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // lblExibidosTotal
+            // 
+            this.lblExibidosTotal.AutoSize = true;
+            this.lblExibidosTotal.Location = new System.Drawing.Point(391, 212);
+            this.lblExibidosTotal.Name = "lblExibidosTotal";
+            this.lblExibidosTotal.Size = new System.Drawing.Size(81, 13);
+            this.lblExibidosTotal.TabIndex = 68;
+            this.lblExibidosTotal.Text = "Exibidos total: 0";
+            // 
+            // lblExibidosTotalCancelados
+            // 
+            this.lblExibidosTotalCancelados.AutoSize = true;
+            this.lblExibidosTotalCancelados.Location = new System.Drawing.Point(391, 435);
+            this.lblExibidosTotalCancelados.Name = "lblExibidosTotalCancelados";
+            this.lblExibidosTotalCancelados.Size = new System.Drawing.Size(81, 13);
+            this.lblExibidosTotalCancelados.TabIndex = 69;
+            this.lblExibidosTotalCancelados.Text = "Exibidos total: 0";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(3, 257);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(179, 29);
+            this.textBox1.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label5.Location = new System.Drawing.Point(0, 241);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Bairro";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label10.Location = new System.Drawing.Point(185, 241);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "CEP";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(188, 257);
+            this.maskedTextBox1.Mask = "###.###.###-##";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(179, 29);
+            this.maskedTextBox1.TabIndex = 35;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox2.Location = new System.Drawing.Point(3, 209);
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(179, 29);
+            this.maskedTextBox2.TabIndex = 36;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(188, 209);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(179, 29);
+            this.textBox2.TabIndex = 37;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label11.Location = new System.Drawing.Point(0, 193);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Número";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label12.Location = new System.Drawing.Point(185, 193);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Complemento";
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(886, 22);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
+            this.btnPesquisar.TabIndex = 79;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            // 
+            // lblPesquisar
+            // 
+            this.lblPesquisar.AutoSize = true;
+            this.lblPesquisar.Location = new System.Drawing.Point(556, 6);
+            this.lblPesquisar.Name = "lblPesquisar";
+            this.lblPesquisar.Size = new System.Drawing.Size(53, 13);
+            this.lblPesquisar.TabIndex = 78;
+            this.lblPesquisar.Text = "Pesquisar";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(391, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 13);
+            this.label14.TabIndex = 77;
+            this.label14.Text = "Filtro";
+            // 
+            // txtProcurar
+            // 
+            this.txtProcurar.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProcurar.Location = new System.Drawing.Point(559, 22);
+            this.txtProcurar.Name = "txtProcurar";
+            this.txtProcurar.Size = new System.Drawing.Size(321, 29);
+            this.txtProcurar.TabIndex = 75;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(886, 247);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 26);
+            this.button1.TabIndex = 84;
+            this.button1.Text = "Pesquisar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(556, 231);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 13);
+            this.label15.TabIndex = 83;
+            this.label15.Text = "Pesquisar";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(391, 231);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 13);
+            this.label16.TabIndex = 82;
+            this.label16.Text = "Filtro";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "CODIGO PEDIDO",
+            "NOME PRODUTO"});
+            this.comboBox1.Location = new System.Drawing.Point(394, 247);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(159, 31);
+            this.comboBox1.TabIndex = 81;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(559, 247);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(321, 29);
+            this.textBox3.TabIndex = 80;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "CODIGO PEDIDO",
+            "NOME PRODUTO"});
+            this.comboBox2.Location = new System.Drawing.Point(394, 22);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(159, 31);
+            this.comboBox2.TabIndex = 85;
             // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 457);
-            this.Controls.Add(this.dgvPedidoItens);
-            this.Controls.Add(this.cbxFiltro);
+            this.ClientSize = new System.Drawing.Size(997, 457);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.lblPesquisar);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.txtProcurar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblExibidosTotalCancelados);
+            this.Controls.Add(this.lblExibidosTotal);
+            this.Controls.Add(this.dgvPedidoItensCancelados);
+            this.Controls.Add(this.dgvPedidoItens);
             this.Controls.Add(this.pnlCadastro);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
@@ -431,8 +733,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.pnlCadastro.ResumeLayout(false);
             this.pnlCadastro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItensCancelados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,9 +759,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Panel pnlCadastro;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox cbxFiltro;
-        private System.Windows.Forms.TextBox txtProcurar;
         private System.Windows.Forms.DataGridView dgvPedidoItens;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoPedido;
@@ -475,5 +774,37 @@
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.MaskedTextBox txtCPF;
         private System.Windows.Forms.MaskedTextBox txtRG;
+        private System.Windows.Forms.DataGridView dgvPedidoItensCancelados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.Label lblExibidosTotal;
+        private System.Windows.Forms.Label lblExibidosTotalCancelados;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Label lblPesquisar;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtProcurar;
     }
 }

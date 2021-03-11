@@ -35,11 +35,9 @@
             this.btnLogar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.pnlSenha = new System.Windows.Forms.Panel();
             this.lblInvalido = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -117,16 +115,6 @@
             this.txtSenha.TabIndex = 1;
             this.txtSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::View.Properties.Resources.pngwing_com;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(210, 190);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 60;
-            this.pictureBox1.TabStop = false;
-            // 
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(140)))), ((int)(((byte)(90)))));
@@ -163,7 +151,6 @@
             this.Controls.Add(this.lblInvalido);
             this.Controls.Add(this.pnlSenha);
             this.Controls.Add(this.pnlLogin);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.btnCancelar);
@@ -178,7 +165,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,7 +178,6 @@
         private System.Windows.Forms.Button btnLogar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.Panel pnlSenha;
         private System.Windows.Forms.Label lblInvalido;

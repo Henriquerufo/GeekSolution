@@ -14,12 +14,21 @@ namespace View
 {
     public partial class FrmCadastroLogin : Form
     {
+        ControllerConfiguracaoSQLCentral controllerConfiguracaoSQLCentral = new ControllerConfiguracaoSQLCentral();
+        ModelConfiguracaoSQLCentral modelConfiguracaoSQLCentral = new ModelConfiguracaoSQLCentral();
         string Codigo;
+        int loginsCadastrados;
+        int loginsContratados;
         ModelLogin modelLogin = new ModelLogin();
         ControllerLogin controllerLogin = new ControllerLogin();
         public FrmCadastroLogin(ModelLogin modelLogin)
         {
             InitializeComponent();
+            loginsCadastrados = controllerLogin.VerificarLoginsCadastrados();
+            lblLoginsCadastrados.Text = "Cadastrados: " + loginsCadastrados.ToString();
+            loginsContratados = controllerLogin.VerificarLoginsContratados();
+            lblLoginsContratados.Text = "Contratados: " + loginsContratados.ToString();
+
             if (!string.IsNullOrWhiteSpace(modelLogin.Codigo))
             {
                 btnCadastrar.Text = "Editar";
@@ -36,6 +45,14 @@ namespace View
                 if (modelLogin.Nivel == "Vendedor")
                 {
                     rbVendedor.Checked = true;
+                }
+                if (modelLogin.Nivel == "Estoquista")
+                {
+                    rbEstoquista.Checked = true;
+                }
+                if (modelLogin.Nivel == "Supervisor")
+                {
+                    rbSupervisor.Checked = true;
                 }
             }
             if (modelLogin.Consultar == true)
@@ -57,6 +74,14 @@ namespace View
                 {
                     rbVendedor.Checked = true;
                 }
+                if (modelLogin.Nivel == "Estoquista")
+                {
+                    rbEstoquista.Checked = true;
+                }
+                if (modelLogin.Nivel == "Supervisor")
+                {
+                    rbSupervisor.Checked = true;
+                }
             }
         }
 
@@ -74,8 +99,10 @@ namespace View
             }
             else
             {
-                if (!string.IsNullOrWhiteSpace(Codigo))
+                //Salva o usuario editado
+                if (!string.IsNullOrWhiteSpace(Codigo) && loginsCadastrados < loginsContratados)
                 {
+                    loginsCadastrados++;
                     modelLogin.Codigo = Codigo;
                     modelLogin.ID = txtID.Text;
                     if (txtSenha.Text == txtConfirmarSenha.Text)
@@ -104,41 +131,65 @@ namespace View
                     {
                         modelLogin.Nivel = "Supervisor";
                     }
-
+                    modelConfiguracaoSQLCentral = controllerConfiguracaoSQLCentral.Carregar();
+                    modelLogin.IDTecSistemas = modelConfiguracaoSQLCentral.IDTecSistemas;
                     controllerLogin.Editar(modelLogin);
                 }
+                //Cadastra um novo usuario
                 else
                 {
-                    modelLogin.ID = txtID.Text;
-                    if (txtSenha.Text == txtConfirmarSenha.Text)
+                    if (loginsCadastrados < loginsContratados)
                     {
-                        modelLogin.Senha = txtSenha.Text;
+                        loginsCadastrados++;
+                        modelLogin.ID = txtID.Text;
+                        if (txtSenha.Text == txtConfirmarSenha.Text)
+                        {
+                            modelLogin.Senha = txtSenha.Text;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Senhas diferentes", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                        if (rbAdministrador.Checked == true)
+                        {
+                            modelLogin.Nivel = "Administrador";
+                        }
+                        if (rbVendedor.Checked == true)
+                        {
+                            modelLogin.Nivel = "Vendedor";
+                        }
+                        if (rbEstoquista.Checked == true)
+                        {
+                            modelLogin.Nivel = "Estoquista";
+                        }
+                        if (rbSupervisor.Checked == true)
+                        {
+                            modelLogin.Nivel = "Supervisor";
+                        }
+                        modelConfiguracaoSQLCentral = controllerConfiguracaoSQLCentral.Carregar();
+                        modelLogin.IDTecSistemas = modelConfiguracaoSQLCentral.IDTecSistemas;
+                        if (controllerLogin.VerificarLoginExistente(modelLogin))
+                        {
+                            controllerLogin.Cadastrar(modelLogin);
+                        }
+                        else
+                        {
+                            MessageBox.Show("O ID: " + modelLogin.ID + " já está cadastrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Senhas diferentes", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-
-                    if (rbAdministrador.Checked == true)
-                    {
-                        modelLogin.Nivel = "Administrador";
-                    }
-                    if (rbVendedor.Checked == true)
-                    {
-                        modelLogin.Nivel = "Vendedor";
-                    }
-                    if (rbEstoquista.Checked == true)
-                    {
-                        modelLogin.Nivel = "Estoquista";
-                    }
-                    if (rbSupervisor.Checked == true)
-                    {
-                        modelLogin.Nivel = "Supervisor";
-                    }
-                    controllerLogin.Cadastrar(modelLogin);
                 }
             }
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

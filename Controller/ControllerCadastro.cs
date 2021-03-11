@@ -77,7 +77,7 @@ namespace Controller
         }
         public DataTable CarregarPedidosItens(string nome)
         {
-            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '" + nome + "'");
+            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '" + nome + "' AND statusVenda = 'Finalizada';");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
@@ -85,9 +85,9 @@ namespace Controller
 
             return dt;
         }
-        public DataTable CarregarPedidosItensCodigo(string Codigo)
+        public DataTable CarregarPedidosItensCancelados(string nome)
         {
-            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE CodigoPedido LIKE '" + Codigo + "'");
+            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '" + nome + "' AND statusVenda = 'Cancelada';");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();

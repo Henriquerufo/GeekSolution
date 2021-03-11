@@ -25,17 +25,25 @@ namespace View
             lblExibidosTotal.Text = "Exibidos total: " + dgvFinanceiro.Rows.Count.ToString();
         }
 
-        private void txtProcurar_TextChanged(object sender, EventArgs e)
-        {
-            Carregar(txtProcurar.Text);
-        }
-
         private void dgvFinanceiro_DoubleClick(object sender, EventArgs e)
         {
-            ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
-            modelFinanceiro.CodigoPedido = dgvFinanceiro.CurrentRow.Cells["codigo"].Value.ToString();
-            FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
-            frmConsultarPedidoItens.ShowDialog();
+            if (dgvFinanceiro.Rows.Count > 0)
+            {
+                ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
+                modelFinanceiro.CodigoPedido = dgvFinanceiro.CurrentRow.Cells["codigo"].Value.ToString();
+                FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
+                frmConsultarPedidoItens.ShowDialog();
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            Carregar(txtProcurar.Text);
         }
     }
 }

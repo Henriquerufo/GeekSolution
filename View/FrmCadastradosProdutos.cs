@@ -24,8 +24,7 @@ namespace View
                 btnCadastrar.Visible = false;
                 btnDeletar.Visible = false;
                 btnSalvar.Visible = false;
-                panel1.Visible = false;
-                btnConsultar.Location = new Point(12, 352);
+                btnConsultar.Location = new Point(576, 441);
                 Text = "Consultar Produtos";
             }
             cbxFiltro.SelectedIndex = 0;
@@ -49,51 +48,68 @@ namespace View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            modelCadastroProduto.Consultar = false;
-            modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
-            modelCadastroProduto.CodigoBarras = dgvProduto.CurrentRow.Cells["codigoBarras"].Value.ToString();
-            modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
-            modelCadastroProduto.Categoria = dgvProduto.CurrentRow.Cells["categoria"].Value.ToString();
-            modelCadastroProduto.Fabricante = dgvProduto.CurrentRow.Cells["fabricante"].Value.ToString();
-            modelCadastroProduto.Quantidade = dgvProduto.CurrentRow.Cells["quantidade"].Value.ToString();
-            modelCadastroProduto.ValorProduto = dgvProduto.CurrentRow.Cells["valorProduto"].Value.ToString();
-            modelCadastroProduto.Plataforma = dgvProduto.CurrentRow.Cells["plataforma"].Value.ToString();
-            modelCadastroProduto.Garantia = dgvProduto.CurrentRow.Cells["prazoGarantia"].Value.ToString();
+            if (dgvProduto.Rows.Count == 0){ }
+            else
+            {
+                modelCadastroProduto.Consultar = false;
+                modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
+                modelCadastroProduto.CodigoBarras = dgvProduto.CurrentRow.Cells["codigoBarras"].Value.ToString();
+                modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
+                modelCadastroProduto.Categoria = dgvProduto.CurrentRow.Cells["categoria"].Value.ToString();
+                modelCadastroProduto.Fabricante = dgvProduto.CurrentRow.Cells["fabricante"].Value.ToString();
+                modelCadastroProduto.Quantidade = dgvProduto.CurrentRow.Cells["quantidade"].Value.ToString();
+                modelCadastroProduto.ValorProduto = dgvProduto.CurrentRow.Cells["valorProduto"].Value.ToString();
+                modelCadastroProduto.Plataforma = dgvProduto.CurrentRow.Cells["plataforma"].Value.ToString();
+                modelCadastroProduto.Garantia = dgvProduto.CurrentRow.Cells["prazoGarantia"].Value.ToString();
 
-            FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
-            frmCadastrarProduto.ShowDialog();
+                FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
+                frmCadastrarProduto.ShowDialog();
+            }
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
-            var result = MessageBox.Show(modelCadastroProduto.NomeProduto + " será excluido", "DELETAR", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (result == DialogResult.OK)
+            if (dgvProduto.Rows.Count == 0){ }
+            else
             {
-                modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
+                modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
+                var result = MessageBox.Show(modelCadastroProduto.NomeProduto + " será excluido", "DELETAR", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
 
-                controllerCadastroProduto.Deletar(modelCadastroProduto);
+                    controllerCadastroProduto.Deletar(modelCadastroProduto);
+                }
             }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            modelCadastroProduto.Consultar = true;
-            modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
-            modelCadastroProduto.CodigoBarras = dgvProduto.CurrentRow.Cells["codigoBarras"].Value.ToString();
-            modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
-            modelCadastroProduto.Categoria = dgvProduto.CurrentRow.Cells["categoria"].Value.ToString();
-            modelCadastroProduto.Fabricante = dgvProduto.CurrentRow.Cells["fabricante"].Value.ToString();
-            modelCadastroProduto.Quantidade = dgvProduto.CurrentRow.Cells["quantidade"].Value.ToString();
-            modelCadastroProduto.ValorProduto = dgvProduto.CurrentRow.Cells["valorProduto"].Value.ToString();
-            modelCadastroProduto.Plataforma = dgvProduto.CurrentRow.Cells["plataforma"].Value.ToString();
-            modelCadastroProduto.Garantia = dgvProduto.CurrentRow.Cells["prazoGarantia"].Value.ToString();
+            if (dgvProduto.Rows.Count == 0){ }
+            else
+            {
+                modelCadastroProduto.Consultar = true;
+                modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
+                modelCadastroProduto.CodigoBarras = dgvProduto.CurrentRow.Cells["codigoBarras"].Value.ToString();
+                modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
+                modelCadastroProduto.Categoria = dgvProduto.CurrentRow.Cells["categoria"].Value.ToString();
+                modelCadastroProduto.Fabricante = dgvProduto.CurrentRow.Cells["fabricante"].Value.ToString();
+                modelCadastroProduto.Quantidade = dgvProduto.CurrentRow.Cells["quantidade"].Value.ToString();
+                modelCadastroProduto.ValorProduto = dgvProduto.CurrentRow.Cells["valorProduto"].Value.ToString();
+                modelCadastroProduto.Plataforma = dgvProduto.CurrentRow.Cells["plataforma"].Value.ToString();
+                modelCadastroProduto.Garantia = dgvProduto.CurrentRow.Cells["prazoGarantia"].Value.ToString();
 
-            FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
-            frmCadastrarProduto.ShowDialog();
+                FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
+                frmCadastrarProduto.ShowDialog();
+            }
         }
 
-        private void txtProcurar_TextChanged(object sender, EventArgs e)
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
         {
             if (cbxFiltro.Text == "CODIGO")
             {
@@ -103,25 +119,7 @@ namespace View
             {
                 CarregarPorNome(txtProcurar.Text);
             }
-            
             lblExibidosTotal.Text = "Exibidos total: " + dgvProduto.Rows.Count;
-            if (dgvProduto.Rows.Count > 0)
-            {
-                btnConsultar.Enabled = true;
-                btnDeletar.Enabled = true;
-                btnSalvar.Enabled = true;
-            }
-            else
-            {
-                btnConsultar.Enabled = false;
-                btnDeletar.Enabled = false;
-                btnSalvar.Enabled = false;
-            }
-        }
-
-        private void btnFechar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

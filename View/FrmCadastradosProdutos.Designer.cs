@@ -45,15 +45,13 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.lblExibidosTotal = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxFiltro = new System.Windows.Forms.ComboBox();
             this.txtProcurar = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProduto
@@ -72,12 +70,12 @@
             this.valorProduto,
             this.plataforma,
             this.prazoGarantia});
-            this.dgvProduto.Location = new System.Drawing.Point(137, 64);
+            this.dgvProduto.Location = new System.Drawing.Point(12, 63);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
             this.dgvProduto.RowHeadersVisible = false;
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduto.Size = new System.Drawing.Size(592, 401);
+            this.dgvProduto.Size = new System.Drawing.Size(777, 371);
             this.dgvProduto.TabIndex = 0;
             // 
             // codigo
@@ -146,11 +144,10 @@
             // btnCadastrar
             // 
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(12, 240);
+            this.btnCadastrar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Location = new System.Drawing.Point(364, 441);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(119, 50);
+            this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
             this.btnCadastrar.TabIndex = 14;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -159,12 +156,10 @@
             // btnDeletar
             // 
             this.btnDeletar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeletar.Enabled = false;
-            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeletar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletar.Location = new System.Drawing.Point(12, 352);
+            this.btnDeletar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletar.Location = new System.Drawing.Point(576, 441);
             this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(119, 50);
+            this.btnDeletar.Size = new System.Drawing.Size(100, 33);
             this.btnDeletar.TabIndex = 13;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
@@ -173,12 +168,10 @@
             // btnSalvar
             // 
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalvar.Enabled = false;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(12, 296);
+            this.btnSalvar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.Location = new System.Drawing.Point(470, 441);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(119, 50);
+            this.btnSalvar.Size = new System.Drawing.Size(100, 33);
             this.btnSalvar.TabIndex = 12;
             this.btnSalvar.Text = "Editar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -187,12 +180,10 @@
             // btnConsultar
             // 
             this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultar.Enabled = false;
-            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.Location = new System.Drawing.Point(12, 177);
+            this.btnConsultar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultar.Location = new System.Drawing.Point(258, 441);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(119, 50);
+            this.btnConsultar.Size = new System.Drawing.Size(100, 33);
             this.btnConsultar.TabIndex = 34;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -201,11 +192,10 @@
             // btnFechar
             // 
             this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.Location = new System.Drawing.Point(12, 415);
+            this.btnFechar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.Location = new System.Drawing.Point(689, 441);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(119, 50);
+            this.btnFechar.Size = new System.Drawing.Size(100, 33);
             this.btnFechar.TabIndex = 41;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
@@ -214,42 +204,16 @@
             // lblExibidosTotal
             // 
             this.lblExibidosTotal.AutoSize = true;
-            this.lblExibidosTotal.Location = new System.Drawing.Point(134, 468);
+            this.lblExibidosTotal.Location = new System.Drawing.Point(9, 437);
             this.lblExibidosTotal.Name = "lblExibidosTotal";
             this.lblExibidosTotal.Size = new System.Drawing.Size(81, 13);
             this.lblExibidosTotal.TabIndex = 42;
             this.lblExibidosTotal.Text = "Exibidos total: 0";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(12, 408);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(119, 1);
-            this.panel2.TabIndex = 43;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(12, 233);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(119, 1);
-            this.panel1.TabIndex = 44;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::View.Properties.Resources.box;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 92);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 45;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblPesquisar
             // 
             this.lblPesquisar.AutoSize = true;
-            this.lblPesquisar.Location = new System.Drawing.Point(292, 8);
+            this.lblPesquisar.Location = new System.Drawing.Point(174, 9);
             this.lblPesquisar.Name = "lblPesquisar";
             this.lblPesquisar.Size = new System.Drawing.Size(53, 13);
             this.lblPesquisar.TabIndex = 49;
@@ -258,7 +222,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(134, 8);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 48;
@@ -267,37 +231,53 @@
             // cbxFiltro
             // 
             this.cbxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxFiltro.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.cbxFiltro.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxFiltro.FormattingEnabled = true;
             this.cbxFiltro.Items.AddRange(new object[] {
             "CODIGO",
             "NOME"});
-            this.cbxFiltro.Location = new System.Drawing.Point(137, 24);
+            this.cbxFiltro.Location = new System.Drawing.Point(12, 25);
             this.cbxFiltro.Name = "cbxFiltro";
-            this.cbxFiltro.Size = new System.Drawing.Size(152, 34);
+            this.cbxFiltro.Size = new System.Drawing.Size(159, 31);
             this.cbxFiltro.TabIndex = 47;
             // 
             // txtProcurar
             // 
-            this.txtProcurar.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProcurar.Location = new System.Drawing.Point(295, 24);
+            this.txtProcurar.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProcurar.Location = new System.Drawing.Point(177, 25);
             this.txtProcurar.Name = "txtProcurar";
-            this.txtProcurar.Size = new System.Drawing.Size(434, 34);
+            this.txtProcurar.Size = new System.Drawing.Size(506, 29);
             this.txtProcurar.TabIndex = 46;
-            this.txtProcurar.TextChanged += new System.EventHandler(this.txtProcurar_TextChanged);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(689, 25);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
+            this.btnPesquisar.TabIndex = 74;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(682, 441);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1, 33);
+            this.panel1.TabIndex = 75;
             // 
             // FrmCadastradosProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 490);
+            this.ClientSize = new System.Drawing.Size(801, 486);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxFiltro);
             this.Controls.Add(this.txtProcurar);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblExibidosTotal);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnConsultar);
@@ -312,7 +292,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produtos Cadastrados";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,12 +315,11 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Label lblExibidosTotal;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxFiltro;
         private System.Windows.Forms.TextBox txtProcurar;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Panel panel1;
     }
 }

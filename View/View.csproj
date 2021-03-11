@@ -36,6 +36,8 @@
     <ApplicationIcon>pngwing.com.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -127,12 +129,6 @@
     <Compile Include="FrmSobre.Designer.cs">
       <DependentUpon>FrmSobre.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmVendas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmVendas.Designer.cs">
-      <DependentUpon>FrmVendas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCadastrados.resx">
@@ -170,9 +166,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSobre.resx">
       <DependentUpon>FrmSobre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmVendas.resx">
-      <DependentUpon>FrmVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -214,26 +207,7 @@
     <None Include="Resources\pngwing.com.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pngwing.com %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pngflow.com.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logo-UNIP.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\calculators.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\commerce-and-shopping.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="pngwing.com.ico" />
-    <None Include="Resources\comercio-e-compras.png" />
-    <None Include="Resources\box.png" />
-    <None Include="Resources\seo-and-web.png" />
-    <None Include="Resources\symbol.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

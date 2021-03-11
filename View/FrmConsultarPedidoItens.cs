@@ -14,13 +14,33 @@ namespace View
 {
     public partial class FrmConsultarPedidoItens : Form
     {
-        ControllerCadastro ControllerCadastro = new ControllerCadastro();
+        ControllerConsultarPedidoItens controllerConsultarPedidoItens = new ControllerConsultarPedidoItens();
+        ControllerDevolucaoProduto controllerDevolucaoProduto = new ControllerDevolucaoProduto();
+        ModelDevolucaoPedido modelDevolucaoPedido = new ModelDevolucaoPedido();
         public FrmConsultarPedidoItens(ModelFinanceiro modelFinanceiro)
         {
             InitializeComponent();
             string codigo = modelFinanceiro.CodigoPedido;
-            dgvPedidoItens.DataSource = ControllerCadastro.CarregarPedidosItensCodigo(codigo);
+            //Carrega os pedidos finalizados e cancelados e coloca nos devidos dgv
+            dgvPedidoItens.DataSource = controllerConsultarPedidoItens.CarregarPedidosItensCodigo(codigo);
+            dgvPedidoItensCancelados.DataSource = controllerConsultarPedidoItens.CarregarPedidosItensCodigoCancelados(codigo);
             lblExibidosTotal.Text = "Exibidos total: " + dgvPedidoItens.Rows.Count.ToString();
+            lblExibidosTotalCancelados.Text = "Exibidos total: " + dgvPedidoItensCancelados.Rows.Count.ToString();
+            //Verifica se o cancelarProtudo é verdadeiro e executa
+            if (modelFinanceiro.cancelarProduto)
+            {
+                //lista item por item e executa o a Controller.CancelarPedidoItem
+                foreach (DataGridViewRow row in dgvPedidoItens.Rows)
+                {
+                    modelDevolucaoPedido.Codigo = row.Cells["Cod"].Value.ToString();
+                    modelDevolucaoPedido.CodigoBarras = row.Cells["CodigoBarras"].Value.ToString();
+                    modelDevolucaoPedido.statusPegamento = row.Cells["statusPagamento"].Value.ToString();
+                    modelDevolucaoPedido.statusVenda = row.Cells["statusVenda"].Value.ToString();
+                    
+                    controllerDevolucaoProduto.CancelarPedidoItem(modelDevolucaoPedido);
+                }
+                MessageBox.Show("Todos os itens desse pedido foram cancelados com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

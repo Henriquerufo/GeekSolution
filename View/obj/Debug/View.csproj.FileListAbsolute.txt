@@ -20,7 +20,6 @@ C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmGerenciadorLogins.
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmLogin.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmPrincipal.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmSobre.resources
-C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmVendas.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.Properties.Resources.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmConfiguracaoSQL.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.csproj.GenerateResource.cache

@@ -21,14 +21,15 @@ namespace View
         {
             InitializeComponent();
             Height = 496;
-            Width = 445;
+            Width = 405;
             dgvPedidoItens.Visible = false;
-            txtProcurar.Visible = false;
-            cbxFiltro.Visible = false;
+            dgvPedidoItensCancelados.Visible = false;
+            lblExibidosTotal.Visible = false;
+            lblExibidosTotalCancelados.Visible = false;
             txtDtCadastro.Text = DateTime.Now.ToString();
             if (!string.IsNullOrWhiteSpace(modelCadastro.Codigo))
             {
-                Text = "Editar Cliente";              
+                Text = "Editar Cliente";
                 btnSalvar.Text = "Editar";
                 pnlCadastro.Enabled = false;
                 lblCadastrar.Text = "Editar";
@@ -44,10 +45,11 @@ namespace View
             if (modelCadastro.consulta == true)
             {
                 Height = 496;
-                Width = 1042;
+                Width = 1013;
+                lblExibidosTotal.Visible = true;
+                lblExibidosTotalCancelados.Visible = true;
                 dgvPedidoItens.Visible = true;
-                txtProcurar.Visible = true;
-                cbxFiltro.Visible = true;
+                dgvPedidoItensCancelados.Visible = true;
                 Text = "Consultar Cliente";
                 btnCancelar.Text = "Fechar";
                 btnSalvar.Visible = false;
@@ -62,6 +64,9 @@ namespace View
                 txtTelefone.Text = modelCadastro.Telefone;
                 txtEmail.Text = modelCadastro.Email;
                 dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItens(txtNome.Text);
+                dgvPedidoItensCancelados.DataSource = controllerCadastro.CarregarPedidosItensCancelados(txtNome.Text);
+                lblExibidosTotal.Text = "Exibidos total: " + dgvPedidoItens.Rows.Count;
+                lblExibidosTotalCancelados.Text = "Exibidos total: " + dgvPedidoItensCancelados.Rows.Count;
             }
         }
         public bool Validar()
@@ -112,45 +117,38 @@ namespace View
                 btnSalvar.Text = "Salvar";
                 pnlCadastro.Enabled = true;
             }
-            else
+            else if (btnSalvar.Text == "Salvar" && Validar() && !string.IsNullOrWhiteSpace(codigo))
             {
-                if (Validar())
+                modelCadastro.Codigo = codigo;
+                modelCadastro.Nome = txtNome.Text;
+                modelCadastro.RG = txtRG.Text;
+                modelCadastro.CPF = txtCPF.Text;
+                modelCadastro.dtCadastro = txtDtCadastro.Text;
+                modelCadastro.Email = txtEmail.Text;
+                modelCadastro.Endereco = txtEndereco.Text;
+                modelCadastro.Telefone = txtTelefone.Text;
+
+                bool retorno = controllerCadastro.Editar(modelCadastro);
+                if (retorno)
                 {
-                    if (!string.IsNullOrWhiteSpace(codigo))
-                    {
-                        modelCadastro.Codigo = codigo;
-                        modelCadastro.Nome = txtNome.Text;
-                        modelCadastro.RG = txtRG.Text;
-                        modelCadastro.CPF = txtCPF.Text;
-                        modelCadastro.dtCadastro = txtDtCadastro.Text;
-                        modelCadastro.Email = txtEmail.Text;
-                        modelCadastro.Endereco = txtEndereco.Text;
-                        modelCadastro.Telefone = txtTelefone.Text;
-
-                        bool retorno = controllerCadastro.Editar(modelCadastro);
-                        if (retorno)
-                        {
-                            MessageBox.Show("Editado com sucesso!");
-                            this.Close();
-                        }
-                    }
-                    else
-                    {
-                        modelCadastro.Nome = txtNome.Text;
-                        modelCadastro.RG = txtRG.Text;
-                        modelCadastro.CPF = txtCPF.Text;
-                        modelCadastro.dtCadastro = txtDtCadastro.Text;
-                        modelCadastro.Email = txtEmail.Text;
-                        modelCadastro.Endereco = txtEndereco.Text;
-                        modelCadastro.Telefone = txtTelefone.Text;
-
-                        bool retorno = controllerCadastro.Cadastrar(modelCadastro);
-                        if (retorno)
-                        {
-                            MessageBox.Show("Cadastrado com sucesso!");
-                            this.Close();
-                        }
-                    }
+                    MessageBox.Show("Editado com sucesso!");
+                    this.Close();
+                }
+            }
+            else if (btnSalvar.Text == "Salvar" && Validar())
+            {
+                modelCadastro.Nome = txtNome.Text;
+                modelCadastro.RG = txtRG.Text;
+                modelCadastro.CPF = txtCPF.Text;
+                modelCadastro.dtCadastro = txtDtCadastro.Text;
+                modelCadastro.Email = txtEmail.Text;
+                modelCadastro.Endereco = txtEndereco.Text;
+                modelCadastro.Telefone = txtTelefone.Text;
+                bool retorno = controllerCadastro.Cadastrar(modelCadastro);
+                if (retorno)
+                {
+                    MessageBox.Show("Cadastrado com sucesso!");
+                    this.Close();
                 }
             }
         }

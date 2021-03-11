@@ -27,26 +27,28 @@ namespace View
         {
             this.Close();
         }
-
+        
         void Carregar(string Procurar)
         {
+            //Carrega os PEDIDOS finalizado e cancelados e passa para os devidos dgv
             if (cbxFiltro.Text == "PEDIDO")
             {
                 dgvProduto.DataSource = controllerDevolucaoProduto.CarregarPedido(Procurar);
+                dgvProdutoCancelados.DataSource = controllerDevolucaoProduto.CarregarPedidoCancelados(Procurar);
             }
+            //Carrega os ITENS finalizados e cancelados e passa para os devidos dgv
             if (cbxFiltro.Text == "ITEM")
             {
                 dgvProduto.DataSource = controllerDevolucaoProduto.CarregarItem(Procurar);
+                dgvProdutoCancelados.DataSource = controllerDevolucaoProduto.CarregarItemCancelados(Procurar);
             }
             lblExibidosTotal.Text = "Exibidos total: " + dgvProduto.Rows.Count;
-        }
-        private void txtProcurar_TextChanged(object sender, EventArgs e)
-        {
-            Carregar(txtProcurar.Text);
+            lblExibidosTotalCancelados.Text = "Exibidos total: " + dgvProdutoCancelados.Rows.Count;
         }
 
         private void dgvProduto_DoubleClick(object sender, EventArgs e)
         {
+            //se o cbxFiltro for PEDIDO, permite explorar os itens desse pedido
             if (cbxFiltro.Text == "PEDIDO")
             {
                 ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
@@ -56,28 +58,69 @@ namespace View
             }
         }
 
-        private void cbxFiltro_TextChanged(object sender, EventArgs e)
-        {
-            dgvProduto.DataSource = null;
-        }
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            modelDevolucaoPedido.Codigo = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
-            var result = MessageBox.Show("Codigo: " + modelDevolucaoPedido.Codigo + " será excluido", "ALERTA", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (result == DialogResult.OK)
+            ModelLogin modelLogin = new ModelLogin();
+            modelLogin.Nivel = "?";
+            FrmLogin frmLogin = new FrmLogin(modelLogin);
+            frmLogin.ShowDialog();
+
+            /*Verifica se o usuario está na lista e, se este usuario tem o nivel de Supervisor*/
+            if (frmLogin.Retorno == "Supervisor")
             {
-                if (cbxFiltro.Text == "PEDIDO")
+                modelDevolucaoPedido.Codigo = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
+
+                var result = MessageBox.Show("O " + cbxFiltro.Text + "\nCodigo: " + modelDevolucaoPedido.Codigo + " será cancelado", "ALERTA", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
                 {
-                    controllerDevolucaoProduto.DeletarPedido(modelDevolucaoPedido);
-                    Carregar(txtProcurar.Text);
+                    /*Se o cbxFiltro for Pedido, ele passa o CancelarPedido como verdadeiro, passa o codigo para a frmConsultarPedidoItens e, lá é rodado um foreath
+                     ele deleta item por item baseado no codigoPedido*/
+                    if (cbxFiltro.Text == "PEDIDO")
+                    {
+                        controllerDevolucaoProduto.CancelarPedido(modelDevolucaoPedido);
+                        ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
+                        modelFinanceiro.CodigoPedido = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
+                        modelFinanceiro.cancelarProduto = true;
+                        FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
+                        modelFinanceiro.cancelarProduto = false;
+                        Carregar(txtProcurar.Text);
+                    }
+                    /*se o cbxFiltro for ITEM, ele pega os dados do dgv e passa para a controller para cancelar o item*/
+                    if (cbxFiltro.Text == "ITEM")
+                    {
+                        modelDevolucaoPedido.statusVenda = dgvProduto.CurrentRow.Cells["statusVenda"].Value.ToString();
+                        modelDevolucaoPedido.statusPegamento = dgvProduto.CurrentRow.Cells["statusPagamento"].Value.ToString();
+                        modelDevolucaoPedido.CodigoBarras = dgvProduto.CurrentRow.Cells["CodigoBarras"].Value.ToString();
+                        controllerDevolucaoProduto.CancelarPedidoItem(modelDevolucaoPedido);
+                        Carregar(txtProcurar.Text);
+                    }
                 }
-                if (cbxFiltro.Text == "ITEM")
-                {
-                    controllerDevolucaoProduto.DeletarPedidoItem(modelDevolucaoPedido);
-                    Carregar(txtProcurar.Text);
-                }
+            }    
+        }
+
+        private void dgvProdutoCancelados_DoubleClick(object sender, EventArgs e)
+        {
+            /*Ao realizar um duplo clique no dgv com o CbxFiltro com o text em PEDIDO, o codigo passa pela ModelFinanceiro porque a FrmFinanceiro também
+                 usa a tela de ConsultarPedidoItens*/
+            if (cbxFiltro.Text == "PEDIDO")
+            {
+                ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
+                modelFinanceiro.CodigoPedido = dgvProdutoCancelados.CurrentRow.Cells["Codigo"].Value.ToString();
+                FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
+                frmConsultarPedidoItens.ShowDialog();
             }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            Carregar(txtProcurar.Text);
+        }
+
+        private void cbxFiltro_TextChanged(object sender, EventArgs e)
+        {
+            //Limpa os dgv caso o filtro sejá alterado
+            dgvProduto.DataSource = null;
+            dgvProdutoCancelados.DataSource = null;
         }
     }
 }

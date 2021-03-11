@@ -109,6 +109,7 @@ namespace View
         private void cadastrarNovoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             ModelLogin modelLogin = new ModelLogin();
+            modelLogin.Consultar = false;
             modelLogin.Codigo = null;
             FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
             frmCadastroLogin.Show();
@@ -116,8 +117,7 @@ namespace View
 
         private void abrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmVendas frmVendas = new FrmVendas();
-            frmVendas.Show();
+            
         }
 
         private void consultarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace View
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void devoluçãoProdutoToolStripMenuItem_Click(object sender, EventArgs e)

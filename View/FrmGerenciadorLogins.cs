@@ -20,11 +20,10 @@ namespace View
         {
             InitializeComponent();
             cbxFiltro.SelectedIndex = 0;
-            CarregarTodos();
         }
-        void CarregarTodos()
+        void CarregarTodos(string Procurar)
         {
-            dgvLogin.DataSource = controllerLogin.CarregarTodos();
+            dgvLogin.DataSource = controllerLogin.CarregarTodos(Procurar);
         }
         void Carregar(string Nivel, string ID)
         {
@@ -45,17 +44,51 @@ namespace View
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            modelLogin.Codigo = dgvLogin.CurrentRow.Cells["codigo"].Value.ToString();
-            modelLogin.ID = dgvLogin.CurrentRow.Cells["id"].Value.ToString();
-
-            var result = MessageBox.Show(modelLogin.ID + " será excluido", "Deletar", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (result == DialogResult.OK)
+            if (dgvLogin.Rows.Count == 0) { }
+            else
             {
-                controllerLogin.Deletar(modelLogin);
+                modelLogin.Codigo = dgvLogin.CurrentRow.Cells["codigo"].Value.ToString();
+                modelLogin.ID = dgvLogin.CurrentRow.Cells["id"].Value.ToString();
+
+                var result = MessageBox.Show(modelLogin.ID + " será excluido", "Deletar", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    controllerLogin.Deletar(modelLogin);
+                }
+            }   
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            if (dgvLogin.Rows.Count == 0){ }
+            else
+            {
+                modelLogin.Consultar = true;
+                modelLogin.ID = dgvLogin.CurrentRow.Cells["id"].Value.ToString();
+                modelLogin.Senha = dgvLogin.CurrentRow.Cells["senha"].Value.ToString();
+                modelLogin.Nivel = dgvLogin.CurrentRow.Cells["nivel"].Value.ToString();
+                FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
+                frmCadastroLogin.ShowDialog();
             }
         }
 
-        private void txtProcurar_TextChanged(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+            if (dgvLogin.Rows.Count == 0) { }
+            else
+            {
+                modelLogin.Consultar = false;
+                modelLogin.Codigo = dgvLogin.CurrentRow.Cells["codigo"].Value.ToString();
+                modelLogin.ID = dgvLogin.CurrentRow.Cells["id"].Value.ToString();
+                modelLogin.Senha = dgvLogin.CurrentRow.Cells["senha"].Value.ToString();
+                modelLogin.Nivel = dgvLogin.CurrentRow.Cells["nivel"].Value.ToString();
+                FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
+                frmCadastroLogin.ShowDialog();
+            }        
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
         {
             if (cbxFiltro.Text == "ADM")
             {
@@ -75,42 +108,9 @@ namespace View
             }
             if (cbxFiltro.Text == "TODOS")
             {
-                CarregarTodos();
+                CarregarTodos(txtProcurar.Text);
             }
             lblExibidosTotal.Text = "Exibidos total: " + dgvLogin.Rows.Count;
-            if (dgvLogin.Rows.Count > 0)
-            {
-                btnConsultar.Enabled = true;
-                btnEditar.Enabled = true;
-                btnDeletar.Enabled = true;
-            }
-            else
-            {
-                btnConsultar.Enabled = false;
-                btnEditar.Enabled = false;
-                btnDeletar.Enabled = false;
-            }
-        }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            modelLogin.Consultar = true;
-            modelLogin.ID = dgvLogin.CurrentRow.Cells["id"].Value.ToString();
-            modelLogin.Senha = dgvLogin.CurrentRow.Cells["senha"].Value.ToString();
-            modelLogin.Nivel = dgvLogin.CurrentRow.Cells["nivel"].Value.ToString();
-            FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
-            frmCadastroLogin.ShowDialog();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            modelLogin.Consultar = false;
-            modelLogin.Codigo = dgvLogin.CurrentRow.Cells["codigo"].Value.ToString();
-            modelLogin.ID = dgvLogin.CurrentRow.Cells["id"].Value.ToString();
-            modelLogin.Senha = dgvLogin.CurrentRow.Cells["senha"].Value.ToString();
-            modelLogin.Nivel = dgvLogin.CurrentRow.Cells["nivel"].Value.ToString();
-            FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
-            frmCadastroLogin.ShowDialog();
         }
     }
 }

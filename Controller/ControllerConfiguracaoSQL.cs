@@ -31,7 +31,7 @@ namespace Controller
                 throw new Exception();
             }
         }
-        public bool Conectar(ModelConfiguracaoSQL modelConfiguracaoSQL)
+        public bool SalvarConexao(ModelConfiguracaoSQL modelConfiguracaoSQL)
         {
             try
             {

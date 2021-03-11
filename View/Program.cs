@@ -1,8 +1,7 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace View
@@ -15,10 +14,41 @@ namespace View
         [STAThread]
         static void Main()
         {
-            ModelLogin modelLogin = new ModelLogin();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin(modelLogin));
+            ControllerConfiguracaoSQLCentral controllerConfiguracaoSQLCentral = new ControllerConfiguracaoSQLCentral();
+            ControllerConfiguracaoSQL controllerConfiguracaoSQL = new ControllerConfiguracaoSQL();
+            ModelConfiguracaoSQLCentral modelConfiguracaoSQLCentral = new ModelConfiguracaoSQLCentral();
+            ModelConfiguracaoSQL modelConfiguracaoSQL = new ModelConfiguracaoSQL();
+            modelConfiguracaoSQLCentral = controllerConfiguracaoSQLCentral.Carregar();
+
+            string instrucao = string.Format(@"SELECT * FROM tbCadastro WHERE idTecSistemas = '" + modelConfiguracaoSQLCentral.IDTecSistemas + "' AND senhaTecSistemas = '" + modelConfiguracaoSQLCentral.SenhaTecSistemas + "' AND status = '1'");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQLCentral.Conectar());
+            SqlDataReader sqlDataReader;
+
+            sqlDataReader = command.ExecuteReader();
+            if (sqlDataReader.HasRows)
+            {
+                string conexaoBanco = string.Format(@"SELECT servidorBD, nomeBD, idBD, senhaBD FROM tbCadastro WHERE idTecSistemas = '" + modelConfiguracaoSQLCentral.IDTecSistemas + "'");
+                SqlCommand command1 = new SqlCommand(conexaoBanco, controllerConfiguracaoSQLCentral.Conectar());
+                SqlDataReader sqlDataReader1 = command1.ExecuteReader();
+                sqlDataReader1.Read();
+                modelConfiguracaoSQL.ServidorBD = sqlDataReader1["servidorBD"].ToString();
+                modelConfiguracaoSQL.NomeBD = sqlDataReader1["nomeBD"].ToString();
+                modelConfiguracaoSQL.IDBD = sqlDataReader1["idBD"].ToString();
+                modelConfiguracaoSQL.SenhaBD = sqlDataReader1["senhaBD"].ToString();
+               
+                controllerConfiguracaoSQL.SalvarConexao(modelConfiguracaoSQL);
+
+                ModelLogin modelLogin = new ModelLogin();
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new FrmLogin(modelLogin));
+            }
+            else
+            {
+                MessageBox.Show("O sistema está desativado/vencido, entre em contato com o desenvolvedor.", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FrmConfiguracaoSQL frmConfiguracaoSQL = new FrmConfiguracaoSQL();
+                frmConfiguracaoSQL.ShowDialog();
+            }
         }
     }
 }
