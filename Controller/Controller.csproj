@@ -45,12 +45,14 @@
   <ItemGroup>
     <Compile Include="ControllerCadastro.cs" />
     <Compile Include="ControllerCadastroProduto.cs" />
+    <Compile Include="ControllerCaixa.cs" />
     <Compile Include="ControllerConfiguracaoSQL.cs" />
     <Compile Include="ControllerConfiguracaoSQLCentral.cs" />
     <Compile Include="ControllerConsultarPedidoItens.cs" />
     <Compile Include="ControllerDevolucaoProduto.cs" />
     <Compile Include="ControllerFinanceiro.cs" />
     <Compile Include="ControllerLogin.cs" />
+    <Compile Include="ControllerTema.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\SettingsSQL.Designer.cs">

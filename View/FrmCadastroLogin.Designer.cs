@@ -56,7 +56,6 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(244, 29);
             this.txtID.TabIndex = 61;
-            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // txtSenha
             // 
@@ -65,7 +64,6 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(244, 29);
             this.txtSenha.TabIndex = 62;
-            this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
             // 
             // txtConfirmarSenha
             // 
@@ -245,7 +243,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmCadastroLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastrar Login";
+            this.Text = "Tec Sistemas: Cadastrar Novo Login";
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);

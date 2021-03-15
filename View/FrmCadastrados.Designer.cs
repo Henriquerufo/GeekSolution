@@ -75,7 +75,6 @@
             this.dgvCadastrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCadastrados.Size = new System.Drawing.Size(777, 370);
             this.dgvCadastrados.TabIndex = 0;
-            this.dgvCadastrados.DoubleClick += new System.EventHandler(this.dgvCadastrados_DoubleClick);
             // 
             // codigo
             // 
@@ -282,7 +281,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmCadastrados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consultar Lista de Clientes";
+            this.Text = "Tec Sistemas: Consultar Lista de Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadastrados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

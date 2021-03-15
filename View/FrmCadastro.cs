@@ -22,10 +22,6 @@ namespace View
             InitializeComponent();
             Height = 496;
             Width = 405;
-            dgvPedidoItens.Visible = false;
-            dgvPedidoItensCancelados.Visible = false;
-            lblExibidosTotal.Visible = false;
-            lblExibidosTotalCancelados.Visible = false;
             txtDtCadastro.Text = DateTime.Now.ToString();
             if (!string.IsNullOrWhiteSpace(modelCadastro.Codigo))
             {
@@ -44,12 +40,11 @@ namespace View
             }
             if (modelCadastro.consulta == true)
             {
+                cbxFiltroPedido.SelectedIndex = 0;
+                cbxFiltroPedidoCancelado.SelectedIndex = 0;
                 Height = 496;
                 Width = 1013;
-                lblExibidosTotal.Visible = true;
-                lblExibidosTotalCancelados.Visible = true;
-                dgvPedidoItens.Visible = true;
-                dgvPedidoItensCancelados.Visible = true;
+                pnlConsultar.Visible = true;
                 Text = "Consultar Cliente";
                 btnCancelar.Text = "Fechar";
                 btnSalvar.Visible = false;
@@ -63,8 +58,7 @@ namespace View
                 txtEndereco.Text = modelCadastro.Endereco;
                 txtTelefone.Text = modelCadastro.Telefone;
                 txtEmail.Text = modelCadastro.Email;
-                dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItens(txtNome.Text);
-                dgvPedidoItensCancelados.DataSource = controllerCadastro.CarregarPedidosItensCancelados(txtNome.Text);
+                
                 lblExibidosTotal.Text = "Exibidos total: " + dgvPedidoItens.Rows.Count;
                 lblExibidosTotalCancelados.Text = "Exibidos total: " + dgvPedidoItensCancelados.Rows.Count;
             }
@@ -156,6 +150,32 @@ namespace View
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnPesquisarPedido_Click(object sender, EventArgs e)
+        {
+            if (cbxFiltroPedido.Text == "CODIGO PEDIDO")
+            {
+                dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItensCodigoPedido(txtNome.Text, txtProcurarPedido.Text);
+            }
+            if (cbxFiltroPedido.Text == "NOME PRODUTO")
+            {
+                dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItensNomeProduto(txtNome.Text, txtProcurarPedido.Text);
+            }
+            lblExibidosTotal.Text = "Exibidos total: " + dgvPedidoItens.Rows.Count;
+        }
+
+        private void btnPesquisarPedidoCancelado_Click(object sender, EventArgs e)
+        {
+            if (cbxFiltroPedidoCancelado.Text == "CODIGO PEDIDO")
+            {
+                dgvPedidoItensCancelados.DataSource = controllerCadastro.CarregarPedidosItensCanceladosCodigoPedido(txtNome.Text, txtProcurarPedidoCancelado.Text);
+            }
+            if (cbxFiltroPedidoCancelado.Text == "NOME PRODUTO")
+            {
+                dgvPedidoItensCancelados.DataSource = controllerCadastro.CarregarPedidosItensCanceladosNomeProduto(txtNome.Text, txtProcurarPedidoCancelado.Text);
+            }
+            lblExibidosTotalCancelados.Text = "Exibidos total: " + dgvPedidoItensCancelados.Rows.Count;
         }
     }
 }

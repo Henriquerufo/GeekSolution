@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
@@ -18,17 +19,43 @@ namespace Controller
 
         SqlConnection conexao = null;
 
-        public SqlConnection Conectar()
+        public bool VerificarInternet()
         {
             try
             {
-                conexao = new SqlConnection(parametrosSQL);
-                conexao.Open();
-                return conexao;
+                using (var client = new WebClient())
+                {
+                    WebProxy wp = new WebProxy();
+                    client.Proxy = wp;
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
             }
             catch
             {
-                throw new Exception();
+                return false;
+            }
+        }
+        public SqlConnection Conectar()
+        {
+            if (true/*VerificarInternet()*/)
+            {
+                try
+                {
+                    conexao = new SqlConnection(parametrosSQL);
+                    conexao.Open();
+                    return conexao;
+                }
+                catch
+                {
+                    throw new Exception();
+                }
+            }
+            else
+            {
+                return null;
             }
         }
         public bool SalvarConexao(ModelConfiguracaoSQL modelConfiguracaoSQL)

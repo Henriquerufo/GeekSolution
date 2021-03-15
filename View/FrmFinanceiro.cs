@@ -18,11 +18,7 @@ namespace View
         public FrmFinanceiro()
         {
             InitializeComponent();
-        }
-        void Carregar(string codigo)
-        {
-            dgvFinanceiro.DataSource = controllerFinanceiro.Carregar(codigo);
-            lblExibidosTotal.Text = "Exibidos total: " + dgvFinanceiro.Rows.Count.ToString();
+            cbxFiltro.SelectedIndex = 0;
         }
 
         private void dgvFinanceiro_DoubleClick(object sender, EventArgs e)
@@ -43,7 +39,19 @@ namespace View
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            Carregar(txtProcurar.Text);
+            if (cbxFiltro.Text == "CODIGO" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+            {
+                dgvFinanceiro.DataSource = controllerFinanceiro.CarregarPorCodigo(txtProcurar.Text);
+            }
+            else if (cbxFiltro.Text == "DATA VENDA" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+            {
+                dgvFinanceiro.DataSource = controllerFinanceiro.CarregarPorDataVenda(txtProcurar.Text);
+            }
+            else if (cbxFiltro.Text == "NOME CLIENTE" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+            {
+                dgvFinanceiro.DataSource = controllerFinanceiro.CarregarPorNomeCliente(txtProcurar.Text);
+            }
+            lblExibidosTotal.Text = "Exibidos total: " + dgvFinanceiro.Rows.Count.ToString();
         }
     }
 }

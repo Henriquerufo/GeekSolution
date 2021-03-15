@@ -47,11 +47,13 @@
   <ItemGroup>
     <Compile Include="ModelCadastro.cs" />
     <Compile Include="ModelCadastroProduto.cs" />
+    <Compile Include="ModelCaixa.cs" />
     <Compile Include="ModelConfiguracaoSQL.cs" />
     <Compile Include="ModelConfiguracaoSQLCentral.cs" />
     <Compile Include="ModelDevolucaoPedido.cs" />
     <Compile Include="ModelFinanceiro.cs" />
     <Compile Include="ModelLogin.cs" />
+    <Compile Include="ModelTema.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

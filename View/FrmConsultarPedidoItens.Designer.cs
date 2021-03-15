@@ -293,7 +293,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmConsultarPedidoItens";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consultar Pedido Itens";
+            this.Text = "Tec Sistemas: Consultar Pedido Por Itens";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItensCancelados)).EndInit();
             this.ResumeLayout(false);

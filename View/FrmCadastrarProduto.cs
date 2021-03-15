@@ -143,11 +143,19 @@ namespace View
                         modelCadastroProduto.Plataforma = txtPlataforma.Text;
                         modelCadastroProduto.Garantia = txtGarantia.Text;
 
-                        bool retorno = controllerCadastroProduto.Cadastrar(modelCadastroProduto);
-                        if (retorno)
+                        if (controllerCadastroProduto.VerificarProdutoCadastrado(modelCadastroProduto))
                         {
-                            MessageBox.Show("Cadastrado com sucesso!");
-                            this.Close();
+                            bool retorno = controllerCadastroProduto.Cadastrar(modelCadastroProduto);
+                            if (retorno)
+                            {
+                                MessageBox.Show("Cadastrado com sucesso!");
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Código de barras já cadastrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtCodigoBarras.Focus();
                         }
                     }
                 }

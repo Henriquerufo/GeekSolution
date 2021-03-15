@@ -32,7 +32,6 @@ namespace View
                 Text = "Selecionar Cliente";
             }
             cbxFiltro.SelectedIndex = 0;
-            Carregar();
         }
         void Carregar()
         {
@@ -131,47 +130,6 @@ namespace View
             this.Close();
         }
 
-        private void dgvCadastrados_DoubleClick(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(valorVenda))
-            {
-                void Finalizar()
-                {
-                    modelFinanceiro.valorVenda = valorVenda;
-                    modelFinanceiro.dataVenda = DateTime.Now.ToString();
-                    modelFinanceiro.nomeCliente = dgvCadastrados.CurrentRow.Cells["nome"].Value.ToString();
-                    modelFinanceiro.statusVenda = "Finalizada";
-                    modelFinanceiro.statusPagamento = "Recebido";
-                }
-                var result = MessageBox.Show("Finalizar venda?\n\nSIM = Dinheiro\nNÃO = Cartão", "Atenção", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question); ;
-                if (result == DialogResult.Yes)
-                {
-                    Finalizar();
-                    modelFinanceiro.opcaoPagamento = "Dinheiro";
-                    
-                    controllerFinanceiro.Cadastrar(modelFinanceiro);
-                    modelFinanceiro.CodigoPedido = controllerFinanceiro.RecuperarCodigo(modelFinanceiro).ToString();
-                    controllerFinanceiro.CadastrarItens(modelFinanceiro);
-
-                    MessageBox.Show("Finalizado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else if (result == DialogResult.No)
-                {
-                    Finalizar();
-                    modelFinanceiro.opcaoPagamento = "Cartão";
-
-                    controllerFinanceiro.Cadastrar(modelFinanceiro);
-
-                    modelFinanceiro.CodigoPedido = controllerFinanceiro.RecuperarCodigo(modelFinanceiro).ToString();
-                    controllerFinanceiro.CadastrarItens(modelFinanceiro);
-
-                    MessageBox.Show("Finalizado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-            }
-        }
-
         private void ptbAjuda_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Consultar: Utilizado para consultar o cliente selecionado\nCadastrar: Cadastra um novo cliente\nEditar: Edita um cliente selecionado\nDeletar: Deleta um cliente Selecionado", "Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Question);
@@ -179,16 +137,15 @@ namespace View
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (cbxFiltro.Text == "CODIGO")
+            if (cbxFiltro.Text == "CODIGO" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
             {
                 CarregarPorCodigo(txtProcurar.Text);
             }
-            else if (cbxFiltro.Text == "NOME")
+            else if (cbxFiltro.Text == "NOME" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
             {
                 CarregarPorNome(txtProcurar.Text);
             }
             lblExibidosTotal.Text = "Exibidos total: " + dgvCadastrados.Rows.Count;
         }
     }
-
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
@@ -33,66 +34,71 @@ namespace Controller
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-
                 return dt;
             }
-            catch (Exception)
+            catch
             {
-
-                string instrucao = string.Format("SELECT TOP(1000) * FROM tbCadastro");
-
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                return dt;
+                return null;
             }
         }
         public DataTable CarregarPorNome(string nome)
         {
-            try
-            {
-                string instrucao = string.Format("SELECT * FROM tbCadastro WHERE Nome LIKE '%" + nome + "%'");
+            string instrucao = string.Format("SELECT * FROM tbCadastro WHERE Nome LIKE '%" + nome + "%'");
 
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                return dt;
-            }
-            catch (Exception)
-            {
-
-                string instrucao = string.Format("SELECT TOP(1000) * FROM tbCadastro");
-
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                return dt;
-            }
-        }
-        public DataTable CarregarPedidosItens(string nome)
-        {
-            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '" + nome + "' AND statusVenda = 'Finalizada';");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             da.Fill(dt);
-
             return dt;
         }
-        public DataTable CarregarPedidosItensCancelados(string nome)
+        public DataTable CarregarPedidosItensCodigoPedido(string nome, string Procurar)
         {
-            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '" + nome + "' AND statusVenda = 'Cancelada';");
+            try
+            {
+                string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente = '" + nome + "'AND CodigoPedido = '" + Procurar + "' AND statusVenda = 'Finalizada';");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public DataTable CarregarPedidosItensNomeProduto(string nome, string Procurar)
+        {
+            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente = '" + nome + "' AND NomeProduto LIKE '%" + Procurar + "%' AND statusVenda = 'Finalizada';");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             da.Fill(dt);
-
+            return dt;
+        }
+        public DataTable CarregarPedidosItensCanceladosCodigoPedido(string nome, string Procurar)
+        {
+            try
+            {
+                string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente = '" + nome + "' AND CodigoPedido = '" + Procurar + "' AND statusVenda = 'Cancelada';");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public DataTable CarregarPedidosItensCanceladosNomeProduto(string nome, string Procurar)
+        {
+            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente = '" + nome + "' AND NomeProduto LIKE '%" + Procurar + "%' AND statusVenda = 'Cancelada';");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
             return dt;
         }
         public bool Cadastrar(ModelCadastro modelCadastro)

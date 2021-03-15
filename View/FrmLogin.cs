@@ -65,12 +65,12 @@ namespace View
                 controllerLogin.InserirLog(modelLogin);
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
-                this.Show();
                 modelLogin.Nivel = "Administrador";
                 modelLogin.ID = txtID.Text;
                 modelLogin.Status = "Desconectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                Application.Exit();
             }           
             else if (retornoVendedor)
             {
@@ -83,12 +83,12 @@ namespace View
                 controllerLogin.InserirLog(modelLogin);
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
-                this.Show();
                 modelLogin.Nivel = "Vendedor";
                 modelLogin.ID = txtID.Text;
                 modelLogin.Status = "Desconectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                Application.Exit();
             }           
             else if (retornoSupervisor)
             {
@@ -101,12 +101,12 @@ namespace View
                 controllerLogin.InserirLog(modelLogin);
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
-                this.Show();
                 modelLogin.Nivel = "Supervisor";
                 modelLogin.ID = txtID.Text;
                 modelLogin.Status = "Desconectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                Application.Exit();
             }           
             else if (retornoEstoquista)
             {
@@ -119,12 +119,12 @@ namespace View
                 controllerLogin.InserirLog(modelLogin);
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
-                this.Show();
                 modelLogin.Nivel = "Estoquista";
                 modelLogin.ID = txtID.Text;
                 modelLogin.Status = "Desconectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                Application.Exit();
             }
             else
             {

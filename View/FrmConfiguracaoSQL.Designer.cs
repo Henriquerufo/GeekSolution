@@ -338,7 +338,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmConfiguracaoSQL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configurações BD";
+            this.Text = "Tec Sistemas: Configurações BD";
             this.gbConexaoSQL.ResumeLayout(false);
             this.gbConexaoSQL.PerformLayout();
             this.gbConexaoSQLCentral.ResumeLayout(false);

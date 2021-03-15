@@ -29,14 +29,6 @@ namespace View
             }
             cbxFiltro.SelectedIndex = 0;
         }
-        void CarregarPorCodigo(string Codigo)
-        {
-            dgvProduto.DataSource = controllerCadastroProduto.CarregarPorCodigo(Codigo);
-        }
-        void CarregarPorNome(string Nome)
-        {
-            dgvProduto.DataSource = controllerCadastroProduto.CarregarPorNome(Nome);
-        }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -111,13 +103,13 @@ namespace View
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (cbxFiltro.Text == "CODIGO")
+            if (cbxFiltro.Text == "CODIGO" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
             {
-                CarregarPorCodigo(txtProcurar.Text);
+                dgvProduto.DataSource = controllerCadastroProduto.CarregarPorCodigo(txtProcurar.Text);
             }
-            else if (cbxFiltro.Text == "NOME")
+            else if (cbxFiltro.Text == "NOME" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
             {
-                CarregarPorNome(txtProcurar.Text);
+                dgvProduto.DataSource = controllerCadastroProduto.CarregarPorNome(txtProcurar.Text);
             }
             lblExibidosTotal.Text = "Exibidos total: " + dgvProduto.Rows.Count;
         }

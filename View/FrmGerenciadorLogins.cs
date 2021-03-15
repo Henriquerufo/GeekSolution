@@ -54,8 +54,29 @@ namespace View
                 if (result == DialogResult.OK)
                 {
                     controllerLogin.Deletar(modelLogin);
+                    if (cbxFiltro.Text == "ADM")
+                    {
+                        Carregar("Administrador", txtProcurar.Text);
+                    }
+                    if (cbxFiltro.Text == "VENDEDOR")
+                    {
+                        Carregar("Vendedor", txtProcurar.Text);
+                    }
+                    if (cbxFiltro.Text == "ESTOQUISTA")
+                    {
+                        Carregar("Estoquista", txtProcurar.Text);
+                    }
+                    if (cbxFiltro.Text == "SUPERVISOR")
+                    {
+                        Carregar("Supervisor", txtProcurar.Text);
+                    }
+                    if (cbxFiltro.Text == "TODOS")
+                    {
+                        CarregarTodos(txtProcurar.Text);
+                    }
+                    lblExibidosTotal.Text = "Exibidos total: " + dgvLogin.Rows.Count;
                 }
-            }   
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -85,6 +106,27 @@ namespace View
                 modelLogin.Nivel = dgvLogin.CurrentRow.Cells["nivel"].Value.ToString();
                 FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
                 frmCadastroLogin.ShowDialog();
+                if (cbxFiltro.Text == "ADM")
+                {
+                    Carregar("Administrador", txtProcurar.Text);
+                }
+                if (cbxFiltro.Text == "VENDEDOR")
+                {
+                    Carregar("Vendedor", txtProcurar.Text);
+                }
+                if (cbxFiltro.Text == "ESTOQUISTA")
+                {
+                    Carregar("Estoquista", txtProcurar.Text);
+                }
+                if (cbxFiltro.Text == "SUPERVISOR")
+                {
+                    Carregar("Supervisor", txtProcurar.Text);
+                }
+                if (cbxFiltro.Text == "TODOS")
+                {
+                    CarregarTodos(txtProcurar.Text);
+                }
+                lblExibidosTotal.Text = "Exibidos total: " + dgvLogin.Rows.Count;
             }        
         }
 
@@ -111,6 +153,18 @@ namespace View
                 CarregarTodos(txtProcurar.Text);
             }
             lblExibidosTotal.Text = "Exibidos total: " + dgvLogin.Rows.Count;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dgvLogin.Rows.Count == 0){ }
+            else
+            {
+                modelLogin.IDTecSistemas = dgvLogin.CurrentRow.Cells["IDTecSistemas"].Value.ToString();
+                modelLogin.ID = dgvLogin.CurrentRow.Cells["ID"].Value.ToString();
+                FrmLoginLog frmLoginLog = new FrmLoginLog(modelLogin);
+                frmLoginLog.ShowDialog();
+            }
         }
     }
 }

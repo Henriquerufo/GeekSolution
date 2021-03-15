@@ -303,7 +303,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmCadastrarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastrar Produto";
+            this.Text = "Tec Sistemas: Cadastrar Novo Produto";
             this.pnlCadastroProduto.ResumeLayout(false);
             this.pnlCadastroProduto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).EndInit();

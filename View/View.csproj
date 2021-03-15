@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -69,6 +84,12 @@
     <Compile Include="FrmCadastrarProduto.Designer.cs">
       <DependentUpon>FrmCadastrarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastrarTema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastrarTema.Designer.cs">
+      <DependentUpon>FrmCadastrarTema.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +101,12 @@
     </Compile>
     <Compile Include="FrmCadastroLogin.Designer.cs">
       <DependentUpon>FrmCadastroLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCaixa.Designer.cs">
+      <DependentUpon>FrmCaixa.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmConfiguracaoSQL.cs">
       <SubType>Form</SubType>
@@ -111,11 +138,23 @@
     <Compile Include="FrmGerenciadorLogins.Designer.cs">
       <DependentUpon>FrmGerenciadorLogins.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGerenciadorTema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerenciadorTema.Designer.cs">
+      <DependentUpon>FrmGerenciadorTema.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoginLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoginLog.Designer.cs">
+      <DependentUpon>FrmLoginLog.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -140,11 +179,17 @@
     <EmbeddedResource Include="FrmCadastrarProduto.resx">
       <DependentUpon>FrmCadastrarProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastrarTema.resx">
+      <DependentUpon>FrmCadastrarTema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastro.resx">
       <DependentUpon>FrmCadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroLogin.resx">
       <DependentUpon>FrmCadastroLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCaixa.resx">
+      <DependentUpon>FrmCaixa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultarPedidoItens.resx">
       <DependentUpon>FrmConsultarPedidoItens.cs</DependentUpon>
@@ -158,8 +203,14 @@
     <EmbeddedResource Include="FrmGerenciadorLogins.resx">
       <DependentUpon>FrmGerenciadorLogins.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciadorTema.resx">
+      <DependentUpon>FrmGerenciadorTema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoginLog.resx">
+      <DependentUpon>FrmLoginLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -180,6 +231,9 @@
     <EmbeddedResource Include="FrmConfiguracaoSQL.resx">
       <DependentUpon>FrmConfiguracaoSQL.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -208,6 +262,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pngwing.com.ico" />
+    <None Include="Resources\SuaLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

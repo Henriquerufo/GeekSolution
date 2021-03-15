@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Data.SqlClient;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace View
@@ -19,11 +20,9 @@ namespace View
             ModelConfiguracaoSQLCentral modelConfiguracaoSQLCentral = new ModelConfiguracaoSQLCentral();
             ModelConfiguracaoSQL modelConfiguracaoSQL = new ModelConfiguracaoSQL();
             modelConfiguracaoSQLCentral = controllerConfiguracaoSQLCentral.Carregar();
-
-            string instrucao = string.Format(@"SELECT * FROM tbCadastro WHERE idTecSistemas = '" + modelConfiguracaoSQLCentral.IDTecSistemas + "' AND senhaTecSistemas = '" + modelConfiguracaoSQLCentral.SenhaTecSistemas + "' AND status = '1'");
+            string instrucao = string.Format(@"SELECT * FROM tbCadastro WHERE idTecSistemas = '" + modelConfiguracaoSQLCentral.IDTecSistemas + "' AND senhaTecSistemas = '" + modelConfiguracaoSQLCentral.SenhaTecSistemas + "' AND status = '1' AND dataVencimento > CURRENT_TIMESTAMP");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQLCentral.Conectar());
             SqlDataReader sqlDataReader;
-
             sqlDataReader = command.ExecuteReader();
             if (sqlDataReader.HasRows)
             {
@@ -31,11 +30,11 @@ namespace View
                 SqlCommand command1 = new SqlCommand(conexaoBanco, controllerConfiguracaoSQLCentral.Conectar());
                 SqlDataReader sqlDataReader1 = command1.ExecuteReader();
                 sqlDataReader1.Read();
+
                 modelConfiguracaoSQL.ServidorBD = sqlDataReader1["servidorBD"].ToString();
                 modelConfiguracaoSQL.NomeBD = sqlDataReader1["nomeBD"].ToString();
                 modelConfiguracaoSQL.IDBD = sqlDataReader1["idBD"].ToString();
                 modelConfiguracaoSQL.SenhaBD = sqlDataReader1["senhaBD"].ToString();
-               
                 controllerConfiguracaoSQL.SalvarConexao(modelConfiguracaoSQL);
 
                 ModelLogin modelLogin = new ModelLogin();
@@ -45,7 +44,7 @@ namespace View
             }
             else
             {
-                MessageBox.Show("O sistema está desativado/vencido, entre em contato com o desenvolvedor.", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("O sistema está desativado ou vencido, entre em contato com o desenvolvedor.", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmConfiguracaoSQL frmConfiguracaoSQL = new FrmConfiguracaoSQL();
                 frmConfiguracaoSQL.ShowDialog();
             }

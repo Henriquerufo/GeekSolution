@@ -47,6 +47,14 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlCadastro = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtRG = new System.Windows.Forms.MaskedTextBox();
@@ -76,28 +84,22 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblExibidosTotal = new System.Windows.Forms.Label();
             this.lblExibidosTotalCancelados = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnPesquisarPedido = new System.Windows.Forms.Button();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtProcurar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtProcurarPedido = new System.Windows.Forms.TextBox();
+            this.btnPesquisarPedidoCancelado = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxFiltroPedidoCancelado = new System.Windows.Forms.ComboBox();
+            this.txtProcurarPedidoCancelado = new System.Windows.Forms.TextBox();
+            this.cbxFiltroPedido = new System.Windows.Forms.ComboBox();
+            this.pnlConsultar = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.pnlCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItensCancelados)).BeginInit();
+            this.pnlConsultar.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -280,6 +282,79 @@
             this.pnlCadastro.Size = new System.Drawing.Size(371, 291);
             this.pnlCadastro.TabIndex = 30;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label12.Location = new System.Drawing.Point(185, 193);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Complemento";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label11.Location = new System.Drawing.Point(0, 193);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Número";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(188, 209);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(179, 29);
+            this.textBox2.TabIndex = 37;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox2.Location = new System.Drawing.Point(3, 209);
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(179, 29);
+            this.maskedTextBox2.TabIndex = 36;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(188, 257);
+            this.maskedTextBox1.Mask = "###.###.###-##";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(179, 29);
+            this.maskedTextBox1.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label10.Location = new System.Drawing.Point(185, 241);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "CEP";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(3, 257);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(179, 29);
+            this.textBox1.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label5.Location = new System.Drawing.Point(0, 241);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Bairro";
+            // 
             // txtTelefone
             // 
             this.txtTelefone.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -325,7 +400,7 @@
             this.valorProduto,
             this.plataforma,
             this.prazoGarantia});
-            this.dgvPedidoItens.Location = new System.Drawing.Point(394, 60);
+            this.dgvPedidoItens.Location = new System.Drawing.Point(6, 58);
             this.dgvPedidoItens.Name = "dgvPedidoItens";
             this.dgvPedidoItens.ReadOnly = true;
             this.dgvPedidoItens.RowHeadersVisible = false;
@@ -428,7 +503,7 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
-            this.dgvPedidoItensCancelados.Location = new System.Drawing.Point(394, 282);
+            this.dgvPedidoItensCancelados.Location = new System.Drawing.Point(6, 280);
             this.dgvPedidoItensCancelados.Name = "dgvPedidoItensCancelados";
             this.dgvPedidoItensCancelados.ReadOnly = true;
             this.dgvPedidoItensCancelados.RowHeadersVisible = false;
@@ -516,7 +591,7 @@
             // lblExibidosTotal
             // 
             this.lblExibidosTotal.AutoSize = true;
-            this.lblExibidosTotal.Location = new System.Drawing.Point(391, 212);
+            this.lblExibidosTotal.Location = new System.Drawing.Point(3, 210);
             this.lblExibidosTotal.Name = "lblExibidosTotal";
             this.lblExibidosTotal.Size = new System.Drawing.Size(81, 13);
             this.lblExibidosTotal.TabIndex = 68;
@@ -525,98 +600,26 @@
             // lblExibidosTotalCancelados
             // 
             this.lblExibidosTotalCancelados.AutoSize = true;
-            this.lblExibidosTotalCancelados.Location = new System.Drawing.Point(391, 435);
+            this.lblExibidosTotalCancelados.Location = new System.Drawing.Point(3, 433);
             this.lblExibidosTotalCancelados.Name = "lblExibidosTotalCancelados";
             this.lblExibidosTotalCancelados.Size = new System.Drawing.Size(81, 13);
             this.lblExibidosTotalCancelados.TabIndex = 69;
             this.lblExibidosTotalCancelados.Text = "Exibidos total: 0";
             // 
-            // textBox1
+            // btnPesquisarPedido
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(3, 257);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 29);
-            this.textBox1.TabIndex = 31;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label5.Location = new System.Drawing.Point(0, 241);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Bairro";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label10.Location = new System.Drawing.Point(185, 241);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 13);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "CEP";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(188, 257);
-            this.maskedTextBox1.Mask = "###.###.###-##";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(179, 29);
-            this.maskedTextBox1.TabIndex = 35;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(3, 209);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(179, 29);
-            this.maskedTextBox2.TabIndex = 36;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(188, 209);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(179, 29);
-            this.textBox2.TabIndex = 37;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label11.Location = new System.Drawing.Point(0, 193);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Número";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label12.Location = new System.Drawing.Point(185, 193);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 13);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Complemento";
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Location = new System.Drawing.Point(886, 22);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
-            this.btnPesquisar.TabIndex = 79;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisarPedido.Location = new System.Drawing.Point(498, 20);
+            this.btnPesquisarPedido.Name = "btnPesquisarPedido";
+            this.btnPesquisarPedido.Size = new System.Drawing.Size(100, 29);
+            this.btnPesquisarPedido.TabIndex = 79;
+            this.btnPesquisarPedido.Text = "Pesquisar";
+            this.btnPesquisarPedido.UseVisualStyleBackColor = true;
+            this.btnPesquisarPedido.Click += new System.EventHandler(this.btnPesquisarPedido_Click);
             // 
             // lblPesquisar
             // 
             this.lblPesquisar.AutoSize = true;
-            this.lblPesquisar.Location = new System.Drawing.Point(556, 6);
+            this.lblPesquisar.Location = new System.Drawing.Point(168, 4);
             this.lblPesquisar.Name = "lblPesquisar";
             this.lblPesquisar.Size = new System.Drawing.Size(53, 13);
             this.lblPesquisar.TabIndex = 78;
@@ -625,33 +628,34 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(391, 9);
+            this.label14.Location = new System.Drawing.Point(3, 7);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(29, 13);
             this.label14.TabIndex = 77;
             this.label14.Text = "Filtro";
             // 
-            // txtProcurar
+            // txtProcurarPedido
             // 
-            this.txtProcurar.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProcurar.Location = new System.Drawing.Point(559, 22);
-            this.txtProcurar.Name = "txtProcurar";
-            this.txtProcurar.Size = new System.Drawing.Size(321, 29);
-            this.txtProcurar.TabIndex = 75;
+            this.txtProcurarPedido.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProcurarPedido.Location = new System.Drawing.Point(171, 20);
+            this.txtProcurarPedido.Name = "txtProcurarPedido";
+            this.txtProcurarPedido.Size = new System.Drawing.Size(321, 29);
+            this.txtProcurarPedido.TabIndex = 75;
             // 
-            // button1
+            // btnPesquisarPedidoCancelado
             // 
-            this.button1.Location = new System.Drawing.Point(886, 247);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 26);
-            this.button1.TabIndex = 84;
-            this.button1.Text = "Pesquisar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPesquisarPedidoCancelado.Location = new System.Drawing.Point(498, 245);
+            this.btnPesquisarPedidoCancelado.Name = "btnPesquisarPedidoCancelado";
+            this.btnPesquisarPedidoCancelado.Size = new System.Drawing.Size(100, 26);
+            this.btnPesquisarPedidoCancelado.TabIndex = 84;
+            this.btnPesquisarPedidoCancelado.Text = "Pesquisar";
+            this.btnPesquisarPedidoCancelado.UseVisualStyleBackColor = true;
+            this.btnPesquisarPedidoCancelado.Click += new System.EventHandler(this.btnPesquisarPedidoCancelado_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(556, 231);
+            this.label15.Location = new System.Drawing.Point(168, 229);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 13);
             this.label15.TabIndex = 83;
@@ -660,65 +664,74 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(391, 231);
+            this.label16.Location = new System.Drawing.Point(3, 229);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(29, 13);
             this.label16.TabIndex = 82;
             this.label16.Text = "Filtro";
             // 
-            // comboBox1
+            // cbxFiltroPedidoCancelado
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxFiltroPedidoCancelado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFiltroPedidoCancelado.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxFiltroPedidoCancelado.FormattingEnabled = true;
+            this.cbxFiltroPedidoCancelado.Items.AddRange(new object[] {
             "CODIGO PEDIDO",
             "NOME PRODUTO"});
-            this.comboBox1.Location = new System.Drawing.Point(394, 247);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 31);
-            this.comboBox1.TabIndex = 81;
+            this.cbxFiltroPedidoCancelado.Location = new System.Drawing.Point(6, 245);
+            this.cbxFiltroPedidoCancelado.Name = "cbxFiltroPedidoCancelado";
+            this.cbxFiltroPedidoCancelado.Size = new System.Drawing.Size(159, 31);
+            this.cbxFiltroPedidoCancelado.TabIndex = 81;
             // 
-            // textBox3
+            // txtProcurarPedidoCancelado
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(559, 247);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(321, 29);
-            this.textBox3.TabIndex = 80;
+            this.txtProcurarPedidoCancelado.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProcurarPedidoCancelado.Location = new System.Drawing.Point(171, 245);
+            this.txtProcurarPedidoCancelado.Name = "txtProcurarPedidoCancelado";
+            this.txtProcurarPedidoCancelado.Size = new System.Drawing.Size(321, 29);
+            this.txtProcurarPedidoCancelado.TabIndex = 80;
             // 
-            // comboBox2
+            // cbxFiltroPedido
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbxFiltroPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFiltroPedido.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxFiltroPedido.FormattingEnabled = true;
+            this.cbxFiltroPedido.Items.AddRange(new object[] {
             "CODIGO PEDIDO",
             "NOME PRODUTO"});
-            this.comboBox2.Location = new System.Drawing.Point(394, 22);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(159, 31);
-            this.comboBox2.TabIndex = 85;
+            this.cbxFiltroPedido.Location = new System.Drawing.Point(6, 20);
+            this.cbxFiltroPedido.Name = "cbxFiltroPedido";
+            this.cbxFiltroPedido.Size = new System.Drawing.Size(159, 31);
+            this.cbxFiltroPedido.TabIndex = 85;
+            // 
+            // pnlConsultar
+            // 
+            this.pnlConsultar.Controls.Add(this.label14);
+            this.pnlConsultar.Controls.Add(this.cbxFiltroPedido);
+            this.pnlConsultar.Controls.Add(this.dgvPedidoItens);
+            this.pnlConsultar.Controls.Add(this.btnPesquisarPedidoCancelado);
+            this.pnlConsultar.Controls.Add(this.dgvPedidoItensCancelados);
+            this.pnlConsultar.Controls.Add(this.label15);
+            this.pnlConsultar.Controls.Add(this.lblExibidosTotal);
+            this.pnlConsultar.Controls.Add(this.label16);
+            this.pnlConsultar.Controls.Add(this.lblExibidosTotalCancelados);
+            this.pnlConsultar.Controls.Add(this.cbxFiltroPedidoCancelado);
+            this.pnlConsultar.Controls.Add(this.txtProcurarPedido);
+            this.pnlConsultar.Controls.Add(this.txtProcurarPedidoCancelado);
+            this.pnlConsultar.Controls.Add(this.lblPesquisar);
+            this.pnlConsultar.Controls.Add(this.btnPesquisarPedido);
+            this.pnlConsultar.Location = new System.Drawing.Point(385, 2);
+            this.pnlConsultar.Name = "pnlConsultar";
+            this.pnlConsultar.Size = new System.Drawing.Size(608, 456);
+            this.pnlConsultar.TabIndex = 86;
+            this.pnlConsultar.Visible = false;
             // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 457);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.btnPesquisar);
-            this.Controls.Add(this.lblPesquisar);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtProcurar);
-            this.Controls.Add(this.lblExibidosTotalCancelados);
-            this.Controls.Add(this.lblExibidosTotal);
-            this.Controls.Add(this.dgvPedidoItensCancelados);
-            this.Controls.Add(this.dgvPedidoItens);
+            this.Controls.Add(this.pnlConsultar);
             this.Controls.Add(this.pnlCadastro);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
@@ -729,12 +742,14 @@
             this.MaximizeBox = false;
             this.Name = "FrmCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastrar Cliente";
+            this.Text = "Tec Sistemas: Cadastrar Novo Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.pnlCadastro.ResumeLayout(false);
             this.pnlCadastro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItensCancelados)).EndInit();
+            this.pnlConsultar.ResumeLayout(false);
+            this.pnlConsultar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -796,15 +811,16 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbxFiltroPedido;
+        private System.Windows.Forms.Button btnPesquisarPedidoCancelado;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.ComboBox cbxFiltroPedidoCancelado;
+        private System.Windows.Forms.TextBox txtProcurarPedidoCancelado;
+        private System.Windows.Forms.Button btnPesquisarPedido;
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtProcurar;
+        private System.Windows.Forms.TextBox txtProcurarPedido;
+        private System.Windows.Forms.Panel pnlConsultar;
     }
 }

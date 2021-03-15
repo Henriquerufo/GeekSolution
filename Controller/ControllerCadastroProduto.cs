@@ -17,50 +17,37 @@ namespace Controller
             try
             {
                 string instrucao = string.Format("SELECT * FROM tbProduto WHERE Codigo = " + Codigo);
-
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-
                 return dt;
             }
             catch (Exception)
             {
-                string instrucao = string.Format("SELECT * FROM tbProduto");
-
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                return dt;
+                return null;
             }
         }
         public DataTable CarregarPorNome(string Nome)
         {
-            try
+            string instrucao = string.Format("SELECT * FROM tbProduto WHERE NomeProduto LIKE '%" + Nome + "%'");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        public bool VerificarProdutoCadastrado(ModelCadastroProduto modelCadastroProduto)
+        {
+            string instrucao = string.Format(@"SELECT * FROM tbProduto WHERE CodigoBarras = @CodigoBarras");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            command.Parameters.AddWithValue("@CodigoBarras", modelCadastroProduto.CodigoBarras);
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            if (sqlDataReader.HasRows)
             {
-                string instrucao = string.Format("SELECT * FROM tbProduto WHERE NomeProduto LIKE '%" + Nome + "%'");
-
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                return dt;
+                return false;
             }
-            catch (Exception)
-            {
-                string instrucao = string.Format("SELECT * FROM tbProduto");
-
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                return dt;
-            }
+            return true;
         }
         public bool Cadastrar(ModelCadastroProduto modelCadastroProduto)
         {

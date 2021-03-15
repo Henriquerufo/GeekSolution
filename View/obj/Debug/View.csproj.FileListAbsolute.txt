@@ -13,11 +13,13 @@ C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastradosProduto
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastrarProduto.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastro.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastroLogin.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCaixa.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmConsultarPedidoItens.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmDevolucaoProduto.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmFinanceiro.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmGerenciadorLogins.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmLogin.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmLoginLog.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmPrincipal.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmSobre.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.Properties.Resources.resources
@@ -27,3 +29,5 @@ C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.csproj.CoreCompileInp
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.exe
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.pdb
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmCadastrarTema.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmGerenciadorTema.resources

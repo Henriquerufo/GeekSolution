@@ -290,7 +290,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmCadastradosProdutos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Produtos Cadastrados";
+            this.Text = "Tec Sistemas: Consultar Lista de Produtos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

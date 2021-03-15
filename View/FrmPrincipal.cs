@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,20 @@ namespace View
     {
         ModelCadastro modelCadastro = new ModelCadastro();
         ModelCadastroProduto modelCadastroProduto = new ModelCadastroProduto();
+        ControllerTema controllerTema = new ControllerTema();
+        void CarregarTema()
+        {
+            if (controllerTema.CarregarEnderecoImagem() != null)
+            {
+                BackgroundImage = Image.FromFile(controllerTema.CarregarEnderecoImagem());
+                BackColor = Color.FromArgb(controllerTema.CarregarColorR(), controllerTema.CarregarColorG(), controllerTema.CarregarColorB());
+            }
+        }
         public FrmPrincipal(ModelLogin modelLogin)
         {
             InitializeComponent();
-            if (modelLogin.Nivel == "Vendedor")
+            CarregarTema();
+            if (modelLogin != null && modelLogin.Nivel == "Vendedor")
             {
                 caixaToolStripMenuItem.Visible = true;
                 clientesToolStripMenuItem.Visible = false;
@@ -28,7 +39,7 @@ namespace View
                 conexãoSQLToolStripMenuItem.Visible = false;
                 administradorToolStripMenuItem.Visible = false;
             }
-            if (modelLogin.Nivel == "Administrador")
+            else if (modelLogin != null && modelLogin.Nivel == "Administrador")
             {
                 caixaToolStripMenuItem.Visible = true;
                 clientesToolStripMenuItem.Visible = true;
@@ -38,7 +49,7 @@ namespace View
                 conexãoSQLToolStripMenuItem.Visible = true;
                 administradorToolStripMenuItem.Visible = true;
             }
-            if (modelLogin.Nivel == "Supervisor")
+            else if (modelLogin != null && modelLogin.Nivel == "Supervisor")
             {
                 caixaToolStripMenuItem.Visible = false;
                 clientesToolStripMenuItem.Visible = true;
@@ -48,7 +59,7 @@ namespace View
                 conexãoSQLToolStripMenuItem.Visible = false;
                 administradorToolStripMenuItem.Visible = false;
             }
-            if (modelLogin.Nivel == "Estoquista")
+            else if (modelLogin != null && modelLogin.Nivel == "Estoquista")
             {
                 caixaToolStripMenuItem.Visible = false;
                 clientesToolStripMenuItem.Visible = false;
@@ -117,7 +128,8 @@ namespace View
 
         private void abrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            FrmCaixa frmCaixa = new FrmCaixa();
+            frmCaixa.Show();
         }
 
         private void consultarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,6 +153,12 @@ namespace View
         {
             FrmDevolucaoProduto frmDevolucaoProduto = new FrmDevolucaoProduto();
             frmDevolucaoProduto.Show();
+        }
+
+        private void gerenciarTemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciadorTema frmGerenciadorTema = new FrmGerenciadorTema();
+            frmGerenciadorTema.Show();
         }
     }
 }

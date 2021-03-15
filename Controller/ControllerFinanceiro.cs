@@ -12,7 +12,7 @@ namespace Controller
     public class ControllerFinanceiro
     {
         ControllerConfiguracaoSQL controllerConfiguracaoSQL = new ControllerConfiguracaoSQL();
-        public DataTable Carregar(string codigo)
+        public DataTable CarregarPorCodigo(string codigo)
         {
             try
             {
@@ -25,13 +25,26 @@ namespace Controller
             }
             catch
             {
-                string instrucao = "SELECT * FROM tbPedido";
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
+                return null;
             }
+        }
+        public DataTable CarregarPorDataVenda(string dataVenda)
+        {
+            string instrucao = "SELECT * FROM tbPedido WHERE dataVenda LIKE '%" + dataVenda + "%'";
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        public DataTable CarregarPorNomeCliente(string nomeCliente)
+        {
+            string instrucao = "SELECT * FROM tbPedido WHERE NomeCliente LIKE '%" + nomeCliente + "%'";
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
         }
         public bool Cadastrar(ModelFinanceiro modelFinanceiro)
         {

@@ -15,17 +15,16 @@ namespace Controller
         ControllerConfiguracaoSQLCentral controllerConfiguracaoSQLCentral = new ControllerConfiguracaoSQLCentral();
         public DataTable CarregarTodos(string Procurar)
         {
-            string instrucao = string.Format("SELECT * FROM tbLogin WHERE ID = '" + Procurar + "'");
+            string instrucao = string.Format("SELECT * FROM tbLogin WHERE ID LIKE '%" + Procurar + "%'");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             da.Fill(dt);
-
             return dt;
         }
         public DataTable Carregar(string nivel, string ID)
         {
-            string instrucao = string.Format("SELECT * FROM tbLogin WHERE Nivel = '" + nivel + "' and ID = '" + ID + "'");
+            string instrucao = string.Format("SELECT * FROM tbLogin WHERE Nivel = '" + nivel + "' and ID LIKE '%" + ID + "%'");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
@@ -126,6 +125,40 @@ namespace Controller
             int total = (int)sqlDataReader[""];
             return total;            
         } 
+        public DataTable CarregarLogs(ModelLogin modelLogin, string id)
+        {
+            string instrucao = string.Format(@"SELECT TOP(1000) * FROM tbLogLogin WHERE Nome = '" + id + "' AND idTecSistemas = '" + modelLogin.IDTecSistemas + "'");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar()); ;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            return dataTable;
+        }
+        public DataTable CarregarLogPorCodigo(string idTecSistemas, string id, string codigo)
+        {
+            try
+            {
+                string instrucao = string.Format(@"SELECT * FROM tbLogLogin WHERE idTecSistemas = '" + idTecSistemas + "' AND Nome = '" + id + "' AND Codigo = '" + codigo + "'");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public DataTable CarregarLogPorNome(string idTecSistemas, string id, string ultimoLog)
+        {
+            string instrucao = string.Format(@"SELECT * FROM tbLogLogin WHERE idTecSistemas = '" + idTecSistemas + "' AND Nome = '" + id + "' AND UltimoLog LIKE '%" + ultimoLog + "%'");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            return dataTable;
+        }
         public bool Cadastrar(ModelLogin modelLogin)
         {
             string instrucao = string.Format("INSERT INTO tbLogin (ID, Senha, Nivel, IDTecSistemas) VALUES (@ID, @Senha, @Nivel, @IDTecSistemas); SELECT SCOPE_IDENTITY();");
@@ -134,7 +167,7 @@ namespace Controller
             command.Parameters.AddWithValue("@ID", modelLogin.ID);
             command.Parameters.AddWithValue("@Senha", modelLogin.Senha);
             command.Parameters.AddWithValue("@Nivel", modelLogin.Nivel);
-            command.Parameters.AddWithValue("@IDTecSistemas", modelLogin.IDTecSistemas);
+            command.Parameters.AddWithValue("@IDTecSistemas", Properties.SettingsSQLCentral.Default.IDTecSistemas);
 
             return Convert.ToBoolean(command.ExecuteNonQuery());
         }
@@ -147,7 +180,7 @@ namespace Controller
             command.Parameters.AddWithValue("@ID", modelLogin.ID);
             command.Parameters.AddWithValue("@Senha", modelLogin.Senha);
             command.Parameters.AddWithValue("@Nivel", modelLogin.Nivel);
-            command.Parameters.AddWithValue("@IDTecSistemas", modelLogin.IDTecSistemas);
+            command.Parameters.AddWithValue("@IDTecSistemas", Properties.SettingsSQLCentral.Default.IDTecSistemas);
 
             return Convert.ToBoolean(command.ExecuteNonQuery());
         }

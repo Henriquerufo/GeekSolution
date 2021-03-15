@@ -197,7 +197,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmDevolucaoProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Devolução Produto";
+            this.Text = "Tec Sistemas: Devolução Produto";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutoCancelados)).EndInit();
             this.ResumeLayout(false);

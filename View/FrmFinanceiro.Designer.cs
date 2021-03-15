@@ -164,12 +164,10 @@
             this.cbxFiltro.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxFiltro.FormattingEnabled = true;
             this.cbxFiltro.Items.AddRange(new object[] {
-            "TODOS",
-            "VENDEDOR",
-            "ESTOQUISTA",
-            "SUPERVISOR",
-            "ADM"});
-            this.cbxFiltro.Location = new System.Drawing.Point(12, 26);
+            "CODIGO",
+            "DATA VENDA",
+            "NOME CLIENTE"});
+            this.cbxFiltro.Location = new System.Drawing.Point(12, 23);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(159, 31);
             this.cbxFiltro.TabIndex = 72;
@@ -211,7 +209,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmFinanceiro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consultar Financeiro";
+            this.Text = "Tec Sistemas: Consultar Financeiro";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanceiro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

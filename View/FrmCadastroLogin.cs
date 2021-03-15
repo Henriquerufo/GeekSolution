@@ -9,13 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace View
 {
     public partial class FrmCadastroLogin : Form
     {
-        ControllerConfiguracaoSQLCentral controllerConfiguracaoSQLCentral = new ControllerConfiguracaoSQLCentral();
-        ModelConfiguracaoSQLCentral modelConfiguracaoSQLCentral = new ModelConfiguracaoSQLCentral();
         string Codigo;
         int loginsCadastrados;
         int loginsContratados;
@@ -38,6 +37,7 @@ namespace View
                 Codigo = modelLogin.Codigo;
                 txtID.Text = modelLogin.ID;
                 txtSenha.Text = modelLogin.Senha;
+                txtID.Enabled = false;
                 if (modelLogin.Nivel == "Administrador")
                 {
                     rbAdministrador.Checked = true;
@@ -100,9 +100,9 @@ namespace View
             else
             {
                 //Salva o usuario editado
-                if (!string.IsNullOrWhiteSpace(Codigo) && loginsCadastrados < loginsContratados)
+                if (!string.IsNullOrWhiteSpace(Codigo) /*&& loginsCadastrados < loginsContratados*/)
                 {
-                    loginsCadastrados++;
+                    //loginsCadastrados++;
                     modelLogin.Codigo = Codigo;
                     modelLogin.ID = txtID.Text;
                     if (txtSenha.Text == txtConfirmarSenha.Text)
@@ -114,7 +114,7 @@ namespace View
                         MessageBox.Show("Senhas diferentes", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
-                    
+
                     if (rbAdministrador.Checked == true)
                     {
                         modelLogin.Nivel = "Administrador";
@@ -131,9 +131,13 @@ namespace View
                     {
                         modelLogin.Nivel = "Supervisor";
                     }
-                    modelConfiguracaoSQLCentral = controllerConfiguracaoSQLCentral.Carregar();
-                    modelLogin.IDTecSistemas = modelConfiguracaoSQLCentral.IDTecSistemas;
-                    controllerLogin.Editar(modelLogin);
+                    if (controllerLogin.Editar(modelLogin))
+                    {
+                        MessageBox.Show("O ID: " + txtID.Text + " foi editado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        pnlLogin.Enabled = false;
+                        btnCadastrar.Text = "Editar";
+                    }
+
                 }
                 //Cadastra um novo usuario
                 else
@@ -167,29 +171,19 @@ namespace View
                         {
                             modelLogin.Nivel = "Supervisor";
                         }
-                        modelConfiguracaoSQLCentral = controllerConfiguracaoSQLCentral.Carregar();
-                        modelLogin.IDTecSistemas = modelConfiguracaoSQLCentral.IDTecSistemas;
-                        if (controllerLogin.VerificarLoginExistente(modelLogin))
+                        if (controllerLogin.VerificarLoginExistente(modelLogin) && !string.IsNullOrWhiteSpace(txtSenha.Text))
                         {
                             controllerLogin.Cadastrar(modelLogin);
+                            MessageBox.Show("O ID: " + txtID.Text + " foi cadastrado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("O ID: " + modelLogin.ID + " já está cadastrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Erro, verifique os dados e tente novamente!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
             }
-        }
-
-        private void txtID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSenha_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
