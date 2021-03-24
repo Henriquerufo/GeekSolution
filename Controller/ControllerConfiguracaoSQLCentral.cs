@@ -11,14 +11,13 @@ namespace Controller
 {
     public class ControllerConfiguracaoSQLCentral
     {
+        ModelConfiguracaoSQLCentral modelConfiguracaoSQLCentral = new ModelConfiguracaoSQLCentral();
         string parametrosSQL = string.Format(@"Data Source={0}; Initial Catalog={1}; User ID={2}; Password={3};",
             Properties.SettingsSQLCentral.Default.ServidorBD,
             Properties.SettingsSQLCentral.Default.NomeBD,
             Properties.SettingsSQLCentral.Default.IDBD,
             Properties.SettingsSQLCentral.Default.SenhaBD);
-
         SqlConnection conexao = null;
-
         public bool VerificarInternet()
         {
             try
@@ -38,7 +37,6 @@ namespace Controller
                 return false;
             }
         }
-
         public SqlConnection Conectar()
         {
             if (true/*VerificarInternet()*/)
@@ -58,6 +56,12 @@ namespace Controller
             {
                 return null;
             }
+        }
+        public SqlConnection Fechar()
+        {
+            conexao.Close();
+            conexao.Dispose();
+            return conexao;
         }
         public bool Conectar(ModelConfiguracaoSQLCentral modelConfiguracaoSQLCentral)
         {
@@ -81,7 +85,7 @@ namespace Controller
         }
         public ModelConfiguracaoSQLCentral Carregar()
         {
-            ModelConfiguracaoSQLCentral modelConfiguracaoSQLCentral = new ModelConfiguracaoSQLCentral();
+            
             modelConfiguracaoSQLCentral.ServidorBD = Properties.SettingsSQLCentral.Default.ServidorBD;
             modelConfiguracaoSQLCentral.NomeBD = Properties.SettingsSQLCentral.Default.NomeBD;
             modelConfiguracaoSQLCentral.IDBD = Properties.SettingsSQLCentral.Default.IDBD;

@@ -51,8 +51,10 @@
     <Compile Include="ModelConfiguracaoSQL.cs" />
     <Compile Include="ModelConfiguracaoSQLCentral.cs" />
     <Compile Include="ModelDevolucaoPedido.cs" />
+    <Compile Include="ModelFechamento.cs" />
     <Compile Include="ModelFinanceiro.cs" />
     <Compile Include="ModelLogin.cs" />
+    <Compile Include="ModelSaida.cs" />
     <Compile Include="ModelTema.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

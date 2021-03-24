@@ -20,9 +20,14 @@ namespace View
         int loginsContratados;
         ModelLogin modelLogin = new ModelLogin();
         ControllerLogin controllerLogin = new ControllerLogin();
+        ControllerTema controllerTema = new ControllerTema();
         public FrmCadastroLogin(ModelLogin modelLogin)
         {
             InitializeComponent();
+            if (controllerTema.CarregarEnderecoImagem() != null)
+            {
+                pictureBox1.BackgroundImage = Image.FromFile(controllerTema.CarregarEnderecoImagem());
+            }
             loginsCadastrados = controllerLogin.VerificarLoginsCadastrados();
             lblLoginsCadastrados.Text = "Cadastrados: " + loginsCadastrados.ToString();
             loginsContratados = controllerLogin.VerificarLoginsContratados();
@@ -84,12 +89,10 @@ namespace View
                 }
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (btnCadastrar.Text == "Editar")

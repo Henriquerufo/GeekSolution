@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +51,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(507, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
-            this.btnPesquisar.TabIndex = 79;
+            this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -84,7 +85,7 @@
             this.cbxFiltro.Location = new System.Drawing.Point(12, 25);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(159, 31);
-            this.cbxFiltro.TabIndex = 76;
+            this.cbxFiltro.TabIndex = 0;
             // 
             // txtProcurar
             // 
@@ -92,7 +93,7 @@
             this.txtProcurar.Location = new System.Drawing.Point(177, 25);
             this.txtProcurar.Name = "txtProcurar";
             this.txtProcurar.Size = new System.Drawing.Size(324, 29);
-            this.txtProcurar.TabIndex = 75;
+            this.txtProcurar.TabIndex = 1;
             // 
             // btnFechar
             // 
@@ -101,7 +102,7 @@
             this.btnFechar.Location = new System.Drawing.Point(507, 393);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(100, 33);
-            this.btnFechar.TabIndex = 81;
+            this.btnFechar.TabIndex = 4;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -110,6 +111,8 @@
             // 
             this.dgvLog.AllowUserToAddRows = false;
             this.dgvLog.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvLog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLog.BackgroundColor = System.Drawing.Color.White;
             this.dgvLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -126,7 +129,7 @@
             this.dgvLog.RowHeadersVisible = false;
             this.dgvLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLog.Size = new System.Drawing.Size(595, 323);
-            this.dgvLog.TabIndex = 80;
+            this.dgvLog.TabIndex = 3;
             // 
             // Codigo
             // 

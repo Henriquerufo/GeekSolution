@@ -17,9 +17,14 @@ namespace View
         string codigo;
         ModelCadastroProduto modelCadastroProduto = new ModelCadastroProduto();
         ControllerCadastroProduto controllerCadastroProduto = new ControllerCadastroProduto();
+        ControllerTema controllerTema = new ControllerTema();
         public FrmCadastrarProduto(ModelCadastroProduto modelCadastroProduto)
         {
             InitializeComponent();
+            if (controllerTema.CarregarEnderecoImagem() != null)
+            {
+                pictureBox1.BackgroundImage = Image.FromFile(controllerTema.CarregarEnderecoImagem());
+            }
             if (!string.IsNullOrWhiteSpace(modelCadastroProduto.Codigo))
             {
                 Text = "Editar Produto";
@@ -101,72 +106,76 @@ namespace View
             }
             return true;
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (btnSalvar.Text == "Editar")
+            try
             {
-                btnSalvar.Text = "Salvar";
-                pnlCadastroProduto.Enabled = true;
-            }
-            else
-            {
-                if (Validar())
+                if (btnSalvar.Text == "Editar")
                 {
-                    if (!string.IsNullOrWhiteSpace(codigo))
+                    btnSalvar.Text = "Salvar";
+                    pnlCadastroProduto.Enabled = true;
+                }
+                else
+                {
+                    if (Validar())
                     {
-                        modelCadastroProduto.Codigo = codigo;
-                        modelCadastroProduto.CodigoBarras = txtCodigoBarras.Text;
-                        modelCadastroProduto.NomeProduto = txtNomeProduto.Text;
-                        modelCadastroProduto.Categoria = txtCategoria.Text;
-                        modelCadastroProduto.Fabricante = txtFabricante.Text;
-                        modelCadastroProduto.Quantidade = txtQuantidade.Value.ToString();
-                        modelCadastroProduto.ValorProduto = txtValorProduto.Text;
-                        modelCadastroProduto.Plataforma = txtPlataforma.Text;
-                        modelCadastroProduto.Garantia = txtGarantia.Text;
-
-                        bool retorno = controllerCadastroProduto.Editar(modelCadastroProduto);
-                        if (retorno)
+                        if (!string.IsNullOrWhiteSpace(codigo))
                         {
-                            MessageBox.Show("Editado com sucesso!");
-                            this.Close();
-                        }
-                    }
-                    else
-                    {
-                        modelCadastroProduto.CodigoBarras = txtCodigoBarras.Text;
-                        modelCadastroProduto.NomeProduto = txtNomeProduto.Text;
-                        modelCadastroProduto.Categoria = txtCategoria.Text;
-                        modelCadastroProduto.Fabricante = txtFabricante.Text;
-                        modelCadastroProduto.Quantidade = txtQuantidade.Value.ToString();
-                        modelCadastroProduto.ValorProduto = txtValorProduto.Text;
-                        modelCadastroProduto.Plataforma = txtPlataforma.Text;
-                        modelCadastroProduto.Garantia = txtGarantia.Text;
+                            modelCadastroProduto.Codigo = codigo;
+                            modelCadastroProduto.CodigoBarras = txtCodigoBarras.Text;
+                            modelCadastroProduto.NomeProduto = txtNomeProduto.Text;
+                            modelCadastroProduto.Categoria = txtCategoria.Text;
+                            modelCadastroProduto.Fabricante = txtFabricante.Text;
+                            modelCadastroProduto.Quantidade = txtQuantidade.Value.ToString();
+                            modelCadastroProduto.ValorProduto = txtValorProduto.Text;
+                            modelCadastroProduto.Plataforma = txtPlataforma.Text;
+                            modelCadastroProduto.Garantia = txtGarantia.Text;
 
-                        if (controllerCadastroProduto.VerificarProdutoCadastrado(modelCadastroProduto))
-                        {
-                            bool retorno = controllerCadastroProduto.Cadastrar(modelCadastroProduto);
+                            bool retorno = controllerCadastroProduto.Editar(modelCadastroProduto);
                             if (retorno)
                             {
-                                MessageBox.Show("Cadastrado com sucesso!");
+                                MessageBox.Show("Editado com sucesso!");
                                 this.Close();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Código de barras já cadastrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            txtCodigoBarras.Focus();
+                            modelCadastroProduto.CodigoBarras = txtCodigoBarras.Text;
+                            modelCadastroProduto.NomeProduto = txtNomeProduto.Text;
+                            modelCadastroProduto.Categoria = txtCategoria.Text;
+                            modelCadastroProduto.Fabricante = txtFabricante.Text;
+                            modelCadastroProduto.Quantidade = txtQuantidade.Value.ToString();
+                            modelCadastroProduto.ValorProduto = txtValorProduto.Text;
+                            modelCadastroProduto.Plataforma = txtPlataforma.Text;
+                            modelCadastroProduto.Garantia = txtGarantia.Text;
+
+                            if (controllerCadastroProduto.VerificarProdutoCadastrado(modelCadastroProduto))
+                            {
+                                bool retorno = controllerCadastroProduto.Cadastrar(modelCadastroProduto);
+                                if (retorno)
+                                {
+                                    MessageBox.Show("Cadastrado com sucesso!");
+                                    this.Close();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Código de barras já cadastrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtCodigoBarras.Focus();
+                            }
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void txtCategoria_TextChanged(object sender, EventArgs e)
         {
             if (txtCategoria.Text == "Acessórios" || txtCategoria.Text == "Jogos")
@@ -180,10 +189,9 @@ namespace View
                 txtGarantia.Enabled = false;
             }
         }
-
-        private void ptbAjuda_Click(object sender, EventArgs e)
+        private void FrmCadastrarProduto_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("* = Campos obrigadórios.\n\n*Código de Barras: Utilizado para vendas no caixa\n*Nome do Produto: Identificação do item cadastrado\n*Categoria: Seleciona qual categoria o produto pertence\n*Fabricante: Fabricante do produto\n*Quantidade: *Quantidade de itens a ser adicionado\n*Valor do Produto: 1.234,56 O Valor Precisa ser adicionado neste formato\n*Plataforma: Caso seja acessórios/Jogos\n*Garantia: Caso seja acessórios/Jogos","Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            pictureBox1.BackgroundImage.Dispose();
         }
     }
 }

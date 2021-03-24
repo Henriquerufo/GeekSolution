@@ -14,54 +14,126 @@ namespace Controller
         ControllerConfiguracaoSQL controllerConfiguracaoSQL = new ControllerConfiguracaoSQL();
         public DataTable CarregarPedido(string nomeCliente)
         {
-            string instrucao = string.Format("SELECT * FROM tbPedido WHERE NomeCliente LIKE '%" + nomeCliente + "%' AND statusVenda = 'Finalizada'");
-            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                string instrucao = string.Format("SELECT * FROM tbPedido WHERE NomeCliente LIKE '%" + nomeCliente + "%' AND statusVenda = 'Finalizada'");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                controllerConfiguracaoSQL.Fechar();
+                return null;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
         }
         public DataTable CarregarPedidoCancelados(string nomeCliente)
         {
-            string instrucao = string.Format("SELECT * FROM tbPedido WHERE NomeCliente LIKE '%" + nomeCliente + "%' AND statusVenda = 'Cancelada'");
-            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                string instrucao = string.Format("SELECT * FROM tbPedido WHERE NomeCliente LIKE '%" + nomeCliente + "%' AND statusVenda = 'Cancelada'");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                controllerConfiguracaoSQL.Fechar();
+                return null;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
         }
         public DataTable CarregarItem(string nomeCliente)
         {
-            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '%" + nomeCliente + "%' AND statusVenda = 'Finalizada'");
-            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '%" + nomeCliente + "%' AND statusVenda = 'Finalizada'");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                controllerConfiguracaoSQL.Fechar();
+                return null;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
         }
         public DataTable CarregarItemCancelados(string nomeCliente)
         {
-            string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '%" + nomeCliente + "%' AND statusVenda = 'Cancelada'");
-            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                string instrucao = string.Format("SELECT * FROM tbPedidoItens WHERE NomeCliente LIKE '%" + nomeCliente + "%' AND statusVenda = 'Cancelada'");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                controllerConfiguracaoSQL.Fechar();
+                return null;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
         }
         public bool CancelarPedido(ModelDevolucaoPedido modelDevolucaoPedido)
         {
-            string instrucao = string.Format("UPDATE tbPedido SET statusPagamento = 'Abonado', statusVenda = 'Cancelada' WHERE Codigo = @Codigo AND statusVenda = 'Finalizada' AND statusPagamento = 'Recebido';");
-            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-            command.Parameters.AddWithValue("@Codigo", modelDevolucaoPedido.Codigo);
-            return Convert.ToBoolean(command.ExecuteNonQuery());
+            try
+            {
+                string instrucao = string.Format("UPDATE tbPedido SET statusPagamento = 'Abonado', statusVenda = 'Cancelada' WHERE Codigo = @Codigo AND statusVenda = 'Finalizada' AND statusPagamento = 'Recebido';");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                command.Parameters.AddWithValue("@Codigo", modelDevolucaoPedido.Codigo);
+                return Convert.ToBoolean(command.ExecuteNonQuery());
+            }
+            catch
+            {
+                controllerConfiguracaoSQL.Fechar();
+                return false;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
         }
         public bool CancelarPedidoItem(ModelDevolucaoPedido modelDevolucaoPedido)
         {
-            string instrucao = string.Format("UPDATE tbPedidoItens SET statusPagamento = 'Abonado', statusVenda = 'Cancelada' WHERE Codigo = @Codigo AND statusVenda = 'Finalizada' AND statusPagamento = 'Recebido'; UPDATE tbProduto SET Quantidade = Quantidade + 1 WHERE CodigoBarras = @CodigoBarras");
-            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-            command.Parameters.AddWithValue("@Codigo", modelDevolucaoPedido.Codigo);
-            command.Parameters.AddWithValue("@CodigoBarras", modelDevolucaoPedido.CodigoBarras);
-            return Convert.ToBoolean(command.ExecuteNonQuery());
+            try
+            {
+                string instrucao = string.Format("UPDATE tbPedidoItens SET statusPagamento = 'Abonado', statusVenda = 'Cancelada' WHERE Codigo = @Codigo AND statusVenda = 'Finalizada' AND statusPagamento = 'Recebido'; UPDATE tbProduto SET Quantidade = Quantidade + 1 WHERE CodigoBarras = @CodigoBarras");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                command.Parameters.AddWithValue("@Codigo", modelDevolucaoPedido.Codigo);
+                command.Parameters.AddWithValue("@CodigoBarras", modelDevolucaoPedido.CodigoBarras);
+                return Convert.ToBoolean(command.ExecuteNonQuery());
+            }
+            catch
+            {
+                controllerConfiguracaoSQL.Fechar();
+                return false;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
         }
     }
 }

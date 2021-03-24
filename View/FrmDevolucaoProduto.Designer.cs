@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDevolucaoProduto));
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -74,7 +76,7 @@
             this.cbxFiltro.Location = new System.Drawing.Point(12, 25);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(159, 31);
-            this.cbxFiltro.TabIndex = 53;
+            this.cbxFiltro.TabIndex = 0;
             this.cbxFiltro.TextChanged += new System.EventHandler(this.cbxFiltro_TextChanged);
             // 
             // txtProcurar
@@ -83,7 +85,7 @@
             this.txtProcurar.Location = new System.Drawing.Point(177, 25);
             this.txtProcurar.Name = "txtProcurar";
             this.txtProcurar.Size = new System.Drawing.Size(506, 29);
-            this.txtProcurar.TabIndex = 52;
+            this.txtProcurar.TabIndex = 1;
             // 
             // lblExibidosTotal
             // 
@@ -98,6 +100,8 @@
             // 
             this.dgvProduto.AllowUserToAddRows = false;
             this.dgvProduto.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProduto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProduto.BackgroundColor = System.Drawing.Color.White;
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduto.Location = new System.Drawing.Point(12, 65);
@@ -106,7 +110,7 @@
             this.dgvProduto.RowHeadersVisible = false;
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(777, 173);
-            this.dgvProduto.TabIndex = 50;
+            this.dgvProduto.TabIndex = 3;
             this.dgvProduto.DoubleClick += new System.EventHandler(this.dgvProduto_DoubleClick);
             // 
             // btnFechar
@@ -116,7 +120,7 @@
             this.btnFechar.Location = new System.Drawing.Point(689, 441);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(100, 33);
-            this.btnFechar.TabIndex = 57;
+            this.btnFechar.TabIndex = 6;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -128,7 +132,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(576, 441);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 33);
-            this.btnExcluir.TabIndex = 58;
+            this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Cancelar";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -137,6 +141,8 @@
             // 
             this.dgvProdutoCancelados.AllowUserToAddRows = false;
             this.dgvProdutoCancelados.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProdutoCancelados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProdutoCancelados.BackgroundColor = System.Drawing.Color.White;
             this.dgvProdutoCancelados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutoCancelados.Location = new System.Drawing.Point(12, 262);
@@ -145,7 +151,7 @@
             this.dgvProdutoCancelados.RowHeadersVisible = false;
             this.dgvProdutoCancelados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutoCancelados.Size = new System.Drawing.Size(777, 173);
-            this.dgvProdutoCancelados.TabIndex = 59;
+            this.dgvProdutoCancelados.TabIndex = 4;
             this.dgvProdutoCancelados.DoubleClick += new System.EventHandler(this.dgvProdutoCancelados_DoubleClick);
             // 
             // lblExibidosTotalCancelados
@@ -170,7 +176,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(689, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
-            this.btnPesquisar.TabIndex = 74;
+            this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);

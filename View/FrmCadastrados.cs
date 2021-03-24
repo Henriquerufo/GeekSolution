@@ -14,55 +14,48 @@ namespace View
 {
     public partial class FrmCadastrados : Form
     {
-        string valorVenda;
+        string NomeCliente;
         ControllerCadastro controllerCadastro = new ControllerCadastro();
         ModelCadastro modelCadastro = new ModelCadastro();
-        ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
-        ControllerFinanceiro controllerFinanceiro = new ControllerFinanceiro();
-        public FrmCadastrados(ModelFinanceiro ModelFinanceiro)
+        public String Retorno
+        {
+            get { return NomeCliente; }
+        }
+        public FrmCadastrados(ModelCaixa modelCaixa)
         {
             InitializeComponent();
-            if (!string.IsNullOrWhiteSpace(ModelFinanceiro.valorVenda))
+            if (modelCaixa != null)
             {
-                valorVenda = ModelFinanceiro.valorVenda;
                 btnCadastrar.Visible = false;
                 btnSalvar.Visible = false;
                 btnDeletar.Visible = false;
-                btnConsultar.Location = new Point(12, 352);
+                btnConsultar.Location = new Point(576, 441);
                 Text = "Selecionar Cliente";
             }
             cbxFiltro.SelectedIndex = 0;
         }
         void Carregar()
         {
-            dgvCadastrados.DataSource = controllerCadastro.Carregar();
-            lblExibidosTotal.Text = "Exibidos total: " + dgvCadastrados.Rows.Count;
-            if (dgvCadastrados.Rows.Count > 0)
+            try
             {
-                btnConsultar.Enabled = true;
-                btnDeletar.Enabled = true;
-                btnSalvar.Enabled = true;
+                if (cbxFiltro.Text == "CODIGO" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+                {
+                    dgvCadastrados.DataSource = controllerCadastro.CarregarPorCodigo(txtProcurar.Text);
+                }
+                else if (cbxFiltro.Text == "NOME" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+                {
+                    dgvCadastrados.DataSource = controllerCadastro.CarregarPorNome(txtProcurar.Text);
+                }
+                lblExibidosTotal.Text = "Exibidos total: " + dgvCadastrados.Rows.Count;
             }
-            else
+            catch (Exception ex)
             {
-                btnConsultar.Enabled = false;
-                btnDeletar.Enabled = false;
-                btnSalvar.Enabled = false;
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        void CarregarPorCodigo(string codigo)
-        {
-            dgvCadastrados.DataSource = controllerCadastro.CarregarPorCodigo(codigo);
-        }
-        void CarregarPorNome(string nome)
-        {
-            dgvCadastrados.DataSource = controllerCadastro.CarregarPorNome(nome);
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (dgvCadastrados.Rows.Count == 0){ }
-            else
+            if (dgvCadastrados.Rows.Count > 0)
             {
                 modelCadastro.consulta = false;
                 modelCadastro.Codigo = dgvCadastrados.CurrentRow.Cells["codigo"].Value.ToString();
@@ -79,23 +72,27 @@ namespace View
                 Carregar();
             }
         }
-
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            if (dgvCadastrados.Rows.Count == 0){ }
-            else
+            if (dgvCadastrados.Rows.Count > 0)
             {
-                string nome = dgvCadastrados.CurrentRow.Cells["nome"].Value.ToString();
-                var Result = MessageBox.Show(nome + " será excluido", "DELETAR", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if (Result == DialogResult.OK)
+                try
                 {
-                    modelCadastro.Codigo = dgvCadastrados.CurrentRow.Cells["codigo"].Value.ToString();
-                    controllerCadastro.Deletar(modelCadastro);
-                    Carregar();
+                    string nome = dgvCadastrados.CurrentRow.Cells["nome"].Value.ToString();
+                    var Result = MessageBox.Show("O cliente: " + nome + " será excluido", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (Result == DialogResult.OK)
+                    {
+                        modelCadastro.Codigo = dgvCadastrados.CurrentRow.Cells["codigo"].Value.ToString();
+                        controllerCadastro.Deletar(modelCadastro);
+                        Carregar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             modelCadastro.consulta = false;
@@ -104,11 +101,9 @@ namespace View
             frmCadastro.ShowDialog();
             Carregar();
         }
-
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (dgvCadastrados.Rows.Count == 0){ }
-            else
+            if (dgvCadastrados.Rows.Count > 0)
             {
                 modelCadastro.consulta = true;
                 modelCadastro.Codigo = dgvCadastrados.CurrentRow.Cells["codigo"].Value.ToString();
@@ -124,28 +119,39 @@ namespace View
                 frmCadastro.ShowDialog();
             }
         }
-
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void ptbAjuda_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Consultar: Utilizado para consultar o cliente selecionado\nCadastrar: Cadastra um novo cliente\nEditar: Edita um cliente selecionado\nDeletar: Deleta um cliente Selecionado", "Ajuda", MessageBoxButtons.OK, MessageBoxIcon.Question);
-        }
-
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (cbxFiltro.Text == "CODIGO" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+            Carregar();
+        }
+        private void dgvCadastrados_DoubleClick(object sender, EventArgs e)
+        {
+            if (Text == "Selecionar Cliente")
             {
-                CarregarPorCodigo(txtProcurar.Text);
+                NomeCliente = dgvCadastrados.CurrentRow.Cells["Nome"].Value.ToString();
+                this.Close();
             }
-            else if (cbxFiltro.Text == "NOME" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+            else if (Text == "Tec Sistemas: Consultar Lista de Clientes")
             {
-                CarregarPorNome(txtProcurar.Text);
+                if (dgvCadastrados.Rows.Count > 0)
+                {
+                    modelCadastro.consulta = true;
+                    modelCadastro.Codigo = dgvCadastrados.CurrentRow.Cells["codigo"].Value.ToString();
+                    modelCadastro.RG = dgvCadastrados.CurrentRow.Cells["rg"].Value.ToString();
+                    modelCadastro.CPF = dgvCadastrados.CurrentRow.Cells["cpf"].Value.ToString();
+                    modelCadastro.Nome = dgvCadastrados.CurrentRow.Cells["nome"].Value.ToString();
+                    modelCadastro.dtCadastro = dgvCadastrados.CurrentRow.Cells["dtCadastro"].Value.ToString();
+                    modelCadastro.Telefone = dgvCadastrados.CurrentRow.Cells["telefone"].Value.ToString();
+                    modelCadastro.Endereco = dgvCadastrados.CurrentRow.Cells["endereco"].Value.ToString();
+                    modelCadastro.Email = dgvCadastrados.CurrentRow.Cells["email"].Value.ToString();
+
+                    FrmCadastro frmCadastro = new FrmCadastro(modelCadastro);
+                    frmCadastro.ShowDialog();
+                }
             }
-            lblExibidosTotal.Text = "Exibidos total: " + dgvCadastrados.Rows.Count;
         }
     }
 }

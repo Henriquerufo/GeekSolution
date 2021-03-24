@@ -61,7 +61,7 @@
             this.txtNome.Location = new System.Drawing.Point(6, 25);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(238, 29);
-            this.txtNome.TabIndex = 16;
+            this.txtNome.TabIndex = 0;
             // 
             // label1
             // 
@@ -79,7 +79,7 @@
             this.txtEnderecoImagem.Location = new System.Drawing.Point(6, 73);
             this.txtEnderecoImagem.Name = "txtEnderecoImagem";
             this.txtEnderecoImagem.Size = new System.Drawing.Size(238, 29);
-            this.txtEnderecoImagem.TabIndex = 18;
+            this.txtEnderecoImagem.TabIndex = 1;
             // 
             // label2
             // 
@@ -97,7 +97,7 @@
             this.txtColorR.Location = new System.Drawing.Point(6, 121);
             this.txtColorR.Name = "txtColorR";
             this.txtColorR.Size = new System.Drawing.Size(76, 29);
-            this.txtColorR.TabIndex = 20;
+            this.txtColorR.TabIndex = 3;
             // 
             // btnSelecionarImagem
             // 
@@ -106,7 +106,7 @@
             this.btnSelecionarImagem.Location = new System.Drawing.Point(250, 73);
             this.btnSelecionarImagem.Name = "btnSelecionarImagem";
             this.btnSelecionarImagem.Size = new System.Drawing.Size(32, 29);
-            this.btnSelecionarImagem.TabIndex = 58;
+            this.btnSelecionarImagem.TabIndex = 2;
             this.btnSelecionarImagem.Text = "...";
             this.btnSelecionarImagem.UseVisualStyleBackColor = true;
             this.btnSelecionarImagem.Click += new System.EventHandler(this.btnSelecionarImagem_Click);
@@ -118,7 +118,7 @@
             this.btnSelecionarFundo.Location = new System.Drawing.Point(250, 121);
             this.btnSelecionarFundo.Name = "btnSelecionarFundo";
             this.btnSelecionarFundo.Size = new System.Drawing.Size(32, 29);
-            this.btnSelecionarFundo.TabIndex = 59;
+            this.btnSelecionarFundo.TabIndex = 6;
             this.btnSelecionarFundo.Text = "...";
             this.btnSelecionarFundo.UseVisualStyleBackColor = true;
             this.btnSelecionarFundo.Click += new System.EventHandler(this.btnSelecionarFundo_Click);
@@ -168,7 +168,7 @@
             this.txtColorB.Location = new System.Drawing.Point(168, 121);
             this.txtColorB.Name = "txtColorB";
             this.txtColorB.Size = new System.Drawing.Size(76, 29);
-            this.txtColorB.TabIndex = 61;
+            this.txtColorB.TabIndex = 5;
             // 
             // txtColorG
             // 
@@ -176,7 +176,7 @@
             this.txtColorG.Location = new System.Drawing.Point(88, 121);
             this.txtColorG.Name = "txtColorG";
             this.txtColorG.Size = new System.Drawing.Size(74, 29);
-            this.txtColorG.TabIndex = 60;
+            this.txtColorG.TabIndex = 4;
             // 
             // label3
             // 
@@ -215,7 +215,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(185, 232);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 33);
-            this.btnCancelar.TabIndex = 64;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -227,7 +227,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(79, 232);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 33);
-            this.btnSalvar.TabIndex = 63;
+            this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);

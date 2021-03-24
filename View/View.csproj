@@ -108,6 +108,24 @@
     <Compile Include="FrmCaixa.Designer.cs">
       <DependentUpon>FrmCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCaixaDinheiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCaixaDinheiro.Designer.cs">
+      <DependentUpon>FrmCaixaDinheiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFechamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFechamento.Designer.cs">
+      <DependentUpon>FrmFechamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSaidaValor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSaidaValor.Designer.cs">
+      <DependentUpon>FrmSaidaValor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConfiguracaoSQL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,11 +144,23 @@
     <Compile Include="FrmDevolucaoProduto.Designer.cs">
       <DependentUpon>FrmDevolucaoProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEntradaProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEntradaProduto.Designer.cs">
+      <DependentUpon>FrmEntradaProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFinanceiro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmFinanceiro.Designer.cs">
       <DependentUpon>FrmFinanceiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSaida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSaida.Designer.cs">
+      <DependentUpon>FrmSaida.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGerenciadorLogins.cs">
       <SubType>Form</SubType>
@@ -191,11 +221,26 @@
     <EmbeddedResource Include="FrmCaixa.resx">
       <DependentUpon>FrmCaixa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCaixaDinheiro.resx">
+      <DependentUpon>FrmCaixaDinheiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFechamento.resx">
+      <DependentUpon>FrmFechamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSaida.resx">
+      <DependentUpon>FrmSaida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSaidaValor.resx">
+      <DependentUpon>FrmSaidaValor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultarPedidoItens.resx">
       <DependentUpon>FrmConsultarPedidoItens.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDevolucaoProduto.resx">
       <DependentUpon>FrmDevolucaoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEntradaProduto.resx">
+      <DependentUpon>FrmEntradaProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFinanceiro.resx">
       <DependentUpon>FrmFinanceiro.cs</DependentUpon>
@@ -234,13 +279,13 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
-    <None Include="Properties\Settings.settings">
+    <None Include="Properties\SettingsLogado.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <LastGenOutput>SettingsLogado.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Include="Properties\SettingsLogado.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
+      <DependentUpon>SettingsLogado.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>

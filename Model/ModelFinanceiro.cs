@@ -16,6 +16,10 @@ namespace Model
         public string opcaoPagamento { get; set; }
         public string statusPagamento { get; set; }
         public string statusVenda { get; set; }
+        public string Dinheiro { get; set; }
+        public string Cartao { get; set; }
+        public string Cheque { get; set; }
+        public string ChequeDias { get; set; }
 
         //Pedido Itens
         public string codigo { get; set; }

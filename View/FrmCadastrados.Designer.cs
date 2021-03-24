@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastrados));
             this.dgvCadastrados = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +58,8 @@
             // 
             this.dgvCadastrados.AllowUserToAddRows = false;
             this.dgvCadastrados.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCadastrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCadastrados.BackgroundColor = System.Drawing.Color.White;
             this.dgvCadastrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCadastrados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -74,7 +77,8 @@
             this.dgvCadastrados.RowHeadersVisible = false;
             this.dgvCadastrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCadastrados.Size = new System.Drawing.Size(777, 370);
-            this.dgvCadastrados.TabIndex = 0;
+            this.dgvCadastrados.TabIndex = 3;
+            this.dgvCadastrados.DoubleClick += new System.EventHandler(this.dgvCadastrados_DoubleClick);
             // 
             // codigo
             // 
@@ -139,7 +143,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(470, 441);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 33);
-            this.btnSalvar.TabIndex = 9;
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Editar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -151,7 +155,7 @@
             this.btnDeletar.Location = new System.Drawing.Point(576, 441);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(100, 33);
-            this.btnDeletar.TabIndex = 10;
+            this.btnDeletar.TabIndex = 7;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
@@ -163,7 +167,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(364, 441);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
-            this.btnCadastrar.TabIndex = 11;
+            this.btnCadastrar.TabIndex = 5;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -175,7 +179,7 @@
             this.btnConsultar.Location = new System.Drawing.Point(258, 441);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 33);
-            this.btnConsultar.TabIndex = 33;
+            this.btnConsultar.TabIndex = 4;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -186,7 +190,7 @@
             this.txtProcurar.Location = new System.Drawing.Point(176, 25);
             this.txtProcurar.Name = "txtProcurar";
             this.txtProcurar.Size = new System.Drawing.Size(506, 29);
-            this.txtProcurar.TabIndex = 34;
+            this.txtProcurar.TabIndex = 1;
             // 
             // cbxFiltro
             // 
@@ -199,7 +203,7 @@
             this.cbxFiltro.Location = new System.Drawing.Point(12, 25);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(158, 31);
-            this.cbxFiltro.TabIndex = 35;
+            this.cbxFiltro.TabIndex = 0;
             // 
             // lblExibidosTotal
             // 
@@ -235,7 +239,7 @@
             this.btnFechar.Location = new System.Drawing.Point(689, 441);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(100, 33);
-            this.btnFechar.TabIndex = 39;
+            this.btnFechar.TabIndex = 8;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -253,7 +257,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(689, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
-            this.btnPesquisar.TabIndex = 75;
+            this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);

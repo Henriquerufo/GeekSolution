@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastradosProdutos));
             this.dgvProduto = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +59,8 @@
             // 
             this.dgvProduto.AllowUserToAddRows = false;
             this.dgvProduto.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProduto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProduto.BackgroundColor = System.Drawing.Color.White;
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -76,7 +79,8 @@
             this.dgvProduto.RowHeadersVisible = false;
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(777, 371);
-            this.dgvProduto.TabIndex = 0;
+            this.dgvProduto.TabIndex = 3;
+            this.dgvProduto.DoubleClick += new System.EventHandler(this.dgvProduto_DoubleClick);
             // 
             // codigo
             // 
@@ -148,7 +152,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(364, 441);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
-            this.btnCadastrar.TabIndex = 14;
+            this.btnCadastrar.TabIndex = 5;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -160,7 +164,7 @@
             this.btnDeletar.Location = new System.Drawing.Point(576, 441);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(100, 33);
-            this.btnDeletar.TabIndex = 13;
+            this.btnDeletar.TabIndex = 7;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
@@ -172,7 +176,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(470, 441);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 33);
-            this.btnSalvar.TabIndex = 12;
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Editar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -184,7 +188,7 @@
             this.btnConsultar.Location = new System.Drawing.Point(258, 441);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 33);
-            this.btnConsultar.TabIndex = 34;
+            this.btnConsultar.TabIndex = 4;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -196,7 +200,7 @@
             this.btnFechar.Location = new System.Drawing.Point(689, 441);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(100, 33);
-            this.btnFechar.TabIndex = 41;
+            this.btnFechar.TabIndex = 8;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -239,7 +243,7 @@
             this.cbxFiltro.Location = new System.Drawing.Point(12, 25);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(159, 31);
-            this.cbxFiltro.TabIndex = 47;
+            this.cbxFiltro.TabIndex = 0;
             // 
             // txtProcurar
             // 
@@ -247,14 +251,14 @@
             this.txtProcurar.Location = new System.Drawing.Point(177, 25);
             this.txtProcurar.Name = "txtProcurar";
             this.txtProcurar.Size = new System.Drawing.Size(506, 29);
-            this.txtProcurar.TabIndex = 46;
+            this.txtProcurar.TabIndex = 1;
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Location = new System.Drawing.Point(689, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
-            this.btnPesquisar.TabIndex = 74;
+            this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);

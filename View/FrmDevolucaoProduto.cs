@@ -1,10 +1,12 @@
 ﻿using Controller;
 using Model;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,8 @@ namespace View
     {
         ControllerDevolucaoProduto controllerDevolucaoProduto = new ControllerDevolucaoProduto();
         ModelDevolucaoPedido modelDevolucaoPedido = new ModelDevolucaoPedido();
+        ModelLogin modelLogin = new ModelLogin();
+        ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
         public FrmDevolucaoProduto()
         {
             InitializeComponent();
@@ -51,7 +55,7 @@ namespace View
             //se o cbxFiltro for PEDIDO, permite explorar os itens desse pedido
             if (cbxFiltro.Text == "PEDIDO")
             {
-                ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
+                
                 modelFinanceiro.CodigoPedido = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
                 FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
                 frmConsultarPedidoItens.ShowDialog();
@@ -60,42 +64,48 @@ namespace View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            ModelLogin modelLogin = new ModelLogin();
-            modelLogin.Nivel = "?";
-            FrmLogin frmLogin = new FrmLogin(modelLogin);
-            frmLogin.ShowDialog();
-
-            /*Verifica se o usuario está na lista e, se este usuario tem o nivel de Supervisor*/
-            if (frmLogin.Retorno == "Supervisor")
+            try
             {
-                modelDevolucaoPedido.Codigo = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
 
-                var result = MessageBox.Show("O " + cbxFiltro.Text + "\nCodigo: " + modelDevolucaoPedido.Codigo + " será cancelado", "ALERTA", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
+                modelLogin.Nivel = "?";
+                FrmLogin frmLogin = new FrmLogin(modelLogin);
+                frmLogin.ShowDialog();
+
+                /*Verifica se o usuario está na lista e, se este usuario tem o nivel de Supervisor*/
+                if (frmLogin.Retorno == "Supervisor" && dgvProduto.Rows.Count > 0)
                 {
-                    /*Se o cbxFiltro for Pedido, ele passa o CancelarPedido como verdadeiro, passa o codigo para a frmConsultarPedidoItens e, lá é rodado um foreath
-                     ele deleta item por item baseado no codigoPedido*/
-                    if (cbxFiltro.Text == "PEDIDO")
+                    modelDevolucaoPedido.Codigo = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
+
+                    var result = MessageBox.Show("O " + cbxFiltro.Text + "\nCodigo: " + modelDevolucaoPedido.Codigo + " será cancelado", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
                     {
-                        controllerDevolucaoProduto.CancelarPedido(modelDevolucaoPedido);
-                        ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
-                        modelFinanceiro.CodigoPedido = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
-                        modelFinanceiro.cancelarProduto = true;
-                        FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
-                        modelFinanceiro.cancelarProduto = false;
-                        Carregar(txtProcurar.Text);
-                    }
-                    /*se o cbxFiltro for ITEM, ele pega os dados do dgv e passa para a controller para cancelar o item*/
-                    if (cbxFiltro.Text == "ITEM")
-                    {
-                        modelDevolucaoPedido.statusVenda = dgvProduto.CurrentRow.Cells["statusVenda"].Value.ToString();
-                        modelDevolucaoPedido.statusPegamento = dgvProduto.CurrentRow.Cells["statusPagamento"].Value.ToString();
-                        modelDevolucaoPedido.CodigoBarras = dgvProduto.CurrentRow.Cells["CodigoBarras"].Value.ToString();
-                        controllerDevolucaoProduto.CancelarPedidoItem(modelDevolucaoPedido);
-                        Carregar(txtProcurar.Text);
+                        /*Se o cbxFiltro for Pedido, ele passa o CancelarPedido como verdadeiro, passa o codigo para a frmConsultarPedidoItens e, lá é rodado um foreath
+                         ele deleta item por item baseado no codigoPedido*/
+                        if (cbxFiltro.Text == "PEDIDO")
+                        {
+                            controllerDevolucaoProduto.CancelarPedido(modelDevolucaoPedido);
+                            modelFinanceiro.CodigoPedido = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
+                            modelFinanceiro.cancelarProduto = true;
+                            FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
+                            modelFinanceiro.cancelarProduto = false;
+                            Carregar(txtProcurar.Text);
+                        }
+                        /*se o cbxFiltro for ITEM, ele pega os dados do dgv e passa para a controller para cancelar o item*/
+                        if (cbxFiltro.Text == "ITEM")
+                        {
+                            modelDevolucaoPedido.statusVenda = dgvProduto.CurrentRow.Cells["statusVenda"].Value.ToString();
+                            modelDevolucaoPedido.statusPegamento = dgvProduto.CurrentRow.Cells["statusPagamento"].Value.ToString();
+                            modelDevolucaoPedido.CodigoBarras = dgvProduto.CurrentRow.Cells["CodigoBarras"].Value.ToString();
+                            controllerDevolucaoProduto.CancelarPedidoItem(modelDevolucaoPedido);
+                            Carregar(txtProcurar.Text);
+                        }
                     }
                 }
-            }    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }   
         }
 
         private void dgvProdutoCancelados_DoubleClick(object sender, EventArgs e)
@@ -104,7 +114,6 @@ namespace View
                  usa a tela de ConsultarPedidoItens*/
             if (cbxFiltro.Text == "PEDIDO")
             {
-                ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
                 modelFinanceiro.CodigoPedido = dgvProdutoCancelados.CurrentRow.Cells["Codigo"].Value.ToString();
                 FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
                 frmConsultarPedidoItens.ShowDialog();

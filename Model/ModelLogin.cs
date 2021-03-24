@@ -10,6 +10,7 @@ namespace Model
     {
         public string Codigo { get; set; }
         public string ID { get; set; }
+        public string Nome { get; set; }
         public string Senha { get; set; }
         public string Nivel { get; set; }
         public bool Consultar { get; set; }

@@ -29,7 +29,25 @@ namespace View
             }
             cbxFiltro.SelectedIndex = 0;
         }
-
+        void Carregar()
+        {
+            try
+            {
+                if (cbxFiltro.Text == "CODIGO" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+                {
+                    dgvProduto.DataSource = controllerCadastroProduto.CarregarPorCodigo(txtProcurar.Text);
+                }
+                else if (cbxFiltro.Text == "NOME" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
+                {
+                    dgvProduto.DataSource = controllerCadastroProduto.CarregarPorNome(txtProcurar.Text);
+                }
+                lblExibidosTotal.Text = "Exibidos total: " + dgvProduto.Rows.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             modelCadastroProduto.Consultar = false;
@@ -37,11 +55,9 @@ namespace View
             FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
             frmCadastrarProduto.ShowDialog();
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (dgvProduto.Rows.Count == 0){ }
-            else
+            if (dgvProduto.Rows.Count > 0)
             {
                 modelCadastroProduto.Consultar = false;
                 modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
@@ -56,29 +72,33 @@ namespace View
 
                 FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
                 frmCadastrarProduto.ShowDialog();
+                Carregar();
             }
         }
-
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            if (dgvProduto.Rows.Count == 0){ }
-            else
+            if (dgvProduto.Rows.Count > 0)
             {
-                modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
-                var result = MessageBox.Show(modelCadastroProduto.NomeProduto + " será excluido", "DELETAR", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
+                try
                 {
-                    modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
-
-                    controllerCadastroProduto.Deletar(modelCadastroProduto);
+                    modelCadastroProduto.NomeProduto = dgvProduto.CurrentRow.Cells["nomeProduto"].Value.ToString();
+                    var result = MessageBox.Show("O produto: " + modelCadastroProduto.NomeProduto + " será excluido", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
+                    {
+                        modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
+                        controllerCadastroProduto.Deletar(modelCadastroProduto);
+                        Carregar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
+        void Consultar()
         {
-            if (dgvProduto.Rows.Count == 0){ }
-            else
+            if (dgvProduto.Rows.Count > 0)
             {
                 modelCadastroProduto.Consultar = true;
                 modelCadastroProduto.Codigo = dgvProduto.CurrentRow.Cells["codigo"].Value.ToString();
@@ -95,23 +115,22 @@ namespace View
                 frmCadastrarProduto.ShowDialog();
             }
         }
-
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            Consultar();
+        }
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (cbxFiltro.Text == "CODIGO" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
-            {
-                dgvProduto.DataSource = controllerCadastroProduto.CarregarPorCodigo(txtProcurar.Text);
-            }
-            else if (cbxFiltro.Text == "NOME" && !string.IsNullOrWhiteSpace(txtProcurar.Text))
-            {
-                dgvProduto.DataSource = controllerCadastroProduto.CarregarPorNome(txtProcurar.Text);
-            }
-            lblExibidosTotal.Text = "Exibidos total: " + dgvProduto.Rows.Count;
+            Carregar();
+        }
+
+        private void dgvProduto_DoubleClick(object sender, EventArgs e)
+        {
+            Consultar();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace View
 {
     public partial class FrmLogin : Form
     {
+        ControllerLogin controllerLogin = new ControllerLogin();
         ModelLogin modelLogin = new ModelLogin();
         string retorno;
         public String Retorno 
@@ -29,40 +30,39 @@ namespace View
                 btnLogar.Text = "OK";
             }
         }
-
         private void btnLogar_Click(object sender, EventArgs e)
         {
             if (btnLogar.Text == "Logar")
             {
                 PrimeiroLogin();
             }
-            else
+            else if(btnLogar.Text == "OK")
             {
-                retorno = Autenticacao();
-                this.Close();
+                if (Autenticacao() == "Supervisor")
+                {
+                    retorno = Autenticacao();
+                    this.Close();
+                }
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         void PrimeiroLogin()
         {
-            ControllerLogin controllerLogin = new ControllerLogin();
-            bool retornoADM = controllerLogin.VerificarLoginADM(txtID.Text, txtSenha.Text);
-            bool retornoVendedor = controllerLogin.VerificarLoginVendedor(txtID.Text, txtSenha.Text);
-            bool retornoSupervisor = controllerLogin.VerificarLoginSupervisor(txtID.Text, txtSenha.Text);
-            bool retornoEstoquista = controllerLogin.VerificarLoginEstoquista(txtID.Text, txtSenha.Text);
-            if (retornoADM)
+            if (controllerLogin.VerificarLoginADM(txtID.Text, txtSenha.Text))
             {
                 lblInvalido.Visible = false;
                 this.Hide();
                 modelLogin.Nivel = "Administrador";
                 modelLogin.ID = txtID.Text;
+                modelLogin.Nome = txtID.Text;
                 modelLogin.Status = "Conectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                controllerLogin.AlterarStatus(modelLogin);
+                Properties.SettingsLogado.Default.Nome = modelLogin.Nome;
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
                 modelLogin.Nivel = "Administrador";
@@ -70,17 +70,21 @@ namespace View
                 modelLogin.Status = "Desconectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                controllerLogin.AlterarStatus(modelLogin);
                 Application.Exit();
             }           
-            else if (retornoVendedor)
+            else if (controllerLogin.VerificarLoginVendedor(txtID.Text, txtSenha.Text))
             {
                 lblInvalido.Visible = false;
                 this.Hide();
                 modelLogin.Nivel = "Vendedor";
                 modelLogin.ID = txtID.Text;
+                modelLogin.Nome = txtID.Text;
                 modelLogin.Status = "Conectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                controllerLogin.AlterarStatus(modelLogin);
+                Properties.SettingsLogado.Default.Nome = modelLogin.Nome;
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
                 modelLogin.Nivel = "Vendedor";
@@ -88,17 +92,21 @@ namespace View
                 modelLogin.Status = "Desconectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                controllerLogin.AlterarStatus(modelLogin);
                 Application.Exit();
             }           
-            else if (retornoSupervisor)
+            else if (controllerLogin.VerificarLoginSupervisor(txtID.Text, txtSenha.Text))
             {
                 lblInvalido.Visible = false;
                 this.Hide();
                 modelLogin.Nivel = "Supervisor";
                 modelLogin.ID = txtID.Text;
+                modelLogin.Nome = txtID.Text;
                 modelLogin.Status = "Conectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                controllerLogin.AlterarStatus(modelLogin);
+                Properties.SettingsLogado.Default.Nome = modelLogin.Nome;
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
                 modelLogin.Nivel = "Supervisor";
@@ -106,17 +114,21 @@ namespace View
                 modelLogin.Status = "Desconectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                controllerLogin.AlterarStatus(modelLogin);
                 Application.Exit();
             }           
-            else if (retornoEstoquista)
+            else if (controllerLogin.VerificarLoginEstoquista(txtID.Text, txtSenha.Text))
             {
                 lblInvalido.Visible = false;
                 this.Hide();
                 modelLogin.Nivel = "Estoquista";
                 modelLogin.ID = txtID.Text;
+                modelLogin.Nome = txtID.Text;
                 modelLogin.Status = "Conectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                controllerLogin.AlterarStatus(modelLogin);
+                Properties.SettingsLogado.Default.Nome = modelLogin.Nome;
                 FrmPrincipal frmPrincipal = new FrmPrincipal(modelLogin);
                 frmPrincipal.ShowDialog();
                 modelLogin.Nivel = "Estoquista";
@@ -124,6 +136,7 @@ namespace View
                 modelLogin.Status = "Desconectado";
                 modelLogin.UltimoLog = DateTime.Now.ToString();
                 controllerLogin.InserirLog(modelLogin);
+                controllerLogin.AlterarStatus(modelLogin);
                 Application.Exit();
             }
             else
@@ -134,27 +147,10 @@ namespace View
         }
         public string Autenticacao()
         {
-            ControllerLogin controllerLogin = new ControllerLogin();
-            bool retornoADM = controllerLogin.VerificarLoginADM(txtID.Text, txtSenha.Text);
-            bool retornoVendedor = controllerLogin.VerificarLoginVendedor(txtID.Text, txtSenha.Text);
-            bool retornoSupervisor = controllerLogin.VerificarLoginSupervisor(txtID.Text, txtSenha.Text);
-            bool retornoEstoquista = controllerLogin.VerificarLoginEstoquista(txtID.Text, txtSenha.Text);
-            if (retornoADM)
-            {             
-                return "Administrador";
-            }            
-            else if (retornoVendedor)
-            {
-                return "Vendedor";
-            }           
-            else if (retornoSupervisor)
+            if (controllerLogin.VerificarLoginCancelamento(txtID.Text, txtSenha.Text))
             {
                 return "Supervisor";
             }            
-            else if (retornoEstoquista)
-            {
-                return "Estoquista";
-            }
             else
             {
                 txtID.Focus();
@@ -162,7 +158,6 @@ namespace View
                 return "ERRO";
             }
         }
-
         private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F12)

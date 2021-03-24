@@ -46,7 +46,9 @@
             this.rbAdministrador = new System.Windows.Forms.RadioButton();
             this.lblLoginsCadastrados = new System.Windows.Forms.Label();
             this.lblLoginsContratados = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID
@@ -55,7 +57,7 @@
             this.txtID.Location = new System.Drawing.Point(3, 16);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(244, 29);
-            this.txtID.TabIndex = 61;
+            this.txtID.TabIndex = 0;
             // 
             // txtSenha
             // 
@@ -63,7 +65,7 @@
             this.txtSenha.Location = new System.Drawing.Point(3, 64);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(244, 29);
-            this.txtSenha.TabIndex = 62;
+            this.txtSenha.TabIndex = 1;
             // 
             // txtConfirmarSenha
             // 
@@ -71,7 +73,7 @@
             this.txtConfirmarSenha.Location = new System.Drawing.Point(3, 112);
             this.txtConfirmarSenha.Name = "txtConfirmarSenha";
             this.txtConfirmarSenha.Size = new System.Drawing.Size(244, 29);
-            this.txtConfirmarSenha.TabIndex = 63;
+            this.txtConfirmarSenha.TabIndex = 2;
             // 
             // label1
             // 
@@ -107,10 +109,10 @@
             // 
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(65, 320);
+            this.btnCadastrar.Location = new System.Drawing.Point(61, 377);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
-            this.btnCadastrar.TabIndex = 67;
+            this.btnCadastrar.TabIndex = 0;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -119,10 +121,10 @@
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(171, 320);
+            this.btnCancelar.Location = new System.Drawing.Point(167, 377);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 33);
-            this.btnCancelar.TabIndex = 68;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -159,7 +161,7 @@
             this.pnlLogin.Controls.Add(this.label2);
             this.pnlLogin.Controls.Add(this.label1);
             this.pnlLogin.Controls.Add(this.lblConfirmarSenha);
-            this.pnlLogin.Location = new System.Drawing.Point(18, 85);
+            this.pnlLogin.Location = new System.Drawing.Point(12, 128);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(253, 206);
             this.pnlLogin.TabIndex = 71;
@@ -170,7 +172,7 @@
             this.rbSupervisor.Location = new System.Drawing.Point(128, 173);
             this.rbSupervisor.Name = "rbSupervisor";
             this.rbSupervisor.Size = new System.Drawing.Size(75, 17);
-            this.rbSupervisor.TabIndex = 70;
+            this.rbSupervisor.TabIndex = 6;
             this.rbSupervisor.Text = "Supervisor";
             this.rbSupervisor.UseVisualStyleBackColor = true;
             // 
@@ -180,7 +182,7 @@
             this.rbEstoquista.Location = new System.Drawing.Point(34, 173);
             this.rbEstoquista.Name = "rbEstoquista";
             this.rbEstoquista.Size = new System.Drawing.Size(74, 17);
-            this.rbEstoquista.TabIndex = 69;
+            this.rbEstoquista.TabIndex = 5;
             this.rbEstoquista.Text = "Estoquista";
             this.rbEstoquista.UseVisualStyleBackColor = true;
             // 
@@ -191,7 +193,7 @@
             this.rbVendedor.Location = new System.Drawing.Point(128, 150);
             this.rbVendedor.Name = "rbVendedor";
             this.rbVendedor.Size = new System.Drawing.Size(71, 17);
-            this.rbVendedor.TabIndex = 68;
+            this.rbVendedor.TabIndex = 4;
             this.rbVendedor.TabStop = true;
             this.rbVendedor.Text = "Vendedor";
             this.rbVendedor.UseVisualStyleBackColor = true;
@@ -202,14 +204,14 @@
             this.rbAdministrador.Location = new System.Drawing.Point(34, 150);
             this.rbAdministrador.Name = "rbAdministrador";
             this.rbAdministrador.Size = new System.Drawing.Size(88, 17);
-            this.rbAdministrador.TabIndex = 67;
+            this.rbAdministrador.TabIndex = 3;
             this.rbAdministrador.Text = "Administrador";
             this.rbAdministrador.UseVisualStyleBackColor = true;
             // 
             // lblLoginsCadastrados
             // 
             this.lblLoginsCadastrados.AutoSize = true;
-            this.lblLoginsCadastrados.Location = new System.Drawing.Point(18, 294);
+            this.lblLoginsCadastrados.Location = new System.Drawing.Point(12, 337);
             this.lblLoginsCadastrados.Name = "lblLoginsCadastrados";
             this.lblLoginsCadastrados.Size = new System.Drawing.Size(72, 13);
             this.lblLoginsCadastrados.TabIndex = 72;
@@ -219,18 +221,29 @@
             // lblLoginsContratados
             // 
             this.lblLoginsContratados.AutoSize = true;
-            this.lblLoginsContratados.Location = new System.Drawing.Point(178, 294);
+            this.lblLoginsContratados.Location = new System.Drawing.Point(164, 337);
             this.lblLoginsContratados.Name = "lblLoginsContratados";
             this.lblLoginsContratados.Size = new System.Drawing.Size(70, 13);
             this.lblLoginsContratados.TabIndex = 73;
             this.lblLoginsContratados.Text = "Contratados: ";
             this.lblLoginsContratados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::View.Properties.Resources.SuaLogo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(157, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(110, 110);
+            this.pictureBox1.TabIndex = 88;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmCadastroLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 364);
+            this.ClientSize = new System.Drawing.Size(279, 422);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblLoginsContratados);
             this.Controls.Add(this.lblLoginsCadastrados);
             this.Controls.Add(this.pnlLogin);
@@ -246,6 +259,7 @@
             this.Text = "Tec Sistemas: Cadastrar Novo Login";
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +284,6 @@
         private System.Windows.Forms.RadioButton rbEstoquista;
         private System.Windows.Forms.Label lblLoginsCadastrados;
         private System.Windows.Forms.Label lblLoginsContratados;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

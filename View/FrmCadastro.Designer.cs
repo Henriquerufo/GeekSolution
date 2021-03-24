@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastro));
             this.label6 = new System.Windows.Forms.Label();
             this.lblCadastrar = new System.Windows.Forms.Label();
@@ -66,7 +68,6 @@
             this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plataforma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prazoGarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +79,6 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,11 +95,17 @@
             this.txtProcurarPedidoCancelado = new System.Windows.Forms.TextBox();
             this.cbxFiltroPedido = new System.Windows.Forms.ComboBox();
             this.pnlConsultar = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbEmAberto = new System.Windows.Forms.RadioButton();
+            this.rbRecebido = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.pnlCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItensCancelados)).BeginInit();
             this.pnlConsultar.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -128,7 +134,7 @@
             this.txtNome.Location = new System.Drawing.Point(3, 17);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(179, 29);
-            this.txtNome.TabIndex = 14;
+            this.txtNome.TabIndex = 0;
             // 
             // label1
             // 
@@ -178,6 +184,7 @@
             this.txtDtCadastro.ReadOnly = true;
             this.txtDtCadastro.Size = new System.Drawing.Size(179, 29);
             this.txtDtCadastro.TabIndex = 20;
+            this.txtDtCadastro.TabStop = false;
             // 
             // label7
             // 
@@ -195,7 +202,7 @@
             this.txtEndereco.Location = new System.Drawing.Point(3, 161);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(364, 29);
-            this.txtEndereco.TabIndex = 22;
+            this.txtEndereco.TabIndex = 5;
             // 
             // label8
             // 
@@ -223,16 +230,16 @@
             this.txtEmail.Location = new System.Drawing.Point(188, 113);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(179, 29);
-            this.txtEmail.TabIndex = 26;
+            this.txtEmail.TabIndex = 4;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(279, 412);
+            this.btnCancelar.Location = new System.Drawing.Point(279, 554);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 33);
-            this.btnCancelar.TabIndex = 29;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -241,10 +248,10 @@
             // 
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(173, 412);
+            this.btnSalvar.Location = new System.Drawing.Point(173, 554);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 33);
-            this.btnSalvar.TabIndex = 28;
+            this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -277,9 +284,9 @@
             this.pnlCadastro.Controls.Add(this.label7);
             this.pnlCadastro.Controls.Add(this.txtDtCadastro);
             this.pnlCadastro.Controls.Add(this.label4);
-            this.pnlCadastro.Location = new System.Drawing.Point(8, 115);
+            this.pnlCadastro.Location = new System.Drawing.Point(8, 118);
             this.pnlCadastro.Name = "pnlCadastro";
-            this.pnlCadastro.Size = new System.Drawing.Size(371, 291);
+            this.pnlCadastro.Size = new System.Drawing.Size(371, 430);
             this.pnlCadastro.TabIndex = 30;
             // 
             // label12
@@ -308,7 +315,7 @@
             this.textBox2.Location = new System.Drawing.Point(188, 209);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(179, 29);
-            this.textBox2.TabIndex = 37;
+            this.textBox2.TabIndex = 7;
             // 
             // maskedTextBox2
             // 
@@ -316,7 +323,7 @@
             this.maskedTextBox2.Location = new System.Drawing.Point(3, 209);
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(179, 29);
-            this.maskedTextBox2.TabIndex = 36;
+            this.maskedTextBox2.TabIndex = 6;
             // 
             // maskedTextBox1
             // 
@@ -325,7 +332,7 @@
             this.maskedTextBox1.Mask = "###.###.###-##";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(179, 29);
-            this.maskedTextBox1.TabIndex = 35;
+            this.maskedTextBox1.TabIndex = 9;
             // 
             // label10
             // 
@@ -343,7 +350,7 @@
             this.textBox1.Location = new System.Drawing.Point(3, 257);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(179, 29);
-            this.textBox1.TabIndex = 31;
+            this.textBox1.TabIndex = 8;
             // 
             // label5
             // 
@@ -362,7 +369,7 @@
             this.txtTelefone.Mask = "(##) # ####-####";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(179, 29);
-            this.txtTelefone.TabIndex = 30;
+            this.txtTelefone.TabIndex = 2;
             // 
             // txtCPF
             // 
@@ -371,7 +378,7 @@
             this.txtCPF.Mask = "###.###.###-##";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(179, 29);
-            this.txtCPF.TabIndex = 29;
+            this.txtCPF.TabIndex = 3;
             // 
             // txtRG
             // 
@@ -380,12 +387,14 @@
             this.txtRG.Mask = "##.###.###-##";
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(179, 29);
-            this.txtRG.TabIndex = 28;
+            this.txtRG.TabIndex = 1;
             // 
             // dgvPedidoItens
             // 
             this.dgvPedidoItens.AllowUserToAddRows = false;
             this.dgvPedidoItens.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvPedidoItens.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPedidoItens.BackgroundColor = System.Drawing.Color.White;
             this.dgvPedidoItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidoItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -396,7 +405,6 @@
             this.nomeProduto,
             this.categoria,
             this.fabricante,
-            this.quantidade,
             this.valorProduto,
             this.plataforma,
             this.prazoGarantia});
@@ -405,8 +413,9 @@
             this.dgvPedidoItens.ReadOnly = true;
             this.dgvPedidoItens.RowHeadersVisible = false;
             this.dgvPedidoItens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidoItens.Size = new System.Drawing.Size(592, 150);
-            this.dgvPedidoItens.TabIndex = 64;
+            this.dgvPedidoItens.Size = new System.Drawing.Size(771, 213);
+            this.dgvPedidoItens.TabIndex = 3;
+            this.dgvPedidoItens.DoubleClick += new System.EventHandler(this.dgvPedidoItens_DoubleClick);
             // 
             // Cod
             // 
@@ -457,13 +466,6 @@
             this.fabricante.Name = "fabricante";
             this.fabricante.ReadOnly = true;
             // 
-            // quantidade
-            // 
-            this.quantidade.DataPropertyName = "Quantidade";
-            this.quantidade.HeaderText = "Quantidade";
-            this.quantidade.Name = "quantidade";
-            this.quantidade.ReadOnly = true;
-            // 
             // valorProduto
             // 
             this.valorProduto.DataPropertyName = "ValorProduto";
@@ -480,7 +482,7 @@
             // 
             // prazoGarantia
             // 
-            this.prazoGarantia.DataPropertyName = "PrazoGarantia";
+            this.prazoGarantia.DataPropertyName = "Garantia";
             this.prazoGarantia.HeaderText = "Garantia";
             this.prazoGarantia.Name = "prazoGarantia";
             this.prazoGarantia.ReadOnly = true;
@@ -489,6 +491,8 @@
             // 
             this.dgvPedidoItensCancelados.AllowUserToAddRows = false;
             this.dgvPedidoItensCancelados.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvPedidoItensCancelados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPedidoItensCancelados.BackgroundColor = System.Drawing.Color.White;
             this.dgvPedidoItensCancelados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidoItensCancelados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -499,17 +503,16 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
-            this.dgvPedidoItensCancelados.Location = new System.Drawing.Point(6, 280);
+            this.dgvPedidoItensCancelados.Location = new System.Drawing.Point(6, 354);
             this.dgvPedidoItensCancelados.Name = "dgvPedidoItensCancelados";
             this.dgvPedidoItensCancelados.ReadOnly = true;
             this.dgvPedidoItensCancelados.RowHeadersVisible = false;
             this.dgvPedidoItensCancelados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidoItensCancelados.Size = new System.Drawing.Size(592, 150);
-            this.dgvPedidoItensCancelados.TabIndex = 65;
+            this.dgvPedidoItensCancelados.Size = new System.Drawing.Size(771, 213);
+            this.dgvPedidoItensCancelados.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -560,13 +563,6 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Quantidade";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Quantidade";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "ValorProduto";
@@ -583,7 +579,7 @@
             // 
             // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "PrazoGarantia";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Garantia";
             this.dataGridViewTextBoxColumn11.HeaderText = "Garantia";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -591,7 +587,7 @@
             // lblExibidosTotal
             // 
             this.lblExibidosTotal.AutoSize = true;
-            this.lblExibidosTotal.Location = new System.Drawing.Point(3, 210);
+            this.lblExibidosTotal.Location = new System.Drawing.Point(3, 274);
             this.lblExibidosTotal.Name = "lblExibidosTotal";
             this.lblExibidosTotal.Size = new System.Drawing.Size(81, 13);
             this.lblExibidosTotal.TabIndex = 68;
@@ -600,7 +596,7 @@
             // lblExibidosTotalCancelados
             // 
             this.lblExibidosTotalCancelados.AutoSize = true;
-            this.lblExibidosTotalCancelados.Location = new System.Drawing.Point(3, 433);
+            this.lblExibidosTotalCancelados.Location = new System.Drawing.Point(3, 570);
             this.lblExibidosTotalCancelados.Name = "lblExibidosTotalCancelados";
             this.lblExibidosTotalCancelados.Size = new System.Drawing.Size(81, 13);
             this.lblExibidosTotalCancelados.TabIndex = 69;
@@ -608,10 +604,10 @@
             // 
             // btnPesquisarPedido
             // 
-            this.btnPesquisarPedido.Location = new System.Drawing.Point(498, 20);
+            this.btnPesquisarPedido.Location = new System.Drawing.Point(677, 20);
             this.btnPesquisarPedido.Name = "btnPesquisarPedido";
             this.btnPesquisarPedido.Size = new System.Drawing.Size(100, 29);
-            this.btnPesquisarPedido.TabIndex = 79;
+            this.btnPesquisarPedido.TabIndex = 2;
             this.btnPesquisarPedido.Text = "Pesquisar";
             this.btnPesquisarPedido.UseVisualStyleBackColor = true;
             this.btnPesquisarPedido.Click += new System.EventHandler(this.btnPesquisarPedido_Click);
@@ -640,14 +636,14 @@
             this.txtProcurarPedido.Location = new System.Drawing.Point(171, 20);
             this.txtProcurarPedido.Name = "txtProcurarPedido";
             this.txtProcurarPedido.Size = new System.Drawing.Size(321, 29);
-            this.txtProcurarPedido.TabIndex = 75;
+            this.txtProcurarPedido.TabIndex = 1;
             // 
             // btnPesquisarPedidoCancelado
             // 
-            this.btnPesquisarPedidoCancelado.Location = new System.Drawing.Point(498, 245);
+            this.btnPesquisarPedidoCancelado.Location = new System.Drawing.Point(677, 319);
             this.btnPesquisarPedidoCancelado.Name = "btnPesquisarPedidoCancelado";
             this.btnPesquisarPedidoCancelado.Size = new System.Drawing.Size(100, 26);
-            this.btnPesquisarPedidoCancelado.TabIndex = 84;
+            this.btnPesquisarPedidoCancelado.TabIndex = 6;
             this.btnPesquisarPedidoCancelado.Text = "Pesquisar";
             this.btnPesquisarPedidoCancelado.UseVisualStyleBackColor = true;
             this.btnPesquisarPedidoCancelado.Click += new System.EventHandler(this.btnPesquisarPedidoCancelado_Click);
@@ -655,7 +651,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(168, 229);
+            this.label15.Location = new System.Drawing.Point(168, 303);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 13);
             this.label15.TabIndex = 83;
@@ -664,7 +660,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 229);
+            this.label16.Location = new System.Drawing.Point(3, 303);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(29, 13);
             this.label16.TabIndex = 82;
@@ -678,18 +674,18 @@
             this.cbxFiltroPedidoCancelado.Items.AddRange(new object[] {
             "CODIGO PEDIDO",
             "NOME PRODUTO"});
-            this.cbxFiltroPedidoCancelado.Location = new System.Drawing.Point(6, 245);
+            this.cbxFiltroPedidoCancelado.Location = new System.Drawing.Point(6, 319);
             this.cbxFiltroPedidoCancelado.Name = "cbxFiltroPedidoCancelado";
             this.cbxFiltroPedidoCancelado.Size = new System.Drawing.Size(159, 31);
-            this.cbxFiltroPedidoCancelado.TabIndex = 81;
+            this.cbxFiltroPedidoCancelado.TabIndex = 4;
             // 
             // txtProcurarPedidoCancelado
             // 
             this.txtProcurarPedidoCancelado.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProcurarPedidoCancelado.Location = new System.Drawing.Point(171, 245);
+            this.txtProcurarPedidoCancelado.Location = new System.Drawing.Point(171, 319);
             this.txtProcurarPedidoCancelado.Name = "txtProcurarPedidoCancelado";
-            this.txtProcurarPedidoCancelado.Size = new System.Drawing.Size(321, 29);
-            this.txtProcurarPedidoCancelado.TabIndex = 80;
+            this.txtProcurarPedidoCancelado.Size = new System.Drawing.Size(500, 29);
+            this.txtProcurarPedidoCancelado.TabIndex = 5;
             // 
             // cbxFiltroPedido
             // 
@@ -702,10 +698,11 @@
             this.cbxFiltroPedido.Location = new System.Drawing.Point(6, 20);
             this.cbxFiltroPedido.Name = "cbxFiltroPedido";
             this.cbxFiltroPedido.Size = new System.Drawing.Size(159, 31);
-            this.cbxFiltroPedido.TabIndex = 85;
+            this.cbxFiltroPedido.TabIndex = 0;
             // 
             // pnlConsultar
             // 
+            this.pnlConsultar.Controls.Add(this.groupBox1);
             this.pnlConsultar.Controls.Add(this.label14);
             this.pnlConsultar.Controls.Add(this.cbxFiltroPedido);
             this.pnlConsultar.Controls.Add(this.dgvPedidoItens);
@@ -722,15 +719,59 @@
             this.pnlConsultar.Controls.Add(this.btnPesquisarPedido);
             this.pnlConsultar.Location = new System.Drawing.Point(385, 2);
             this.pnlConsultar.Name = "pnlConsultar";
-            this.pnlConsultar.Size = new System.Drawing.Size(608, 456);
+            this.pnlConsultar.Size = new System.Drawing.Size(789, 596);
             this.pnlConsultar.TabIndex = 86;
             this.pnlConsultar.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbEmAberto);
+            this.groupBox1.Controls.Add(this.rbRecebido);
+            this.groupBox1.Location = new System.Drawing.Point(498, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(173, 44);
+            this.groupBox1.TabIndex = 86;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Status Pagamento";
+            // 
+            // rbEmAberto
+            // 
+            this.rbEmAberto.AutoSize = true;
+            this.rbEmAberto.Location = new System.Drawing.Point(93, 21);
+            this.rbEmAberto.Name = "rbEmAberto";
+            this.rbEmAberto.Size = new System.Drawing.Size(74, 17);
+            this.rbEmAberto.TabIndex = 1;
+            this.rbEmAberto.Text = "Em Aberto";
+            this.rbEmAberto.UseVisualStyleBackColor = true;
+            // 
+            // rbRecebido
+            // 
+            this.rbRecebido.AutoSize = true;
+            this.rbRecebido.Checked = true;
+            this.rbRecebido.Location = new System.Drawing.Point(6, 21);
+            this.rbRecebido.Name = "rbRecebido";
+            this.rbRecebido.Size = new System.Drawing.Size(71, 17);
+            this.rbRecebido.TabIndex = 0;
+            this.rbRecebido.TabStop = true;
+            this.rbRecebido.Text = "Recebido";
+            this.rbRecebido.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::View.Properties.Resources.SuaLogo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(265, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(110, 110);
+            this.pictureBox1.TabIndex = 87;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 457);
+            this.ClientSize = new System.Drawing.Size(1174, 599);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnlConsultar);
             this.Controls.Add(this.pnlCadastro);
             this.Controls.Add(this.btnCancelar);
@@ -743,6 +784,7 @@
             this.Name = "FrmCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tec Sistemas: Cadastrar Novo Cliente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCadastro_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.pnlCadastro.ResumeLayout(false);
             this.pnlCadastro.PerformLayout();
@@ -750,6 +792,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItensCancelados)).EndInit();
             this.pnlConsultar.ResumeLayout(false);
             this.pnlConsultar.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -775,32 +820,10 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Panel pnlCadastro;
         private System.Windows.Forms.DataGridView dgvPedidoItens;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoBarras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fabricante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prazoGarantia;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.MaskedTextBox txtCPF;
         private System.Windows.Forms.MaskedTextBox txtRG;
         private System.Windows.Forms.DataGridView dgvPedidoItensCancelados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.Label lblExibidosTotal;
         private System.Windows.Forms.Label lblExibidosTotalCancelados;
         private System.Windows.Forms.Label label12;
@@ -822,5 +845,29 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtProcurarPedido;
         private System.Windows.Forms.Panel pnlConsultar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoBarras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fabricante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plataforma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prazoGarantia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbEmAberto;
+        private System.Windows.Forms.RadioButton rbRecebido;
     }
 }

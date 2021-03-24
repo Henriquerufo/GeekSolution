@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGerenciadorLogins));
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,7 +85,7 @@
             this.cbxFiltro.Location = new System.Drawing.Point(12, 25);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(159, 31);
-            this.cbxFiltro.TabIndex = 61;
+            this.cbxFiltro.TabIndex = 0;
             // 
             // txtProcurar
             // 
@@ -92,7 +93,7 @@
             this.txtProcurar.Location = new System.Drawing.Point(177, 25);
             this.txtProcurar.Name = "txtProcurar";
             this.txtProcurar.Size = new System.Drawing.Size(509, 29);
-            this.txtProcurar.TabIndex = 60;
+            this.txtProcurar.TabIndex = 1;
             // 
             // lblExibidosTotal
             // 
@@ -110,7 +111,7 @@
             this.btnFechar.Location = new System.Drawing.Point(689, 442);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(100, 33);
-            this.btnFechar.TabIndex = 55;
+            this.btnFechar.TabIndex = 9;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -122,7 +123,7 @@
             this.btnConsultar.Location = new System.Drawing.Point(258, 442);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 33);
-            this.btnConsultar.TabIndex = 54;
+            this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -134,7 +135,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(364, 442);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
-            this.btnCadastrar.TabIndex = 53;
+            this.btnCadastrar.TabIndex = 6;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -146,7 +147,7 @@
             this.btnDeletar.Location = new System.Drawing.Point(576, 442);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(100, 33);
-            this.btnDeletar.TabIndex = 52;
+            this.btnDeletar.TabIndex = 8;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
@@ -158,7 +159,7 @@
             this.btnEditar.Location = new System.Drawing.Point(470, 442);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 33);
-            this.btnEditar.TabIndex = 51;
+            this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -167,6 +168,8 @@
             // 
             this.dgvLogin.AllowUserToAddRows = false;
             this.dgvLogin.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvLogin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLogin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLogin.BackgroundColor = System.Drawing.Color.White;
             this.dgvLogin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -182,7 +185,7 @@
             this.dgvLogin.RowHeadersVisible = false;
             this.dgvLogin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLogin.Size = new System.Drawing.Size(777, 376);
-            this.dgvLogin.TabIndex = 50;
+            this.dgvLogin.TabIndex = 3;
             // 
             // codigo
             // 
@@ -225,7 +228,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(692, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
-            this.btnPesquisar.TabIndex = 72;
+            this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -253,7 +256,7 @@
             this.button2.Location = new System.Drawing.Point(145, 442);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 33);
-            this.button2.TabIndex = 75;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Log";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);

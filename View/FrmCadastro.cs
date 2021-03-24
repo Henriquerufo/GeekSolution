@@ -17,10 +17,15 @@ namespace View
         string codigo;
         ModelCadastro modelCadastro = new ModelCadastro();
         ControllerCadastro controllerCadastro = new ControllerCadastro();
+        ControllerTema controllerTema = new ControllerTema();
         public FrmCadastro(ModelCadastro modelCadastro)
         {
             InitializeComponent();
-            Height = 496;
+            if (controllerTema.CarregarEnderecoImagem() != null)
+            {
+                pictureBox1.BackgroundImage = Image.FromFile(controllerTema.CarregarEnderecoImagem());
+            }
+            Height = 638;
             Width = 405;
             txtDtCadastro.Text = DateTime.Now.ToString();
             if (!string.IsNullOrWhiteSpace(modelCadastro.Codigo))
@@ -42,8 +47,8 @@ namespace View
             {
                 cbxFiltroPedido.SelectedIndex = 0;
                 cbxFiltroPedidoCancelado.SelectedIndex = 0;
-                Height = 496;
-                Width = 1013;
+                Height = 638;
+                Width = 1190;
                 pnlConsultar.Visible = true;
                 Text = "Consultar Cliente";
                 btnCancelar.Text = "Fechar";
@@ -103,79 +108,136 @@ namespace View
             }
             return true;
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (btnSalvar.Text == "Editar")
+            try
             {
-                btnSalvar.Text = "Salvar";
-                pnlCadastro.Enabled = true;
-            }
-            else if (btnSalvar.Text == "Salvar" && Validar() && !string.IsNullOrWhiteSpace(codigo))
-            {
-                modelCadastro.Codigo = codigo;
-                modelCadastro.Nome = txtNome.Text;
-                modelCadastro.RG = txtRG.Text;
-                modelCadastro.CPF = txtCPF.Text;
-                modelCadastro.dtCadastro = txtDtCadastro.Text;
-                modelCadastro.Email = txtEmail.Text;
-                modelCadastro.Endereco = txtEndereco.Text;
-                modelCadastro.Telefone = txtTelefone.Text;
+                if (btnSalvar.Text == "Editar")
+                {
+                    btnSalvar.Text = "Salvar";
+                    pnlCadastro.Enabled = true;
+                }
+                else if (btnSalvar.Text == "Salvar" && Validar() && !string.IsNullOrWhiteSpace(codigo))
+                {
+                    modelCadastro.Codigo = codigo;
+                    modelCadastro.Nome = txtNome.Text;
+                    modelCadastro.RG = txtRG.Text;
+                    modelCadastro.CPF = txtCPF.Text;
+                    modelCadastro.dtCadastro = txtDtCadastro.Text;
+                    modelCadastro.Email = txtEmail.Text;
+                    modelCadastro.Endereco = txtEndereco.Text;
+                    modelCadastro.Telefone = txtTelefone.Text;
 
-                bool retorno = controllerCadastro.Editar(modelCadastro);
-                if (retorno)
+                    bool retorno = controllerCadastro.Editar(modelCadastro);
+                    if (retorno)
+                    {
+                        MessageBox.Show("Editado com sucesso!");
+                        this.Close();
+                    }
+                }
+                else if (btnSalvar.Text == "Salvar" && Validar())
                 {
-                    MessageBox.Show("Editado com sucesso!");
-                    this.Close();
+                    modelCadastro.Nome = txtNome.Text;
+                    modelCadastro.RG = txtRG.Text;
+                    modelCadastro.CPF = txtCPF.Text;
+                    modelCadastro.dtCadastro = txtDtCadastro.Text;
+                    modelCadastro.Email = txtEmail.Text;
+                    modelCadastro.Endereco = txtEndereco.Text;
+                    modelCadastro.Telefone = txtTelefone.Text;
+                    bool retorno = controllerCadastro.Cadastrar(modelCadastro);
+                    if (retorno)
+                    {
+                        MessageBox.Show("Cadastrado com sucesso!");
+                        this.Close();
+                    }
                 }
             }
-            else if (btnSalvar.Text == "Salvar" && Validar())
+            catch (Exception ex)
             {
-                modelCadastro.Nome = txtNome.Text;
-                modelCadastro.RG = txtRG.Text;
-                modelCadastro.CPF = txtCPF.Text;
-                modelCadastro.dtCadastro = txtDtCadastro.Text;
-                modelCadastro.Email = txtEmail.Text;
-                modelCadastro.Endereco = txtEndereco.Text;
-                modelCadastro.Telefone = txtTelefone.Text;
-                bool retorno = controllerCadastro.Cadastrar(modelCadastro);
-                if (retorno)
-                {
-                    MessageBox.Show("Cadastrado com sucesso!");
-                    this.Close();
-                }
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnPesquisarPedido_Click(object sender, EventArgs e)
         {
-            if (cbxFiltroPedido.Text == "CODIGO PEDIDO")
+            try
             {
-                dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItensCodigoPedido(txtNome.Text, txtProcurarPedido.Text);
+                if (cbxFiltroPedido.Text == "CODIGO PEDIDO")
+                {
+                    if (rbRecebido.Checked)
+                    {
+                        dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItensCodigoPedidoPagamentoRecebido(txtNome.Text, txtProcurarPedido.Text);
+                    }
+                    else if (rbEmAberto.Checked)
+                    {
+                        dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItensCodigoPedidoPagamentoEmAberto(txtNome.Text, txtProcurarPedido.Text);
+                    }
+                }
+                if (cbxFiltroPedido.Text == "NOME PRODUTO")
+                {
+                    if (rbRecebido.Checked)
+                    {
+                        dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItensNomeProdutoPagamentoRecebido(txtNome.Text, txtProcurarPedido.Text);
+                    }
+                    else if (rbEmAberto.Checked)
+                    {
+                        dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItensNomeProdutoPagamentoEmAberto(txtNome.Text, txtProcurarPedido.Text);
+                    }
+                }
+                lblExibidosTotal.Text = "Exibidos total: " + dgvPedidoItens.Rows.Count;
             }
-            if (cbxFiltroPedido.Text == "NOME PRODUTO")
+            catch (Exception ex)
             {
-                dgvPedidoItens.DataSource = controllerCadastro.CarregarPedidosItensNomeProduto(txtNome.Text, txtProcurarPedido.Text);
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            lblExibidosTotal.Text = "Exibidos total: " + dgvPedidoItens.Rows.Count;
         }
-
         private void btnPesquisarPedidoCancelado_Click(object sender, EventArgs e)
         {
-            if (cbxFiltroPedidoCancelado.Text == "CODIGO PEDIDO")
+            try
             {
-                dgvPedidoItensCancelados.DataSource = controllerCadastro.CarregarPedidosItensCanceladosCodigoPedido(txtNome.Text, txtProcurarPedidoCancelado.Text);
+                if (cbxFiltroPedidoCancelado.Text == "CODIGO PEDIDO")
+                {
+                    dgvPedidoItensCancelados.DataSource = controllerCadastro.CarregarPedidosItensCanceladosCodigoPedido(txtNome.Text, txtProcurarPedidoCancelado.Text);
+                }
+                if (cbxFiltroPedidoCancelado.Text == "NOME PRODUTO")
+                {
+                    dgvPedidoItensCancelados.DataSource = controllerCadastro.CarregarPedidosItensCanceladosNomeProduto(txtNome.Text, txtProcurarPedidoCancelado.Text);
+                }
+                lblExibidosTotalCancelados.Text = "Exibidos total: " + dgvPedidoItensCancelados.Rows.Count;
             }
-            if (cbxFiltroPedidoCancelado.Text == "NOME PRODUTO")
+            catch (Exception ex)
             {
-                dgvPedidoItensCancelados.DataSource = controllerCadastro.CarregarPedidosItensCanceladosNomeProduto(txtNome.Text, txtProcurarPedidoCancelado.Text);
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            lblExibidosTotalCancelados.Text = "Exibidos total: " + dgvPedidoItensCancelados.Rows.Count;
+        }
+        private void FrmCadastro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            pictureBox1.BackgroundImage.Dispose();
+        }
+        private void dgvPedidoItens_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvPedidoItens.Rows.Count > 0 && dgvPedidoItens.CurrentRow.Cells["statusPagamento"].Value.ToString() == "Em Aberto")
+            {
+                modelCadastro.RecebidoPor = Properties.SettingsLogado.Default.Nome;
+                modelCadastro.CodigoPedido = dgvPedidoItens.CurrentRow.Cells["codigoPedido"].Value.ToString();
+                modelCadastro.Codigo = dgvPedidoItens.CurrentRow.Cells["Cod"].Value.ToString();
+                modelCadastro.DataRecebimento = DateTime.Now.ToString();
+                var result = MessageBox.Show("Esse item: " + dgvPedidoItens.CurrentRow.Cells["NomeProduto"].Value.ToString() + " no valor: R$" + dgvPedidoItens.CurrentRow.Cells["ValorProduto"].Value.ToString() + " foi recebido?", "Alerta!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    if (controllerCadastro.ReceberItemEmAberto(modelCadastro))
+                    {
+                        if (!controllerCadastro.VerificarPedidoEmAberto(modelCadastro))
+                        {
+                            controllerCadastro.AlterarStatusPagamentoPedido(modelCadastro);
+                        }
+                        MessageBox.Show("Recebido com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
         }
     }
 }

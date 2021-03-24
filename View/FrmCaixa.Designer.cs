@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.txtValorUnitario = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.NumericUpDown();
@@ -39,13 +40,17 @@
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvCaixa = new System.Windows.Forms.DataGridView();
-            this.txtCodigoBarras = new System.Windows.Forms.MaskedTextBox();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plataforma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Garantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCodigoBarras = new System.Windows.Forms.MaskedTextBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaixa)).BeginInit();
@@ -53,21 +58,23 @@
             // 
             // txtNomeProduto
             // 
-            this.txtNomeProduto.Enabled = false;
             this.txtNomeProduto.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeProduto.Location = new System.Drawing.Point(12, 462);
             this.txtNomeProduto.Name = "txtNomeProduto";
+            this.txtNomeProduto.ReadOnly = true;
             this.txtNomeProduto.Size = new System.Drawing.Size(414, 29);
             this.txtNomeProduto.TabIndex = 77;
+            this.txtNomeProduto.TabStop = false;
             // 
             // txtValorUnitario
             // 
-            this.txtValorUnitario.Enabled = false;
             this.txtValorUnitario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorUnitario.Location = new System.Drawing.Point(432, 462);
             this.txtValorUnitario.Name = "txtValorUnitario";
+            this.txtValorUnitario.ReadOnly = true;
             this.txtValorUnitario.Size = new System.Drawing.Size(140, 29);
             this.txtValorUnitario.TabIndex = 78;
+            this.txtValorUnitario.TabStop = false;
             // 
             // txtQuantidade
             // 
@@ -80,7 +87,7 @@
             0});
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(140, 29);
-            this.txtQuantidade.TabIndex = 79;
+            this.txtQuantidade.TabIndex = 1;
             this.txtQuantidade.Value = new decimal(new int[] {
             1,
             0,
@@ -134,12 +141,13 @@
             // 
             // txtValorTotal
             // 
-            this.txtValorTotal.Enabled = false;
             this.txtValorTotal.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorTotal.Location = new System.Drawing.Point(719, 462);
             this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.ReadOnly = true;
             this.txtValorTotal.Size = new System.Drawing.Size(140, 29);
             this.txtValorTotal.TabIndex = 84;
+            this.txtValorTotal.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -155,6 +163,10 @@
             // 
             this.dgvCaixa.AllowUserToAddRows = false;
             this.dgvCaixa.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.NullValue = null;
+            this.dgvCaixa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCaixa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCaixa.BackgroundColor = System.Drawing.Color.White;
             this.dgvCaixa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -164,15 +176,66 @@
             this.Categoria,
             this.Fabricante,
             this.CodigoBarras,
+            this.Plataforma,
+            this.Garantia,
             this.ValorProduto});
             this.dgvCaixa.Location = new System.Drawing.Point(393, 12);
             this.dgvCaixa.MultiSelect = false;
             this.dgvCaixa.Name = "dgvCaixa";
-            this.dgvCaixa.ReadOnly = true;
             this.dgvCaixa.RowHeadersVisible = false;
             this.dgvCaixa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCaixa.Size = new System.Drawing.Size(466, 375);
             this.dgvCaixa.TabIndex = 87;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "Codigo";
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.Visible = false;
+            // 
+            // NomeProduto
+            // 
+            this.NomeProduto.DataPropertyName = "NomeProduto";
+            this.NomeProduto.HeaderText = "Nome do Produto";
+            this.NomeProduto.Name = "NomeProduto";
+            // 
+            // Categoria
+            // 
+            this.Categoria.DataPropertyName = "Categoria";
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            // 
+            // Fabricante
+            // 
+            this.Fabricante.DataPropertyName = "Fabricante";
+            this.Fabricante.HeaderText = "Fabricante";
+            this.Fabricante.Name = "Fabricante";
+            // 
+            // CodigoBarras
+            // 
+            this.CodigoBarras.DataPropertyName = "CodigoBarras";
+            this.CodigoBarras.HeaderText = "Codigo de Barras";
+            this.CodigoBarras.Name = "CodigoBarras";
+            this.CodigoBarras.Visible = false;
+            // 
+            // Plataforma
+            // 
+            this.Plataforma.HeaderText = "Plataforma";
+            this.Plataforma.Name = "Plataforma";
+            this.Plataforma.Visible = false;
+            // 
+            // Garantia
+            // 
+            this.Garantia.HeaderText = "Garantia";
+            this.Garantia.Name = "Garantia";
+            this.Garantia.Visible = false;
+            // 
+            // ValorProduto
+            // 
+            this.ValorProduto.DataPropertyName = "ValorProduto";
+            this.ValorProduto.HeaderText = "Valor";
+            this.ValorProduto.Name = "ValorProduto";
             // 
             // txtCodigoBarras
             // 
@@ -180,50 +243,12 @@
             this.txtCodigoBarras.Location = new System.Drawing.Point(12, 414);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(414, 29);
-            this.txtCodigoBarras.TabIndex = 88;
+            this.txtCodigoBarras.TabIndex = 0;
             this.txtCodigoBarras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarras_KeyDown);
             // 
-            // Codigo
+            // printDialog1
             // 
-            this.Codigo.DataPropertyName = "Codigo";
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // NomeProduto
-            // 
-            this.NomeProduto.DataPropertyName = "NomeProduto";
-            this.NomeProduto.HeaderText = "Nome do Produto";
-            this.NomeProduto.Name = "NomeProduto";
-            this.NomeProduto.ReadOnly = true;
-            // 
-            // Categoria
-            // 
-            this.Categoria.DataPropertyName = "Categoria";
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            // 
-            // Fabricante
-            // 
-            this.Fabricante.DataPropertyName = "Fabricante";
-            this.Fabricante.HeaderText = "Fabricante";
-            this.Fabricante.Name = "Fabricante";
-            this.Fabricante.ReadOnly = true;
-            // 
-            // CodigoBarras
-            // 
-            this.CodigoBarras.DataPropertyName = "CodigoBarras";
-            this.CodigoBarras.HeaderText = "Codigo de Barras";
-            this.CodigoBarras.Name = "CodigoBarras";
-            this.CodigoBarras.ReadOnly = true;
-            // 
-            // ValorProduto
-            // 
-            this.ValorProduto.DataPropertyName = "ValorProduto";
-            this.ValorProduto.HeaderText = "Valor";
-            this.ValorProduto.Name = "ValorProduto";
-            this.ValorProduto.ReadOnly = true;
+            this.printDialog1.UseEXDialog = true;
             // 
             // FrmCaixa
             // 
@@ -245,6 +270,7 @@
             this.Name = "FrmCaixa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tec Sistemas: Caixa";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCaixa_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaixa)).EndInit();
@@ -271,6 +297,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fabricante;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoBarras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plataforma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Garantia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorProduto;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }

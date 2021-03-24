@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTemaAtivo = new System.Windows.Forms.DataGridView();
             this.DgvTema = new System.Windows.Forms.DataGridView();
             this.btnDesativarTema = new System.Windows.Forms.Button();
@@ -58,6 +60,8 @@
             // 
             this.dgvTemaAtivo.AllowUserToAddRows = false;
             this.dgvTemaAtivo.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvTemaAtivo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTemaAtivo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTemaAtivo.BackgroundColor = System.Drawing.Color.White;
             this.dgvTemaAtivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -68,13 +72,15 @@
             this.dgvTemaAtivo.RowHeadersVisible = false;
             this.dgvTemaAtivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTemaAtivo.Size = new System.Drawing.Size(331, 329);
-            this.dgvTemaAtivo.TabIndex = 0;
+            this.dgvTemaAtivo.TabIndex = 3;
             this.dgvTemaAtivo.DoubleClick += new System.EventHandler(this.dgvTemaAtivo_DoubleClick);
             // 
             // DgvTema
             // 
             this.DgvTema.AllowUserToAddRows = false;
             this.DgvTema.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DgvTema.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DgvTema.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvTema.BackgroundColor = System.Drawing.Color.White;
             this.DgvTema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -85,7 +91,7 @@
             this.DgvTema.RowHeadersVisible = false;
             this.DgvTema.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvTema.Size = new System.Drawing.Size(331, 355);
-            this.DgvTema.TabIndex = 1;
+            this.DgvTema.TabIndex = 6;
             this.DgvTema.DoubleClick += new System.EventHandler(this.DgvTema_DoubleClick);
             // 
             // btnDesativarTema
@@ -95,7 +101,7 @@
             this.btnDesativarTema.Location = new System.Drawing.Point(349, 232);
             this.btnDesativarTema.Name = "btnDesativarTema";
             this.btnDesativarTema.Size = new System.Drawing.Size(103, 33);
-            this.btnDesativarTema.TabIndex = 56;
+            this.btnDesativarTema.TabIndex = 4;
             this.btnDesativarTema.Text = "====>";
             this.btnDesativarTema.UseVisualStyleBackColor = true;
             this.btnDesativarTema.Click += new System.EventHandler(this.btnDesativarTema_Click);
@@ -107,7 +113,7 @@
             this.btnAtivarTema.Location = new System.Drawing.Point(349, 271);
             this.btnAtivarTema.Name = "btnAtivarTema";
             this.btnAtivarTema.Size = new System.Drawing.Size(103, 33);
-            this.btnAtivarTema.TabIndex = 57;
+            this.btnAtivarTema.TabIndex = 5;
             this.btnAtivarTema.Text = "<====";
             this.btnAtivarTema.UseVisualStyleBackColor = true;
             this.btnAtivarTema.Click += new System.EventHandler(this.btnAtivarTema_Click);
@@ -119,7 +125,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(367, 441);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
-            this.btnCadastrar.TabIndex = 60;
+            this.btnCadastrar.TabIndex = 7;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -131,7 +137,7 @@
             this.btnDeletar.Location = new System.Drawing.Point(579, 441);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(100, 33);
-            this.btnDeletar.TabIndex = 59;
+            this.btnDeletar.TabIndex = 9;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
@@ -143,7 +149,7 @@
             this.btnEditar.Location = new System.Drawing.Point(473, 441);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 33);
-            this.btnEditar.TabIndex = 58;
+            this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -153,7 +159,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(692, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 29);
-            this.btnPesquisar.TabIndex = 77;
+            this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -187,7 +193,7 @@
             this.cbxFiltro.Location = new System.Drawing.Point(12, 25);
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(159, 31);
-            this.cbxFiltro.TabIndex = 74;
+            this.cbxFiltro.TabIndex = 0;
             // 
             // txtPesquisar
             // 
@@ -195,7 +201,7 @@
             this.txtPesquisar.Location = new System.Drawing.Point(177, 25);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(509, 29);
-            this.txtPesquisar.TabIndex = 73;
+            this.txtPesquisar.TabIndex = 1;
             // 
             // panel1
             // 
@@ -212,7 +218,7 @@
             this.btnFechar.Location = new System.Drawing.Point(692, 441);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(100, 33);
-            this.btnFechar.TabIndex = 79;
+            this.btnFechar.TabIndex = 10;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);

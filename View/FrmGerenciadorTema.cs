@@ -25,14 +25,21 @@ namespace View
         }
         void CarregarTemas()
         {
-            dgvTemaAtivo.DataSource = controllerTema.CarregarTemaAtivo();
-            if (cbxFiltro.Text == "CODIGO")
+            try
             {
-                DgvTema.DataSource = controllerTema.CarregarTemasPorCodigo(txtPesquisar.Text);
+                dgvTemaAtivo.DataSource = controllerTema.CarregarTemaAtivo();
+                if (cbxFiltro.Text == "CODIGO")
+                {
+                    DgvTema.DataSource = controllerTema.CarregarTemasPorCodigo(txtPesquisar.Text);
+                }
+                if (cbxFiltro.Text == "NOME")
+                {
+                    DgvTema.DataSource = controllerTema.CarregarTemasPorNome(txtPesquisar.Text);
+                }
             }
-            if (cbxFiltro.Text == "NOME")
+            catch (Exception ex)
             {
-                DgvTema.DataSource = controllerTema.CarregarTemasPorNome(txtPesquisar.Text);
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -86,24 +93,31 @@ namespace View
         }
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            if (DgvTema.Rows.Count > 0)
+            try
             {
-                modelTema.Codigo = Convert.ToInt32(DgvTema.CurrentRow.Cells["Codigo"].Value.ToString());
-                modelTema.Nome = DgvTema.CurrentRow.Cells["Nome"].Value.ToString();
-                var result = MessageBox.Show("O Codigo: " + modelTema.Codigo + " será excluído", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (result == DialogResult.OK)
+                if (DgvTema.Rows.Count > 0)
                 {
-                    string FileName = @"C:\Users\henri\source\repos\ProjetoPIM\View\Resources\" + modelTema.Nome + "FotoTema.jpg";
-                    if (File.Exists(FileName))
+                    modelTema.Codigo = Convert.ToInt32(DgvTema.CurrentRow.Cells["Codigo"].Value.ToString());
+                    modelTema.Nome = DgvTema.CurrentRow.Cells["Nome"].Value.ToString();
+                    var result = MessageBox.Show("O tema: " + modelTema.Nome + " será excluído", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
                     {
-                        File.Delete(FileName);
-                    }
-                    if (controllerTema.DeletarTema(modelTema))
-                    {
-                        MessageBox.Show("Tema excluído com sucesso!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CarregarTemas();
+                        string FileName = @"C:\Users\henri\source\repos\ProjetoPIM\View\Resources\" + modelTema.Nome + "FotoTema.jpg";
+                        if (File.Exists(FileName))
+                        {
+                            File.Delete(FileName);
+                        }
+                        if (controllerTema.DeletarTema(modelTema))
+                        {
+                            MessageBox.Show("Tema excluído com sucesso!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CarregarTemas();
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnPesquisar_Click(object sender, EventArgs e)

@@ -33,7 +33,6 @@ namespace View
         {
             this.Close();
         }
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             modelLogin.Consultar = false;
@@ -41,7 +40,6 @@ namespace View
             FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
             frmCadastroLogin.ShowDialog();
         }
-
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             if (dgvLogin.Rows.Count == 0) { }
@@ -50,7 +48,7 @@ namespace View
                 modelLogin.Codigo = dgvLogin.CurrentRow.Cells["codigo"].Value.ToString();
                 modelLogin.ID = dgvLogin.CurrentRow.Cells["id"].Value.ToString();
 
-                var result = MessageBox.Show(modelLogin.ID + " será excluido", "Deletar", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                var result = MessageBox.Show("O login: " + modelLogin.ID + " será excluido", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (result == DialogResult.OK)
                 {
                     controllerLogin.Deletar(modelLogin);
@@ -78,7 +76,6 @@ namespace View
                 }
             }
         }
-
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             if (dgvLogin.Rows.Count == 0){ }
@@ -92,7 +89,6 @@ namespace View
                 frmCadastroLogin.ShowDialog();
             }
         }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
 
@@ -129,7 +125,6 @@ namespace View
                 lblExibidosTotal.Text = "Exibidos total: " + dgvLogin.Rows.Count;
             }        
         }
-
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             if (cbxFiltro.Text == "ADM")
@@ -154,7 +149,6 @@ namespace View
             }
             lblExibidosTotal.Text = "Exibidos total: " + dgvLogin.Rows.Count;
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (dgvLogin.Rows.Count == 0){ }

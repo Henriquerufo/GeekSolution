@@ -52,16 +52,18 @@
             this.lblCadastrar = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlCadastroProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(170, 292);
+            this.btnSalvar.Location = new System.Drawing.Point(176, 335);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 33);
             this.btnSalvar.TabIndex = 0;
@@ -75,7 +77,7 @@
             this.txtNomeProduto.Location = new System.Drawing.Point(0, 64);
             this.txtNomeProduto.Name = "txtNomeProduto";
             this.txtNomeProduto.Size = new System.Drawing.Size(179, 29);
-            this.txtNomeProduto.TabIndex = 1;
+            this.txtNomeProduto.TabIndex = 2;
             // 
             // label1
             // 
@@ -105,7 +107,7 @@
             this.pnlCadastroProduto.Controls.Add(this.label2);
             this.pnlCadastroProduto.Controls.Add(this.txtNomeProduto);
             this.pnlCadastroProduto.Controls.Add(this.label1);
-            this.pnlCadastroProduto.Location = new System.Drawing.Point(12, 87);
+            this.pnlCadastroProduto.Location = new System.Drawing.Point(12, 130);
             this.pnlCadastroProduto.Name = "pnlCadastroProduto";
             this.pnlCadastroProduto.Size = new System.Drawing.Size(370, 199);
             this.pnlCadastroProduto.TabIndex = 32;
@@ -116,7 +118,7 @@
             this.txtQuantidade.Location = new System.Drawing.Point(185, 16);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(179, 29);
-            this.txtQuantidade.TabIndex = 4;
+            this.txtQuantidade.TabIndex = 1;
             this.txtQuantidade.Value = new decimal(new int[] {
             1,
             0,
@@ -145,7 +147,7 @@
             this.txtCategoria.Location = new System.Drawing.Point(0, 112);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(179, 31);
-            this.txtCategoria.TabIndex = 2;
+            this.txtCategoria.TabIndex = 4;
             this.txtCategoria.TextChanged += new System.EventHandler(this.txtCategoria_TextChanged);
             // 
             // txtGarantia
@@ -174,7 +176,7 @@
             this.txtPlataforma.Location = new System.Drawing.Point(185, 112);
             this.txtPlataforma.Name = "txtPlataforma";
             this.txtPlataforma.Size = new System.Drawing.Size(179, 29);
-            this.txtPlataforma.TabIndex = 6;
+            this.txtPlataforma.TabIndex = 5;
             // 
             // label7
             // 
@@ -192,7 +194,7 @@
             this.txtValorProduto.Location = new System.Drawing.Point(185, 64);
             this.txtValorProduto.Name = "txtValorProduto";
             this.txtValorProduto.Size = new System.Drawing.Size(179, 29);
-            this.txtValorProduto.TabIndex = 5;
+            this.txtValorProduto.TabIndex = 3;
             // 
             // label6
             // 
@@ -220,7 +222,7 @@
             this.txtFabricante.Location = new System.Drawing.Point(0, 162);
             this.txtFabricante.Name = "txtFabricante";
             this.txtFabricante.Size = new System.Drawing.Size(179, 29);
-            this.txtFabricante.TabIndex = 3;
+            this.txtFabricante.TabIndex = 6;
             // 
             // label4
             // 
@@ -276,7 +278,7 @@
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(276, 292);
+            this.btnCancelar.Location = new System.Drawing.Point(282, 335);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 33);
             this.btnCancelar.TabIndex = 1;
@@ -288,11 +290,22 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::View.Properties.Resources.SuaLogo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(272, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(110, 110);
+            this.pictureBox1.TabIndex = 88;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmCadastrarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 336);
+            this.ClientSize = new System.Drawing.Size(394, 380);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblCadastrar);
@@ -304,10 +317,12 @@
             this.Name = "FrmCadastrarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tec Sistemas: Cadastrar Novo Produto";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCadastrarProduto_FormClosing);
             this.pnlCadastroProduto.ResumeLayout(false);
             this.pnlCadastroProduto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,5 +352,6 @@
         private System.Windows.Forms.ComboBox txtCategoria;
         private System.Windows.Forms.NumericUpDown txtQuantidade;
         private System.Windows.Forms.MaskedTextBox txtCodigoBarras;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

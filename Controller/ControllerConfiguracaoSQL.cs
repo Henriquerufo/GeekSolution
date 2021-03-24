@@ -11,14 +11,13 @@ namespace Controller
 {
     public class ControllerConfiguracaoSQL
     {
+        ModelConfiguracaoSQL modelConfiguracaoSQL = new ModelConfiguracaoSQL();
         string parametrosSQL = string.Format(@"Data Source={0}; Initial Catalog={1}; User ID={2}; Password={3};",
             Properties.SettingsSQL.Default.ServidorBD,
             Properties.SettingsSQL.Default.NomeBD,
             Properties.SettingsSQL.Default.IDBD,
             Properties.SettingsSQL.Default.SenhaBD);
-
         SqlConnection conexao = null;
-
         public bool VerificarInternet()
         {
             try
@@ -58,6 +57,12 @@ namespace Controller
                 return null;
             }
         }
+        public SqlConnection Fechar()
+        {
+            conexao.Close();
+            conexao.Dispose();
+            return conexao;
+        }
         public bool SalvarConexao(ModelConfiguracaoSQL modelConfiguracaoSQL)
         {
             try
@@ -77,8 +82,7 @@ namespace Controller
             }
         }
         public ModelConfiguracaoSQL Carregar()
-        {
-            ModelConfiguracaoSQL modelConfiguracaoSQL = new ModelConfiguracaoSQL();
+        { 
             modelConfiguracaoSQL.ServidorBD = Properties.SettingsSQL.Default.ServidorBD;
             modelConfiguracaoSQL.NomeBD = Properties.SettingsSQL.Default.NomeBD;
             modelConfiguracaoSQL.IDBD = Properties.SettingsSQL.Default.IDBD;

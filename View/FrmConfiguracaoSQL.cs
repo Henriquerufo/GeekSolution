@@ -18,13 +18,11 @@ namespace View
         ModelConfiguracaoSQLCentral modelConfiguracaoSQLCentral = new ModelConfiguracaoSQLCentral();
         ControllerConfiguracaoSQL controllerConfiguracaoSQL = new ControllerConfiguracaoSQL();
         ControllerConfiguracaoSQLCentral controllerConfiguracaoSQLCentral = new ControllerConfiguracaoSQLCentral();
-        
         public FrmConfiguracaoSQL()
         {
             InitializeComponent();
             Carregar();
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (btnSalvar.Text == "Editar")
@@ -70,7 +68,6 @@ namespace View
             txtIDTecSistemas.Text = modelConfiguracaoSQLCentral.IDTecSistemas;
             txtSenhaTecSistemas.Text = modelConfiguracaoSQLCentral.SenhaTecSistemas;
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
