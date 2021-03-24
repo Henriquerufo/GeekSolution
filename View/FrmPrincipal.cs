@@ -18,6 +18,8 @@ namespace View
         ModelLogin modelLogin = new ModelLogin();
         ModelCadastro modelCadastro = new ModelCadastro();
         ModelCadastroProduto modelCadastroProduto = new ModelCadastroProduto();
+        ControllerFechamento controllerFechamento = new ControllerFechamento();
+        ModelFechamento modelFechamento = new ModelFechamento();
         ControllerTema controllerTema = new ControllerTema();
         void CarregarTema()
         {
@@ -111,7 +113,7 @@ namespace View
         }
         private void cadastrarNovoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            
+
             modelLogin.Consultar = false;
             modelLogin.Codigo = null;
             FrmCadastroLogin frmCadastroLogin = new FrmCadastroLogin(modelLogin);
@@ -119,8 +121,18 @@ namespace View
         }
         private void abrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCaixa frmCaixa = new FrmCaixa();
-            frmCaixa.Show();
+            modelFechamento.Vendedor = Properties.SettingsLogado.Default.Nome;
+            modelFechamento.Data = DateTime.Now.ToString();
+            if (controllerFechamento.VerificarFechamento(modelFechamento))
+            {
+                MessageBox.Show("Fechamento já registrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                FrmCaixa frmCaixa = new FrmCaixa();
+                frmCaixa.Show();
+            }
+
         }
         private void consultarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -151,23 +163,50 @@ namespace View
             FrmEntradaProduto frmEntradaProduto = new FrmEntradaProduto();
             frmEntradaProduto.Show();
         }
-
         private void saidaDeCaixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmSaidaValor frmSaidaValor = new FrmSaidaValor();
-            frmSaidaValor.ShowDialog();
-        }
+            modelFechamento.Vendedor = Properties.SettingsLogado.Default.Nome;
+            modelFechamento.Data = DateTime.Now.ToString();
+            if (controllerFechamento.VerificarFechamento(modelFechamento))
+            {
+                MessageBox.Show("Fechamento já registrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                FrmSaidaValor frmSaidaValor = new FrmSaidaValor();
+                frmSaidaValor.ShowDialog();
+            }
 
+        }
         private void saidaDeValoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmSaida frmSaida = new FrmSaida();
             frmSaida.Show();
         }
-
         private void fechamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            modelFechamento.Vendedor = Properties.SettingsLogado.Default.Nome;
+            modelFechamento.Data = DateTime.Now.ToString();
+            if (controllerFechamento.VerificarFechamento(modelFechamento))
+            {
+                MessageBox.Show("Fechamento já registrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                FrmRegistrarFechamento frmFechamento = new FrmRegistrarFechamento();
+                frmFechamento.ShowDialog();
+            }
+        }
+        private void fechamentoDeCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             FrmFechamento frmFechamento = new FrmFechamento();
-            frmFechamento.ShowDialog();
+            frmFechamento.Show();
+        }
+
+        private void gerarTicketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerarTicket frmGerarTicket = new FrmGerarTicket();
+            frmGerarTicket.Show();
         }
     }
 }

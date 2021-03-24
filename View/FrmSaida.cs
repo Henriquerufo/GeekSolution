@@ -19,7 +19,7 @@ namespace View
             InitializeComponent();
             cbxFiltro.SelectedIndex = 0;
         }
-        private void btnPesquisar_Click(object sender, EventArgs e)
+        void Carregar()
         {
             try
             {
@@ -31,11 +31,16 @@ namespace View
                 {
                     dgvSaida.DataSource = controllerSaida.CarregarPorNomeVendedor(txtProcurar.Text, dtpDe.Value.ToString(), dtpAte.Value.ToString());
                 }
+                lblExibidosTotal.Text = "Exibidos total: " + dgvSaida.Rows.Count;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro!",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            Carregar();
         }
         private void btnFechar_Click(object sender, EventArgs e)
         {

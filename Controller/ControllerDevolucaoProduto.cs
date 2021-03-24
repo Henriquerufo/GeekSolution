@@ -100,15 +100,14 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("UPDATE tbPedido SET statusPagamento = 'Abonado', statusVenda = 'Cancelada' WHERE Codigo = @Codigo AND statusVenda = 'Finalizada' AND statusPagamento = 'Recebido';");
+                string instrucao = string.Format("UPDATE tbPedido SET statusVenda = 'Cancelada' WHERE Codigo = @Codigo AND statusVenda = 'Finalizada' AND statusPagamento = 'Recebido';");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@Codigo", modelDevolucaoPedido.Codigo);
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
             catch
             {
-                controllerConfiguracaoSQL.Fechar();
-                return false;
+                throw;
             }
             finally
             {
@@ -119,16 +118,17 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("UPDATE tbPedidoItens SET statusPagamento = 'Abonado', statusVenda = 'Cancelada' WHERE Codigo = @Codigo AND statusVenda = 'Finalizada' AND statusPagamento = 'Recebido'; UPDATE tbProduto SET Quantidade = Quantidade + 1 WHERE CodigoBarras = @CodigoBarras");
+                string instrucao = string.Format("UPDATE tbPedidoItens SET statusVenda = 'Cancelada', Ticket = @Ticket, DataTicket = @DataTicket WHERE Codigo = @Codigo AND statusVenda = 'Finalizada' AND statusPagamento = 'Recebido'; UPDATE tbProduto SET Quantidade = Quantidade + 1 WHERE CodigoBarras = @CodigoBarras");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@Codigo", modelDevolucaoPedido.Codigo);
                 command.Parameters.AddWithValue("@CodigoBarras", modelDevolucaoPedido.CodigoBarras);
+                command.Parameters.AddWithValue("@Ticket", modelDevolucaoPedido.Ticket);
+                command.Parameters.AddWithValue("@DataTicket", modelDevolucaoPedido.DataTicket);
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
             catch
             {
-                controllerConfiguracaoSQL.Fechar();
-                return false;
+                throw;
             }
             finally
             {

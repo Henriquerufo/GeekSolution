@@ -55,6 +55,7 @@
     <Compile Include="ControllerLogin.cs" />
     <Compile Include="ControllerSaida.cs" />
     <Compile Include="ControllerTema.cs" />
+    <Compile Include="ControllerTicket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\SettingsSQL.Designer.cs">

@@ -13,5 +13,7 @@ namespace Model
         public string CodigoPedido { get; set; }
         public string statusPegamento { get; set; }
         public string statusVenda { get; set; }
+        public string Ticket { get; set; }
+        public string DataTicket { get; set; }
     }
 }

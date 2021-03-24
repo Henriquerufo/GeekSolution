@@ -75,6 +75,7 @@ namespace View
                 if (frmLogin.Retorno == "Supervisor" && dgvProduto.Rows.Count > 0)
                 {
                     modelDevolucaoPedido.Codigo = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
+                    
 
                     var result = MessageBox.Show("O " + cbxFiltro.Text + "\nCodigo: " + modelDevolucaoPedido.Codigo + " será cancelado", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     if (result == DialogResult.OK)
@@ -93,6 +94,8 @@ namespace View
                         /*se o cbxFiltro for ITEM, ele pega os dados do dgv e passa para a controller para cancelar o item*/
                         if (cbxFiltro.Text == "ITEM")
                         {
+                            modelDevolucaoPedido.Ticket = "Em Aberto";
+                            modelDevolucaoPedido.DataTicket = DateTime.Now.ToString();
                             modelDevolucaoPedido.statusVenda = dgvProduto.CurrentRow.Cells["statusVenda"].Value.ToString();
                             modelDevolucaoPedido.statusPegamento = dgvProduto.CurrentRow.Cells["statusPagamento"].Value.ToString();
                             modelDevolucaoPedido.CodigoBarras = dgvProduto.CurrentRow.Cells["CodigoBarras"].Value.ToString();

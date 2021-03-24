@@ -19,6 +19,8 @@ namespace View
         ModelCaixa modelCaixa = new ModelCaixa();
         ControllerCaixa controllerCaixa = new ControllerCaixa();
         ControllerTema controllerTema = new ControllerTema();
+        ControllerFechamento controllerFechamento = new ControllerFechamento();
+        ModelFechamento modelFechamento = new ModelFechamento();
         int QuantidadeAdicionada = 1;
         int valorTotal = 0;
         decimal RetornoTroco = 0;
@@ -143,7 +145,7 @@ namespace View
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                    }             
+                    }
                 }
             }
             //Finaliza a venda na função cartão
@@ -265,7 +267,7 @@ namespace View
                             pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
                             pd.Print();
                         }
-                        
+
                     }
                     catch (Exception ex)
                     {

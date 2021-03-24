@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class FrmFechamento : Form
+    public partial class FrmGerarTicket : Form
     {
-        ControllerFechamento controllerFechamento = new ControllerFechamento();
-        public FrmFechamento()
+        ControllerTicket controllerTicket = new ControllerTicket();
+        public FrmGerarTicket()
         {
             InitializeComponent();
             cbxFiltro.SelectedIndex = 0;
@@ -23,15 +23,15 @@ namespace View
         {
             try
             {
-                if (cbxFiltro.Text == "CODIGO")
+                if (cbxFiltro.Text == "COD PEDIDO")
                 {
-                    dgvFechamento.DataSource = controllerFechamento.CarregarFechamentosRegistradosPorCodigo(txtProcurar.Text, dtpDe.Value.ToString(), dtpAte.Value.ToString());
+                    dgvTicket.DataSource = controllerTicket.CarregarItensCanceladosPorCodigoPedido(txtProcurar.Text, dtpDe.Value.ToString(), dtpAte.Value.ToString());
                 }
-                else if (cbxFiltro.Text == "VENDEDOR")
+                else if (cbxFiltro.Text == "CODIGO ITEM")
                 {
-                    dgvFechamento.DataSource = controllerFechamento.CarregarFechamentosRegistradosPorVendedor(txtProcurar.Text, dtpDe.Value.ToString(), dtpAte.Value.ToString());
+                    dgvTicket.DataSource = controllerTicket.CarregarItensCanceladosPorCodigoItem(txtProcurar.Text, dtpDe.Value.ToString(), dtpAte.Value.ToString());
                 }
-                lblExibidosTotal.Text = "Exibidos total: " + dgvFechamento.Rows.Count;
+                lblExibidosTotal.Text = "Exibidos total: " + dgvTicket.Rows.Count;
             }
             catch (Exception ex)
             {

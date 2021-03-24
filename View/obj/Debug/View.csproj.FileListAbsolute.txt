@@ -36,3 +36,5 @@ C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmEntradaProduto.res
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmSaida.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmSaidaValor.resources
 C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmFechamento.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmRegistrarFechamento.resources
+C:\Users\henri\source\repos\ProjetoPIM\View\obj\Debug\View.FrmGerarTicket.resources

@@ -31,7 +31,8 @@ namespace Model
         public string ValorProduto { get; set; }
         public string Plataforma { get; set; }
         public string Garantia { get; set; }
-
+        public string Ticket { get; set; }
+        public string DataTicket { get; set; }
         public bool cancelarProduto { get; set; }
     }
 }

@@ -50,11 +50,12 @@ namespace View
                 //lista item por item e executa o a Controller.CancelarPedidoItem
                 foreach (DataGridViewRow row in dgvPedidoItens.Rows)
                 {
+                    modelDevolucaoPedido.Ticket = "Em Aberto";
+                    modelDevolucaoPedido.DataTicket = DateTime.Now.ToString();
                     modelDevolucaoPedido.Codigo = row.Cells["Cod"].Value.ToString();
                     modelDevolucaoPedido.CodigoBarras = row.Cells["CodigoBarras"].Value.ToString();
                     modelDevolucaoPedido.statusPegamento = row.Cells["statusPagamento"].Value.ToString();
                     modelDevolucaoPedido.statusVenda = row.Cells["statusVenda"].Value.ToString();
-
                     controllerDevolucaoProduto.CancelarPedidoItem(modelDevolucaoPedido);
                 }
                 MessageBox.Show("Todos os itens desse pedido foram cancelados com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -13,6 +14,59 @@ namespace Controller
     {
         
         ControllerConfiguracaoSQL controllerConfiguracaoSQL = new ControllerConfiguracaoSQL();
+        public DataTable CarregarFechamentosRegistradosPorCodigo(string codigo, string dataDe, string dataAte)
+        {
+            try
+            {
+                string instrucao = string.Format(@"SELECT * FROM tbFechamento WHERE Codigo = " + codigo + " AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
+        }
+        public DataTable CarregarFechamentosRegistradosPorVendedor(string vendedor, string dataDe, string dataAte)
+        {
+            try
+            {
+                string instrucao = string.Format(@"SELECT * FROM tbFechamento WHERE Vendedor = " + vendedor + " AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
+        }
+        public bool VerificarFechamento(ModelFechamento modelFechamento)
+        {
+            string instrucao = string.Format(@"SELECT * FROM tbFechamento WHERE Vendedor = @Vendedor AND Data = @Data");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            command.Parameters.AddWithValue("@Vendedor", modelFechamento.Vendedor);
+            command.Parameters.AddWithValue("@Data", modelFechamento.Data);
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            if (sqlDataReader.HasRows)
+            {
+                return true;
+            }
+            return false;
+        }
         public decimal CarregarValorTotalVendido(ModelFechamento modelFechamento)
         {
             try

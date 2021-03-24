@@ -120,6 +120,18 @@
     <Compile Include="FrmFechamento.Designer.cs">
       <DependentUpon>FrmFechamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGerarTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerarTicket.Designer.cs">
+      <DependentUpon>FrmGerarTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrarFechamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarFechamento.Designer.cs">
+      <DependentUpon>FrmRegistrarFechamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSaidaValor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +238,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFechamento.resx">
       <DependentUpon>FrmFechamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerarTicket.resx">
+      <DependentUpon>FrmGerarTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarFechamento.resx">
+      <DependentUpon>FrmRegistrarFechamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaida.resx">
       <DependentUpon>FrmSaida.cs</DependentUpon>
