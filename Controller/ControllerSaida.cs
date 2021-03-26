@@ -77,6 +77,31 @@ namespace Controller
                 controllerConfiguracaoSQL.Fechar();
             }
         }
+        public decimal CarregarTicket(ModelSaida modelSaida)
+        {
+            try
+            {
+                string instrucao = string.Format(@"SELECT Ticket FROM tbPedido WHERE Vendedor = @Vendedor AND dataVenda = @dataVenda");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                command.Parameters.AddWithValue("@Vendedor", modelSaida.Vendedor);
+                command.Parameters.AddWithValue("@dataVenda", modelSaida.DataSaida);
+                SqlDataReader sqlDataReader = command.ExecuteReader();
+                decimal valorTotal = 0;
+                while (sqlDataReader.Read())
+                {
+                    valorTotal += Convert.ToDecimal(sqlDataReader["Ticket"].ToString().Replace("R$ ", ""));
+                }
+                return valorTotal;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
+        }
         public decimal CarregarValorSaida(ModelSaida modelSaida)
         {
             try

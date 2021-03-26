@@ -66,17 +66,13 @@ namespace View
         {
             try
             {
-
                 modelLogin.Nivel = "?";
                 FrmLogin frmLogin = new FrmLogin(modelLogin);
                 frmLogin.ShowDialog();
-
                 /*Verifica se o usuario está na lista e, se este usuario tem o nivel de Supervisor*/
                 if (frmLogin.Retorno == "Supervisor" && dgvProduto.Rows.Count > 0)
                 {
                     modelDevolucaoPedido.Codigo = dgvProduto.CurrentRow.Cells["Codigo"].Value.ToString();
-                    
-
                     var result = MessageBox.Show("O " + cbxFiltro.Text + "\nCodigo: " + modelDevolucaoPedido.Codigo + " será cancelado", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     if (result == DialogResult.OK)
                     {

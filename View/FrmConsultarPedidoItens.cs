@@ -167,7 +167,7 @@ namespace View
         }
         private void btnImprimirCancelados_Click(object sender, EventArgs e)
         {
-            if (dgvPedidoItens.Rows.Count > 0)
+            if (dgvPedidoItensCancelados.Rows.Count > 0)
             {
                 try
                 {

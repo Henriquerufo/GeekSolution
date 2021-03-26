@@ -114,6 +114,12 @@
     <Compile Include="FrmCaixaDinheiro.Designer.cs">
       <DependentUpon>FrmCaixaDinheiro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCaixaTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCaixaTicket.Designer.cs">
+      <DependentUpon>FrmCaixaTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFechamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,12 @@
     <Compile Include="FrmSobre.Designer.cs">
       <DependentUpon>FrmSobre.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTicket.Designer.cs">
+      <DependentUpon>FrmTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCadastrados.resx">
@@ -235,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCaixaDinheiro.resx">
       <DependentUpon>FrmCaixaDinheiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCaixaTicket.resx">
+      <DependentUpon>FrmCaixaTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFechamento.resx">
       <DependentUpon>FrmFechamento.cs</DependentUpon>
@@ -280,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSobre.resx">
       <DependentUpon>FrmSobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTicket.resx">
+      <DependentUpon>FrmTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

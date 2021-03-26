@@ -208,5 +208,11 @@ namespace View
             FrmGerarTicket frmGerarTicket = new FrmGerarTicket();
             frmGerarTicket.Show();
         }
+
+        private void ticketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTicket frmTicket = new FrmTicket();
+            frmTicket.Show();
+        }
     }
 }

@@ -21,11 +21,13 @@ namespace View
         ControllerTema controllerTema = new ControllerTema();
         ControllerFechamento controllerFechamento = new ControllerFechamento();
         ModelFechamento modelFechamento = new ModelFechamento();
+        bool VendaFinalizada = false;
         int QuantidadeAdicionada = 1;
         int valorTotal = 0;
         decimal RetornoTroco = 0;
         decimal DinheiroPago = 0;
         decimal valorVenda = 0;
+        decimal valorTicket = 0;
         private Font printFont;
         Pen pen = new Pen(Color.Black);
         int linhasPorPagina = 65;
@@ -42,7 +44,7 @@ namespace View
         private void txtCodigoBarras_KeyDown(object sender, KeyEventArgs e)
         {
             //Adiciona o protudo na lista pelo codigo de barras
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !VendaFinalizada)
             {
                 try
                 {
@@ -76,13 +78,29 @@ namespace View
                             txtValorUnitario.Text = valorUnitario.ToString("C");
                             txtNomeProduto.Text = modelCaixa.NomeProduto;
                             dgvCaixa.Rows[0].Selected = true;
-
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                }
+            }
+            //Deleta o item selecionado
+            else if (e.KeyCode == Keys.Delete && !VendaFinalizada)
+            {
+                if (dgvCaixa.Rows.Count > 0)
+                {
+                    try
+                    {
+                        valorTotal = valorTotal - Convert.ToInt32(dgvCaixa.CurrentRow.Cells["ValorProduto"].Value.ToString());
+                        dgvCaixa.Rows.RemoveAt(dgvCaixa.CurrentRow.Index);
+                        txtValorTotal.Text = valorTotal.ToString("C");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             //Finaliza a venda na função dinheiro
@@ -92,23 +110,32 @@ namespace View
                 {
                     try
                     {
-                        modelCaixa.StatusPagamento = "Recebido";
-                        modelCaixa.StatusVenda = "Finalizada";
-                        modelCaixa.DataVenda = DateTime.Now.ToString();
-                        if (valorVenda == 0)
-                        {
-                            valorVenda = Convert.ToDecimal(txtValorTotal.Text.Replace("R$ ", ""));
-                            modelCaixa.ValorVenda = valorVenda.ToString("C");
-                        }
                         FrmCaixaDinheiro frmCaixaDinheiro = new FrmCaixaDinheiro(txtValorTotal.Text);
                         frmCaixaDinheiro.ShowDialog();
                         if (frmCaixaDinheiro.Retorno != "")
                         {
+                            VendaFinalizada = true;
+                            if (valorVenda == 0)
+                            {
+                                valorVenda = Convert.ToDecimal(txtValorTotal.Text.Replace("R$ ", ""));
+                                modelCaixa.ValorVenda = valorVenda.ToString("C");
+                            }
                             RetornoTroco = Convert.ToDecimal(frmCaixaDinheiro.Retorno.Replace("R$ ", "").ToString());
                             DinheiroPago = DinheiroPago + Convert.ToDecimal(frmCaixaDinheiro.Dinheiro);
                             if (RetornoTroco >= 0)
                             {
-                                modelCaixa.Dinheiro = valorVenda.ToString("C");
+                                if (valorTicket == 0)
+                                {
+                                    modelCaixa.Dinheiro = valorVenda.ToString("C");
+                                }
+                                else
+                                {
+                                    modelCaixa.Dinheiro = txtValorTotal.Text;
+                                }
+                                modelCaixa.StatusPagamento = "Recebido";
+                                modelCaixa.StatusVenda = "Finalizada";
+                                modelCaixa.DataVenda = DateTime.Now.ToString();
+                                modelCaixa.Ticket = valorTicket.ToString("C");
                                 modelCaixa.Cartao = "R$ 0,00";
                                 modelCaixa.Cheque = "R$ 0,00";
                                 modelCaixa.NomeCliente = "CAIXA-DINHEIRO";
@@ -172,6 +199,7 @@ namespace View
                         modelCaixa.StatusVenda = "Finalizada";
                         modelCaixa.Cartao = txtValorTotal.Text;
                         modelCaixa.Cheque = "R$ 0,00";
+                        modelCaixa.Ticket = valorTicket.ToString("C");
                         modelCaixa.ChequeDias = "----------";
                         modelCaixa.Vendedor = Properties.SettingsLogado.Default.Nome;
                         modelCaixa.Conveniado = "R$ 0,00";
@@ -202,11 +230,11 @@ namespace View
                 }
             }
             //Finaliza a venda na função convenio
-            else if (e.KeyCode == Keys.F3)
+            else if (e.KeyCode == Keys.F3 && !VendaFinalizada)
             {
                 try
                 {
-                    if (dgvCaixa.Rows.Count > 0 && valorVenda == 0)
+                    if (dgvCaixa.Rows.Count > 0)
                     {
                         modelCaixa.ValorVenda = txtValorTotal.Text;
                         modelCaixa.DataVenda = DateTime.Now.ToString();
@@ -214,6 +242,7 @@ namespace View
                         modelCaixa.StatusPagamento = "Em Aberto";
                         modelCaixa.StatusVenda = "Finalizada";
                         modelCaixa.Dinheiro = "R$ 0,00";
+                        modelCaixa.Ticket = valorTicket.ToString("C");
                         modelCaixa.Cartao = "0,00";
                         modelCaixa.Cheque = "R$ 0,00";
                         modelCaixa.ChequeDias = "----------";
@@ -252,7 +281,7 @@ namespace View
                 }
             }
             //Realiza o orçamento com uma impressão dos itens
-            else if (e.KeyCode == Keys.F4)
+            else if (e.KeyCode == Keys.F4 && !VendaFinalizada)
             {
                 if (dgvCaixa.Rows.Count > 0)
                 {
@@ -273,6 +302,75 @@ namespace View
                     {
                         MessageBox.Show(ex.Message);
                     }
+                }
+            }
+            //Finaliza a venda na função ticket
+            else if (e.KeyCode == Keys.F5 && !VendaFinalizada)
+            {
+                try
+                {
+                    FrmCaixaTicket frmCaixaTicket = new FrmCaixaTicket();
+                    frmCaixaTicket.ShowDialog();
+                    if (frmCaixaTicket.Retorno != "")
+                    {
+                        VendaFinalizada = true;
+                        if (valorVenda == 0)
+                        {
+                            valorVenda = Convert.ToDecimal(txtValorTotal.Text.Replace("R$ ", ""));
+                            modelCaixa.ValorVenda = valorVenda.ToString("C");
+                        }
+                        valorTicket = frmCaixaTicket.RetornoTicket;
+                        decimal ticketRestante = valorTicket - valorVenda;
+                        if (valorTicket >= valorVenda)
+                        {
+                            modelCaixa.Dinheiro = "R$ 0,00";
+                            modelCaixa.StatusPagamento = "Recebido";
+                            modelCaixa.StatusVenda = "Finalizada";
+                            modelCaixa.DataVenda = DateTime.Now.ToString();
+                            modelCaixa.Ticket = valorVenda.ToString("C");
+                            modelCaixa.Cartao = "R$ 0,00";
+                            modelCaixa.Cheque = "R$ 0,00";
+                            modelCaixa.NomeCliente = "CAIXA-DINHEIRO";
+                            modelCaixa.OpcaoPagamento = "DINHEIRO";
+                            modelCaixa.ChequeDias = "----------";
+                            modelCaixa.Vendedor = Properties.SettingsLogado.Default.Nome;
+                            modelCaixa.Conveniado = "R$ 0,00";
+                            modelCaixa.CodigoTicket = frmCaixaTicket.Retorno;
+                            modelCaixa.TicketRestante = ticketRestante.ToString("C");
+                            controllerCaixa.TicketRestante(modelCaixa);
+                            int CodigoPedido = controllerCaixa.InserirPedido(modelCaixa);
+                            foreach (DataGridViewRow row in dgvCaixa.Rows)
+                            {
+                                modelCaixa.CodigoPedido = CodigoPedido;
+                                modelCaixa.CodigoBarras = row.Cells["CodigoBarras"].Value.ToString();
+                                modelCaixa.NomeProduto = row.Cells["NomeProduto"].Value.ToString();
+                                modelCaixa.Categoria = row.Cells["Categoria"].Value.ToString();
+                                modelCaixa.Fabricante = row.Cells["Fabricante"].Value.ToString();
+                                modelCaixa.ValorProduto = row.Cells["ValorProduto"].Value.ToString();
+                                modelCaixa.Plataforma = row.Cells["Plataforma"].Value.ToString();
+                                modelCaixa.Garantia = row.Cells["Garantia"].Value.ToString();
+                                modelCaixa.StatusPagamento = "Recebido";
+                                modelCaixa.StatusVenda = "Finalizada";
+                                modelCaixa.DataRecebimento = DateTime.Now.ToString();
+                                modelCaixa.RecebidoPor = Properties.SettingsLogado.Default.Nome;
+                                controllerCaixa.MenosQuantidadeEstoque(modelCaixa);
+                                controllerCaixa.InserirPedidoItens(modelCaixa);
+                            }
+                            ZerarCaixa();
+                        }
+                        else
+                        {
+                            modelCaixa.CodigoTicket = frmCaixaTicket.Retorno;
+                            modelCaixa.TicketRestante = "R$ 0,00";
+                            controllerCaixa.TicketRestante(modelCaixa);
+                            decimal resto = valorVenda - valorTicket;
+                            txtValorTotal.Text = resto.ToString("C");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -360,6 +458,7 @@ namespace View
         }
         void ZerarCaixa()
         {
+            VendaFinalizada = false;
             dgvCaixa.Rows.Clear();
             txtCodigoBarras.Text = null;
             txtNomeProduto.Text = null;
@@ -370,6 +469,7 @@ namespace View
             valorVenda = 0;
             DinheiroPago = 0;
             RetornoTroco = 0;
+            valorTicket = 0;
             QuantidadeAdicionada = 1;
         }
     }

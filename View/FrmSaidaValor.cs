@@ -35,7 +35,7 @@ namespace View
                 modelSaida.Vendedor = Properties.SettingsLogado.Default.Nome;
                 txtDataSaida.Text = modelSaida.DataSaida;
                 txtVendedor.Text = modelSaida.Vendedor;
-                valorCaixa = controllerSaida.CarregarValorTotalRecebido(modelSaida) - controllerSaida.CarregarValorSaida(modelSaida);
+                valorCaixa = (controllerSaida.CarregarValorTotalRecebido(modelSaida) - controllerSaida.CarregarTicket(modelSaida)) - controllerSaida.CarregarValorSaida(modelSaida);
                 txtValorCaixa.Text = valorCaixa.ToString("C");
             }
             catch (Exception ex)

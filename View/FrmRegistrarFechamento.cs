@@ -15,6 +15,7 @@ namespace View
     public partial class FrmRegistrarFechamento : Form
     {
         decimal valorCaixa;
+        decimal valorTotalSemTicket;
         ModelFechamento modelFechamento = new ModelFechamento();
         ControllerFechamento controllerFechamento = new ControllerFechamento();
         ControllerTema controllerTema = new ControllerTema();
@@ -36,7 +37,9 @@ namespace View
                 txtVendedor.Text = modelFechamento.Vendedor;
                 txtData.Text = modelFechamento.Data;
                 txtValorTotalVendido.Text = controllerFechamento.CarregarValorTotalVendido(modelFechamento).ToString("C");
-                txtValorTotalRecebido.Text = controllerFechamento.CarregarValorTotalRecebido(modelFechamento).ToString("C");
+                txtTicket.Text = controllerFechamento.CarregarTicket(modelFechamento).ToString("C");
+                valorTotalSemTicket = controllerFechamento.CarregarValorTotalRecebido(modelFechamento) - controllerFechamento.CarregarTicket(modelFechamento);
+                txtValorTotalRecebido.Text = valorTotalSemTicket.ToString("C");
                 txtPedidosFinalizados.Text = controllerFechamento.CarregarItensVendidos(modelFechamento).ToString();
                 txtItensRecebidos.Text = controllerFechamento.CarregarItensRecebidos(modelFechamento).ToString();
                 txtDinheiro.Text = controllerFechamento.CarregarDinheiro(modelFechamento).ToString("C");
@@ -44,7 +47,7 @@ namespace View
                 txtCheque.Text = controllerFechamento.CarregarCheque(modelFechamento).ToString("C");
                 txtConvenio.Text = controllerFechamento.CarregarConvenio(modelFechamento).ToString("C");
                 txtValorSaida.Text = controllerFechamento.CarregarValorSaida(modelFechamento).ToString("C");
-                valorCaixa = controllerFechamento.CarregarValorTotalRecebido(modelFechamento) - controllerFechamento.CarregarValorSaida(modelFechamento);
+                valorCaixa = valorTotalSemTicket - controllerFechamento.CarregarValorSaida(modelFechamento);
                 txtValorCaixa.Text = valorCaixa.ToString("C");
             }
             catch (Exception ex)
@@ -52,7 +55,6 @@ namespace View
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnRealizarSaida_Click(object sender, EventArgs e)
         {
             if (valorCaixa > 0)
@@ -62,17 +64,14 @@ namespace View
                 Carregar();
             }
         }
-
         private void FrmFechamento_FormClosing(object sender, FormClosingEventArgs e)
         {
             pictureBox1.BackgroundImage.Dispose();
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnRegistrarFechamento_Click(object sender, EventArgs e)
         {
             try
@@ -100,6 +99,7 @@ namespace View
                     if (controllerFechamento.InserirFechamento(modelFechamento))
                     {
                         MessageBox.Show("Fechamento registrado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                 }
             }

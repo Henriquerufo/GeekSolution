@@ -236,6 +236,31 @@ namespace Controller
                 controllerConfiguracaoSQL.Fechar();
             }
         }
+        public decimal CarregarTicket(ModelFechamento modelFechamento)
+        {
+            try
+            {
+                string instrucao = string.Format(@"SELECT Ticket FROM tbPedido WHERE Vendedor = @Vendedor AND dataVenda = @dataVenda");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                command.Parameters.AddWithValue("@Vendedor", modelFechamento.Vendedor);
+                command.Parameters.AddWithValue("@dataVenda", modelFechamento.Data);
+                SqlDataReader sqlDataReader = command.ExecuteReader();
+                decimal valorTotal = 0;
+                while (sqlDataReader.Read())
+                {
+                    valorTotal += Convert.ToDecimal(sqlDataReader["Ticket"].ToString().Replace("R$ ", ""));
+                }
+                return valorTotal;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
+        }
         public decimal CarregarCheque(ModelFechamento modelFechamento)
         {
             try

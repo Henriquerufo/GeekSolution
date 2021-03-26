@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpAte = new System.Windows.Forms.DateTimePicker();
             this.dtpDe = new System.Windows.Forms.DateTimePicker();
+            this.btnGerarTicket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -188,11 +189,24 @@
             this.dtpDe.Size = new System.Drawing.Size(82, 20);
             this.dtpDe.TabIndex = 0;
             // 
+            // btnGerarTicket
+            // 
+            this.btnGerarTicket.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGerarTicket.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerarTicket.Location = new System.Drawing.Point(827, 524);
+            this.btnGerarTicket.Name = "btnGerarTicket";
+            this.btnGerarTicket.Size = new System.Drawing.Size(100, 33);
+            this.btnGerarTicket.TabIndex = 101;
+            this.btnGerarTicket.Text = "Gerar Ticket";
+            this.btnGerarTicket.UseVisualStyleBackColor = true;
+            this.btnGerarTicket.Click += new System.EventHandler(this.btnGerarTicket_Click);
+            // 
             // FrmGerarTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 569);
+            this.Controls.Add(this.btnGerarTicket);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.panel1);
@@ -232,5 +246,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpAte;
         private System.Windows.Forms.DateTimePicker dtpDe;
+        private System.Windows.Forms.Button btnGerarTicket;
     }
 }

@@ -27,6 +27,9 @@ namespace Model
         public string Dinheiro { get; set; }
         public string Cartao { get; set; }
         public string Conveniado { get; set; }
+        public string Ticket { get; set; }
+        public string TicketRestante { get; set; }
+        public string CodigoTicket { get; set; }
         public string Cheque { get; set; }
         public string ChequeDias { get; set; }
         public string StatusPagamento { get; set; }

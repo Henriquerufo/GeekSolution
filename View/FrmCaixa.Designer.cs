@@ -93,6 +93,7 @@
             0,
             0,
             0});
+            this.txtQuantidade.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarras_KeyDown);
             // 
             // lblCodigoBarras
             // 
@@ -186,6 +187,7 @@
             this.dgvCaixa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCaixa.Size = new System.Drawing.Size(466, 375);
             this.dgvCaixa.TabIndex = 87;
+            this.dgvCaixa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarras_KeyDown);
             // 
             // Codigo
             // 

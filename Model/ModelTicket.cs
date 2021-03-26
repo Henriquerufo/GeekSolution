@@ -13,5 +13,6 @@ namespace Model
         public string Vendedor { get; set; }
         public string Data { get; set; }
         public string Valor { get; set; }
+        public string Status { get; set; }
     }
 }

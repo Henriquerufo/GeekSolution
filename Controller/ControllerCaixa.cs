@@ -69,7 +69,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"INSERT INTO tbPedido (NomeCliente, Vendedor, dataVenda, valorVenda, opcaoPagamento, statusPagamento, statusVenda, Dinheiro, Cartao, Conveniado, Cheque, ChequeDias) VALUES (@NomeCliente, @Vendedor, @dataVenda, @valorVenda, @opcaoPagamento, @statusPagamento, @statusVenda, @Dinheiro, @Cartao, @Conveniado, @Cheque, @ChequeDias); SELECT @@IDENTITY;");
+                string instrucao = string.Format(@"INSERT INTO tbPedido (NomeCliente, Vendedor, dataVenda, valorVenda, opcaoPagamento, statusPagamento, statusVenda, Dinheiro, Cartao, Ticket, Conveniado, Cheque, ChequeDias) VALUES (@NomeCliente, @Vendedor, @dataVenda, @valorVenda, @opcaoPagamento, @statusPagamento, @statusVenda, @Dinheiro, @Cartao, @Ticket, @Conveniado, @Cheque, @ChequeDias); SELECT @@IDENTITY;");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@NomeCliente", modelCaixa.NomeCliente);
                 command.Parameters.AddWithValue("@Vendedor", modelCaixa.Vendedor);
@@ -79,6 +79,7 @@ namespace Controller
                 command.Parameters.AddWithValue("@statusPagamento", modelCaixa.StatusPagamento);
                 command.Parameters.AddWithValue("@statusVenda", modelCaixa.StatusVenda);
                 command.Parameters.AddWithValue("@Dinheiro", modelCaixa.Dinheiro);
+                command.Parameters.AddWithValue("@Ticket", modelCaixa.Ticket);
                 command.Parameters.AddWithValue("@Cartao", modelCaixa.Cartao);
                 command.Parameters.AddWithValue("@Conveniado", modelCaixa.Conveniado);
                 command.Parameters.AddWithValue("@Cheque", modelCaixa.Cheque);
@@ -138,6 +139,38 @@ namespace Controller
             {
                 controllerConfiguracaoSQL.Fechar();
                 return false;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
+        }
+        public string VerificarTicket(ModelCaixa modelCaixa)
+        {
+            string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Codigo = @Codigo AND Status = 'Em Aberto'");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            command.Parameters.AddWithValue("@Codigo", modelCaixa.Codigo);
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            if (sqlDataReader.HasRows)
+            {
+                sqlDataReader.Read();
+                return sqlDataReader["Valor"].ToString();
+            }
+            return null;
+        }
+        public bool TicketRestante(ModelCaixa modelCaixa)
+        {
+            try
+            {
+                string instrucao = string.Format(@"UPDATE tbTicket SET Valor = @Valor WHERE Codigo = @Codigo");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                command.Parameters.AddWithValue("@Codigo", modelCaixa.CodigoTicket);
+                command.Parameters.AddWithValue("@Valor", modelCaixa.TicketRestante);
+                return Convert.ToBoolean(command.ExecuteNonQuery());
+            }
+            catch
+            {
+                throw;
             }
             finally
             {
