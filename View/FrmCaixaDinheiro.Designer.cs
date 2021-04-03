@@ -104,6 +104,7 @@
             this.Name = "FrmCaixaDinheiro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCaixaDinheiro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCaixaDinheiro_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -72,6 +72,31 @@ namespace Controller
                 controllerConfiguracaoSQL.Fechar();
             }
         }
+        public string CarregarEnderecoImagemFundo()
+        {
+            try
+            {
+                string instrucao = string.Format(@"SELECT * FROM tbTema WHERE Status = '1'");
+                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                SqlDataReader sqlDataReader = command.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    sqlDataReader.Read();
+                    string endereco = sqlDataReader["EnderecoImagemFundo"].ToString();
+                    return endereco;
+                }
+                return null;
+            }
+            catch
+            {
+                controllerConfiguracaoSQL.Fechar();
+                return null;
+            }
+            finally
+            {
+                controllerConfiguracaoSQL.Fechar();
+            }
+        }
         public string CarregarEnderecoImagem()
         {
             try
@@ -176,10 +201,11 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("INSERT INTO tbTema (Nome, EnderecoImagem, R, G, B, Status) VALUES (@Nome, @EnderecoImagem, @R, @G, @B, @Status)");
+                string instrucao = string.Format("INSERT INTO tbTema (Nome, EnderecoImagemFundo, EnderecoImagem, R, G, B, Status) VALUES (@Nome, @EnderecoImagemFundo, @EnderecoImagem, @R, @G, @B, @Status)");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@Nome", modelTema.Nome);
-                command.Parameters.AddWithValue("@EnderecoImagem", modelTema.EnderecoImagem);
+                command.Parameters.AddWithValue("@EnderecoImagemFundo", modelTema.EnderecoImagemFundo);
+                command.Parameters.AddWithValue("@EnderecoImagem", modelTema.ImagemEndereco);
                 command.Parameters.AddWithValue("@R", modelTema.R);
                 command.Parameters.AddWithValue("@G", modelTema.G);
                 command.Parameters.AddWithValue("@B", modelTema.B);
@@ -200,10 +226,11 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"UPDATE tbTema SET EnderecoImagem = @EnderecoImagem, R = @R, G = @G, B = @B WHERE Codigo = @Codigo");
+                string instrucao = string.Format(@"UPDATE tbTema SET EnderecoImagemFundo = @EnderecoImagemFundo, EnderecoImagem = @EnderecoImagem, R = @R, G = @G, B = @B WHERE Codigo = @Codigo");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@Codigo", modelTema.Codigo);
-                command.Parameters.AddWithValue("@EnderecoImagem", modelTema.EnderecoImagem);
+                command.Parameters.AddWithValue("@EnderecoImagemFundo", modelTema.EnderecoImagemFundo);
+                command.Parameters.AddWithValue("@EnderecoImagem", modelTema.ImagemEndereco);
                 command.Parameters.AddWithValue("@R", modelTema.R);
                 command.Parameters.AddWithValue("@G", modelTema.G);
                 command.Parameters.AddWithValue("@B", modelTema.B);

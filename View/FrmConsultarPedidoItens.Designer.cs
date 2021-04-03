@@ -32,29 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultarPedidoItens));
             this.dgvPedidoItens = new System.Windows.Forms.DataGridView();
-            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plataforma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prazoGarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnFechar = new System.Windows.Forms.Button();
             this.lblExibidosTotal = new System.Windows.Forms.Label();
             this.dgvPedidoItensCancelados = new System.Windows.Forms.DataGridView();
-            this.Codigo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoPedido2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeCliente2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoBarras2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeProduto2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fabricante2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorProduto2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plataforma2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Garantia2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblExibidosTotalCancelados = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -86,6 +66,38 @@
             this.btnImprimirCancelados = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecebidoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataRecebimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fabricante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plataforma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prazoGarantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataTicket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoPedido2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeCliente2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecebidoPor2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataRecebimento2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoBarras2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeProduto2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fabricante2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorProduto2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plataforma2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Garantia2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusPagamento2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusVenda2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ticket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataTicket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoItensCancelados)).BeginInit();
             this.SuspendLayout();
@@ -102,13 +114,19 @@
             this.Cod,
             this.codigoPedido,
             this.nomeCliente,
+            this.RecebidoPor,
+            this.DataRecebimento,
             this.codigoBarras,
             this.nomeProduto,
             this.categoria,
             this.fabricante,
             this.valorProduto,
             this.plataforma,
-            this.prazoGarantia});
+            this.prazoGarantia,
+            this.statusPagamento,
+            this.statusVenda,
+            this.Ticket,
+            this.DataTicket});
             this.dgvPedidoItens.Location = new System.Drawing.Point(12, 130);
             this.dgvPedidoItens.Name = "dgvPedidoItens";
             this.dgvPedidoItens.ReadOnly = true;
@@ -116,76 +134,6 @@
             this.dgvPedidoItens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedidoItens.Size = new System.Drawing.Size(866, 200);
             this.dgvPedidoItens.TabIndex = 0;
-            // 
-            // Cod
-            // 
-            this.Cod.DataPropertyName = "Codigo";
-            this.Cod.HeaderText = "Codigo";
-            this.Cod.Name = "Cod";
-            this.Cod.ReadOnly = true;
-            // 
-            // codigoPedido
-            // 
-            this.codigoPedido.DataPropertyName = "CodigoPedido";
-            this.codigoPedido.HeaderText = "Codigo Pedido";
-            this.codigoPedido.Name = "codigoPedido";
-            this.codigoPedido.ReadOnly = true;
-            // 
-            // nomeCliente
-            // 
-            this.nomeCliente.DataPropertyName = "NomeCliente";
-            this.nomeCliente.HeaderText = "Nome Cliente";
-            this.nomeCliente.Name = "nomeCliente";
-            this.nomeCliente.ReadOnly = true;
-            // 
-            // codigoBarras
-            // 
-            this.codigoBarras.DataPropertyName = "CodigoBarras";
-            this.codigoBarras.HeaderText = "Codigo de Barras";
-            this.codigoBarras.Name = "codigoBarras";
-            this.codigoBarras.ReadOnly = true;
-            // 
-            // nomeProduto
-            // 
-            this.nomeProduto.DataPropertyName = "NomeProduto";
-            this.nomeProduto.HeaderText = "Nome do Produto";
-            this.nomeProduto.Name = "nomeProduto";
-            this.nomeProduto.ReadOnly = true;
-            // 
-            // categoria
-            // 
-            this.categoria.DataPropertyName = "Categoria";
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            this.categoria.ReadOnly = true;
-            // 
-            // fabricante
-            // 
-            this.fabricante.DataPropertyName = "Fabricante";
-            this.fabricante.HeaderText = "Fabricante";
-            this.fabricante.Name = "fabricante";
-            this.fabricante.ReadOnly = true;
-            // 
-            // valorProduto
-            // 
-            this.valorProduto.DataPropertyName = "ValorProduto";
-            this.valorProduto.HeaderText = "Valor do Produto";
-            this.valorProduto.Name = "valorProduto";
-            this.valorProduto.ReadOnly = true;
-            // 
-            // plataforma
-            // 
-            this.plataforma.DataPropertyName = "Plataforma";
-            this.plataforma.HeaderText = "Plataforma";
-            this.plataforma.Name = "plataforma";
-            this.plataforma.ReadOnly = true;
-            // 
-            // prazoGarantia
-            // 
-            this.prazoGarantia.DataPropertyName = "Garantia";
-            this.prazoGarantia.HeaderText = "Garantia";
-            this.prazoGarantia.Name = "prazoGarantia";
-            this.prazoGarantia.ReadOnly = true;
             // 
             // btnFechar
             // 
@@ -220,13 +168,19 @@
             this.Codigo2,
             this.CodigoPedido2,
             this.NomeCliente2,
+            this.RecebidoPor2,
+            this.DataRecebimento2,
             this.CodigoBarras2,
             this.NomeProduto2,
             this.Categoria2,
             this.Fabricante2,
             this.ValorProduto2,
             this.Plataforma2,
-            this.Garantia2});
+            this.Garantia2,
+            this.statusPagamento2,
+            this.statusVenda2,
+            this.Ticket2,
+            this.DataTicket2});
             this.dgvPedidoItensCancelados.Location = new System.Drawing.Point(12, 375);
             this.dgvPedidoItensCancelados.Name = "dgvPedidoItensCancelados";
             this.dgvPedidoItensCancelados.ReadOnly = true;
@@ -234,76 +188,6 @@
             this.dgvPedidoItensCancelados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedidoItensCancelados.Size = new System.Drawing.Size(866, 201);
             this.dgvPedidoItensCancelados.TabIndex = 2;
-            // 
-            // Codigo2
-            // 
-            this.Codigo2.DataPropertyName = "Codigo";
-            this.Codigo2.HeaderText = "Codigo";
-            this.Codigo2.Name = "Codigo2";
-            this.Codigo2.ReadOnly = true;
-            // 
-            // CodigoPedido2
-            // 
-            this.CodigoPedido2.DataPropertyName = "CodigoPedido";
-            this.CodigoPedido2.HeaderText = "Codigo Pedido";
-            this.CodigoPedido2.Name = "CodigoPedido2";
-            this.CodigoPedido2.ReadOnly = true;
-            // 
-            // NomeCliente2
-            // 
-            this.NomeCliente2.DataPropertyName = "NomeCliente";
-            this.NomeCliente2.HeaderText = "Nome Cliente";
-            this.NomeCliente2.Name = "NomeCliente2";
-            this.NomeCliente2.ReadOnly = true;
-            // 
-            // CodigoBarras2
-            // 
-            this.CodigoBarras2.DataPropertyName = "CodigoBarras";
-            this.CodigoBarras2.HeaderText = "Codigo de Barras";
-            this.CodigoBarras2.Name = "CodigoBarras2";
-            this.CodigoBarras2.ReadOnly = true;
-            // 
-            // NomeProduto2
-            // 
-            this.NomeProduto2.DataPropertyName = "NomeProduto";
-            this.NomeProduto2.HeaderText = "Nome do Produto";
-            this.NomeProduto2.Name = "NomeProduto2";
-            this.NomeProduto2.ReadOnly = true;
-            // 
-            // Categoria2
-            // 
-            this.Categoria2.DataPropertyName = "Categoria";
-            this.Categoria2.HeaderText = "Categoria";
-            this.Categoria2.Name = "Categoria2";
-            this.Categoria2.ReadOnly = true;
-            // 
-            // Fabricante2
-            // 
-            this.Fabricante2.DataPropertyName = "Fabricante";
-            this.Fabricante2.HeaderText = "Fabricante";
-            this.Fabricante2.Name = "Fabricante2";
-            this.Fabricante2.ReadOnly = true;
-            // 
-            // ValorProduto2
-            // 
-            this.ValorProduto2.DataPropertyName = "ValorProduto";
-            this.ValorProduto2.HeaderText = "Valor do Produto";
-            this.ValorProduto2.Name = "ValorProduto2";
-            this.ValorProduto2.ReadOnly = true;
-            // 
-            // Plataforma2
-            // 
-            this.Plataforma2.DataPropertyName = "Plataforma";
-            this.Plataforma2.HeaderText = "Plataforma";
-            this.Plataforma2.Name = "Plataforma2";
-            this.Plataforma2.ReadOnly = true;
-            // 
-            // Garantia2
-            // 
-            this.Garantia2.DataPropertyName = "Garantia";
-            this.Garantia2.HeaderText = "Garantia";
-            this.Garantia2.Name = "Garantia2";
-            this.Garantia2.ReadOnly = true;
             // 
             // lblExibidosTotalCancelados
             // 
@@ -591,6 +475,230 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // Cod
+            // 
+            this.Cod.DataPropertyName = "Codigo";
+            this.Cod.HeaderText = "Codigo";
+            this.Cod.Name = "Cod";
+            this.Cod.ReadOnly = true;
+            // 
+            // codigoPedido
+            // 
+            this.codigoPedido.DataPropertyName = "CodigoPedido";
+            this.codigoPedido.HeaderText = "Codigo Pedido";
+            this.codigoPedido.Name = "codigoPedido";
+            this.codigoPedido.ReadOnly = true;
+            // 
+            // nomeCliente
+            // 
+            this.nomeCliente.DataPropertyName = "NomeCliente";
+            this.nomeCliente.HeaderText = "Nome Cliente";
+            this.nomeCliente.Name = "nomeCliente";
+            this.nomeCliente.ReadOnly = true;
+            // 
+            // RecebidoPor
+            // 
+            this.RecebidoPor.DataPropertyName = "RecebidoPor";
+            this.RecebidoPor.HeaderText = "Recebido Por";
+            this.RecebidoPor.Name = "RecebidoPor";
+            this.RecebidoPor.ReadOnly = true;
+            // 
+            // DataRecebimento
+            // 
+            this.DataRecebimento.DataPropertyName = "DataRecebimento";
+            this.DataRecebimento.HeaderText = "Data de Recebimento";
+            this.DataRecebimento.Name = "DataRecebimento";
+            this.DataRecebimento.ReadOnly = true;
+            // 
+            // codigoBarras
+            // 
+            this.codigoBarras.DataPropertyName = "CodigoBarras";
+            this.codigoBarras.HeaderText = "Codigo de Barras";
+            this.codigoBarras.Name = "codigoBarras";
+            this.codigoBarras.ReadOnly = true;
+            // 
+            // nomeProduto
+            // 
+            this.nomeProduto.DataPropertyName = "NomeProduto";
+            this.nomeProduto.HeaderText = "Nome do Produto";
+            this.nomeProduto.Name = "nomeProduto";
+            this.nomeProduto.ReadOnly = true;
+            // 
+            // categoria
+            // 
+            this.categoria.DataPropertyName = "Categoria";
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            // 
+            // fabricante
+            // 
+            this.fabricante.DataPropertyName = "Fabricante";
+            this.fabricante.HeaderText = "Fabricante";
+            this.fabricante.Name = "fabricante";
+            this.fabricante.ReadOnly = true;
+            // 
+            // valorProduto
+            // 
+            this.valorProduto.DataPropertyName = "ValorProduto";
+            this.valorProduto.HeaderText = "Valor do Produto";
+            this.valorProduto.Name = "valorProduto";
+            this.valorProduto.ReadOnly = true;
+            // 
+            // plataforma
+            // 
+            this.plataforma.DataPropertyName = "Plataforma";
+            this.plataforma.HeaderText = "Plataforma";
+            this.plataforma.Name = "plataforma";
+            this.plataforma.ReadOnly = true;
+            // 
+            // prazoGarantia
+            // 
+            this.prazoGarantia.DataPropertyName = "Garantia";
+            this.prazoGarantia.HeaderText = "Garantia";
+            this.prazoGarantia.Name = "prazoGarantia";
+            this.prazoGarantia.ReadOnly = true;
+            // 
+            // statusPagamento
+            // 
+            this.statusPagamento.DataPropertyName = "statusPagamento";
+            this.statusPagamento.HeaderText = "Status do Pagamento";
+            this.statusPagamento.Name = "statusPagamento";
+            this.statusPagamento.ReadOnly = true;
+            // 
+            // statusVenda
+            // 
+            this.statusVenda.DataPropertyName = "statusVenda";
+            this.statusVenda.HeaderText = "Status da Venda";
+            this.statusVenda.Name = "statusVenda";
+            this.statusVenda.ReadOnly = true;
+            // 
+            // Ticket
+            // 
+            this.Ticket.DataPropertyName = "Ticket";
+            this.Ticket.HeaderText = "Ticket";
+            this.Ticket.Name = "Ticket";
+            this.Ticket.ReadOnly = true;
+            // 
+            // DataTicket
+            // 
+            this.DataTicket.DataPropertyName = "DataTicket";
+            this.DataTicket.HeaderText = "Data Ticket";
+            this.DataTicket.Name = "DataTicket";
+            this.DataTicket.ReadOnly = true;
+            // 
+            // Codigo2
+            // 
+            this.Codigo2.DataPropertyName = "Codigo";
+            this.Codigo2.HeaderText = "Codigo";
+            this.Codigo2.Name = "Codigo2";
+            this.Codigo2.ReadOnly = true;
+            // 
+            // CodigoPedido2
+            // 
+            this.CodigoPedido2.DataPropertyName = "CodigoPedido";
+            this.CodigoPedido2.HeaderText = "Codigo Pedido";
+            this.CodigoPedido2.Name = "CodigoPedido2";
+            this.CodigoPedido2.ReadOnly = true;
+            // 
+            // NomeCliente2
+            // 
+            this.NomeCliente2.DataPropertyName = "NomeCliente";
+            this.NomeCliente2.HeaderText = "Nome Cliente";
+            this.NomeCliente2.Name = "NomeCliente2";
+            this.NomeCliente2.ReadOnly = true;
+            // 
+            // RecebidoPor2
+            // 
+            this.RecebidoPor2.DataPropertyName = "RecebidoPor";
+            this.RecebidoPor2.HeaderText = "Recebido Por";
+            this.RecebidoPor2.Name = "RecebidoPor2";
+            this.RecebidoPor2.ReadOnly = true;
+            // 
+            // DataRecebimento2
+            // 
+            this.DataRecebimento2.DataPropertyName = "DataRecebimento";
+            this.DataRecebimento2.HeaderText = "Data de Recebimento";
+            this.DataRecebimento2.Name = "DataRecebimento2";
+            this.DataRecebimento2.ReadOnly = true;
+            // 
+            // CodigoBarras2
+            // 
+            this.CodigoBarras2.DataPropertyName = "CodigoBarras";
+            this.CodigoBarras2.HeaderText = "Codigo de Barras";
+            this.CodigoBarras2.Name = "CodigoBarras2";
+            this.CodigoBarras2.ReadOnly = true;
+            // 
+            // NomeProduto2
+            // 
+            this.NomeProduto2.DataPropertyName = "NomeProduto";
+            this.NomeProduto2.HeaderText = "Nome do Produto";
+            this.NomeProduto2.Name = "NomeProduto2";
+            this.NomeProduto2.ReadOnly = true;
+            // 
+            // Categoria2
+            // 
+            this.Categoria2.DataPropertyName = "Categoria";
+            this.Categoria2.HeaderText = "Categoria";
+            this.Categoria2.Name = "Categoria2";
+            this.Categoria2.ReadOnly = true;
+            // 
+            // Fabricante2
+            // 
+            this.Fabricante2.DataPropertyName = "Fabricante";
+            this.Fabricante2.HeaderText = "Fabricante";
+            this.Fabricante2.Name = "Fabricante2";
+            this.Fabricante2.ReadOnly = true;
+            // 
+            // ValorProduto2
+            // 
+            this.ValorProduto2.DataPropertyName = "ValorProduto";
+            this.ValorProduto2.HeaderText = "Valor do Produto";
+            this.ValorProduto2.Name = "ValorProduto2";
+            this.ValorProduto2.ReadOnly = true;
+            // 
+            // Plataforma2
+            // 
+            this.Plataforma2.DataPropertyName = "Plataforma";
+            this.Plataforma2.HeaderText = "Plataforma";
+            this.Plataforma2.Name = "Plataforma2";
+            this.Plataforma2.ReadOnly = true;
+            // 
+            // Garantia2
+            // 
+            this.Garantia2.DataPropertyName = "Garantia";
+            this.Garantia2.HeaderText = "Garantia";
+            this.Garantia2.Name = "Garantia2";
+            this.Garantia2.ReadOnly = true;
+            // 
+            // statusPagamento2
+            // 
+            this.statusPagamento2.DataPropertyName = "statusPagamento";
+            this.statusPagamento2.HeaderText = "Status do Pagamento";
+            this.statusPagamento2.Name = "statusPagamento2";
+            this.statusPagamento2.ReadOnly = true;
+            // 
+            // statusVenda2
+            // 
+            this.statusVenda2.DataPropertyName = "statusVenda";
+            this.statusVenda2.HeaderText = "Status da Venda";
+            this.statusVenda2.Name = "statusVenda2";
+            this.statusVenda2.ReadOnly = true;
+            // 
+            // Ticket2
+            // 
+            this.Ticket2.DataPropertyName = "Ticket";
+            this.Ticket2.HeaderText = "Ticket";
+            this.Ticket2.Name = "Ticket2";
+            this.Ticket2.ReadOnly = true;
+            // 
+            // DataTicket2
+            // 
+            this.DataTicket2.DataPropertyName = "DataTicket";
+            this.DataTicket2.HeaderText = "Data Ticket";
+            this.DataTicket2.Name = "DataTicket2";
+            this.DataTicket2.ReadOnly = true;
+            // 
             // FrmConsultarPedidoItens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,9 +785,12 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button btnImprimirCancelados;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecebidoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataRecebimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoBarras;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
@@ -687,9 +798,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn plataforma;
         private System.Windows.Forms.DataGridViewTextBoxColumn prazoGarantia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusPagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ticket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataTicket;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo2;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoPedido2;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeCliente2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecebidoPor2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataRecebimento2;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoBarras2;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria2;
@@ -697,6 +814,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorProduto2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plataforma2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Garantia2;
-        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusPagamento2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusVenda2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ticket2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataTicket2;
     }
 }

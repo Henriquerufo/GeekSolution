@@ -30,7 +30,7 @@
         {
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtEnderecoImagem = new System.Windows.Forms.TextBox();
+            this.txtEnderecoImagemFundo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtColorR = new System.Windows.Forms.TextBox();
             this.btnSelecionarImagem = new System.Windows.Forms.Button();
@@ -50,6 +50,9 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.ptnPrevia = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtImagemEndereco = new System.Windows.Forms.TextBox();
             this.pnlCadastrarTema.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptnPrevia)).BeginInit();
@@ -73,13 +76,13 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Nome";
             // 
-            // txtEnderecoImagem
+            // txtEnderecoImagemFundo
             // 
-            this.txtEnderecoImagem.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnderecoImagem.Location = new System.Drawing.Point(6, 73);
-            this.txtEnderecoImagem.Name = "txtEnderecoImagem";
-            this.txtEnderecoImagem.Size = new System.Drawing.Size(238, 29);
-            this.txtEnderecoImagem.TabIndex = 1;
+            this.txtEnderecoImagemFundo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnderecoImagemFundo.Location = new System.Drawing.Point(6, 73);
+            this.txtEnderecoImagemFundo.Name = "txtEnderecoImagemFundo";
+            this.txtEnderecoImagemFundo.Size = new System.Drawing.Size(238, 29);
+            this.txtEnderecoImagemFundo.TabIndex = 1;
             // 
             // label2
             // 
@@ -87,14 +90,14 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label2.Location = new System.Drawing.Point(6, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 13);
+            this.label2.Size = new System.Drawing.Size(141, 13);
             this.label2.TabIndex = 19;
-            this.label2.Text = "Endereço da Imagem";
+            this.label2.Text = "Endereço da Imagem Fundo";
             // 
             // txtColorR
             // 
             this.txtColorR.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtColorR.Location = new System.Drawing.Point(6, 121);
+            this.txtColorR.Location = new System.Drawing.Point(6, 169);
             this.txtColorR.Name = "txtColorR";
             this.txtColorR.Size = new System.Drawing.Size(76, 29);
             this.txtColorR.TabIndex = 3;
@@ -115,7 +118,7 @@
             // 
             this.btnSelecionarFundo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSelecionarFundo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelecionarFundo.Location = new System.Drawing.Point(250, 121);
+            this.btnSelecionarFundo.Location = new System.Drawing.Point(250, 169);
             this.btnSelecionarFundo.Name = "btnSelecionarFundo";
             this.btnSelecionarFundo.Size = new System.Drawing.Size(32, 29);
             this.btnSelecionarFundo.TabIndex = 6;
@@ -125,6 +128,9 @@
             // 
             // pnlCadastrarTema
             // 
+            this.pnlCadastrarTema.Controls.Add(this.button1);
+            this.pnlCadastrarTema.Controls.Add(this.label8);
+            this.pnlCadastrarTema.Controls.Add(this.txtImagemEndereco);
             this.pnlCadastrarTema.Controls.Add(this.label7);
             this.pnlCadastrarTema.Controls.Add(this.label5);
             this.pnlCadastrarTema.Controls.Add(this.txtColorB);
@@ -134,19 +140,19 @@
             this.pnlCadastrarTema.Controls.Add(this.txtNome);
             this.pnlCadastrarTema.Controls.Add(this.btnSelecionarImagem);
             this.pnlCadastrarTema.Controls.Add(this.label2);
-            this.pnlCadastrarTema.Controls.Add(this.txtEnderecoImagem);
+            this.pnlCadastrarTema.Controls.Add(this.txtEnderecoImagemFundo);
             this.pnlCadastrarTema.Controls.Add(this.txtColorR);
             this.pnlCadastrarTema.Controls.Add(this.label3);
             this.pnlCadastrarTema.Location = new System.Drawing.Point(3, 70);
             this.pnlCadastrarTema.Name = "pnlCadastrarTema";
-            this.pnlCadastrarTema.Size = new System.Drawing.Size(286, 156);
+            this.pnlCadastrarTema.Size = new System.Drawing.Size(286, 215);
             this.pnlCadastrarTema.TabIndex = 60;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label7.Location = new System.Drawing.Point(165, 105);
+            this.label7.Location = new System.Drawing.Point(165, 153);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 63;
@@ -156,7 +162,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label5.Location = new System.Drawing.Point(85, 105);
+            this.label5.Location = new System.Drawing.Point(85, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 62;
@@ -165,7 +171,7 @@
             // txtColorB
             // 
             this.txtColorB.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtColorB.Location = new System.Drawing.Point(168, 121);
+            this.txtColorB.Location = new System.Drawing.Point(168, 169);
             this.txtColorB.Name = "txtColorB";
             this.txtColorB.Size = new System.Drawing.Size(76, 29);
             this.txtColorB.TabIndex = 5;
@@ -173,7 +179,7 @@
             // txtColorG
             // 
             this.txtColorG.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtColorG.Location = new System.Drawing.Point(88, 121);
+            this.txtColorG.Location = new System.Drawing.Point(88, 169);
             this.txtColorG.Name = "txtColorG";
             this.txtColorG.Size = new System.Drawing.Size(74, 29);
             this.txtColorG.TabIndex = 4;
@@ -182,7 +188,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label3.Location = new System.Drawing.Point(6, 105);
+            this.label3.Location = new System.Drawing.Point(6, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 21;
@@ -212,7 +218,7 @@
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(185, 232);
+            this.btnCancelar.Location = new System.Drawing.Point(185, 291);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 33);
             this.btnCancelar.TabIndex = 1;
@@ -224,7 +230,7 @@
             // 
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(79, 232);
+            this.btnSalvar.Location = new System.Drawing.Point(79, 291);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 33);
             this.btnSalvar.TabIndex = 0;
@@ -236,7 +242,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Khaki;
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(3, 271);
+            this.panel2.Location = new System.Drawing.Point(3, 330);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(545, 31);
             this.panel2.TabIndex = 66;
@@ -259,17 +265,47 @@
             this.ptnPrevia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ptnPrevia.BackgroundImage = global::View.Properties.Resources.SuaLogo;
             this.ptnPrevia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptnPrevia.Location = new System.Drawing.Point(295, 12);
+            this.ptnPrevia.Location = new System.Drawing.Point(295, 70);
             this.ptnPrevia.Name = "ptnPrevia";
             this.ptnPrevia.Size = new System.Drawing.Size(253, 253);
             this.ptnPrevia.TabIndex = 65;
             this.ptnPrevia.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(250, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 29);
+            this.button1.TabIndex = 65;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label8.Location = new System.Drawing.Point(6, 105);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 13);
+            this.label8.TabIndex = 66;
+            this.label8.Text = "Endereço da Imagem";
+            // 
+            // txtImagemEndereco
+            // 
+            this.txtImagemEndereco.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImagemEndereco.Location = new System.Drawing.Point(6, 121);
+            this.txtImagemEndereco.Name = "txtImagemEndereco";
+            this.txtImagemEndereco.Size = new System.Drawing.Size(238, 29);
+            this.txtImagemEndereco.TabIndex = 64;
+            // 
             // FrmCadastrarTema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 309);
+            this.ClientSize = new System.Drawing.Size(552, 364);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.ptnPrevia);
             this.Controls.Add(this.btnCancelar);
@@ -298,7 +334,7 @@
 
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtEnderecoImagem;
+        private System.Windows.Forms.TextBox txtEnderecoImagemFundo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtColorR;
         private System.Windows.Forms.Button btnSelecionarImagem;
@@ -318,5 +354,8 @@
         private System.Windows.Forms.TextBox txtColorB;
         private System.Windows.Forms.TextBox txtColorG;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtImagemEndereco;
     }
 }

@@ -1,7 +1,6 @@
 C:\Users\henri\source\repos\ProjetoPIM\Model\bin\Debug\Model.exe.config
 C:\Users\henri\source\repos\ProjetoPIM\Model\bin\Debug\Model.exe
 C:\Users\henri\source\repos\ProjetoPIM\Model\bin\Debug\Model.pdb
-C:\Users\henri\source\repos\ProjetoPIM\Model\obj\Debug\Model.csprojAssemblyReference.cache
 C:\Users\henri\source\repos\ProjetoPIM\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\henri\source\repos\ProjetoPIM\Model\obj\Debug\Model.exe
 C:\Users\henri\source\repos\ProjetoPIM\Model\obj\Debug\Model.pdb

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDe = new System.Windows.Forms.DateTimePicker();
@@ -43,6 +43,20 @@
             this.cbxFiltro = new System.Windows.Forms.ComboBox();
             this.txtProcurar = new System.Windows.Forms.TextBox();
             this.dgvFechamento = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorTotalVendido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorTotalRecebido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PedidosFinalizados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItensRecebidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dinheiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cartao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Conveniado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cheque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorSaida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorCaixa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFechamento)).BeginInit();
             this.SuspendLayout();
@@ -176,11 +190,25 @@
             // 
             this.dgvFechamento.AllowUserToAddRows = false;
             this.dgvFechamento.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvFechamento.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvFechamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvFechamento.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFechamento.BackgroundColor = System.Drawing.Color.White;
             this.dgvFechamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFechamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Vendedor,
+            this.Data,
+            this.ValorTotalVendido,
+            this.ValorTotalRecebido,
+            this.PedidosFinalizados,
+            this.ItensRecebidos,
+            this.Dinheiro,
+            this.Cartao,
+            this.Conveniado,
+            this.Ticket,
+            this.Cheque,
+            this.ValorSaida,
+            this.ValorCaixa});
             this.dgvFechamento.Location = new System.Drawing.Point(13, 66);
             this.dgvFechamento.Name = "dgvFechamento";
             this.dgvFechamento.ReadOnly = true;
@@ -188,6 +216,117 @@
             this.dgvFechamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFechamento.Size = new System.Drawing.Size(1031, 453);
             this.dgvFechamento.TabIndex = 94;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "Codigo";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 79;
+            // 
+            // Vendedor
+            // 
+            this.Vendedor.DataPropertyName = "Vendedor";
+            this.Vendedor.HeaderText = "Vendedor";
+            this.Vendedor.Name = "Vendedor";
+            this.Vendedor.ReadOnly = true;
+            this.Vendedor.Width = 79;
+            // 
+            // Data
+            // 
+            this.Data.DataPropertyName = "Data";
+            this.Data.HeaderText = "Data";
+            this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
+            this.Data.Width = 79;
+            // 
+            // ValorTotalVendido
+            // 
+            this.ValorTotalVendido.DataPropertyName = "ValorTotalVendido";
+            this.ValorTotalVendido.HeaderText = "Valor Total Vendido";
+            this.ValorTotalVendido.Name = "ValorTotalVendido";
+            this.ValorTotalVendido.ReadOnly = true;
+            this.ValorTotalVendido.Width = 79;
+            // 
+            // ValorTotalRecebido
+            // 
+            this.ValorTotalRecebido.DataPropertyName = "ValorTotalRecebido";
+            this.ValorTotalRecebido.HeaderText = "Valor Total Recebido";
+            this.ValorTotalRecebido.Name = "ValorTotalRecebido";
+            this.ValorTotalRecebido.ReadOnly = true;
+            this.ValorTotalRecebido.Width = 79;
+            // 
+            // PedidosFinalizados
+            // 
+            this.PedidosFinalizados.DataPropertyName = "PedidosFinalizados";
+            this.PedidosFinalizados.HeaderText = "Pedidos Finalizados";
+            this.PedidosFinalizados.Name = "PedidosFinalizados";
+            this.PedidosFinalizados.ReadOnly = true;
+            this.PedidosFinalizados.Width = 79;
+            // 
+            // ItensRecebidos
+            // 
+            this.ItensRecebidos.DataPropertyName = "ItensRecebidos";
+            this.ItensRecebidos.HeaderText = "Itens Recebidos";
+            this.ItensRecebidos.Name = "ItensRecebidos";
+            this.ItensRecebidos.ReadOnly = true;
+            this.ItensRecebidos.Width = 80;
+            // 
+            // Dinheiro
+            // 
+            this.Dinheiro.DataPropertyName = "Dinheiro";
+            this.Dinheiro.HeaderText = "Dinheiro";
+            this.Dinheiro.Name = "Dinheiro";
+            this.Dinheiro.ReadOnly = true;
+            this.Dinheiro.Width = 79;
+            // 
+            // Cartao
+            // 
+            this.Cartao.DataPropertyName = "Cartao";
+            this.Cartao.HeaderText = "Cartão";
+            this.Cartao.Name = "Cartao";
+            this.Cartao.ReadOnly = true;
+            this.Cartao.Width = 79;
+            // 
+            // Conveniado
+            // 
+            this.Conveniado.DataPropertyName = "Conveniado";
+            this.Conveniado.HeaderText = "Conveniado";
+            this.Conveniado.Name = "Conveniado";
+            this.Conveniado.ReadOnly = true;
+            this.Conveniado.Width = 79;
+            // 
+            // Ticket
+            // 
+            this.Ticket.DataPropertyName = "Ticket";
+            this.Ticket.HeaderText = "Ticket";
+            this.Ticket.Name = "Ticket";
+            this.Ticket.ReadOnly = true;
+            // 
+            // Cheque
+            // 
+            this.Cheque.DataPropertyName = "Cheque";
+            this.Cheque.HeaderText = "Cheque";
+            this.Cheque.Name = "Cheque";
+            this.Cheque.ReadOnly = true;
+            this.Cheque.Width = 79;
+            // 
+            // ValorSaida
+            // 
+            this.ValorSaida.DataPropertyName = "ValorSaida";
+            this.ValorSaida.HeaderText = "Valor Saída";
+            this.ValorSaida.Name = "ValorSaida";
+            this.ValorSaida.ReadOnly = true;
+            this.ValorSaida.Width = 79;
+            // 
+            // ValorCaixa
+            // 
+            this.ValorCaixa.DataPropertyName = "ValorCaixa";
+            this.ValorCaixa.HeaderText = "Valor Caixa";
+            this.ValorCaixa.Name = "ValorCaixa";
+            this.ValorCaixa.ReadOnly = true;
+            this.ValorCaixa.Width = 79;
             // 
             // FrmFechamento
             // 
@@ -233,5 +372,19 @@
         private System.Windows.Forms.ComboBox cbxFiltro;
         private System.Windows.Forms.TextBox txtProcurar;
         private System.Windows.Forms.DataGridView dgvFechamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vendedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotalVendido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotalRecebido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PedidosFinalizados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItensRecebidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dinheiro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cartao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Conveniado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ticket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cheque;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorSaida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValorCaixa;
     }
 }

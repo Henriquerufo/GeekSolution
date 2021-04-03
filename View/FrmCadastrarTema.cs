@@ -17,10 +17,12 @@ namespace View
     {
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
         ColorDialog colorDialog1 = new ColorDialog();
+        OpenFileDialog OpenFileDialog2 = new OpenFileDialog();
         ModelTema modelTema = new ModelTema();
         ControllerTema controllerTema = new ControllerTema();
         int codigo;
         bool cadastrar = true;
+        bool fotoFundoAlterada = false;
         bool fotoAlterada = false;
         public FrmCadastrarTema(ModelTema modelTema)
         {
@@ -33,13 +35,14 @@ namespace View
                 btnCancelar.Text = "Fechar";
                 codigo = modelTema.Codigo;
                 txtNome.Text = modelTema.Nome;
-                txtEnderecoImagem.Text = modelTema.EnderecoImagem;
+                txtEnderecoImagemFundo.Text = modelTema.EnderecoImagemFundo;
+                txtImagemEndereco.Text = modelTema.ImagemEndereco;
                 txtColorR.Text = modelTema.R;
                 txtColorG.Text = modelTema.G;
                 txtColorB.Text = modelTema.B;
                 ptnPrevia.BackColor = Color.FromArgb(Convert.ToInt32(txtColorR.Text), Convert.ToInt32(txtColorG.Text), Convert.ToInt32(txtColorB.Text));
                 txtNome.Enabled = false;
-                ptnPrevia.BackgroundImage = Image.FromFile(txtEnderecoImagem.Text);
+                ptnPrevia.BackgroundImage = Image.FromFile(txtEnderecoImagemFundo.Text);
             }
             if (modelTema != null && modelTema.Consultar)
             {
@@ -49,23 +52,23 @@ namespace View
                 btnSalvar.Visible = false;
                 codigo = modelTema.Codigo;
                 txtNome.Text = modelTema.Nome;
-                txtEnderecoImagem.Text = modelTema.EnderecoImagem;
+                txtEnderecoImagemFundo.Text = modelTema.EnderecoImagemFundo;
+                txtImagemEndereco.Text = modelTema.ImagemEndereco;
                 txtColorR.Text = modelTema.R;
                 txtColorG.Text = modelTema.G;
                 txtColorB.Text = modelTema.B;
                 ptnPrevia.BackColor = Color.FromArgb(Convert.ToInt32(txtColorR.Text), Convert.ToInt32(txtColorG.Text), Convert.ToInt32(txtColorB.Text));
-                ptnPrevia.BackgroundImage = Image.FromFile(txtEnderecoImagem.Text);
+                ptnPrevia.BackgroundImage = Image.FromFile(txtEnderecoImagemFundo.Text);
             }
         }
         private void btnSelecionarImagem_Click(object sender, EventArgs e)
         {
-            
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 ptnPrevia.BackgroundImage.Dispose();
-                fotoAlterada = true;
-                txtEnderecoImagem.Text = openFileDialog1.FileName;
-                ptnPrevia.BackgroundImage = Image.FromFile(txtEnderecoImagem.Text);
+                fotoFundoAlterada = true;
+                txtEnderecoImagemFundo.Text = openFileDialog1.FileName;
+                ptnPrevia.BackgroundImage = Image.FromFile(txtEnderecoImagemFundo.Text);
             }
         }
         private void btnSelecionarFundo_Click(object sender, EventArgs e)
@@ -88,20 +91,28 @@ namespace View
                 btnCancelar.Text = "Cancelar";
                 pnlCadastrarTema.Enabled = true;
                 cadastrar = false;
-                fotoAlterada = false;
+                fotoFundoAlterada = false;
             }
             else if (cadastrar == false)
             {
-                txtEnderecoImagem.Text = openFileDialog1.FileName;
+                txtImagemEndereco.Text = OpenFileDialog2.FileName;
+                string FileName2 = Path.Combine(@"C:\Users\henri\source\repos\ProjetoPIM\View\Resources\" + txtNome.Text + "Foto.jpg");
+                if (File.Exists(FileName2) && fotoAlterada)
+                {
+                    File.Delete(FileName2);
+                    File.Copy(txtImagemEndereco.Text, FileName2);
+                }
+                modelTema.ImagemEndereco = FileName2;
+                txtEnderecoImagemFundo.Text = openFileDialog1.FileName;
                 string FileName = Path.Combine(@"C:\Users\henri\source\repos\ProjetoPIM\View\Resources\" + txtNome.Text + "FotoTema.jpg");
-                if (File.Exists(FileName) && fotoAlterada)
+                if (File.Exists(FileName) && fotoFundoAlterada)
                 { 
                     File.Delete(FileName);
-                    File.Copy(txtEnderecoImagem.Text, FileName);
+                    File.Copy(txtEnderecoImagemFundo.Text, FileName);
                 }
                 modelTema.Codigo = codigo;
                 modelTema.Nome = txtNome.Text;
-                modelTema.EnderecoImagem = FileName;
+                modelTema.EnderecoImagemFundo = FileName;
                 modelTema.R = txtColorR.Text;
                 modelTema.G = txtColorG.Text;
                 modelTema.B = txtColorB.Text;
@@ -115,10 +126,14 @@ namespace View
             }
             else if (cadastrar && ValidarCampos())
             {
+                string FileName2 = Path.Combine(@"C:\Users\henri\source\repos\ProjetoPIM\View\Resources\" + txtNome.Text + "Foto.jpg");
+                File.Copy(txtImagemEndereco.Text, FileName2);
+                modelTema.ImagemEndereco = FileName2;
+
                 string FileName = Path.Combine(@"C:\Users\henri\source\repos\ProjetoPIM\View\Resources\" + txtNome.Text + "FotoTema.jpg");
-                File.Copy(txtEnderecoImagem.Text, FileName);
+                File.Copy(txtEnderecoImagemFundo.Text, FileName);
                 modelTema.Nome = txtNome.Text;
-                modelTema.EnderecoImagem = FileName;
+                modelTema.EnderecoImagemFundo = FileName;
                 modelTema.R = txtColorR.Text;
                 modelTema.G = txtColorG.Text;
                 modelTema.B = txtColorB.Text;
@@ -139,10 +154,10 @@ namespace View
                 txtNome.Focus();
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtEnderecoImagem.Text))
+            if (string.IsNullOrWhiteSpace(txtEnderecoImagemFundo.Text))
             {
                 MessageBox.Show("Endereço da imagem inválido", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtEnderecoImagem.Focus();
+                txtEnderecoImagemFundo.Focus();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtColorR.Text))
@@ -172,6 +187,15 @@ namespace View
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (OpenFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                fotoAlterada = true;
+                txtImagemEndereco.Text = OpenFileDialog2.FileName;
+            }
         }
     }
 }

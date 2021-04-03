@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDe = new System.Windows.Forms.DateTimePicker();
@@ -45,6 +45,12 @@
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.txtProcurar = new System.Windows.Forms.TextBox();
             this.dgvTicket = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GeradoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
@@ -203,24 +209,75 @@
             // 
             this.dgvTicket.AllowUserToAddRows = false;
             this.dgvTicket.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvTicket.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvTicket.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTicket.BackgroundColor = System.Drawing.Color.White;
             this.dgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTicket.Location = new System.Drawing.Point(14, 64);
+            this.dgvTicket.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.GeradoPor,
+            this.Vendedor,
+            this.Data,
+            this.Valor,
+            this.Status});
+            this.dgvTicket.Location = new System.Drawing.Point(14, 68);
             this.dgvTicket.Name = "dgvTicket";
             this.dgvTicket.ReadOnly = true;
             this.dgvTicket.RowHeadersVisible = false;
             this.dgvTicket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTicket.Size = new System.Drawing.Size(1030, 455);
-            this.dgvTicket.TabIndex = 92;
+            this.dgvTicket.Size = new System.Drawing.Size(1030, 451);
+            this.dgvTicket.TabIndex = 99;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "Codigo";
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // GeradoPor
+            // 
+            this.GeradoPor.DataPropertyName = "GeradoPor";
+            this.GeradoPor.HeaderText = "Gerado Por";
+            this.GeradoPor.Name = "GeradoPor";
+            this.GeradoPor.ReadOnly = true;
+            // 
+            // Vendedor
+            // 
+            this.Vendedor.DataPropertyName = "Vendedor";
+            this.Vendedor.HeaderText = "Vendedor";
+            this.Vendedor.Name = "Vendedor";
+            this.Vendedor.ReadOnly = true;
+            this.Vendedor.Visible = false;
+            // 
+            // Data
+            // 
+            this.Data.DataPropertyName = "Data";
+            this.Data.HeaderText = "Data";
+            this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // FrmTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 569);
+            this.Controls.Add(this.dgvTicket);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -230,7 +287,6 @@
             this.Controls.Add(this.lblExibidosTotal);
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.txtProcurar);
-            this.Controls.Add(this.dgvTicket);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmTicket";
@@ -264,5 +320,11 @@
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.TextBox txtProcurar;
         private System.Windows.Forms.DataGridView dgvTicket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GeradoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vendedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

@@ -79,8 +79,9 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("INSERT INTO tbProduto (CodigoBarras, NomeProduto, Categoria, Fabricante, Quantidade, ValorProduto, Plataforma, PrazoGarantia) VALUES (@CodigoBarras, @NomeProduto, @Categoria, @Fabricante, @Quantidade, @ValorProduto, @Plataforma, @PrazoGarantia); SELECT SCOPE_IDENTITY();");
+                string instrucao = string.Format("INSERT INTO tbProduto (NomeEmpresa, CodigoBarras, NomeProduto, Categoria, Fabricante, Quantidade, ValorProduto, Plataforma, PrazoGarantia) VALUES (@NomeEmpresa, @CodigoBarras, @NomeProduto, @Categoria, @Fabricante, @Quantidade, @ValorProduto, @Plataforma, @PrazoGarantia); SELECT SCOPE_IDENTITY();");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+                command.Parameters.AddWithValue("@NomeEmpresa", modelCadastroProduto.NomeEmpresa);
                 command.Parameters.AddWithValue("@CodigoBarras", modelCadastroProduto.CodigoBarras);
                 command.Parameters.AddWithValue("@NomeProduto", modelCadastroProduto.NomeProduto);
                 command.Parameters.AddWithValue("@Categoria", modelCadastroProduto.Categoria);
@@ -104,9 +105,10 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("UPDATE tbProduto SET CodigoBarras = @CodigoBarras, NomeProduto = @NomeProduto, Categoria = @Categoria, Fabricante = @Fabricante, Quantidade = @Quantidade, ValorProduto = @ValorProduto, Plataforma = @Plataforma, PrazoGarantia = @PrazoGarantia WHERE Codigo = @Codigo; SELECT @Codigo;");
+                string instrucao = string.Format("UPDATE tbProduto SET NomeEmpresa = @NomeEmpresa, CodigoBarras = @CodigoBarras, NomeProduto = @NomeProduto, Categoria = @Categoria, Fabricante = @Fabricante, Quantidade = @Quantidade, ValorProduto = @ValorProduto, Plataforma = @Plataforma, PrazoGarantia = @PrazoGarantia WHERE Codigo = @Codigo; SELECT @Codigo;");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@Codigo", modelCadastroProduto.Codigo);
+                command.Parameters.AddWithValue("@NomeEmpresa", modelCadastroProduto.NomeEmpresa);
                 command.Parameters.AddWithValue("@CodigoBarras", modelCadastroProduto.CodigoBarras);
                 command.Parameters.AddWithValue("@NomeProduto", modelCadastroProduto.NomeProduto);
                 command.Parameters.AddWithValue("@Categoria", modelCadastroProduto.Categoria);
@@ -138,58 +140,6 @@ namespace Controller
             catch
             {
                 throw;
-            }
-            finally
-            {
-                controllerConfiguracaoSQL.Fechar();
-            }
-        }
-        public ModelCadastroProduto CarregarCodigoBarras(string codigo, ModelCadastroProduto modelCadastroProduto)
-        {
-            try
-            {
-                string instrucao = string.Format(@"SELECT * FROM tbProduto WHERE CodigoBarras = '" + codigo + "'");
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataReader sqlDataReader = command.ExecuteReader();
-                if (sqlDataReader.HasRows)
-                {
-                    sqlDataReader.Read();
-                    modelCadastroProduto.Codigo = sqlDataReader["Codigo"].ToString();
-                    modelCadastroProduto.CodigoBarras = sqlDataReader["CodigoBarras"].ToString();
-                    modelCadastroProduto.NomeProduto = sqlDataReader["NomeProduto"].ToString();
-                    modelCadastroProduto.Categoria = sqlDataReader["Categoria"].ToString();
-                    modelCadastroProduto.Fabricante = sqlDataReader["Fabricante"].ToString();
-                    modelCadastroProduto.ValorProduto = sqlDataReader["ValorProduto"].ToString();
-                    modelCadastroProduto.Plataforma = sqlDataReader["Plataforma"].ToString();
-                    modelCadastroProduto.Garantia = sqlDataReader["PrazoGarantia"].ToString();
-                    modelCadastroProduto.Quantidade = sqlDataReader["Quantidade"].ToString();
-                    return modelCadastroProduto;
-                }
-                return null;
-            }
-            catch
-            {
-                controllerConfiguracaoSQL.Fechar();
-                return null;
-            }
-            finally
-            {
-                controllerConfiguracaoSQL.Fechar();
-            }
-        }
-        public bool MaisQuantidadeEstoque(ModelCadastroProduto modelCadastroProduto)
-        {
-            try
-            {
-                string instrucao = string.Format(@"UPDATE tbProduto SET Quantidade = Quantidade + 1 WHERE CodigoBarras = @CodigoBarras");
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                command.Parameters.AddWithValue("@CodigoBarras", modelCadastroProduto.CodigoBarras);
-                return Convert.ToBoolean(command.ExecuteNonQuery());
-            }
-            catch
-            {
-                controllerConfiguracaoSQL.Fechar();
-                return false;
             }
             finally
             {

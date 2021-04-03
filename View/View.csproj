@@ -78,6 +78,12 @@
     <Compile Include="FrmCadastradosProdutos.Designer.cs">
       <DependentUpon>FrmCadastradosProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastrarEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastrarEmpresa.Designer.cs">
+      <DependentUpon>FrmCadastrarEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadastrarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,11 +120,23 @@
     <Compile Include="FrmCaixaDinheiro.Designer.cs">
       <DependentUpon>FrmCaixaDinheiro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCaixaOpcaoPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCaixaOpcaoPagamento.Designer.cs">
+      <DependentUpon>FrmCaixaOpcaoPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCaixaTicket.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCaixaTicket.Designer.cs">
       <DependentUpon>FrmCaixaTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultarEntradaProdutoItens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultarEntradaProdutoItens.Designer.cs">
+      <DependentUpon>FrmConsultarEntradaProdutoItens.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFechamento.cs">
       <SubType>Form</SubType>
@@ -126,11 +144,23 @@
     <Compile Include="FrmFechamento.Designer.cs">
       <DependentUpon>FrmFechamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFinanceiroEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFinanceiroEntrada.Designer.cs">
+      <DependentUpon>FrmFinanceiroEntrada.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGerarTicket.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGerarTicket.Designer.cs">
       <DependentUpon>FrmGerarTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGerenciarEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerenciarEmpresa.Designer.cs">
+      <DependentUpon>FrmGerenciarEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrarFechamento.cs">
       <SubType>Form</SubType>
@@ -168,11 +198,11 @@
     <Compile Include="FrmEntradaProduto.Designer.cs">
       <DependentUpon>FrmEntradaProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmFinanceiro.cs">
+    <Compile Include="FrmFinanceiroSaida.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmFinanceiro.Designer.cs">
-      <DependentUpon>FrmFinanceiro.cs</DependentUpon>
+    <Compile Include="FrmFinanceiroSaida.Designer.cs">
+      <DependentUpon>FrmFinanceiroSaida.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSaida.cs">
       <SubType>Form</SubType>
@@ -230,6 +260,9 @@
     <EmbeddedResource Include="FrmCadastradosProdutos.resx">
       <DependentUpon>FrmCadastradosProdutos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastrarEmpresa.resx">
+      <DependentUpon>FrmCadastrarEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastrarProduto.resx">
       <DependentUpon>FrmCadastrarProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,14 +281,26 @@
     <EmbeddedResource Include="FrmCaixaDinheiro.resx">
       <DependentUpon>FrmCaixaDinheiro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCaixaOpcaoPagamento.resx">
+      <DependentUpon>FrmCaixaOpcaoPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCaixaTicket.resx">
       <DependentUpon>FrmCaixaTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultarEntradaProdutoItens.resx">
+      <DependentUpon>FrmConsultarEntradaProdutoItens.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFechamento.resx">
       <DependentUpon>FrmFechamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmFinanceiroEntrada.resx">
+      <DependentUpon>FrmFinanceiroEntrada.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGerarTicket.resx">
       <DependentUpon>FrmGerarTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciarEmpresa.resx">
+      <DependentUpon>FrmGerenciarEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarFechamento.resx">
       <DependentUpon>FrmRegistrarFechamento.cs</DependentUpon>
@@ -275,8 +320,8 @@
     <EmbeddedResource Include="FrmEntradaProduto.resx">
       <DependentUpon>FrmEntradaProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmFinanceiro.resx">
-      <DependentUpon>FrmFinanceiro.cs</DependentUpon>
+    <EmbeddedResource Include="FrmFinanceiroSaida.resx">
+      <DependentUpon>FrmFinanceiroSaida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGerenciadorLogins.resx">
       <DependentUpon>FrmGerenciadorLogins.cs</DependentUpon>
@@ -343,6 +388,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pngwing.com.ico" />
+    <None Include="Resources\WhatsApp Image 2021-04-01 at 00.35.39.jpeg" />
+    <None Include="Resources\WhatsApp Image 2021-04-01 at 00.33.59.jpeg" />
+    <None Include="Resources\log-out.png" />
+    <None Include="Resources\log-in.png" />
+    <None Include="Resources\WhatsApp Image 2021-04-01 at 00.23.29.jpeg" />
+    <None Include="Resources\WhatsApp Image 2021-04-01 at 00.19.42.jpeg" />
+    <None Include="Resources\WhatsApp Image 2021-04-01 at 00.17.48.jpeg" />
+    <None Include="Resources\new.png" />
+    <None Include="Resources\procurando.png" />
+    <None Include="Resources\money.png" />
+    <None Include="Resources\caixa-registradora.png" />
+    <None Include="Resources\devolucao-de-produto.png" />
+    <None Include="Resources\ticket-machine %281%29.png" />
+    <None Include="Resources\caixa-eletronico.png" />
     <None Include="Resources\SuaLogo.png" />
   </ItemGroup>
   <ItemGroup>

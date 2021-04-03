@@ -17,6 +17,7 @@ namespace View
     {
         decimal valorTicket;
         ControllerCaixa controllerCaixa = new ControllerCaixa();
+        ControllerTema controllerTema = new ControllerTema();
         public String Retorno
         {
             get
@@ -34,6 +35,10 @@ namespace View
         public FrmCaixaTicket()
         {
             InitializeComponent();
+            if (controllerTema.CarregarEnderecoImagem() != null)
+            {
+                pictureBox1.BackgroundImage = Image.FromFile(controllerTema.CarregarEnderecoImagem());
+            }
         }
         private void txtDinheiro_KeyDown(object sender, KeyEventArgs e)
         {
@@ -58,6 +63,11 @@ namespace View
             {
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FrmCaixaTicket_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            pictureBox1.BackgroundImage.Dispose();
         }
     }
 }

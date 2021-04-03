@@ -158,6 +158,25 @@ namespace Controller
             }
             return null;
         }
+        public bool VerificarTicketZerado(ModelCaixa modelCaixa)
+        {
+            string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Codigo = @Codigo AND Valor = 'R$ 0,00'");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            command.Parameters.AddWithValue("@Codigo", modelCaixa.CodigoTicket);
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            if (sqlDataReader.HasRows)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool TicketAlterarStatus(ModelCaixa modelCaixa)
+        {
+            string instrucao = string.Format(@"UPDATE tbTicket SET Status = 'Finalizado' WHERE Codigo = @Codigo");
+            SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
+            command.Parameters.AddWithValue("@Codigo", modelCaixa.CodigoTicket);
+            return Convert.ToBoolean(command.ExecuteNonQuery());
+        }
         public bool TicketRestante(ModelCaixa modelCaixa)
         {
             try

@@ -37,7 +37,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::View.Properties.Resources.SuaLogo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-9, -37);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(320, 320);
             this.pictureBox1.TabIndex = 92;
@@ -46,9 +46,9 @@
             // txtDinheiro
             // 
             this.txtDinheiro.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDinheiro.Location = new System.Drawing.Point(5, 289);
+            this.txtDinheiro.Location = new System.Drawing.Point(12, 323);
             this.txtDinheiro.Name = "txtDinheiro";
-            this.txtDinheiro.Size = new System.Drawing.Size(295, 35);
+            this.txtDinheiro.Size = new System.Drawing.Size(296, 35);
             this.txtDinheiro.TabIndex = 91;
             this.txtDinheiro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDinheiro_KeyDown);
             // 
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 329);
+            this.ClientSize = new System.Drawing.Size(319, 372);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtDinheiro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -65,6 +65,7 @@
             this.Name = "FrmCaixaTicket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCaixaTicket";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCaixaTicket_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -316,7 +316,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"INSERT INTO tbFechamento (Vendedor, Data, ValorTotalVendido, ValorTotalRecebido, PedidosFinalizados, ItensRecebidos, Dinheiro, Cartao, Conveniado, ValorSaida, Cheque, ValorCaixa) VALUES (@Vendedor, @Data, @ValorTotalVendido, @ValorTotalRecebido, @PedidosFinalizados, @ItensRecebidos, @Dinheiro, @Cartao, @Conveniado, @ValorSaida, @Cheque, @ValorCaixa)");
+                string instrucao = string.Format(@"INSERT INTO tbFechamento (Vendedor, Data, ValorTotalVendido, ValorTotalRecebido, PedidosFinalizados, ItensRecebidos, Dinheiro, Cartao, Conveniado, Ticket, ValorSaida, Cheque, ValorCaixa) VALUES (@Vendedor, @Data, @ValorTotalVendido, @ValorTotalRecebido, @PedidosFinalizados, @ItensRecebidos, @Dinheiro, @Cartao, @Conveniado, @Ticket, @ValorSaida, @Cheque, @ValorCaixa)");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@Vendedor", modelFechamento.Vendedor);
                 command.Parameters.AddWithValue("@Data", modelFechamento.Data);
@@ -327,6 +327,7 @@ namespace Controller
                 command.Parameters.AddWithValue("@Dinheiro", modelFechamento.Dinheiro);
                 command.Parameters.AddWithValue("@Cartao", modelFechamento.Cartao);
                 command.Parameters.AddWithValue("@Conveniado", modelFechamento.Conveniado);
+                command.Parameters.AddWithValue("@Ticket", modelFechamento.Ticket);
                 command.Parameters.AddWithValue("@ValorSaida", modelFechamento.ValorSaida);
                 command.Parameters.AddWithValue("@Cheque", modelFechamento.Cheque);
                 command.Parameters.AddWithValue("@ValorCaixa", modelFechamento.ValorCaixa);

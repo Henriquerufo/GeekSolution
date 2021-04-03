@@ -352,7 +352,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("INSERT INTO tbLogin (ID, Senha, Nivel, IDTecSistemas) VALUES (@ID, @Senha, @Nivel, @IDTecSistemas); SELECT SCOPE_IDENTITY();");
+                string instrucao = string.Format("INSERT INTO tbLogin (ID, Senha, Nivel, IDTecSistemas, Status) VALUES (@ID, @Senha, @Nivel, @IDTecSistemas, 'Desconectado'); SELECT SCOPE_IDENTITY();");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@ID", modelLogin.ID);
                 command.Parameters.AddWithValue("@Senha", modelLogin.Senha);

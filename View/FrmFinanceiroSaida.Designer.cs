@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class FrmFinanceiro
+    partial class FrmFinanceiroSaida
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFinanceiro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFinanceiroSaida));
             this.dgvFinanceiro = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +39,8 @@
             this.opcaoPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dinheiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cartao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Conveniado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cheque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChequeDias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +71,6 @@
             this.dgvFinanceiro.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvFinanceiro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvFinanceiro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFinanceiro.BackgroundColor = System.Drawing.Color.White;
             this.dgvFinanceiro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFinanceiro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -81,6 +82,8 @@
             this.opcaoPagamento,
             this.Dinheiro,
             this.Cartao,
+            this.Conveniado,
+            this.Ticket,
             this.Cheque,
             this.ChequeDias,
             this.statusPagamento,
@@ -100,6 +103,7 @@
             this.codigo.HeaderText = "Codigo";
             this.codigo.Name = "codigo";
             this.codigo.ReadOnly = true;
+            this.codigo.Width = 73;
             // 
             // nomeCliente
             // 
@@ -107,6 +111,7 @@
             this.nomeCliente.HeaderText = "Nome Cliente";
             this.nomeCliente.Name = "nomeCliente";
             this.nomeCliente.ReadOnly = true;
+            this.nomeCliente.Width = 74;
             // 
             // Vendedor
             // 
@@ -114,6 +119,7 @@
             this.Vendedor.HeaderText = "Vendedor";
             this.Vendedor.Name = "Vendedor";
             this.Vendedor.ReadOnly = true;
+            this.Vendedor.Width = 73;
             // 
             // dataVenda
             // 
@@ -121,6 +127,7 @@
             this.dataVenda.HeaderText = "Data Venda";
             this.dataVenda.Name = "dataVenda";
             this.dataVenda.ReadOnly = true;
+            this.dataVenda.Width = 73;
             // 
             // valorVenda
             // 
@@ -128,6 +135,7 @@
             this.valorVenda.HeaderText = "Valor Venda";
             this.valorVenda.Name = "valorVenda";
             this.valorVenda.ReadOnly = true;
+            this.valorVenda.Width = 74;
             // 
             // opcaoPagamento
             // 
@@ -135,6 +143,7 @@
             this.opcaoPagamento.HeaderText = "Opção Pagamento";
             this.opcaoPagamento.Name = "opcaoPagamento";
             this.opcaoPagamento.ReadOnly = true;
+            this.opcaoPagamento.Width = 73;
             // 
             // Dinheiro
             // 
@@ -142,6 +151,7 @@
             this.Dinheiro.HeaderText = "Dinheiro";
             this.Dinheiro.Name = "Dinheiro";
             this.Dinheiro.ReadOnly = true;
+            this.Dinheiro.Width = 73;
             // 
             // Cartao
             // 
@@ -149,6 +159,23 @@
             this.Cartao.HeaderText = "Cartão";
             this.Cartao.Name = "Cartao";
             this.Cartao.ReadOnly = true;
+            this.Cartao.Width = 74;
+            // 
+            // Conveniado
+            // 
+            this.Conveniado.DataPropertyName = "Conveniado";
+            this.Conveniado.HeaderText = "Conveniado";
+            this.Conveniado.Name = "Conveniado";
+            this.Conveniado.ReadOnly = true;
+            this.Conveniado.Width = 73;
+            // 
+            // Ticket
+            // 
+            this.Ticket.DataPropertyName = "Ticket";
+            this.Ticket.HeaderText = "Ticket";
+            this.Ticket.Name = "Ticket";
+            this.Ticket.ReadOnly = true;
+            this.Ticket.Width = 74;
             // 
             // Cheque
             // 
@@ -156,6 +183,7 @@
             this.Cheque.HeaderText = "Cheque";
             this.Cheque.Name = "Cheque";
             this.Cheque.ReadOnly = true;
+            this.Cheque.Width = 73;
             // 
             // ChequeDias
             // 
@@ -163,6 +191,7 @@
             this.ChequeDias.HeaderText = "Cheque Pré Datado";
             this.ChequeDias.Name = "ChequeDias";
             this.ChequeDias.ReadOnly = true;
+            this.ChequeDias.Width = 73;
             // 
             // statusPagamento
             // 
@@ -170,6 +199,7 @@
             this.statusPagamento.HeaderText = "Status Pagamento";
             this.statusPagamento.Name = "statusPagamento";
             this.statusPagamento.ReadOnly = true;
+            this.statusPagamento.Width = 74;
             // 
             // statusVenda
             // 
@@ -177,6 +207,7 @@
             this.statusVenda.HeaderText = "Status Venda";
             this.statusVenda.Name = "statusVenda";
             this.statusVenda.ReadOnly = true;
+            this.statusVenda.Width = 73;
             // 
             // lblPesquisar
             // 
@@ -328,7 +359,7 @@
             this.dtpDe.Size = new System.Drawing.Size(82, 20);
             this.dtpDe.TabIndex = 0;
             // 
-            // FrmFinanceiro
+            // FrmFinanceiroSaida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -346,7 +377,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FrmFinanceiro";
+            this.Name = "FrmFinanceiroSaida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tec Sistemas: Consultar Financeiro";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanceiro)).EndInit();
@@ -372,6 +403,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbEmAberto;
         private System.Windows.Forms.RadioButton rbRecebido;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtpAte;
+        private System.Windows.Forms.DateTimePicker dtpDe;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vendedor;
@@ -380,14 +416,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn opcaoPagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dinheiro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cartao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Conveniado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ticket;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cheque;
         private System.Windows.Forms.DataGridViewTextBoxColumn ChequeDias;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusPagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusVenda;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpAte;
-        private System.Windows.Forms.DateTimePicker dtpDe;
     }
 }

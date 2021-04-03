@@ -49,7 +49,7 @@ namespace Controller
                 }
                 catch
                 {
-                    throw new Exception();
+                    throw;
                 }
             }
             else

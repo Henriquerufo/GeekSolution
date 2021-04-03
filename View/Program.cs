@@ -40,7 +40,7 @@ namespace View
                 ModelLogin modelLogin = new ModelLogin();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new FrmLogin(modelLogin));
+                Application.Run(new FrmPrincipal(modelLogin));
             }
             else
             {

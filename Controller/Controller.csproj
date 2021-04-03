@@ -50,6 +50,8 @@
     <Compile Include="ControllerConfiguracaoSQLCentral.cs" />
     <Compile Include="ControllerConsultarPedidoItens.cs" />
     <Compile Include="ControllerDevolucaoProduto.cs" />
+    <Compile Include="ControllerEmpresa.cs" />
+    <Compile Include="ControllerEntradaProduto.cs" />
     <Compile Include="ControllerFechamento.cs" />
     <Compile Include="ControllerFinanceiro.cs" />
     <Compile Include="ControllerLogin.cs" />

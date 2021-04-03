@@ -15,7 +15,8 @@ namespace View
     public partial class FrmRegistrarFechamento : Form
     {
         decimal valorCaixa;
-        decimal valorTotalSemTicket;
+        decimal valorTotalRecebidoSemTicket;
+        decimal valorTotalVendidoSemTicket;
         ModelFechamento modelFechamento = new ModelFechamento();
         ControllerFechamento controllerFechamento = new ControllerFechamento();
         ControllerTema controllerTema = new ControllerTema();
@@ -34,12 +35,16 @@ namespace View
             {
                 modelFechamento.Vendedor = Properties.SettingsLogado.Default.Nome;
                 modelFechamento.Data = DateTime.Now.ToString();
+
+                valorTotalVendidoSemTicket = controllerFechamento.CarregarValorTotalVendido(modelFechamento) - controllerFechamento.CarregarTicket(modelFechamento);
+                txtValorTotalVendido.Text = valorTotalVendidoSemTicket.ToString("C");
+
+                valorTotalRecebidoSemTicket = controllerFechamento.CarregarValorTotalRecebido(modelFechamento) - controllerFechamento.CarregarTicket(modelFechamento);
+                txtValorTotalRecebido.Text = valorTotalRecebidoSemTicket.ToString("C");
+      
                 txtVendedor.Text = modelFechamento.Vendedor;
                 txtData.Text = modelFechamento.Data;
-                txtValorTotalVendido.Text = controllerFechamento.CarregarValorTotalVendido(modelFechamento).ToString("C");
                 txtTicket.Text = controllerFechamento.CarregarTicket(modelFechamento).ToString("C");
-                valorTotalSemTicket = controllerFechamento.CarregarValorTotalRecebido(modelFechamento) - controllerFechamento.CarregarTicket(modelFechamento);
-                txtValorTotalRecebido.Text = valorTotalSemTicket.ToString("C");
                 txtPedidosFinalizados.Text = controllerFechamento.CarregarItensVendidos(modelFechamento).ToString();
                 txtItensRecebidos.Text = controllerFechamento.CarregarItensRecebidos(modelFechamento).ToString();
                 txtDinheiro.Text = controllerFechamento.CarregarDinheiro(modelFechamento).ToString("C");
@@ -47,7 +52,7 @@ namespace View
                 txtCheque.Text = controllerFechamento.CarregarCheque(modelFechamento).ToString("C");
                 txtConvenio.Text = controllerFechamento.CarregarConvenio(modelFechamento).ToString("C");
                 txtValorSaida.Text = controllerFechamento.CarregarValorSaida(modelFechamento).ToString("C");
-                valorCaixa = valorTotalSemTicket - controllerFechamento.CarregarValorSaida(modelFechamento);
+                valorCaixa = valorTotalRecebidoSemTicket - controllerFechamento.CarregarValorSaida(modelFechamento);
                 txtValorCaixa.Text = valorCaixa.ToString("C");
             }
             catch (Exception ex)
@@ -96,6 +101,7 @@ namespace View
                     modelFechamento.ValorSaida = txtValorSaida.Text;
                     modelFechamento.Cheque = txtCheque.Text;
                     modelFechamento.ValorCaixa = txtValorCaixa.Text;
+                    modelFechamento.Ticket = txtTicket.Text;
                     if (controllerFechamento.InserirFechamento(modelFechamento))
                     {
                         MessageBox.Show("Fechamento registrado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);

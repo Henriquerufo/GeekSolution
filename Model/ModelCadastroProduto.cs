@@ -18,5 +18,6 @@ namespace Model
         public string Plataforma { get; set; }
         public string Garantia { get; set; }
         public bool Consultar { get; set; }
+        public string NomeEmpresa { get; set; }
     }
 }

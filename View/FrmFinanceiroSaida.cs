@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class FrmFinanceiro : Form
+    public partial class FrmFinanceiroSaida : Form
     {
         ControllerFinanceiro controllerFinanceiro = new ControllerFinanceiro();
         ModelFinanceiro modelFinanceiro = new ModelFinanceiro();
-        public FrmFinanceiro()
+        public FrmFinanceiroSaida()
         {
             InitializeComponent();
             cbxFiltro.SelectedIndex = 0;

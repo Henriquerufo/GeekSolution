@@ -41,15 +41,16 @@
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvLogin = new System.Windows.Forms.DataGridView();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDTecSistemas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,7 +179,8 @@
             this.id,
             this.senha,
             this.nivel,
-            this.IDTecSistemas});
+            this.IDTecSistemas,
+            this.Status});
             this.dgvLogin.Location = new System.Drawing.Point(12, 60);
             this.dgvLogin.Name = "dgvLogin";
             this.dgvLogin.ReadOnly = true;
@@ -186,42 +188,6 @@
             this.dgvLogin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLogin.Size = new System.Drawing.Size(777, 376);
             this.dgvLogin.TabIndex = 3;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "Codigo";
-            this.codigo.HeaderText = "Codigo";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // senha
-            // 
-            this.senha.DataPropertyName = "Senha";
-            this.senha.HeaderText = "Senha";
-            this.senha.Name = "senha";
-            this.senha.ReadOnly = true;
-            // 
-            // nivel
-            // 
-            this.nivel.DataPropertyName = "Nivel";
-            this.nivel.HeaderText = "Nivel";
-            this.nivel.Name = "nivel";
-            this.nivel.ReadOnly = true;
-            // 
-            // IDTecSistemas
-            // 
-            this.IDTecSistemas.DataPropertyName = "IDTecSistemas";
-            this.IDTecSistemas.HeaderText = "ID TecSistemas";
-            this.IDTecSistemas.Name = "IDTecSistemas";
-            this.IDTecSistemas.ReadOnly = true;
-            this.IDTecSistemas.Visible = false;
             // 
             // btnPesquisar
             // 
@@ -260,6 +226,49 @@
             this.button2.Text = "Log";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "Codigo";
+            this.codigo.HeaderText = "Codigo";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // senha
+            // 
+            this.senha.DataPropertyName = "Senha";
+            this.senha.HeaderText = "Senha";
+            this.senha.Name = "senha";
+            this.senha.ReadOnly = true;
+            // 
+            // nivel
+            // 
+            this.nivel.DataPropertyName = "Nivel";
+            this.nivel.HeaderText = "Nivel";
+            this.nivel.Name = "nivel";
+            this.nivel.ReadOnly = true;
+            // 
+            // IDTecSistemas
+            // 
+            this.IDTecSistemas.DataPropertyName = "IDTecSistemas";
+            this.IDTecSistemas.HeaderText = "ID TecSistemas";
+            this.IDTecSistemas.Name = "IDTecSistemas";
+            this.IDTecSistemas.ReadOnly = true;
+            this.IDTecSistemas.Visible = false;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // FrmGerenciadorLogins
             // 
@@ -315,5 +324,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn senha;
         private System.Windows.Forms.DataGridViewTextBoxColumn nivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDTecSistemas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

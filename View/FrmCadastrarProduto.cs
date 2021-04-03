@@ -66,6 +66,11 @@ namespace View
                 errorProvider.SetError(txtCodigoBarras, "Informe o codigo de barras do produto");
                 return false;
             }
+            if (string.IsNullOrWhiteSpace(txtNomeEmpresa.Text))
+            {
+                errorProvider.SetError(txtNomeEmpresa, "Informe o nome da empresa");
+                return false;
+            }
             if (string.IsNullOrWhiteSpace(txtNomeProduto.Text))
             {
                 errorProvider.SetError(txtNomeProduto, "Informe o nome do produto");
@@ -130,7 +135,7 @@ namespace View
                             modelCadastroProduto.ValorProduto = txtValorProduto.Text;
                             modelCadastroProduto.Plataforma = txtPlataforma.Text;
                             modelCadastroProduto.Garantia = txtGarantia.Text;
-
+                            modelCadastroProduto.NomeEmpresa = txtNomeEmpresa.Text;
                             bool retorno = controllerCadastroProduto.Editar(modelCadastroProduto);
                             if (retorno)
                             {
@@ -148,7 +153,7 @@ namespace View
                             modelCadastroProduto.ValorProduto = txtValorProduto.Text;
                             modelCadastroProduto.Plataforma = txtPlataforma.Text;
                             modelCadastroProduto.Garantia = txtGarantia.Text;
-
+                            modelCadastroProduto.NomeEmpresa = txtNomeEmpresa.Text;
                             if (controllerCadastroProduto.VerificarProdutoCadastrado(modelCadastroProduto))
                             {
                                 bool retorno = controllerCadastroProduto.Cadastrar(modelCadastroProduto);
@@ -192,6 +197,16 @@ namespace View
         private void FrmCadastrarProduto_FormClosing(object sender, FormClosingEventArgs e)
         {
             pictureBox1.BackgroundImage.Dispose();
+        }
+
+        private void btnSelecionarEmpresa_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarEmpresa frmGerenciarEmpresa = new FrmGerenciarEmpresa(true);
+            frmGerenciarEmpresa.ShowDialog();
+            if (frmGerenciarEmpresa.RetornoNomeEmpresa != "")
+            {
+                txtNomeEmpresa.Text = frmGerenciarEmpresa.RetornoNomeEmpresa;
+            }
         }
     }
 }

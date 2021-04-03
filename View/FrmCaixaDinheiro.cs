@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace View
 {
     public partial class FrmCaixaDinheiro : Form
     {
+        ControllerTema controllerTema = new ControllerTema();
         decimal valorTotal;
         decimal dinheiro;
         decimal troco;
@@ -34,6 +36,10 @@ namespace View
         {
             InitializeComponent();
             valorTotal = Convert.ToDecimal(ValorVenda.Replace("R$",""));
+            if (controllerTema.CarregarEnderecoImagem() != null)
+            {
+                pictureBox1.BackgroundImage = Image.FromFile(controllerTema.CarregarEnderecoImagem());
+            }
         }
 
         private void txtValorUnitario_KeyDown(object sender, KeyEventArgs e)
@@ -58,6 +64,11 @@ namespace View
                 this.Close();
                 
             }
+        }
+
+        private void FrmCaixaDinheiro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            pictureBox1.BackgroundImage.Dispose();
         }
     }
 }

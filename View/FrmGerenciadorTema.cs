@@ -81,7 +81,8 @@ namespace View
             {
                 modelTema.Codigo = Convert.ToInt32(DgvTema.CurrentRow.Cells["Codigo"].Value.ToString());
                 modelTema.Nome = DgvTema.CurrentRow.Cells["Nome"].Value.ToString();
-                modelTema.EnderecoImagem = DgvTema.CurrentRow.Cells["EnderecoImagem"].Value.ToString();
+                modelTema.EnderecoImagemFundo = DgvTema.CurrentRow.Cells["EnderecoImagemFundo"].Value.ToString();
+                modelTema.ImagemEndereco = DgvTema.CurrentRow.Cells["EnderecoImagem"].Value.ToString();
                 modelTema.R = DgvTema.CurrentRow.Cells["R"].Value.ToString();
                 modelTema.G = DgvTema.CurrentRow.Cells["G"].Value.ToString();
                 modelTema.B = DgvTema.CurrentRow.Cells["B"].Value.ToString();
@@ -134,7 +135,8 @@ namespace View
             {
                 modelTema.Codigo = Convert.ToInt32(DgvTema.CurrentRow.Cells["Codigo"].Value.ToString());
                 modelTema.Nome = DgvTema.CurrentRow.Cells["Nome"].Value.ToString();
-                modelTema.EnderecoImagem = DgvTema.CurrentRow.Cells["EnderecoImagem"].Value.ToString();
+                modelTema.EnderecoImagemFundo = DgvTema.CurrentRow.Cells["EnderecoImagemFundo"].Value.ToString();
+                modelTema.ImagemEndereco = DgvTema.CurrentRow.Cells["EnderecoImagem"].Value.ToString();
                 modelTema.R = DgvTema.CurrentRow.Cells["R"].Value.ToString();
                 modelTema.G = DgvTema.CurrentRow.Cells["G"].Value.ToString();
                 modelTema.B = DgvTema.CurrentRow.Cells["B"].Value.ToString();
@@ -149,7 +151,8 @@ namespace View
             {
                 modelTema.Codigo = Convert.ToInt32(dgvTemaAtivo.CurrentRow.Cells["Codigo"].Value.ToString());
                 modelTema.Nome = dgvTemaAtivo.CurrentRow.Cells["Nome"].Value.ToString();
-                modelTema.EnderecoImagem = dgvTemaAtivo.CurrentRow.Cells["EnderecoImagem"].Value.ToString();
+                modelTema.EnderecoImagemFundo = dgvTemaAtivo.CurrentRow.Cells["EnderecoImagemFundo"].Value.ToString();
+                modelTema.ImagemEndereco = dgvTemaAtivo.CurrentRow.Cells["EnderecoImagem"].Value.ToString();
                 modelTema.R = dgvTemaAtivo.CurrentRow.Cells["R"].Value.ToString();
                 modelTema.G = dgvTemaAtivo.CurrentRow.Cells["G"].Value.ToString();
                 modelTema.B = dgvTemaAtivo.CurrentRow.Cells["B"].Value.ToString();
