@@ -66,7 +66,7 @@ namespace View
                             controllerTicket.AlterarStatusTicket(modelTicket);
                         }
                     }
-                    modelTicket.Valor = valorTotal.ToString("C");
+                    modelTicket.Valor = valorTotal;
                     modelTicket.Data = DateTime.Now.ToString();
                     modelTicket.GeradoPor = Properties.SettingsLogado.Default.Nome;
                     modelTicket.Status = "Em Aberto";

@@ -18,7 +18,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbFechamento WHERE Codigo = " + codigo + " AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                string instrucao = string.Format(@"SELECT * FROM tbFechamento WHERE Codigo = '" + codigo + "' AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -38,7 +38,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbFechamento WHERE Vendedor = " + vendedor + " AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                string instrucao = string.Format(@"SELECT * FROM tbFechamento WHERE Vendedor LIKE '%" + vendedor + "%' AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();

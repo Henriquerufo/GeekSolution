@@ -55,145 +55,25 @@ namespace Controller
                 controllerConfiguracaoSQL.Fechar();
             }
         }
-        public bool VerificarLoginExistente(ModelLogin modelLogin)
+        public string VerificarLogin(ModelLogin modelLogin)
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbLogin WHERE ID = @ID");
+                string instrucao = string.Format(@"SELECT * FROM tbLogin WHERE ID = @ID AND Senha = @Senha");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@ID", modelLogin.ID);
+                command.Parameters.AddWithValue("Senha", modelLogin.Senha);
                 SqlDataReader sqlDataReader = command.ExecuteReader();
                 if (sqlDataReader.HasRows)
                 {
-                    return false;
+                    sqlDataReader.Read();
+                    return sqlDataReader["Nivel"].ToString();
                 }
-                return true;
-            }
-            catch (Exception)
-            {
-                controllerConfiguracaoSQL.Fechar();
-                return true;
-            }
-            finally
-            {
-                controllerConfiguracaoSQL.Fechar();
-            }
-        }
-        public bool VerificarLoginADM(string ID, string Senha)
-        {
-            try
-            {
-                string instrucao = string.Format("SELECT * FROM tbLogin WHERE ID = '" + ID + "' AND Senha = '" + Senha + "' AND Nivel = 'Administrador' AND Status = 'Desconectado'");
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataReader dr;
-                dr = command.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    return true;
-                }
-                return false;
+                return null;
             }
             catch
             {
-                controllerConfiguracaoSQL.Fechar();
-                return false;
-            }
-            finally
-            {
-                controllerConfiguracaoSQL.Fechar();
-            }
-        }
-        public bool VerificarLoginVendedor(string ID, string Senha)
-        {
-            try
-            {
-                string instrucao = string.Format("SELECT * FROM tbLogin WHERE ID = '" + ID + "' AND Senha = '" + Senha + "' AND Nivel = 'Vendedor' AND Status = 'Desconectado'");
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataReader dr;
-                dr = command.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch
-            {
-                controllerConfiguracaoSQL.Fechar();
-                return false;
-            }
-            finally
-            {
-                controllerConfiguracaoSQL.Fechar();
-            }
-        }
-        public bool VerificarLoginSupervisor(string ID, string Senha)
-        {
-            try
-            {
-                string instrucao = string.Format("SELECT * FROM tbLogin WHERE ID = '" + ID + "' AND Senha = '" + Senha + "' AND Nivel = 'Supervisor' AND Status = 'Desconectado'");
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataReader dr;
-                dr = command.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch
-            {
-                controllerConfiguracaoSQL.Fechar();
-                return false;
-            }
-            finally
-            {
-                controllerConfiguracaoSQL.Fechar();
-            }
-        }
-        public bool VerificarLoginEstoquista(string ID, string Senha)
-        {
-            try
-            {
-                string instrucao = string.Format("SELECT * FROM tbLogin WHERE ID = '" + ID + "' AND Senha = '" + Senha + "' AND Nivel = 'Estoquista' AND Status = 'Desconectado'");
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataReader dr;
-                dr = command.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch
-            {
-                controllerConfiguracaoSQL.Fechar();
-                return false;
-            }
-            finally
-            {
-                controllerConfiguracaoSQL.Fechar();
-            }
-        }
-        public bool VerificarLoginCancelamento(string ID, string Senha)
-        {
-            try
-            {
-                string instrucao = string.Format("SELECT * FROM tbLogin WHERE ID = '" + ID + "' AND Senha = '" + Senha + "' AND Nivel = 'Supervisor'");
-                SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                SqlDataReader dr;
-
-                dr = command.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch
-            {
-                controllerConfiguracaoSQL.Fechar();
-                return false;
+                throw;
             }
             finally
             {
@@ -207,7 +87,7 @@ namespace Controller
                 string instrucao = string.Format(@"INSERT INTO tbLogLogin (idTecSistemas, Nome, Nivel, UltimoLog, Status) VALUES (@idTecSistemas, @Nome, @Nivel, @UltimoLog, @Status)");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 command.Parameters.AddWithValue("@idTecSistemas", Properties.SettingsSQLCentral.Default.IDTecSistemas);
-                command.Parameters.AddWithValue("@Nome", modelLogin.Nome);
+                command.Parameters.AddWithValue("@Nome", modelLogin.ID);
                 command.Parameters.AddWithValue("@Nivel", modelLogin.Nivel);
                 command.Parameters.AddWithValue("@UltimoLog", modelLogin.UltimoLog);
                 command.Parameters.AddWithValue("@Status", modelLogin.Status);

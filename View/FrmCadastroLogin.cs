@@ -147,7 +147,7 @@ namespace View
                 {
                     if (loginsCadastrados < loginsContratados)
                     {
-                        loginsCadastrados++;
+                        //loginsCadastrados++;
                         modelLogin.ID = txtID.Text;
                         if (txtSenha.Text == txtConfirmarSenha.Text)
                         {
@@ -174,7 +174,7 @@ namespace View
                         {
                             modelLogin.Nivel = "Supervisor";
                         }
-                        if (controllerLogin.VerificarLoginExistente(modelLogin) && !string.IsNullOrWhiteSpace(txtSenha.Text))
+                        if (controllerLogin.VerificarLogin(modelLogin) == null && !string.IsNullOrWhiteSpace(txtSenha.Text))
                         {
                             controllerLogin.Cadastrar(modelLogin);
                             MessageBox.Show("O ID: " + txtID.Text + " foi cadastrado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);

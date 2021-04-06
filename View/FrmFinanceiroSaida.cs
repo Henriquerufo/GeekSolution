@@ -37,7 +37,6 @@ namespace View
                 modelFinanceiro.ChequeDias = dgvFinanceiro.CurrentRow.Cells["ChequeDias"].Value.ToString();
                 modelFinanceiro.statusPagamento = dgvFinanceiro.CurrentRow.Cells["statusPagamento"].Value.ToString();
                 modelFinanceiro.statusVenda = dgvFinanceiro.CurrentRow.Cells["statusVenda"].Value.ToString();
-
                 FrmConsultarPedidoItens frmConsultarPedidoItens = new FrmConsultarPedidoItens(modelFinanceiro);
                 frmConsultarPedidoItens.ShowDialog();
             }

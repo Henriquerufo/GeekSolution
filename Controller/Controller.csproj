@@ -55,6 +55,7 @@
     <Compile Include="ControllerFechamento.cs" />
     <Compile Include="ControllerFinanceiro.cs" />
     <Compile Include="ControllerLogin.cs" />
+    <Compile Include="ControllerRelacaoProduto.cs" />
     <Compile Include="ControllerSaida.cs" />
     <Compile Include="ControllerTema.cs" />
     <Compile Include="ControllerTicket.cs" />

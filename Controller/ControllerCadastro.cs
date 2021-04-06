@@ -38,7 +38,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("SELECT * FROM tbCadastro WHERE Codigo = " + codigo);
+                string instrucao = string.Format("SELECT * FROM tbCadastro WHERE Codigo = '" + codigo + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();

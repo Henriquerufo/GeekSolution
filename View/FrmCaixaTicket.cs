@@ -15,26 +15,28 @@ namespace View
 {
     public partial class FrmCaixaTicket : Form
     {
-        decimal valorTicket;
+        decimal valorVenda;
+        decimal valorTicketPago;
         ControllerCaixa controllerCaixa = new ControllerCaixa();
         ControllerTema controllerTema = new ControllerTema();
         public String Retorno
         {
             get
             {
-                return txtDinheiro.Text;
+                return txtTicketCodigo.Text;
             }
         }
         public Decimal RetornoTicket
         {
             get
             {
-                return valorTicket;
+                return valorTicketPago;
             }
         }
-        public FrmCaixaTicket()
+        public FrmCaixaTicket(decimal ValorVenda)
         {
             InitializeComponent();
+            valorVenda = ValorVenda;
             if (controllerTema.CarregarEnderecoImagem() != null)
             {
                 pictureBox1.BackgroundImage = Image.FromFile(controllerTema.CarregarEnderecoImagem());
@@ -47,11 +49,25 @@ namespace View
                 if (e.KeyCode == Keys.Enter)
                 {
                     ModelCaixa modelCaixa = new ModelCaixa();
-                    modelCaixa.Codigo = Convert.ToInt32(txtDinheiro.Text);
-                    if (!string.IsNullOrWhiteSpace(controllerCaixa.VerificarTicket(modelCaixa)))
+                    modelCaixa.Codigo = Convert.ToInt32(txtTicketCodigo.Text);
+                    if (controllerCaixa.VerificarTicket(modelCaixa) != 0)
                     {
-                        valorTicket = Convert.ToDecimal(controllerCaixa.VerificarTicket(modelCaixa).Replace("R$ ",""));
-                        this.Close();
+                        if (controllerCaixa.VerificarTicket(modelCaixa) >= Convert.ToDecimal(txtTicketDinheiro.Text) && valorVenda >= Convert.ToDecimal(txtTicketDinheiro.Text))
+                        {
+                            valorTicketPago = Convert.ToDecimal(txtTicketDinheiro.Text);
+                            modelCaixa.valorTicketPago = valorTicketPago;
+                            controllerCaixa.valorTicketPago(modelCaixa);
+                            if (controllerCaixa.VerificarTicketZerado(modelCaixa))
+                            {
+                                controllerCaixa.TicketAlterarStatus(modelCaixa);
+                            }
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Valor Invalido", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        
                     } 
                 }
                 else if (e.KeyCode == Keys.Escape)

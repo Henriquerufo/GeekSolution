@@ -16,7 +16,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbPedidoItens WHERE Ticket = 'Em Aberto' AND Codigo = " + codigoItem + " AND DataTicket BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                string instrucao = string.Format(@"SELECT * FROM tbPedidoItens WHERE Ticket = 'Em Aberto' AND Codigo = '" + codigoItem + "' AND DataTicket BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -36,7 +36,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbPedidoItens WHERE Ticket = 'Em Aberto' AND CodigoPedido = " + codigoItem + " AND DataTicket BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                string instrucao = string.Format(@"SELECT * FROM tbPedidoItens WHERE Ticket = 'Em Aberto' AND CodigoPedido = '" + codigoItem + "' AND DataTicket BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -56,7 +56,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Status = 'Em Aberto' AND Codigo = " + codigoItem + " AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Status = 'Em Aberto' AND Codigo = '" + codigoItem + "' AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -76,7 +76,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Status = 'Em Aberto' AND GeradoPor = " + geradoPor + " AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Status = 'Em Aberto' AND GeradoPor LIKE '%" + geradoPor + "%' AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -96,7 +96,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Status = 'Finalizado' AND Codigo = " + codigoItem + " AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Status = 'Finalizado' AND Codigo = '" + codigoItem + "' AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -116,7 +116,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Status = 'Finalizado' AND GeradoPor = " + geradoPor + " AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
+                string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Status = 'Finalizado' AND GeradoPor LIKE '%" + geradoPor + "%' AND Data BETWEEN '" + dataDe + "' AND '" + dataAte + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();

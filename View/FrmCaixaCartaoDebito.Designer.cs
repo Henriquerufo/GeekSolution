@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class FrmCaixaTicket
+    partial class FrmCaixaCartaoDebito
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtTicketCodigo = new System.Windows.Forms.TextBox();
-            this.txtTicketDinheiro = new System.Windows.Forms.TextBox();
+            this.txtCartaoDebito = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,45 +37,34 @@
             // 
             this.pictureBox1.BackgroundImage = global::View.Properties.Resources.SuaLogo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(320, 320);
-            this.pictureBox1.TabIndex = 92;
+            this.pictureBox1.TabIndex = 89;
             this.pictureBox1.TabStop = false;
             // 
-            // txtTicketCodigo
+            // txtCartaoDebito
             // 
-            this.txtTicketCodigo.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTicketCodigo.Location = new System.Drawing.Point(12, 323);
-            this.txtTicketCodigo.Name = "txtTicketCodigo";
-            this.txtTicketCodigo.Size = new System.Drawing.Size(296, 35);
-            this.txtTicketCodigo.TabIndex = 91;
-            this.txtTicketCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDinheiro_KeyDown);
+            this.txtCartaoDebito.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCartaoDebito.Location = new System.Drawing.Point(12, 329);
+            this.txtCartaoDebito.Name = "txtCartaoDebito";
+            this.txtCartaoDebito.Size = new System.Drawing.Size(296, 35);
+            this.txtCartaoDebito.TabIndex = 88;
+            this.txtCartaoDebito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDinheiro_KeyDown);
             // 
-            // txtTicketDinheiro
-            // 
-            this.txtTicketDinheiro.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTicketDinheiro.Location = new System.Drawing.Point(12, 376);
-            this.txtTicketDinheiro.Name = "txtTicketDinheiro";
-            this.txtTicketDinheiro.Size = new System.Drawing.Size(296, 35);
-            this.txtTicketDinheiro.TabIndex = 93;
-            this.txtTicketDinheiro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDinheiro_KeyDown);
-            // 
-            // FrmCaixaTicket
+            // FrmCaixaCartaoDebito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 423);
-            this.Controls.Add(this.txtTicketDinheiro);
+            this.ClientSize = new System.Drawing.Size(320, 376);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtTicketCodigo);
+            this.Controls.Add(this.txtCartaoDebito);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmCaixaTicket";
+            this.Name = "FrmCaixaCartaoDebito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCaixaTicket";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCaixaTicket_FormClosing);
+            this.Text = "FrmCaixaCartaoDebito";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -84,8 +72,8 @@
         }
 
         #endregion
+
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtTicketCodigo;
-        private System.Windows.Forms.TextBox txtTicketDinheiro;
+        private System.Windows.Forms.TextBox txtCartaoDebito;
     }
 }

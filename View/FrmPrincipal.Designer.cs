@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +51,7 @@
             this.produtosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relaçãoDeProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarNovoToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciarProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +64,12 @@
             this.gerenciarTemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conexãoSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDataHora = new System.Windows.Forms.Label();
+            this.lblStatusLogin = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -78,7 +85,7 @@
             this.conexãoSQLToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1031, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(607, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -236,7 +243,9 @@
             // 
             this.produtosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.entradaToolStripMenuItem,
-            this.saidaToolStripMenuItem});
+            this.saidaToolStripMenuItem,
+            this.relaçãoDeProdutosToolStripMenuItem});
+            this.produtosToolStripMenuItem1.Image = global::View.Properties.Resources.prancheta;
             this.produtosToolStripMenuItem1.Name = "produtosToolStripMenuItem1";
             this.produtosToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
             this.produtosToolStripMenuItem1.Text = "Financeiro";
@@ -245,7 +254,7 @@
             // 
             this.entradaToolStripMenuItem.Image = global::View.Properties.Resources.log_in;
             this.entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
-            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.entradaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.entradaToolStripMenuItem.Text = "Entrada";
             this.entradaToolStripMenuItem.Click += new System.EventHandler(this.entradaToolStripMenuItem_Click);
             // 
@@ -253,15 +262,24 @@
             // 
             this.saidaToolStripMenuItem.Image = global::View.Properties.Resources.log_out;
             this.saidaToolStripMenuItem.Name = "saidaToolStripMenuItem";
-            this.saidaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saidaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.saidaToolStripMenuItem.Text = "Saida";
             this.saidaToolStripMenuItem.Click += new System.EventHandler(this.saidaToolStripMenuItem_Click);
+            // 
+            // relaçãoDeProdutosToolStripMenuItem
+            // 
+            this.relaçãoDeProdutosToolStripMenuItem.Image = global::View.Properties.Resources.contador;
+            this.relaçãoDeProdutosToolStripMenuItem.Name = "relaçãoDeProdutosToolStripMenuItem";
+            this.relaçãoDeProdutosToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.relaçãoDeProdutosToolStripMenuItem.Text = "Relação de Produtos";
+            this.relaçãoDeProdutosToolStripMenuItem.Click += new System.EventHandler(this.relaçãoDeProdutosToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem2
             // 
             this.produtosToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarNovoToolStripMenuItem3,
             this.gerenciarProdutosToolStripMenuItem});
+            this.produtosToolStripMenuItem2.Image = global::View.Properties.Resources.produtos;
             this.produtosToolStripMenuItem2.Name = "produtosToolStripMenuItem2";
             this.produtosToolStripMenuItem2.Size = new System.Drawing.Size(188, 22);
             this.produtosToolStripMenuItem2.Text = "Produtos";
@@ -284,6 +302,7 @@
             // 
             // saidaDeValoresToolStripMenuItem
             // 
+            this.saidaDeValoresToolStripMenuItem.Image = global::View.Properties.Resources.money;
             this.saidaDeValoresToolStripMenuItem.Name = "saidaDeValoresToolStripMenuItem";
             this.saidaDeValoresToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.saidaDeValoresToolStripMenuItem.Text = "Saida de Valores";
@@ -291,6 +310,7 @@
             // 
             // fechamentoDeCaixaToolStripMenuItem
             // 
+            this.fechamentoDeCaixaToolStripMenuItem.Image = global::View.Properties.Resources.caixa_registradora;
             this.fechamentoDeCaixaToolStripMenuItem.Name = "fechamentoDeCaixaToolStripMenuItem";
             this.fechamentoDeCaixaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.fechamentoDeCaixaToolStripMenuItem.Text = "Fechamento de Caixa";
@@ -298,6 +318,7 @@
             // 
             // ticketToolStripMenuItem
             // 
+            this.ticketToolStripMenuItem.Image = global::View.Properties.Resources.ticket_machine__1_;
             this.ticketToolStripMenuItem.Name = "ticketToolStripMenuItem";
             this.ticketToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.ticketToolStripMenuItem.Text = "Ticket";
@@ -315,6 +336,7 @@
             // 
             // cadastrarNovoToolStripMenuItem2
             // 
+            this.cadastrarNovoToolStripMenuItem2.Image = global::View.Properties.Resources.WhatsApp_Image_2021_04_01_at_00_19_42;
             this.cadastrarNovoToolStripMenuItem2.Name = "cadastrarNovoToolStripMenuItem2";
             this.cadastrarNovoToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
             this.cadastrarNovoToolStripMenuItem2.Text = "Cadastrar Novo";
@@ -322,6 +344,7 @@
             // 
             // consultarListaToolStripMenuItem2
             // 
+            this.consultarListaToolStripMenuItem2.Image = global::View.Properties.Resources.WhatsApp_Image_2021_04_01_at_00_17_48;
             this.consultarListaToolStripMenuItem2.Name = "consultarListaToolStripMenuItem2";
             this.consultarListaToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
             this.consultarListaToolStripMenuItem2.Text = "Consultar Lista";
@@ -329,6 +352,7 @@
             // 
             // gerenciarTemaToolStripMenuItem
             // 
+            this.gerenciarTemaToolStripMenuItem.Image = global::View.Properties.Resources.tema;
             this.gerenciarTemaToolStripMenuItem.Name = "gerenciarTemaToolStripMenuItem";
             this.gerenciarTemaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.gerenciarTemaToolStripMenuItem.Text = "Gerenciar Tema";
@@ -348,6 +372,46 @@
             this.conexãoSQLToolStripMenuItem.Text = "Conexão SQL";
             this.conexãoSQLToolStripMenuItem.Click += new System.EventHandler(this.conexãoSQLToolStripMenuItem_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.lblDataHora);
+            this.panel1.Controls.Add(this.lblStatusLogin);
+            this.panel1.Location = new System.Drawing.Point(0, 473);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(607, 19);
+            this.panel1.TabIndex = 1;
+            // 
+            // lblDataHora
+            // 
+            this.lblDataHora.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblDataHora.AutoSize = true;
+            this.lblDataHora.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblDataHora.Location = new System.Drawing.Point(494, 1);
+            this.lblDataHora.Name = "lblDataHora";
+            this.lblDataHora.Size = new System.Drawing.Size(110, 15);
+            this.lblDataHora.TabIndex = 1;
+            this.lblDataHora.Text = "00/00/0000 00:00:00";
+            // 
+            // lblStatusLogin
+            // 
+            this.lblStatusLogin.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblStatusLogin.AutoSize = true;
+            this.lblStatusLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblStatusLogin.Location = new System.Drawing.Point(3, 1);
+            this.lblStatusLogin.Name = "lblStatusLogin";
+            this.lblStatusLogin.Size = new System.Drawing.Size(25, 15);
+            this.lblStatusLogin.TabIndex = 0;
+            this.lblStatusLogin.Text = "aaa";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,12 +419,13 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::View.Properties.Resources.SuaLogo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1031, 514);
+            this.ClientSize = new System.Drawing.Size(607, 493);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(623, 532);
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tec Sistemas";
@@ -368,6 +433,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,5 +475,10 @@
         private System.Windows.Forms.ToolStripMenuItem empresasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarNovoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciarEmpresasToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblStatusLogin;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblDataHora;
+        private System.Windows.Forms.ToolStripMenuItem relaçãoDeProdutosToolStripMenuItem;
     }
 }

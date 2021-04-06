@@ -27,7 +27,6 @@ namespace View
             dgvOpcaoPagamento.Rows.Insert(1, "CARTAO");
             dgvOpcaoPagamento.Rows.Insert(2, "CONVENIADO");
             dgvOpcaoPagamento.Rows.Insert(3, "TICKET");
-            dgvOpcaoPagamento.Rows.Insert(4, "ORCAMENTO");
         }
         void Selecionar()
         {

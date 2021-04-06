@@ -145,7 +145,7 @@ namespace Controller
                 controllerConfiguracaoSQL.Fechar();
             }
         }
-        public string VerificarTicket(ModelCaixa modelCaixa)
+        public decimal VerificarTicket(ModelCaixa modelCaixa)
         {
             string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Codigo = @Codigo AND Status = 'Em Aberto'");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
@@ -154,15 +154,15 @@ namespace Controller
             if (sqlDataReader.HasRows)
             {
                 sqlDataReader.Read();
-                return sqlDataReader["Valor"].ToString();
+                return Convert.ToDecimal(sqlDataReader["Valor"].ToString());
             }
-            return null;
+            return 0;
         }
         public bool VerificarTicketZerado(ModelCaixa modelCaixa)
         {
-            string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Codigo = @Codigo AND Valor = 'R$ 0,00'");
+            string instrucao = string.Format(@"SELECT * FROM tbTicket WHERE Codigo = @Codigo AND Valor = '0.00'");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-            command.Parameters.AddWithValue("@Codigo", modelCaixa.CodigoTicket);
+            command.Parameters.AddWithValue("@Codigo", modelCaixa.Codigo);
             SqlDataReader sqlDataReader = command.ExecuteReader();
             if (sqlDataReader.HasRows)
             {
@@ -174,17 +174,17 @@ namespace Controller
         {
             string instrucao = string.Format(@"UPDATE tbTicket SET Status = 'Finalizado' WHERE Codigo = @Codigo");
             SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-            command.Parameters.AddWithValue("@Codigo", modelCaixa.CodigoTicket);
+            command.Parameters.AddWithValue("@Codigo", modelCaixa.Codigo);
             return Convert.ToBoolean(command.ExecuteNonQuery());
         }
-        public bool TicketRestante(ModelCaixa modelCaixa)
+        public bool valorTicketPago(ModelCaixa modelCaixa)
         {
             try
             {
-                string instrucao = string.Format(@"UPDATE tbTicket SET Valor = @Valor WHERE Codigo = @Codigo");
+                string instrucao = string.Format(@"UPDATE tbTicket SET Valor = Valor - @Valor WHERE Codigo = @Codigo");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
-                command.Parameters.AddWithValue("@Codigo", modelCaixa.CodigoTicket);
-                command.Parameters.AddWithValue("@Valor", modelCaixa.TicketRestante);
+                command.Parameters.AddWithValue("@Codigo", modelCaixa.Codigo);
+                command.Parameters.AddWithValue("@Valor", modelCaixa.valorTicketPago);
                 return Convert.ToBoolean(command.ExecuteNonQuery());
             }
             catch

@@ -48,7 +48,6 @@
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.txtProcurar = new System.Windows.Forms.TextBox();
             this.lblExibidosTotal = new System.Windows.Forms.Label();
-            this.btnFechar = new System.Windows.Forms.Button();
             this.cbxFiltro = new System.Windows.Forms.ComboBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpAte = new System.Windows.Forms.DateTimePicker();
             this.dtpDe = new System.Windows.Forms.DateTimePicker();
+            this.btnFechar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanceiro)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -235,18 +235,6 @@
             this.lblExibidosTotal.TabIndex = 54;
             this.lblExibidosTotal.Text = "Exibidos total: 0";
             // 
-            // btnFechar
-            // 
-            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFechar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.Location = new System.Drawing.Point(942, 524);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(100, 33);
-            this.btnFechar.TabIndex = 4;
-            this.btnFechar.Text = "Fechar";
-            this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
             // cbxFiltro
             // 
             this.cbxFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -359,17 +347,28 @@
             this.dtpDe.Size = new System.Drawing.Size(82, 20);
             this.dtpDe.TabIndex = 0;
             // 
+            // btnFechar
+            // 
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFechar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.Location = new System.Drawing.Point(942, 524);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(100, 33);
+            this.btnFechar.TabIndex = 90;
+            this.btnFechar.Text = "Fechar";
+            this.btnFechar.UseVisualStyleBackColor = true;
+            // 
             // FrmFinanceiroSaida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 569);
+            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.cbxFiltro);
-            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.lblExibidosTotal);
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.txtProcurar);
@@ -396,7 +395,6 @@
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.TextBox txtProcurar;
         private System.Windows.Forms.Label lblExibidosTotal;
-        private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.ComboBox cbxFiltro;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
@@ -422,5 +420,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ChequeDias;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusPagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusVenda;
+        private System.Windows.Forms.Button btnFechar;
     }
 }

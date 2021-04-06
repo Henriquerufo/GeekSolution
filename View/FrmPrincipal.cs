@@ -72,7 +72,9 @@ namespace View
                 sobreToolStripMenuItem.Visible = true;
                 conexãoSQLToolStripMenuItem.Visible = false;
                 administradorToolStripMenuItem.Visible = false;
+
             }
+            lblStatusLogin.Text = modelLogin.Nivel + ": " + modelLogin.ID;
         }
         private void conexãoSQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -175,57 +177,48 @@ namespace View
             FrmFechamento frmFechamento = new FrmFechamento();
             frmFechamento.Show();
         }
-
         private void gerarTicketToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGerarTicket frmGerarTicket = new FrmGerarTicket();
             frmGerarTicket.Show();
         }
-
         private void ticketToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTicket frmTicket = new FrmTicket();
             frmTicket.Show();
         }
-
         private void saidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmFinanceiroSaida frmFinanceiro = new FrmFinanceiroSaida();
             frmFinanceiro.Show();
         }
-
         private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmFinanceiroEntrada frmFinanceiroEntrada = new FrmFinanceiroEntrada();
             frmFinanceiroEntrada.Show();
         }
-
         private void gerenciarProdutosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCadastradosProdutos frmCadastradosProdutos = new FrmCadastradosProdutos("");
             frmCadastradosProdutos.Show();
         }
-
         private void cadastrarNovoToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             modelCadastroProduto.Codigo = null;
             FrmCadastrarProduto frmCadastrarProduto = new FrmCadastrarProduto(modelCadastroProduto);
             frmCadastrarProduto.Show();
         }
-
         private void gerenciarClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCadastrados frmCadastrados = new FrmCadastrados(modelCaixa = null);
             frmCadastrados.Show();
         }
-
         private void cadastrarNovoToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             modelCadastro.Codigo = null;
             FrmCadastro frmCadastro = new FrmCadastro(modelCadastro);
             frmCadastro.Show();
         }
-
         private void cadastrarNovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ModelEmpresa modelEmpresa = new ModelEmpresa();
@@ -235,11 +228,20 @@ namespace View
             FrmCadastrarEmpresa frmCadastrarEmpresa = new FrmCadastrarEmpresa(modelEmpresa);
             frmCadastrarEmpresa.ShowDialog();
         }
-
         private void gerenciarEmpresasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGerenciarEmpresa frmGerenciarEmpresa = new FrmGerenciarEmpresa(false);
             frmGerenciarEmpresa.Show();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDataHora.Text = DateTime.Now.ToString();
+        }
+
+        private void relaçãoDeProdutosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRelacaoProduto frmRelacaoProduto = new FrmRelacaoProduto();
+            frmRelacaoProduto.Show();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = "SELECT * FROM tbPedido WHERE Codigo = " + codigo + " AND statusPagamento = 'Recebido' AND dataVenda BETWEEN '" + dataDe + "' AND '" + dataAte + "'";
+                string instrucao = "SELECT * FROM tbPedido WHERE Codigo = '" + codigo + "' AND statusPagamento = 'Recebido' AND dataVenda BETWEEN '" + dataDe + "' AND '" + dataAte + "'";
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
@@ -56,7 +56,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = "SELECT * FROM tbPedido WHERE Codigo = " + codigo + " AND statusPagamento = 'Em Aberto' AND dataVenda BETWEEN '" + dataDe + "' and '" + dataAte + "'";
+                string instrucao = "SELECT * FROM tbPedido WHERE Codigo = '" + codigo + "' AND statusPagamento = 'Em Aberto' AND dataVenda BETWEEN '" + dataDe + "' and '" + dataAte + "'";
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();

@@ -16,7 +16,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("SELECT * FROM tbProduto WHERE Codigo = " + Codigo);
+                string instrucao = string.Format("SELECT * FROM tbProduto WHERE Codigo = '" + Codigo + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
